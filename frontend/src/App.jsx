@@ -355,8 +355,13 @@ function App() {
         );
     }
     if (view === 'concept_detail') {
-        const nistTerm = currentConcept?.english_term_authoritative.toLowerCase().replace(/ /g, '-');
-        const nistLink = `https://csrc.nist.gov/glossary/term/${nistTerm}`;
+        // --- NİHAİ VE DOĞRU LİNK OLUŞTURMA MANTIĞI ---
+
+        // NIST için: Boşlukları '+' ile değiştiriyoruz.
+        const nistTerm = currentConcept?.english_term_authoritative.toLowerCase().replace(/ /g, '+');
+        const nistLink = `https://csrc.nist.gov/glossary?keywords-lg=${nistTerm}&sortBy-lg=relevance&ipp-lg=100`;
+        
+        // SANS için: Sabit link.
         const sansLink = `https://www.sans.org/security-resources/glossary-of-terms`;
 
         return (
