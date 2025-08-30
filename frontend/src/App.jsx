@@ -206,6 +206,16 @@ function App() {
     setPreviousView('categories'); // Geri dönülecek yeri ayarla
     setView('source_feed');
   };
+
+  const handleSettingsChange = () => {
+    console.log("Ayarlar değişti, App state'i güncelleniyor...");
+    const storedSettingsJson = localStorage.getItem('userAiSettings');
+    if (storedSettingsJson) {
+      setUserSettings(JSON.parse(storedSettingsJson));
+    } else {
+      setUserSettings(null); // Eğer ayarlar temizlendiyse state'i de temizle
+    }
+  };
   
   const renderContent = () => {
     switch(view) {
@@ -472,7 +482,7 @@ function App() {
         {renderContent()}
       </main>
 
-      {isSettingsOpen && <SettingsView onClose={() => setIsSettingsOpen(false)} />}
+      {isSettingsOpen && <SettingsView onClose={() => setIsSettingsOpen(false)} onSettingsChange={handleSettingsChange} />}
       
       {/* 2. DÜZELTME: Kısayol butonunu da sadece tam ekran modunda DEĞİLSEK göster. */}
       {view !== 'chat' && !isChatFullScreen && (
