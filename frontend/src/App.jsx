@@ -15,6 +15,7 @@ function App() {
   const [view, setView] = useState('categories'); // 'categories', 'concepts', 'live_feed', 'sandbox', 'chat'
   const [categories, setCategories] = useState([]);
   const [concepts, setConcepts] = useState([]);
+  const [isInitialLoading, setIsInitialLoading] = useState(true); // YENİ EKLENEN SATIR
   const [previousView, setPreviousView] = useState('categories');
   const [liveArticles, setLiveArticles] = useState([]);
   const [newsSources, setNewsSources] = useState([]); // YENİ: Haber kaynakları listesi
@@ -41,32 +42,19 @@ function App() {
   const [allConcepts, setAllConcepts] = useState([]);
 
   useEffect(() => {
-    // Ana verileri asenkron bir fonksiyon içinde çekiyoruz
     const loadInitialData = async () => {
-      // 1. Kategorileri çek
-      const categoriesData = await fetchCategories();
-      setCategories(categoriesData);
-
-      // 2. Haber Kaynaklarını çek
-      fetchNewsSources().then(setNewsSources);
-      
-      // --- EKSİK OLAN VE GERİ EKLEDİĞİMİZ KISIM ---
-      // 3. Arka planda TÜM haberleri çek ve state'i doldur
-      fetchAllNews().then(setAllNews);
-      // --- BİTİŞ ---
-
-      // 4. Kategoriler başarıyla çekildiyse, her biri için kavramları çek
-      if (categoriesData && categoriesData.length > 0) {
-        const conceptPromises = categoriesData.map(cat => fetchConceptsByCategory(cat.id));
-        const conceptArrays = await Promise.all(conceptPromises);
-        const allFetchedConcepts = conceptArrays.flat();
-        setAllConcepts(allFetchedConcepts);
-      }
+      // Promise.allSettled ile tüm başlangıç isteklerinin bitmesini bekliyoruz.
+      await Promise.allSettled([
+        fetchCategories().then(setCategories),
+        fetchNewsSources().then(setNewsSources),
+        fetchAllNews().then(setAllNews)
+      ]);
+      // Tüm istekler bittiğinde (başarılı veya başarısız), yükleme ekranını kapat.
+      setIsInitialLoading(false);
     };
 
     loadInitialData();
 
-    // localStorage'dan kullanıcı ayarlarını yükle
     const storedSettingsJson = localStorage.getItem('userAiSettings');
     if (storedSettingsJson) {
       setUserSettings(JSON.parse(storedSettingsJson));
@@ -447,6 +435,16 @@ function App() {
       );
     }
     return null;
+  }
+
+  if (isInitialLoading) {
+    return (
+      <div className="loading-container">
+        <div className="loading-spinner"></div>
+        <h2>CyberNexus TR</h2>
+        <p>Sunucuya bağlanılıyor, bu işlem 30 saniye kadar sürebilir...</p>
+      </div>
+    );
   }
 
   return (
