@@ -1090,3 +1090,16 @@ mark {
   border-bottom: 1px solid var(--border-color);
   padding-bottom: 1.5rem;
 }
+/* App.css dosyasının en altına */
+
+.source-button.all-sources-btn {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  color: var(--bg-color);
+  font-weight: bold;
+}
+
+.source-button.all-sources-btn:hover {
+  background-color: #03f0d8;
+  transform: translateY(-2px) scale(1.05);
+}
