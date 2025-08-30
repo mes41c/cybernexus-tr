@@ -210,6 +210,14 @@ function App() {
       console.warn(`Linke tıklandı ama "${englishTerm}" adında bir kavram bulunamadı.`);
     }
   };
+
+  const handleShowAllNewsClick = () => {
+    // Seçili kaynağı, "Tüm Kaynaklar" olduğunu belirten özel bir nesne olarak ayarlıyoruz.
+    setSelectedSource({ id: 'all', name: 'Tüm Kaynaklar' });
+    setSearchTerm(''); // Aramayı sıfırla
+    setPreviousView('categories'); // Geri dönülecek yeri ayarla
+    setView('source_feed');
+  };
   
   const renderContent = () => {
     switch(view) {
@@ -230,15 +238,26 @@ function App() {
         return <p>Bu konuyla ilgili güncel bir haber bulunamadı.</p>;
       }
       case 'source_feed': {
-        let sourceArticles = allNews.filter(article => new URL(article.link).hostname === selectedSource.id);
+        let sourceArticles = [];
+
+        // YENİ MANTIK: Eğer seçili kaynağın ID'si 'all' ise, tüm haberleri göster.
+        if (selectedSource?.id === 'all') {
+          sourceArticles = allNews;
+        } else {
+          // Değilse, eskisi gibi kaynağa göre filtrele.
+          sourceArticles = allNews.filter(article => new URL(article.link).hostname === selectedSource.id);
+        }
+        
         if (searchTerm) {
           sourceArticles = sourceArticles.filter(article =>
             article.title.toLowerCase().includes(searchTerm.toLowerCase())
           );
         }
+
         if (sourceArticles.length === 0 && !searchTerm) {
             return <p style={{textAlign: 'center', marginTop: '2rem'}}>Bu kaynaktan haber alınamadı veya bu kaynakta hiç haber bulunmuyor.</p>
         }
+        
         return <LiveFeedList items={sourceArticles} onPracticeClick={handlePracticeClick} />;
       }
       case 'sandbox':
@@ -302,6 +321,12 @@ function App() {
               <h2>Haber Kaynakları</h2>
               <p>Güvenilir bir kaynaktan gelen en son haberleri keşfedin.</p>
               <div className="source-list">
+                
+                {/* YENİ "TÜM KAYNAKLAR" BUTONUNU BURAYA EKLİYORUZ */}
+                <button onClick={handleShowAllNewsClick} className="source-button all-sources-btn">
+                  ✨ Tüm Kaynaklar
+                </button>
+
                 {newsSources.map(source => (
                   <button key={source.id} onClick={() => handleSourceClick(source)} className="source-button">
                     {source.name}
