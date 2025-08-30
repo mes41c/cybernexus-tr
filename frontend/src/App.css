@@ -1,0 +1,1092 @@
+:root {
+    --bg-color: #121212;
+    --card-bg-color: #1e1e1e;
+    --border-color: #333;
+    --primary-text-color: #e0e0e0;
+    --secondary-text-color: #a0a0a0;
+    --accent-color: #03dac6;
+    --accent-hover-color: #018786;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--primary-text-color);
+    line-height: 1.6;
+}
+
+header {
+    text-align: center;
+    padding: 2rem 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+header h1 {
+    color: var(--accent-color);
+    font-weight: 700;
+}
+
+header p {
+    color: var(--secondary-text-color);
+    font-weight: 300;
+}
+
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.search-container {
+    display: flex;
+    margin-bottom: 2rem;
+}
+
+.search-container input {
+    flex-grow: 1;
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 5px 0 0 5px;
+    background-color: var(--card-bg-color);
+    color: var(--primary-text-color);
+    outline: none;
+}
+
+.search-container input:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 5px var(--accent-color);
+}
+
+.search-container button {
+    padding: 0.8rem 1.2rem;
+    border: 1px solid var(--accent-color);
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.search-container button:hover {
+    background-color: var(--accent-hover-color);
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 1.5rem;
+}
+
+.news-card {
+    background-color: var(--card-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(3, 218, 198, 0.1);
+}
+
+.news-card h3 {
+    color: var(--primary-text-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+}
+
+.meta-info {
+    color: var(--secondary-text-color);
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.75rem;
+}
+
+.meta-info span {
+    font-weight: 700;
+    color: #a7a7a7;
+}
+
+.summary {
+    color: var(--primary-text-color);
+    font-weight: 300;
+    flex-grow: 1;
+    margin-bottom: 1.5rem;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+.language-selector {
+    padding: 0.5rem;
+    background-color: #2c2c2c;
+    color: var(--primary-text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.language-selector:focus {
+    outline: 1px solid var(--accent-color);
+}
+
+.read-more-btn {
+    text-decoration: none;
+    color: var(--accent-color);
+    background-color: transparent;
+    border: 1px solid var(--accent-color);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-weight: 700;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.read-more-btn:hover {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+}
+.hidden {
+    display: none !important;
+}
+
+#main-view, #reading-mode-view {
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+}
+
+.fade-out {
+    opacity: 0;
+    transform: scale(0.98);
+    pointer-events: none;
+}
+
+/* Okuma Modu Stilleri */
+#reading-mode-view {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.reading-mode-header {
+    margin-bottom: 2rem;
+}
+
+#back-to-main-btn {
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--secondary-text-color);
+    padding: 0.6rem 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+#back-to-main-btn:hover {
+    background-color: var(--card-bg-color);
+    color: var(--primary-text-color);
+    border-color: var(--secondary-text-color);
+}
+
+#back-to-main-btn i {
+    margin-right: 0.5rem;
+}
+
+#reading-mode-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-text-color);
+    line-height: 1.2;
+}
+
+#reading-mode-content .meta-info {
+    font-size: 1rem;
+    border: none;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 2rem;
+}
+
+#reading-mode-content .full-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--primary-text-color);
+    font-weight: 300;
+}
+
+/* --- YENİ EKLENEN KURAL --- */
+#reading-mode-content .full-text img {
+    max-width: 100%; /* Görselin genişliği asla kapsayıcısını aşamaz */
+    height: auto;    /* Genişliğe göre yüksekliği otomatik ayarla */
+    display: block;  /* Satır içi boşlukları kaldır */
+    margin: 1.5rem auto; /* Görseli ortala ve üst/alt boşluk ver */
+    border-radius: 8px; /* Görsel köşelerini yuvarlat */
+}
+/* --- YENİ EKLENEN KURAL BİTİŞ --- */
+
+#reading-mode-content .full-text p {
+    margin-bottom: 1.5rem;
+}
+
+#reading-mode-content .attribution {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.9rem;
+    color: var(--secondary-text-color);
+    font-style: italic;
+}
+#reading-mode-content .attribution a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+#reading-mode-content .attribution a:hover {
+    text-decoration: underline;
+}
+
+/* Sabit Dil Kontrol Paneli */
+.reading-mode-controls {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: var(--card-bg-color);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    border: 1px solid var(--border-color);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.reading-mode-controls label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--secondary-text-color);
+}
+/* Kategori Kartı Stilleri */
+.category-card {
+  background-color: var(--card-bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent-color);
+  box-shadow: 0 8px 25px rgba(3, 218, 198, 0.1);
+}
+
+.category-card h3 {
+  color: var(--accent-color);
+  margin-bottom: 0.75rem;
+  font-size: 1.2rem;
+}
+
+.category-card p {
+  color: var(--secondary-text-color);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+/* Kavram Kartı Stilleri */
+.concept-card {
+  background-color: var(--card-bg-color);
+  border: 1px solid var(--border-color);
+  border-left: 4px solid var(--accent-color);
+  border-radius: 4px;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.concept-card:hover {
+  transform: translateX(5px);
+  background-color: #2a2a2a;
+}
+
+.concept-card h4 {
+  color: var(--primary-text-color);
+  margin-bottom: 0.5rem;
+}
+
+.concept-card p {
+  color: var(--secondary-text-color);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+/* Canlı Haber Akışı Kart Stilleri */
+.live-feed-card {
+  background-color: var(--card-bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.live-feed-card:hover {
+  border-color: var(--accent-color);
+  background-color: #2a2a2a;
+}
+
+.live-feed-card h4 {
+  color: var(--primary-text-color);
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+}
+
+.live-feed-card .snippet {
+  color: var(--secondary-text-color);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.live-feed-card .meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: #888;
+}
+/* Bildirim Bandı Stilleri */
+.notification-banner {
+  background-color: #2a2a2a;
+  color: var(--primary-text-color);
+  padding: 1rem;
+  border-bottom: 2px solid var(--accent-color);
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.notification-banner p {
+  margin: 0;
+  padding-right: 2rem; /* Buton için yer aç */
+}
+
+.notification-banner .close-btn {
+  background: none;
+  border: none;
+  color: var(--secondary-text-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+/* AI Sandbox Stilleri */
+.sandbox-textarea {
+  width: 100%;
+  min-height: 200px;
+  background-color: var(--card-bg-color);
+  color: var(--primary-text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1rem;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  resize: vertical;
+}
+
+.sandbox-controls {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+/* Ayarlar Menüsü Stilleri */
+.settings-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+.settings-view {
+  background-color: var(--primary-bg-color);
+  padding: 2rem 2.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  animation: fadeIn 0.3s ease-out;
+}
+
+.settings-input {
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  background-color: var(--secondary-bg-color);
+  color: var(--primary-text-color);
+  font-size: 1rem;
+}
+
+.settings-controls {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* İkincil Buton Stili */
+.read-more-btn.secondary {
+    background-color: transparent;
+    color: var(--secondary-text-color);
+    border: 1px solid var(--border-color);
+}
+.read-more-btn.secondary:hover {
+    background-color: var(--secondary-bg-color);
+    color: var(--primary-text-color);
+}
+
+.save-status-message {
+  margin-top: 1rem;
+  color: var(--accent-color);
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+/* Animasyon */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+/* SettingsView için ek stiller */
+.provider-selection {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background-color: var(--secondary-bg-color);
+  border-radius: 8px;
+}
+
+.provider-selection label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.api-key-label {
+  display: block;
+  font-weight: bold;
+  margin-top: 1rem;
+  margin-bottom: 0.25rem;
+}
+.settings-btn {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background-color: var(--secondary-bg-color);
+  color: var(--secondary-text-color);
+  border: 1px solid var(--border-color);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.settings-btn:hover {
+  background-color: var(--border-color);
+  color: var(--primary-text-color);
+}
+.sandbox-paste-area {
+  width: 100%;
+  min-height: 150px;
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  background-color: var(--secondary-bg-color);
+  color: var(--primary-text-color);
+  font-size: 1rem;
+  line-height: 1.6;
+  border-radius: 8px;
+  resize: vertical;
+  overflow: auto;
+}
+/* Placeholder metnini göstermek için */
+.sandbox-paste-area:empty:before {
+  content: attr(data-placeholder);
+  color: var(--secondary-text-color);
+  pointer-events: none;
+}
+/* AI Mentor Chat Stilleri */
+.chat-view {
+  display: flex;
+  flex-direction: column;
+  height: 75vh; /* Ekran yüksekliğinin %75'i */
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: var(--secondary-bg-color);
+}
+
+.chat-messages {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.message-bubble {
+  padding: 0.75rem 1.25rem;
+  border-radius: 20px;
+  max-width: 80%;
+  line-height: 1.6;
+}
+
+.message-bubble.model {
+  background-color: var(--primary-bg-color);
+  color: var(--primary-text-color);
+  align-self: flex-start;
+  border-bottom-left-radius: 5px;
+}
+
+.message-bubble.user {
+  background-color: var(--accent-color);
+  color: #fff;
+  align-self: flex-end;
+  border-bottom-right-radius: 5px;
+}
+
+.message-bubble p {
+    margin: 0;
+}
+
+.typing-indicator {
+  font-style: italic;
+  color: var(--secondary-text-color);
+}
+
+.chat-input-form {
+  display: flex;
+  padding: 1rem;
+  border-top: 1px solid var(--border-color);
+  background-color: var(--primary-bg-color);
+}
+
+.chat-input-form input {
+  flex-grow: 1;
+  padding: 0.75rem;
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+  background-color: var(--secondary-bg-color);
+  color: var(--primary-text-color);
+  font-size: 1rem;
+  margin-right: 1rem;
+}
+
+.chat-input-form button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  background-color: var(--accent-color);
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.chat-input-form button:disabled {
+  background-color: #555;
+  cursor: not-allowed;
+}
+/* App'teki genel header butonları için (Ayarlar butonu için) */
+.header-buttons {
+  display: flex; /* Flexbox kullanarak yan yana hizala */
+  gap: 10px; /* Butonlar arasına boşluk koy */
+  align-items: center; /* Dikeyde ortala */
+}
+
+/* ChatView içindeki header butonları için */
+.chat-header-right {
+  display: flex; /* Flexbox kullanarak yan yana hizala */
+  gap: 10px; /* Butonlar arasına boşluk koy */
+  align-items: center; /* Dikeyde ortala */
+}
+
+/* ChatView içindeki Ayarlar butonu (Eğer ChatView içinde Ayarlar butonu varsa) */
+.chat-header-right .settings-btn {
+  background-color: transparent;
+  color: var(--secondary-text-color);
+  border: 1px solid var(--border-color);
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.chat-header-right .settings-btn:hover {
+  background-color: var(--hover-color);
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+}
+
+/* Mevcut Ayarlar butonu için küçük bir düzenleme */
+.settings-btn {
+    position: static; /* Absolute pozisyonunu kaldırıyoruz */
+}
+
+/* Yeni AI Mentor Butonu */
+.ai-mentor-btn {
+  background-color: var(--accent-color);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.2s ease;
+}
+.ai-mentor-btn:hover {
+  background-color: #008ae6; /* Vurgu renginin biraz daha açığı */
+}
+/* AI Mentor Kısayol Butonu (Floating Action Button) Stilleri */
+.fab-mentor-btn {
+  position: fixed; /* Sayfada sabit kalmasını sağlar */
+  bottom: 2rem;    /* Alttan boşluk */
+  right: 2rem;     /* Sağdan boşluk */
+  z-index: 1000;   /* Diğer tüm elemanların üzerinde kalmasını sağlar */
+
+  width: 60px;
+  height: 60px;
+  border-radius: 50%; /* Yuvarlak yapar */
+  border: none;
+  background-color: var(--accent-color);
+  color: white;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  font-size: 1.5rem; /* İkon boyutunu büyütür */
+  cursor: pointer;
+  
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease-in-out;
+}
+
+.fab-mentor-btn:hover {
+  transform: scale(1.1); /* Üzerine gelince hafifçe büyür */
+  background-color: #008ae6;
+}
+/* Markdown ile Gelen Kod Blokları için Stiller */
+.message-bubble pre {
+  background-color: #282c34; /* Koyu arka plan */
+  color: #abb2bf;           /* Açık renk metin */
+  padding: 1em;
+  border-radius: 8px;
+  overflow-x: auto; /* Yatay kaydırma çubuğu */
+  font-family: 'Fira Code', 'Cascadia Code', monospace; /* Modern bir kod fontu tercih edilebilir */
+  font-size: 0.9em;
+  margin: 1em 0;
+}
+
+.message-bubble pre code {
+  color: #abb2bf; /* İçindeki kodun rengi */
+}
+
+/* Inline kod (tek tırnak işareti `code`) için */
+.message-bubble code {
+  background-color: rgba(150, 150, 150, 0.2); /* Hafif gri arka plan */
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-family: 'Fira Code', 'Cascadia Code', monospace;
+  font-size: 0.9em;
+  color: #a3b3c8;
+}
+
+/* Markdown ile Gelen diğer HTML elementleri için (isteğe bağlı, genel iyileştirmeler) */
+.message-bubble h1, .message-bubble h2, .message-bubble h3, .message-bubble h4, .message-bubble h5, .message-bubble h6 {
+  color: var(--primary-text-color); /* Başlık renkleri */
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  line-height: 1.2;
+}
+
+.message-bubble a {
+  color: var(--accent-color); /* Bağlantı renkleri */
+  text-decoration: underline;
+}
+
+.message-bubble ol, .message-bubble ul {
+  padding-left: 1.5em;
+  margin: 1em 0;
+}
+
+.message-bubble li {
+  margin-bottom: 0.5em;
+}
+
+.message-bubble blockquote {
+  border-left: 4px solid var(--accent-color);
+  padding-left: 1em;
+  margin: 1em 0;
+  color: var(--secondary-text-color);
+  font-style: italic;
+}
+/* Tam Ekran Modu için CSS */
+.chat-view.full-screen {
+  position: fixed; /* Sabit pozisyonda kalır */
+  top: 0;
+  left: 0;
+  width: 100vw;  /* Tam viewport genişliği */
+  height: 100vh; /* Tam viewport yüksekliği */
+  max-width: none; /* max-width kısıtlamasını kaldırır */
+  border-radius: 0; /* Köşe yuvarlamasını kaldırır */
+  z-index: 999; /* FAB butonu altında kalabilir, z-index'i düşürdük */
+  background-color: var(--secondary-bg-color); /* Arka plan rengi */
+}
+
+/* Tam ekran modundayken main etiketinin boşluklarını kaldır */
+.full-screen-chat-main {
+    padding: 0 !important; /* !important ile tüm boşlukları ezer */
+    margin: 0 !important;
+    max-width: none !important;
+}
+
+/* Tam Ekran Geçiş Butonu */
+.full-screen-toggle-btn {
+  position: absolute; /* Sohbet görünümünün üstünde */
+  top: 1rem;       /* Üstten boşluk */
+  right: 1rem;     /* Sağdan boşluk */
+  z-index: 1001;   /* Sohbet görünümünden daha yüksek z-index */
+
+  background-color: var(--primary-bg-color);
+  color: var(--primary-text-color);
+  border: 1px solid var(--border-color);
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.full-screen-toggle-btn:hover {
+  background-color: var(--hover-color);
+  transform: scale(1.05);
+}
+/* Var olan .chat-view stilini güncelleyerek header'a yer açalım */
+.chat-view {
+  display: flex;
+  flex-direction: column;
+  height: 80vh; /* Yüksekliği biraz artırabiliriz */
+  width: 100%;
+  max-width: 900px; /* Genişliği biraz artırabiliriz */
+  margin: 0 auto;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: var(--secondary-bg-color);
+}
+
+/* YENİ: Chat Header Stilleri */
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--primary-bg-color);
+  flex-shrink: 0; /* Küçülmesini engelle */
+}
+
+.chat-header-left {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.chat-header-title h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.chat-header-title p {
+  margin: 0;
+  color: var(--secondary-text-color);
+  font-size: 0.9rem;
+}
+
+/* Mevcut .chat-messages stilini güncelleyerek padding-top'u kaldıralım */
+.chat-messages {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 1.5rem;
+  padding-top: 1rem; /* Üst boşluğu biraz azaltabiliriz */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Mevcut .full-screen-toggle-btn stilini güncelleyerek position'ı kaldıralım */
+.full-screen-toggle-btn {
+  /* position: absolute; kaldırıldı */
+  background-color: transparent;
+  color: var(--secondary-text-color);
+  border: 1px solid var(--border-color);
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+.full-screen-toggle-btn:hover {
+    background-color: var(--hover-color);
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+/* Okuma Modu İçerik Alanı için Okunabilirlik İyileştirmeleri */
+.content-display-area {
+  /* Metinlerin sola yaslanması için */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.content-display-area > * {
+  /* Tüm doğrudan çocuk elemanlar için maksimum genişlik */
+  max-width: 100%;
+}
+
+/* Metin içeren tüm elemanlar için (p, h2, h3, h4, ul) */
+.content-display-area p,
+.content-display-area h2,
+.content-display-area h3,
+.content-display-area h4,
+.content-display-area ul {
+  max-width: 75ch; /* Maksimum 75 karakter genişliğinde bir sütun oluşturur */
+  line-height: 1.7; /* Satır aralığını artırarak okunabilirliği iyileştirir */
+}
+
+/* Görsellerin sütun genişliğinden etkilenmemesini sağlayabiliriz (isteğe bağlı) */
+.content-display-area img {
+  max-width: 100%; /* Görsellerin daha geniş olmasına izin ver */
+}
+.content-display-area ul {
+  max-width: 75ch;
+  line-height: 1.7;
+  padding-left: 2em; /* Madde imleri için soldan boşluk */
+  margin: 1em 0;
+}
+
+.content-display-area li {
+  margin-bottom: 0.5em; /* Liste elemanları arasına boşluk */
+  padding-left: 0.5em; /* Madde imi ile metin arasına boşluk */
+}
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.list-header-title h2 {
+  margin: 0;
+}
+.list-header-title p {
+  margin: 0;
+  color: var(--secondary-text-color);
+  font-style: italic;
+  max-width: 60ch;
+}
+
+.search-container {
+  position: relative;
+  min-width: 300px;
+}
+
+.search-container input[type="search"] {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  padding-left: 2.5rem; /* İkon için yer aç */
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+  background-color: var(--secondary-bg-color);
+  color: var(--primary-text-color);
+  font-size: 1rem;
+}
+
+.search-container .fa-search {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--secondary-text-color);
+}
+/* App.css dosyasının en altına eklenecek */
+
+.official-sources {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  background-color: var(--card-bg-color);
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  margin-left: auto; /* Sağa yaslamak için */
+  text-align: center;
+}
+
+.official-sources h4 {
+  margin: 0 0 0.5rem 0;
+  color: var(--secondary-text-color);
+  font-size: 0.9rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+.official-sources .read-more-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+/* App.css dosyasının en altına */
+.ai-definition-box {
+  background-color: var(--card-bg-color);
+  border-left: 4px solid var(--accent-color);
+  padding: 1rem 1.5rem;
+  margin-top: 2rem;
+  border-radius: 0 8px 8px 0;
+  line-height: 1.7;
+}
+/* App.css dosyasının en altına */
+
+.source-list-container {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.source-list-container h2 {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.source-list-container p {
+  text-align: center;
+  color: var(--secondary-text-color);
+  margin-bottom: 2rem;
+}
+
+.source-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.source-button {
+  background-color: var(--card-bg-color);
+  border: 1px solid var(--border-color);
+  color: var(--primary-text-color);
+  padding: 0.75rem 1.25rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+.source-button:hover {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  color: var(--bg-color);
+  transform: translateY(-2px);
+}
+/* App.css dosyasının en altına */
+
+mark {
+  background-color: rgba(3, 218, 198, 0.2); /* Vurgu rengimizin hafif transparan hali */
+  color: var(--accent-color); /* Vurgu rengimizin kendisi */
+  padding: 0 2px;
+  border-radius: 3px;
+}
+/* App.css dosyasının en altına */
+
+.concept-link {
+  color: var(--accent-color);
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.concept-link:hover {
+  color: #03f0d8; /* Vurgu renginin biraz daha parlağı */
+}
+/* App.css dosyasının en altına */
+
+.suggestion-container {
+  margin-bottom: 2rem;
+}
+
+.suggestion-container h4 {
+  color: var(--secondary-text-color);
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+  text-align: center;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1.5rem;
+}
