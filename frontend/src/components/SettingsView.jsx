@@ -48,8 +48,8 @@ function SettingsView({ onClose }) {
    * JSON formatına çevirerek localStorage'a kaydeder.
    */
   const handleSave = () => {
-    // Nesneyi string formatına dönüştürerek saklıyoruz.
     localStorage.setItem('userAiSettings', JSON.stringify(settings));
+    onSettingsChange(); // <-- Değişikliği ana bileşene haber veriyoruz.
     setSaveStatus('Ayarlar başarıyla kaydedildi.');
     setTimeout(() => setSaveStatus(''), 3000);
   };
@@ -61,6 +61,7 @@ function SettingsView({ onClose }) {
   const handleClear = () => {
     localStorage.removeItem('userAiSettings');
     setSettings(defaultSettings);
+    onSettingsChange(); // <-- Değişikliği ana bileşene haber veriyoruz.
     setSaveStatus('Kaydedilmiş API anahtarları temizlendi.');
     setTimeout(() => setSaveStatus(''), 3000);
   };
