@@ -25,7 +25,13 @@ const newsCache = {
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const app = express();
 const PORT = 5000;
-app.use(cors());
+const corsOptions = {
+  // Sadece sizin canlı sitenizin (frontend) adresinden gelen isteklere izin veriyoruz.
+  origin: 'https://cybernexus.mes41.site', 
+  optionsSuccessStatus: 200 // Bazı eski tarayıcılar için
+};
+
+app.use(cors(corsOptions));
 app.use(express.json({ limit: '10mb' }));
 
 const feedUrls = [
