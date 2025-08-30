@@ -60,7 +60,6 @@ export const fetchLiveNews = async (englishSearchTerm, relatedKeywords = '') => 
  * @returns {Promise<Response>} - Fetch API'sinin ham Response nesnesi.
  */
 export const streamSimplifyText = async (settings, plainText, level, contextUrl) => {
-  // Kullanıcının seçtiği aktif sağlayıcıya göre doğru API anahtarını bul.
   const getApiKeyForProvider = (provider) => {
     switch(provider) {
       case 'gemini': return settings.geminiApiKey;
@@ -69,14 +68,14 @@ export const streamSimplifyText = async (settings, plainText, level, contextUrl)
       default: return null;
     }
   };
-
   const apiKey = getApiKeyForProvider(settings.provider);
-
   if (!apiKey) {
     throw new Error(`Lütfen Ayarlar menüsünden ${settings.provider} için bir API anahtarı girin.`);
   }
 
-  const response = await fetch(`http://localhost:5000/api/simplify`, {
+  // --- DÜZELTME BURADA ---
+  // Sabit localhost adresi yerine dinamik API_URL kullanılıyor.
+  const response = await fetch(`${API_URL}/simplify`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -92,7 +91,42 @@ export const streamSimplifyText = async (settings, plainText, level, contextUrl)
     const errorText = await response.text();
     throw new Error(`Sunucu hatası: ${response.status} - ${errorText}`);
   }
+  return response;
+};
 
+/**
+ * AI Mentor ile sohbet etmek için backend'e bir streaming isteği gönderir.
+ */
+export const streamChatResponse = async (settings, messages) => {
+  const getApiKeyForProvider = (provider) => {
+    switch(provider) {
+      case 'gemini': return settings.geminiApiKey;
+      case 'openai': return settings.openaiApiKey;
+      case 'deepseek': return settings.deepseekApiKey;
+      default: return null;
+    }
+  };
+  const apiKey = getApiKeyForProvider(settings.provider);
+  if (!apiKey) {
+    throw new Error(`Lütfen Ayarlar menüsünden ${settings.provider} için bir API anahtarı girin.`);
+  }
+
+  // --- DÜZELTME BURADA ---
+  // Sabit localhost adresi yerine dinamik API_URL kullanılıyor.
+  const response = await fetch(`${API_URL}/chat`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      provider: settings.provider,
+      apiKey: apiKey,
+      messages: messages,
+    }),
+  });
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new Error(`Sunucu hatası: ${response.status} - ${errorText}`);
+  }
   return response;
 };
 
