@@ -44,7 +44,7 @@ const feedUrls = [
     
     // Yerel (Türkçe)
     'https://www.bthaber.com/feed/', // BT Haber
-    'https://shiftdelete.net/feed/' // ShiftDelete.Net Güvenlik
+    'https://shiftdelete.net/guvenlik/feed' // ShiftDelete.Net Güvenlik
 ];
 
 const translationMap = {
@@ -371,7 +371,7 @@ app.get('/api/news/sources', (req, res) => {
         'www.wired.com': 'Wired (Threat Level)',
         'www.zdnet.com': 'ZDNet (Security)',
         'www.bthaber.com': 'BT Haber',
-        'shiftdelete.net': 'ShiftDelete.Net'
+        'shiftdelete.net': 'ShiftDelete.Net Güvenlik Kategorisi'
     };
 
     const sources = feedUrls.map(url => {
