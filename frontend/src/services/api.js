@@ -131,46 +131,6 @@ export const streamChatResponse = async (settings, messages) => {
 };
 
 /**
- * AI Mentor ile sohbet etmek için backend'e bir streaming isteği gönderir.
- * @param {object} settings - Kullanıcının AI sağlayıcı ayarları ({ provider, ...ApiKey })
- * @param {Array<object>} messages - Sohbet geçmişini içeren dizi [{ role, content }]
- * @returns {Promise<Response>} - Fetch API'sinin ham Response nesnesi.
- */
-export const streamChatResponse = async (settings, messages) => {
-  const getApiKeyForProvider = (provider) => {
-    switch(provider) {
-      case 'gemini': return settings.geminiApiKey;
-      case 'openai': return settings.openaiApiKey;
-      case 'deepseek': return settings.deepseekApiKey;
-      default: return null;
-    }
-  };
-
-  const apiKey = getApiKeyForProvider(settings.provider);
-
-  if (!apiKey) {
-    throw new Error(`Lütfen Ayarlar menüsünden ${settings.provider} için bir API anahtarı girin.`);
-  }
-
-  const response = await fetch(`http://localhost:5000/api/chat`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      provider: settings.provider,
-      apiKey: apiKey,
-      messages: messages, // Sohbet geçmişini gönderiyoruz
-    }),
-  });
-
-  if (!response.ok) {
-    const errorText = await response.text();
-    throw new Error(`Sunucu hatası: ${response.status} - ${errorText}`);
-  }
-
-  return response;
-};
-
-/**
  * Belirli bir siber güvenlik kavramı için AI'dan tanım akışı talep eder.
  * @param {object} settings - Kullanıcının AI sağlayıcı ayarları.
  * @param {object} concept - Tanımı yapılacak kavram nesnesi ({ title, english_term_authoritative }).
