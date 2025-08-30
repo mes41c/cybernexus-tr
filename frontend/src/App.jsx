@@ -208,12 +208,11 @@ function App() {
   };
 
   const handleSettingsChange = () => {
-    console.log("Ayarlar değişti, App state'i güncelleniyor...");
     const storedSettingsJson = localStorage.getItem('userAiSettings');
     if (storedSettingsJson) {
       setUserSettings(JSON.parse(storedSettingsJson));
     } else {
-      setUserSettings(null); // Eğer ayarlar temizlendiyse state'i de temizle
+      setUserSettings(null);
     }
   };
   
