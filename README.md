@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="./frontend/public/cybernexus.png" alt="CyberNexus TR Logo" width="150"/>
+</p>
+
 CyberNexus TR 🇹🇷
 Küresel Siber İstihbarat ve Dil Geliştirme Portalınız
 Canlı Demo: https://cybernexus.mes41.site/
