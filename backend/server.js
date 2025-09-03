@@ -550,6 +550,18 @@ app.get('/api/cases/:caseId', (req, res) => {
 });
 
 const casesDirectory = path.join(__dirname, 'cases');
+const solutionsDirectory = path.join(__dirname, 'solutions');
+
+if (!fs.existsSync(casesDirectory)) {
+    fs.mkdirSync(casesDirectory);
+    console.log(`'cases' klasörü oluşturuldu: ${casesDirectory}`);
+}
+
+// 'solutions' klasörü var mı? Yoksa oluştur.
+if (!fs.existsSync(solutionsDirectory)) {
+    fs.mkdirSync(solutionsDirectory);
+    console.log(`'solutions' klasörü oluşturuldu: ${solutionsDirectory}`);
+}
 
 app.get('/api/cases', (req, res) => {
     // 1. Frontend'den gelen sayfa ve limit parametrelerini alıyoruz.
