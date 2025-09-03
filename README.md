@@ -52,8 +52,9 @@ Kullanıcıların kendi interaktif vaka senaryolarını yaratabildiği güçlü 
 ### 📚 Vaka Kütüphanesi ve Yönetim
 Oluşturulan tüm vakaların bulunduğu, kapsamlı yönetim özelliklerine sahip bir merkez.
 
-* **Gelişmiş Arama ve Sıralama:** Vakaları başlığa, ilgili kavramlara göre arama; son eklenme tarihine, zorluk seviyesine veya "çözülme durumuna" göre sıralama.
+* **Gelişmiş Filtreleme, Arama ve Sıralama:** Vakaları türüne göre (Ortak Vakalar, Özel Vakalarım, Tümü) filtreleme. Başlığa veya ilgili kavramlara göre arama. Son eklenme tarihi, zorluk seviyesi, çözülme durumu ve topluluk değerlendirmesi (en yüksek puan, en çok oylanan) gibi birçok kritere göre sıralama.
 * **İlerleme Takibi:** Kullanıcılar, çözdükleri vakaları "Çözüldü" olarak işaretleyebilir veya bu işareti kaldırabilirler. Bu işaretleme, bir vaka raporu sunulduğunda otomatik olarak da gerçekleşir.
+* **🌟 Topluluk Değerlendirme Sistemi:** Kullanıcılar, çözdükleri "Ortak Vakaları" 10 üzerinden puanlayarak vaka kalitesine katkıda bulunabilirler. Bu puanlar, tüm kullanıcıların en faydalı ve beğenilen içerikleri kolayca bulmasını sağlar.
 
 ---
 
