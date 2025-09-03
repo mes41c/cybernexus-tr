@@ -9,12 +9,29 @@ import CreateCasePage from './pages/CreateCasePage';
 import SettingsView from './components/SettingsView';
 import './App.css';
 import GuidePage from './pages/GuidePage';
+import { fetchAllCases } from './services/api';
 
 function App() {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [userSettings, setUserSettings] = useState(null);
   const [allConcepts, setAllConcepts] = useState([]);
   const [anonymousUserId, setAnonymousUserId] = useState(null);
+  const [allCases, setAllCases] = useState([]);
+
+  useEffect(() => {
+    if (anonymousUserId) {
+      fetchAllCases(anonymousUserId).then(response => {
+        setAllCases(response.cases || []);
+      });
+    }
+  }, [anonymousUserId]);
+
+  const refreshCaseList = async () => {
+    if (anonymousUserId) {
+      const response = await fetchAllCases(anonymousUserId);
+      setAllCases(response.cases || []);
+    }
+  };
 
   useEffect(() => {
     // --- YENİ: ANONİM KULLANICI KİMLİĞİ OLUŞTURMA ---
@@ -88,7 +105,16 @@ function App() {
               />
             } 
           />
-          <Route path="/cases" element={<CaseLibraryPage />} />
+          <Route 
+            path="/cases" 
+            element={
+              <CaseLibraryPage 
+                anonymousUserId={anonymousUserId} 
+                cases={allCases} // <-- Vaka listesini prop olarak geçiyoruz
+                onCaseDeleted={refreshCaseList} // <-- Silme sonrası yenileme için fonksiyon
+              />
+            } 
+          />
           <Route 
             path="/case/:caseId" 
             element={
@@ -96,12 +122,20 @@ function App() {
                 userSettings={userSettings} 
                 onOpenSettings={() => setIsSettingsOpen(true)} 
                 anonymousUserId={anonymousUserId}
+                onCaseCreated={refreshCaseList}
               />
             } 
           />
           <Route 
             path="/create-case" 
-            element={<CreateCasePage userSettings={userSettings} onOpenSettings={() => setIsSettingsOpen(true)} />} 
+            element={
+              <CreateCasePage 
+                userSettings={userSettings} 
+                onOpenSettings={() => setIsSettingsOpen(true)} 
+                anonymousUserId={anonymousUserId} // <-- BU PROP'UN EKLENDİĞİNDEN EMİN OLUN
+                onCaseCreated={refreshCaseList}
+              />
+            } 
           />
           <Route path="/guide" element={<GuidePage />} />
         </Routes>

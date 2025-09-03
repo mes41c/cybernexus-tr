@@ -1,8 +1,8 @@
-// frontend/src/pages/GuidePage.jsx
+// frontend/src/pages/GuidePage.jsx (NİHAİ KOD)
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './GuidePage.css'; // Bu CSS dosyasını birazdan oluşturacağız
+import './GuidePage.css';
 
 function GuidePage() {
   return (
@@ -25,6 +25,11 @@ function GuidePage() {
         <div className="guide-section">
           <h2><i className="fa-solid fa-user-secret"></i> Cyber Detective ve Mergen: Bilgeliği Tecrübeye Dönüştürmek</h2>
           <p><strong>Ne İşe Yarar?</strong> "Cyber Detective" modülü, seni gerçek siber saldırı senaryolarının içine bırakan bir simülasyon merkezidir. "Vaka Kütüphanesi"nden bir vaka seçerek, kanıtları inceler ve kadim bilgelik tanrısının dijital yansıması olan akıllı mentorun <strong>Mergen</strong> ile sohbet ederek olayı çözmeye çalışırsın.</p>
+          
+          {/* --- YENİ EKLENEN BÖLÜM --- */}
+          <p><strong>Vaka Kütüphanesi,</strong> senin cephaneliğindir. Burada, topluluğun bilgelik ocağında dövdüğü <strong>'Ortak Vakaları'</strong>, sadece senin gözlerinin görebileceği <strong>'Özel Vakalarını'</strong> veya hepsini bir arada görebilirsin. Bir ustanın eserini değerlendirmesi gibi, sen de çözdüğün ortak vakaları 10 üzerinden puanlayarak bu bilgelik ocağına bir kıvılcım da sen atabilirsin. Bu oylar, <strong>en yüksek puanlı</strong> veya <strong>en çok oylanan</strong> vakaları sıralamanı sağlayarak, hangi talimde ustalaşacağını seçmende sana yol gösterir.</p>
+          {/* --- Değişiklik sonu --- */}
+
           <p><strong>Neler Yapılabilir?</strong></p>
           <ul>
             <li><strong>İnteraktif Analiz:</strong> Mergen'e bir analist gibi sorular sorabilir, IP adreslerini sorgulayabilir, dosya hash'lerini analiz ettirebilirsin.</li>
@@ -37,7 +42,7 @@ function GuidePage() {
         <div className="guide-section">
           <h2><i className="fa-solid fa-magic-wand-sparkles"></i> Yeni Vaka Oluşturma: Kendi Destanını Yazmak</h2>
           <p><strong>Ne İşe Yarar?</strong> Bu modül, sana Ozan'ın gücünü verir. İlginç bulduğun herhangi bir siber güvenlik haber metnini kullanarak, Mergen'in yardımıyla dakikalar içinde çözülebilir, interaktif bir vaka senaryosu yaratabilirsin.</p>
-          <p><strong>Neler Yapılabilir?</strong> Zorluk seviyesini belirleyebilir, AI'ın kuru bir metni nasıl ilgi çekici bir SIEM uyarısına, kanıtlara ve ipuçlarına dönüştürdüğünü izleyebilirsin. Oluşturduğun bu vakalar, Vaka Kütüphanesi'ne eklenerek hem senin hem de belki gelecekte başka analistlerin talim yapacağı birer senaryoya dönüşür.</p>
+          <p><strong>Neler Yapılabilir?</strong> Zorluk seviyesini belirleyebilir, AI'ın kuru bir metni nasıl ilgi çekici bir SIEM uyarısına, kanıtlara ve ipuçlarına dönüştürdüğünü izleyebilirsin. Oluşturduğun bu vakalar, Vaka Kütüphanesi'ne eklenerek hem senin hem de topluluktaki diğer analistlerin talim yapacağı birer senaryoya dönüşür.</p>
           <p><strong>Potansiyeli Nedir?</strong> Burası senin yaratıcılığının ve uzmanlığının merkezidir. Sadece bir vaka çözücü değil, aynı zamanda bir "tehdit senaristi" olursun. Bu, saldırganların zihniyetini anlamak ve savunma mekanizmalarını tasarlamak için eşsiz bir yetenektir.</p>
         </div>
         

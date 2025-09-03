@@ -243,21 +243,21 @@ export const askMentorNet = async (caseId, messages, language, userSettings) => 
  * @param {string} caseId - Detayları alınacak vakanın ID'si.
  * @returns {Promise<object>} - Vaka detaylarını içeren bir nesne.
  */
-export const fetchCaseDetails = async (caseId) => {
+export const fetchCaseDetails = async (caseId, anonymousUserId) => {
   try {
-    const response = await fetch(`${API_URL}/cases/${caseId}`);
+    // API isteğine anonymousUserId'yi query parametresi olarak ekliyoruz
+    const response = await fetch(`${API_URL}/cases/${caseId}?anonymousUserId=${anonymousUserId}`);
+    
     if (!response.ok) {
       if (response.status === 404) {
         throw new Error('Vaka bulunamadı.');
       }
-      throw new Error('Vaka detayları alınamadı.');
+      throw new Error('Vaka detayları sunucudan alınamadı.');
     }
-    // Gelen JSON'ı doğrudan döndürüyoruz. Backend artık artifacts alanını da gönderiyor.
-    return await response.json(); 
+    return await response.json();
   } catch (error) {
     console.error("Vaka detayı çekme hatası:", error);
-    // Hata durumunda frontend'in çökmemesi için kontrollü bir nesne döndürelim.
-    return { title: { tr: 'Hata', en: 'Error' }, briefing: { tr: error.message, en: error.message }, related_concepts: [], artifacts: [] };
+    throw error; // Hatayı bileşenin yakalaması için yeniden fırlat
   }
 };
 
@@ -267,45 +267,52 @@ export const fetchCaseDetails = async (caseId) => {
  * @param {object} userSettings - Kullanıcının AI ayarları.
  * @returns {Promise<object>} - Oluşturulan vaka verisini içeren bir nesne.
  */
-export const createCaseWithAi = async (articleText, userSettings, difficulty) => { // difficulty parametresini ekle
+export const createCaseWithAi = async (articleText, userSettings, difficulty, caseType, anonymousUserId) => {
   try {
     const response = await fetch(`${API_URL}/cases/create`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ articleText, userSettings, difficulty }), // difficulty'yi body'ye ekle
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        articleText,
+        userSettings,
+        difficulty,
+        caseType, 
+        anonymousUserId 
+      }),
     });
-
     if (!response.ok) {
       const errorData = await response.json();
-      throw new Error(errorData.error || 'Sunucudan bir hata yanıtı alındı.');
+      throw new Error(errorData.error || 'Bilinmeyen bir sunucu hatası.');
     }
-
     return await response.json();
   } catch (error) {
     console.error("AI ile vaka oluşturma hatası:", error);
-    throw error; // Hatanın bileşen tarafından yakalanabilmesi için yeniden fırlatıyoruz.
+    throw error;
   }
 };
 
-export const fetchAllCases = async (page = 1, limit = 12) => { // limit parametresi eklendi
+export const fetchAllCases = async (anonymousUserId, page = 1, limit = 12) => {
   try {
-    // API isteğine limit parametresi de eklendi
-    const response = await fetch(`${API_URL}/cases?page=${page}&limit=${limit}`); 
+    // anonymousUserId varsa, onu query parametresi olarak ekliyoruz
+    const userQueryParam = anonymousUserId ? `&anonymousUserId=${anonymousUserId}` : '';
+    
+    const response = await fetch(`${API_URL}/cases?page=${page}&limit=${limit}${userQueryParam}`);
+    
     if (!response.ok) {
       throw new Error('Vaka listesi sunucudan alınamadı.');
     }
     return await response.json();
   } catch (error) {
     console.error("Tüm vakaları çekerken hata:", error);
+    // Hata durumunda, uygulamanın çökmemesi için beklenen formatta bir nesne döndür
     return { cases: [], currentPage: 1, totalPages: 1 };
   }
 };
 
-export const deleteCaseById = async (caseId) => {
+export const deleteCaseById = async (caseId, anonymousUserId) => {
   try {
-    const response = await fetch(`${API_URL}/cases/${caseId}`, {
+    // API isteğine anonymousUserId'yi query parametresi olarak ekliyoruz
+    const response = await fetch(`${API_URL}/cases/${caseId}?anonymousUserId=${anonymousUserId}`, {
       method: 'DELETE',
     });
     if (!response.ok) {
@@ -314,7 +321,7 @@ export const deleteCaseById = async (caseId) => {
     return await response.json();
   } catch (error) {
     console.error("Vaka silme hatası:", error);
-    throw error; // Hatayı bileşenin yakalaması için yeniden fırlat
+    throw error;
   }
 };
 
@@ -355,6 +362,26 @@ export const clearLearningHistory = async (anonymousUserId) => {
     return await response.json();
   } catch (error) {
     console.error("Öğrenme geçmişi silme hatası:", error);
+    throw error;
+  }
+};
+
+export const rateCaseById = async (caseId, anonymousUserId, rating) => {
+  try {
+    const response = await fetch(`${API_URL}/cases/${caseId}/rate`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ anonymousUserId, rating }),
+    });
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.message || 'Oylama sırasında bir hata oluştu.');
+    }
+    return await response.json();
+  } catch (error) {
+    console.error("Vaka oylama hatası:", error);
     throw error;
   }
 };

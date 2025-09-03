@@ -1,0 +1,21 @@
+/* frontend/src/components/StarDisplay.css */
+.star-display {
+  font-size: 1.1rem;
+  color: #555;
+  position: relative;
+  display: inline-block;
+}
+.star-display::before {
+  content: '★★★★★★★★★★'; /* 10 boş yıldız */
+}
+.star-display-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #ffc107;
+}
+.star-display-inner::before {
+    content: '★★★★★★★★★★'; /* 10 dolu yıldız */
+}

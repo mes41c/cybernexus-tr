@@ -114,3 +114,55 @@
 .briefing-paragraph {
   margin-bottom: 1em; /* Paragraflar arasına boşluk koyar */
 }
+/* frontend/src/pages/CreateCasePage.css */
+
+.case-type-selector {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: rgba(0,0,0,0.2);
+  text-align: left;
+}
+
+.case-type-selector > label {
+  display: block;
+  margin-bottom: 0.75rem;
+  color: var(--text-secondary);
+  font-weight: bold;
+}
+
+.radio-group {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  color: var(--text-primary);
+}
+
+.radio-group input[type="radio"] {
+  /* Varsayılan radio butonunu gizle */
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+  
+  /* Özel radio butonunu oluştur */
+  width: 1.25em;
+  height: 1.25em;
+  border: 2px solid var(--border-color);
+  border-radius: 50%;
+  transition: all 0.1s ease-in-out;
+}
+
+.radio-group input[type="radio"]:hover {
+  border-color: var(--primary-glow);
+}
+
+.radio-group input[type="radio"]:checked {
+  border: 5px solid var(--primary-glow);
+}

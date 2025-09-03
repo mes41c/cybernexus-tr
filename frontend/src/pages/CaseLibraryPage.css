@@ -298,31 +298,127 @@
 }
 /* CaseLibraryPage.css dosyasının sonuna ekleyin */
 
-/* Çözülmüş vaka kartı için genel stil */
-.case-card--solved {
-  border-color: #1d976c; /* Yeşil bir çerçeve */
-  background: radial-gradient(circle, rgba(29, 151, 108, 0.1) 0%, var(--glass-bg) 70%);
+/* CaseLibraryPage.css dosyanızdaki mevcut .card-badges ve ilgili kuralları
+   aşağıdaki blok ile DEĞİŞTİRİN. */
+
+/* Etiketleri (badge) başlığın altına almak için yeni sarmalayıcı */
+.case-card-header {
+  display: flex;
+  flex-direction: column; /* Başlık ve etiketleri alt alta sırala */
+  align-items: flex-start; /* Sola hizala */
+  margin-bottom: 1rem;
 }
 
-/* Çözüldü Etiketi */
-.solved-badge {
-  position: absolute;
-  top: 1.1rem;
-  right: 3rem; /* Silme butonunun solunda */
-  background-color: rgba(29, 151, 108, 0.8);
-  color: #fff;
+/* Etiketleri bir arada tutan sarmalayıcı */
+.card-badges {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.75rem; /* Başlıkla arasına boşluk koy */
+  order: 2; /* Etiketlerin başlıktan sonra gelmesini sağla */
+}
+
+/* Başlığın kendisi */
+.case-card h3 {
+  margin: 0;
+  order: 1; /* Başlığın etiketlerden önce gelmesini sağla */
+}
+
+
+/* Çözüldü ve Tür etiketleri için ortak stiller */
+.solved-badge, .type-badge {
+  /* position: absolute; kaldırıldı */
+  background-color: transparent;
+  color: var(--text-secondary);
   padding: 0.3rem 0.7rem;
-  border-radius: 12px;
-  font-size: 0.75rem;
+  border-radius: 6px;
+  font-size: 0.7rem;
   font-weight: bold;
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--border-color);
+  text-transform: uppercase;
 }
 
-/* Çözülmüş kartın footer'ındaki metni ayarla */
-.case-card--solved .case-card-footer span {
+/* "Çözüldü" etiketi için özel renk */
+.solved-badge {
+  color: #24b37f;
+  border-color: rgba(36, 179, 127, 0.5);
+}
+
+/* "Ortak" vaka etiketi */
+.type-badge.type-common {
+  color: #3498db;
+  border-color: rgba(52, 152, 219, 0.5);
+}
+
+/* "Özel" vaka etiketi */
+.type-badge.type-private {
+  color: #9b59b6;
+  border-color: rgba(155, 89, 182, 0.5);
+}
+
+/* Silme butonunun konumunu sağ üstte tutmaya devam et */
+.delete-case-btn {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+}
+/* frontend/src/pages/CaseLibraryPage.css dosyasının sonuna ekleyin */
+
+.library-controls-container {
+  max-width: 1000px;
+  margin: 2rem auto 3rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.view-toggle-container {
+  display: flex;
+  justify-content: center;
+  background-color: var(--background-blue-deep);
+  padding: 0.5rem;
+  border-radius: 30px;
+  border: 1px solid var(--border-color);
+  align-self: center; /* Konteynerin kendini ortalamasını sağlar */
+}
+
+.view-toggle-btn {
+  background-color: transparent;
+  border: none;
   color: var(--text-secondary);
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.view-toggle-btn:hover:not(.active) {
+  color: var(--text-primary);
+}
+
+.view-toggle-btn.active {
+  background-color: var(--primary-glow);
+  color: var(--background-blue-deep);
+  box-shadow: 0 0 15px rgba(0, 170, 255, 0.4);
+}
+
+/* Mevcut library-controls için küçük bir ayar */
+.library-controls {
+  margin-top: 0; /* Üstteki boşluğu kaldırıyoruz */
+}
+/* frontend/src/pages/CaseLibraryPage.css */
+.card-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
 }

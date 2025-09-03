@@ -1,0 +1,53 @@
+/* frontend/src/components/StarRating.css */
+
+.star-rating-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background-color: var(--glass-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  margin-top: 2rem;
+}
+
+.stars {
+  display: flex;
+  gap: 0.3rem;
+}
+
+.star {
+  font-size: 2rem;
+  color: var(--border-color);
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.1s ease;
+}
+
+.star.active {
+  color: #ffc107; /* Yıldız sarısı */
+  transform: scale(1.1);
+}
+
+.rate-submit-btn {
+  background-color: var(--primary-glow);
+  color: var(--background-blue-deep);
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.rate-submit-btn:disabled {
+  background-color: var(--border-color);
+  color: var(--text-secondary);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.rate-submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 170, 255, 0.3);
+}

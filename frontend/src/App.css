@@ -206,22 +206,44 @@ main {
     margin-bottom: 2rem;
 }
 
+/* ADIM 1: GÜVENLİK AĞI - Ana içerik alanını hazırlama 
+  Bu kural, içindeki herhangi bir element taşsa bile, sayfanın tamamının
+  bozulmasını engelleyip taşan elemente bir kaydırma çubuğu ekler.
+  Bu bizim nihai güvenlik önlemimizdir.
+*/
 #reading-mode-content .full-text {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: var(--primary-text-color);
-    font-weight: 300;
+  overflow-x: auto; /* Yatay taşmaları engeller ve gerekirse kaydırma çubuğu ekler */
+  padding: 1px; /* Kenar boşluğu çakışmalarını önler */
 }
 
-/* --- YENİ EKLENEN KURAL --- */
-#reading-mode-content .full-text img {
-    max-width: 100%; /* Görselin genişliği asla kapsayıcısını aşamaz */
-    height: auto;    /* Genişliğe göre yüksekliği otomatik ayarla */
-    display: block;  /* Satır içi boşlukları kaldır */
-    margin: 1.5rem auto; /* Görseli ortala ve üst/alt boşluk ver */
-    border-radius: 8px; /* Görsel köşelerini yuvarlat */
+/* ADIM 2: KESİN ÇÖZÜM - Tüm potansiyel elementleri hedefleme
+  Bu kural, içerik alanındaki resim, iframe, video veya tablo gibi 
+  büyük olabilecek TÜM elementleri hedefler ve onları hizaya sokar.
+*/
+#reading-mode-content .full-text img,
+#reading-mode-content .full-text iframe,
+#reading-mode-content .full-text video,
+#reading-mode-content .full-text table,
+#reading-mode-content .full-text div[style*="background-image"] {
+  display: block !important;
+  
+  /* GENİŞLİK KONTROLÜ */
+  width: 100% !important;
+  max-width: 100% !important; /* Kapsayıcıdan taşmasını kesin olarak engeller */
+  box-sizing: border-box !important; /* Kenarlık ve dolguları genişliğe dahil eder */
+
+  /* YÜKSEKLİK KONTROLÜ */
+  height: auto !important; /* Oranı korumak için yüksekliği otomatik yapar */
+  max-height: 80vh !important; /* Ekran yüksekliğinin %80'ini geçmesini engeller */
+
+  /* GÖRÜNÜM */
+  object-fit: contain !important; /* Resmi oranını bozmadan kutuya sığdırır */
+  margin: 2rem auto !important; /* Dikey boşluk ve yatay ortalama */
+  
+  /* İsteğe Bağlı Estetik Dokunuşlar */
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
 }
-/* --- YENİ EKLENEN KURAL BİTİŞ --- */
 
 #reading-mode-content .full-text p {
     margin-bottom: 1.5rem;

@@ -1,16 +1,17 @@
+// frontend/src/pages/CreateCasePage.jsx (TAM VE NİHAİ KODU)
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { createCaseWithAi } from '../services/api'; 
-import './CreateCasePage.css'; // Bu CSS dosyasını bir sonraki adımda oluşturacağız
+import { createCaseWithAi } from '../services/api';
+import './CreateCasePage.css';
 
-// YENİ: App.jsx'ten bu prop'ları alacak şekilde güncelliyoruz
-function CreateCasePage({ userSettings, onOpenSettings }) {
+function CreateCasePage({ userSettings, onOpenSettings, anonymousUserId, onCaseCreated }) {
   const [articleText, setArticleText] = useState('');
   const [difficulty, setDifficulty] = useState('intermediate');
   const [isLoading, setIsLoading] = useState(false);
+  const [caseType, setCaseType] = useState('private'); // Varsayılan olarak 'özel' seçili
   const navigate = useNavigate();
 
-  // handleSubmit fonksiyonunu tamamen değiştiriyoruz
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!articleText.trim()) {
@@ -27,12 +28,15 @@ function CreateCasePage({ userSettings, onOpenSettings }) {
     setIsLoading(true);
     
     try {
-      // API isteğine zorluk seviyesini de gönderiyoruz
-      const result = await createCaseWithAi(articleText, userSettings, difficulty);
+      // DÜZELTME: API çağrısına tüm gerekli parametreleri gönderiyoruz
+      const result = await createCaseWithAi(articleText, userSettings, difficulty, caseType, anonymousUserId);
       
       if (result.success && result.newCaseId) {
-        // BAŞARILI OLDUĞUNDA KULLANICIYI YENİ VAKANIN SAYFASINA YÖNLENDİR
-        navigate(`/case/${result.newCaseId}`);
+        // 2. Yönlendirmeden hemen önce App.jsx'teki listeyi yenilemesi için prop'u çağırıyoruz.
+        await onCaseCreated(); 
+        
+        // 3. Kullanıcıyı, yeni vakanın da içinde olduğu güncel listeye yönlendiriyoruz.
+        navigate(`/cases`); 
       } else {
         throw new Error(result.error || "Bilinmeyen bir hata oluştu.");
       }
@@ -52,7 +56,7 @@ function CreateCasePage({ userSettings, onOpenSettings }) {
           Yapay Zeka ile Yeni Vaka Oluştur
         </h1>
         <p className="form-description">
-          Aşağıdaki alana bir siber güvenlik haber metni yapıştırın. MentorNet, bu metni analiz ederek çözmeniz için interaktif bir dedektiflik vakasına dönüştürecektir.
+          Aşağıdaki alana bir siber güvenlik haber metni yapıştırın. Mergen, bu metni analiz ederek çözmeniz için interaktif bir dedektiflik vakasına dönüştürecektir.
         </p>
         <form onSubmit={handleSubmit}>
           <textarea
@@ -62,8 +66,6 @@ function CreateCasePage({ userSettings, onOpenSettings }) {
             placeholder="İlgili siber güvenlik haber metnini buraya yapıştırın..."
             disabled={isLoading}
           />
-
-          {/* YENİ EKLENEN BÖLÜM: ZORLUK SEÇİMİ */}
           <div className="difficulty-selector">
             <label htmlFor="difficulty">Vaka Zorluk Seviyesi:</label>
             <select 
@@ -72,24 +74,26 @@ function CreateCasePage({ userSettings, onOpenSettings }) {
               onChange={(e) => setDifficulty(e.target.value)}
               disabled={isLoading}
             >
-              <option value="beginner">Başlangıç (Temel Kavramlar)</option>
-              <option value="intermediate">Orta (Teknik Detaylar)</option>
-              <option value="advanced">İleri Seviye (Derinlemesine Analiz)</option>
+              <option value="beginner">Başlangıç(Temel)</option>
+              <option value="intermediate">Orta(Teknik)</option>
+              <option value="advanced">İleri(Uzman)</option>
             </select>
           </div>
-
+          <div className="case-type-selector">
+            <label>Vaka Görünürlüğü:</label>
+            <div className="radio-group">
+              <label>
+                <input type="radio" value="private" checked={caseType === 'private'} onChange={(e) => setCaseType(e.target.value)} disabled={isLoading} />
+                <span>Özel (Sadece Ben Görebilirim)</span>
+              </label>
+              <label>
+                <input type="radio" value="common" checked={caseType === 'common'} onChange={(e) => setCaseType(e.target.value)} disabled={isLoading} />
+                <span>Ortak (Herkes Görebilir)</span>
+              </label>
+            </div>
+          </div>
           <button type="submit" className="submit-button" disabled={isLoading}>
-            {isLoading ? (
-              <>
-                <i className="fa-solid fa-spinner fa-spin"></i>
-                <span>Vaka Oluşturuluyor...</span>
-              </>
-            ) : (
-              <>
-                <i className="fa-solid fa-bolt"></i>
-                <span>Vakayı Oluştur</span>
-              </>
-            )}
+            {isLoading ? 'Oluşturuluyor...' : 'Vakayı Oluştur'}
           </button>
         </form>
       </div>

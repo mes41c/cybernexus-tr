@@ -1,7 +1,10 @@
+// frontend/src/pages/CaseLibraryPage.jsx (NİHAİ KOD)
+
 import React, { useState, useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { fetchAllCases, deleteCaseById } from '../services/api';
 import { getSolvedCases } from '../services/solvedCasesManager';
+import { deleteCaseById } from '../services/api';
+import StarDisplay from '../components/StarDisplay'; // Puan gösterimi için import
 import './CaseLibraryPage.css';
 
 const difficultyMap = {
@@ -10,35 +13,33 @@ const difficultyMap = {
   advanced: 'İleri'
 };
 
-function CaseLibraryPage() {
-  const [allCases, setAllCases] = useState([]);
+function CaseLibraryPage({ anonymousUserId, cases, onCaseDeleted }) {
   const [solvedCases, setSolvedCases] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
   const [language, setLanguage] = useState('tr');
   const [searchTerm, setSearchTerm] = useState('');
   const [sortOption, setSortOption] = useState('latest');
   const [currentPage, setCurrentPage] = useState(1);
   const casesPerPage = 12;
+  const [viewMode, setViewMode] = useState('all');
 
   useEffect(() => {
-    const loadData = async () => {
-      setIsLoading(true);
-      const response = await fetchAllCases(); 
-      setAllCases(response.cases || []);
-      setSolvedCases(getSolvedCases());
-      setIsLoading(false);
-    };
-    loadData();
-  }, []);
+    if (anonymousUserId) {
+      setSolvedCases(getSolvedCases(anonymousUserId));
+    }
+  }, [anonymousUserId]);
 
   const handleDeleteCase = async (e, caseIdToDelete) => {
     e.preventDefault();
     e.stopPropagation();
+    if (!anonymousUserId) {
+      alert("Kullanıcı kimliği bulunamadığı için silme işlemi yapılamıyor.");
+      return;
+    }
     const isConfirmed = window.confirm("Bu vakayı kalıcı olarak silmek istediğinizden emin misiniz?");
     if (isConfirmed) {
       try {
-        await deleteCaseById(caseIdToDelete);
-        setAllCases(prevCases => prevCases.filter(c => c.id !== caseIdToDelete));
+        await deleteCaseById(caseIdToDelete, anonymousUserId);
+        onCaseDeleted();
       } catch (error) {
         alert(`Hata: ${error.message}`);
       }
@@ -46,15 +47,18 @@ function CaseLibraryPage() {
   };
 
   const toggleLanguage = () => setLanguage(prev => (prev === 'tr' ? 'en' : 'tr'));
-  const handleNextPage = () => setCurrentPage(p => p + 1);
-  const handlePrevPage = () => setCurrentPage(p => p - 1);
 
   const processedCases = useMemo(() => {
-    return allCases
+    return cases
+      .filter(caseItem => {
+        if (viewMode === 'common') return caseItem.type === 'common';
+        if (viewMode === 'private') return caseItem.type === 'private';
+        return true;
+      })
       .filter(caseItem => {
         const term = searchTerm.toLowerCase();
         if (!term) return true;
-        const titleMatch = caseItem.title['tr'].toLowerCase().includes(term) || caseItem.title['en'].toLowerCase().includes(term);
+        const titleMatch = (caseItem.title.tr || '').toLowerCase().includes(term) || (caseItem.title.en || '').toLowerCase().includes(term);
         const conceptsMatch = caseItem.related_concepts.some(concept => concept.toLowerCase().includes(term));
         return titleMatch || conceptsMatch;
       })
@@ -63,10 +67,16 @@ function CaseLibraryPage() {
         const isBSolved = solvedCases.includes(b.id);
 
         switch (sortOption) {
+          // --- YENİ EKLENEN SIRALAMA SEÇENEKLERİ ---
+          case 'rating-desc':
+            return (b.averageRating || 0) - (a.averageRating || 0);
+          case 'rating-count-desc':
+            return (b.ratingCount || 0) - (a.ratingCount || 0);
+          // --- Değişiklik sonu ---
           case 'solved-first':
             if (isASolved && !isBSolved) return -1;
             if (!isASolved && isBSolved) return 1;
-            return 0; // İkisi de aynı durumdaysa sıralamayı değiştirme
+            return 0;
           case 'unsolved-first':
             if (isASolved && !isBSolved) return 1;
             if (!isASolved && isBSolved) return -1;
@@ -81,25 +91,25 @@ function CaseLibraryPage() {
             return (diffOrderDesc[b.difficulty] || 2) - (diffOrderDesc[a.difficulty] || 2);
           case 'latest':
           default:
-            const timeA = parseInt(a.id.split('-')[1], 10);
-            const timeB = parseInt(b.id.split('-')[1], 10);
+            const timeA = parseInt((a.id || 'case-0').split('-')[1], 10);
+            const timeB = parseInt((b.id || 'case-0').split('-')[1], 10);
             return timeB - timeA;
         }
       });
-  }, [allCases, searchTerm, sortOption, language]);
+  }, [cases, searchTerm, sortOption, language, solvedCases, viewMode]);
 
   const totalPages = Math.ceil(processedCases.length / casesPerPage);
   const casesToDisplay = processedCases.slice((currentPage - 1) * casesPerPage, currentPage * casesPerPage);
 
   useEffect(() => {
-    if(currentPage > totalPages && totalPages > 0) {
-        setCurrentPage(totalPages);
-    } else if (totalPages === 1) {
-        setCurrentPage(1);
+    if (currentPage > totalPages && totalPages > 0) {
+      setCurrentPage(totalPages);
+    } else if (totalPages <= 1 && currentPage !== 1) {
+      setCurrentPage(1);
     }
   }, [processedCases, currentPage, totalPages]);
 
-  if (isLoading) {
+  if (!cases) {
     return (
       <div className="loading-container">
         <div className="loading-spinner"></div>
@@ -113,6 +123,33 @@ function CaseLibraryPage() {
       <div className="library-header">
         <h1><i className="fa-solid fa-book-journal-whills"></i> Vaka Kütüphanesi</h1>
         <p>Çözülmeyi bekleyen siber güvenlik vakalarını keşfedin.</p>
+        <button onClick={toggleLanguage} className="language-toggle-lib">
+          {language === 'tr' ? 'EN' : 'TR'}
+        </button>
+      </div>
+
+      <div className="library-controls-container">
+        <div className="view-toggle-container">
+            <button
+                className={`view-toggle-btn ${viewMode === 'all' ? 'active' : ''}`}
+                onClick={() => setViewMode('all')}
+            >
+                <i className="fa-solid fa-globe"></i> Tümü
+            </button>
+            <button
+                className={`view-toggle-btn ${viewMode === 'common' ? 'active' : ''}`}
+                onClick={() => setViewMode('common')}
+            >
+                <i className="fa-solid fa-users"></i> Ortak Vakalar
+            </button>
+            <button
+                className={`view-toggle-btn ${viewMode === 'private' ? 'active' : ''}`}
+                onClick={() => setViewMode('private')}
+            >
+                <i className="fa-solid fa-user-lock"></i> Özel Vakalarım
+            </button>
+        </div>
+
         <div className="library-controls">
           <div className="library-search-container">
             <i className="fa-solid fa-search"></i>
@@ -125,10 +162,13 @@ function CaseLibraryPage() {
           </div>
           <div className="library-sort-container">
             <i className="fa-solid fa-sort"></i>
+            {/* GÜNCELLEME: Sıralama menüsüne yeni seçenekler eklendi */}
             <select value={sortOption} onChange={(e) => setSortOption(e.target.value)}>
               <option value="latest">Son Eklenen</option>
-              <option value="solved-first">Önce Çözülenler</option> {/* YENİ */}
-              <option value="unsolved-first">Önce Çözülmemişler</option> {/* YENİ */}
+              <option value="rating-desc">En Yüksek Puanlı</option>
+              <option value="rating-count-desc">En Çok Oylanan</option>
+              <option value="unsolved-first">Önce Çözülmemişler</option>
+              <option value="solved-first">Önce Çözülenler</option>
               <option value="alpha-asc">Alfabetik (A-Z)</option>
               <option value="alpha-desc">Alfabetik (Z-A)</option>
               <option value="diff-asc">Zorluk (Kolaydan Zora)</option>
@@ -136,9 +176,6 @@ function CaseLibraryPage() {
             </select>
           </div>
         </div>
-        <button onClick={toggleLanguage} className="language-toggle-lib">
-          {language === 'tr' ? 'EN' : 'TR'}
-        </button>
       </div>
 
       <div className="case-grid">
@@ -148,19 +185,38 @@ function CaseLibraryPage() {
             return (
               <Link to={`/case/${caseItem.id}`} key={caseItem.id} className="case-card-link">
                 <div className={`case-card ${isSolved ? 'case-card--solved' : ''}`}>
-                  <button 
-                    className="delete-case-btn" 
+                  <div className="case-card-header">
+                    <h3>{caseItem.title[language]}</h3>
+                    <div className="card-badges">
+                      {isSolved && (
+                          <div className="solved-badge">
+                              <i className="fa-solid fa-check-circle"></i> Çözüldü
+                          </div>
+                      )}
+                      {caseItem.type && (
+                          <div className={`type-badge type-${caseItem.type}`}>
+                              <i className={`fa-solid ${caseItem.type === 'common' ? 'fa-users' : 'fa-user-lock'}`}></i>
+                              {caseItem.type === 'common' ? 'Ortak' : 'Özel'}
+                          </div>
+                      )}
+                    </div>
+                  </div>
+                  <button
+                    className="delete-case-btn"
                     onClick={(e) => handleDeleteCase(e, caseItem.id)}
                     title="Vakayı Sil"
                   >
                     <i className="fa-solid fa-trash-can"></i>
                   </button>
-                  <div className="case-card-header">
-                    <div className={`difficulty-tag difficulty-${caseItem.difficulty}`}>
-                      {language === 'tr' ? difficultyMap[caseItem.difficulty] : caseItem.difficulty}
+                  
+                  {/* Puan gösterimi artık burada */}
+                  {caseItem.type === 'common' && caseItem.ratingCount > 0 && (
+                    <div className="card-rating">
+                        <StarDisplay rating={caseItem.averageRating} />
+                        <span>{caseItem.averageRating.toFixed(1)} ({caseItem.ratingCount} oy)</span>
                     </div>
-                    <h3>{caseItem.title[language]}</h3>
-                  </div>
+                  )}
+
                   <div className="case-card-concepts">
                     {caseItem.related_concepts.slice(0, 3).map((concept, index) => (
                       <span key={index} className="concept-tag-sm">{concept}</span>
@@ -184,8 +240,8 @@ function CaseLibraryPage() {
             ) : (
               <>
                 <i className="fa-solid fa-box-open"></i>
-                <h3>Kütüphane Henüz Boş</h3>
-                <p>Görünüşe göre henüz hiç vaka oluşturulmamış. Başlamak için ilk vakanızı oluşturun!</p>
+                <h3>Gösterilecek Vaka Bulunmuyor</h3>
+                <p>Bu filtrede henüz hiç vaka oluşturulmamış. Başlamak için yeni bir vaka oluşturun!</p>
                 <Link to="/create-case" className="read-more-btn">
                   <i className="fa-solid fa-plus"></i> Yeni Vaka Oluştur
                 </Link>
@@ -194,14 +250,14 @@ function CaseLibraryPage() {
           </div>
         )}
       </div>
-      
+
       {totalPages > 1 && (
         <div className="pagination-controls">
-          <button onClick={handlePrevPage} disabled={currentPage === 1}>
+          <button onClick={() => setCurrentPage(p => p - 1)} disabled={currentPage === 1}>
             <i className="fa-solid fa-arrow-left"></i> Önceki
           </button>
           <span>Sayfa {currentPage} / {totalPages}</span>
-          <button onClick={handleNextPage} disabled={currentPage === totalPages}>
+          <button onClick={() => setCurrentPage(p => p + 1)} disabled={currentPage === totalPages}>
             Sonraki <i className="fa-solid fa-arrow-right"></i>
           </button>
         </div>

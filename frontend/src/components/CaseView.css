@@ -841,3 +841,33 @@
   /* Modal içinde, header olmadığı için padding-top'u artırabiliriz */
   padding-top: 1rem;
 }
+/* frontend/src/components/CaseView.css dosyasının sonuna ekleyin */
+
+.case-rating-section {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.case-rating-section h3 {
+  color: var(--primary-glow);
+  margin-bottom: 0.5rem;
+}
+
+.case-rating-section p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  max-width: 60ch;
+  margin-bottom: 1.5rem;
+}
+/* frontend/src/components/CaseView.css dosyasının en sonuna ekleyin */
+
+/* Haber metni içindeki tüm img etiketlerini hedefliyoruz */
+.case-content-news-text img {
+  max-width: 100%; /* Kapsayıcısından daha geniş olmasını engeller */
+  height: auto;    /* En boy oranını korur */
+  display: block;  /* Bloğu eleman yapar ve yatayda ortalamayı sağlar */
+  margin: 1.5rem auto; /* Üstte ve altta boşluk bırakır, yatayda ortalar */
+  border-radius: 8px; /* Hafif yuvarlak köşeler */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Hafif gölge efekti */
+}

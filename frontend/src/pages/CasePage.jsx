@@ -5,6 +5,9 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import Modal from '../components/Modal';
 
+import StarRating from '../components/StarRating';
+import { rateCaseById } from '../services/api';
+
 import { askMentorNet, fetchCaseDetails } from '../services/api';
 import { appendToNotepad, getNotepadContent, saveNotepadContent } from '../services/notepadManager';
 import { getSolvedCases, addSolvedCase, removeSolvedCase } from '../services/solvedCasesManager';
@@ -50,6 +53,7 @@ function CasePage({ userSettings, onOpenSettings, anonymousUserId }) {
   const [isMentorNetModalOpen, setIsMentorNetModalOpen] = useState(false); 
   const [isSolved, setIsSolved] = useState(false);
   const [notification, setNotification] = useState('');
+  const [caseType, setCaseType] = useState(null);
   
   // Notepad içeriği artık bu üst bileşende yönetiliyor
   const [notepadContent, setNotepadContent] = useState('');
@@ -59,11 +63,14 @@ function CasePage({ userSettings, onOpenSettings, anonymousUserId }) {
   // --- VERİ YÜKLEME VE SENKRONİZASYON ---
   useEffect(() => {
     const loadData = async () => {
-      if (!caseId || !anonymousUserId) return; // anonymousUserId'yi beklediğimizden emin oluyoruz
+      if (!caseId || !anonymousUserId) return; // anonymousUserId'nin var olduğundan emin ol
       setIsLoadingCase(true);
       
-      const details = await fetchCaseDetails(caseId);
+      // DÜZELTME: API çağrısına anonymousUserId'yi ekliyoruz
+      const details = await fetchCaseDetails(caseId, anonymousUserId);
+      
       setCaseDetails(details);
+      setCaseType(details.type);
       setArtifacts(details.artifacts || []);
       
       const solvedStatus = getSolvedCases().includes(caseId);
@@ -85,6 +92,22 @@ function CasePage({ userSettings, onOpenSettings, anonymousUserId }) {
     };
     loadData();
   }, [caseId, anonymousUserId]);
+
+  const handleRatingSubmit = async (rating) => {
+    if (!anonymousUserId) {
+        setNotification('Oylama yapmak için kimliğinizin olması gerekiyor.');
+        setTimeout(() => setNotification(''), 3000);
+        return;
+    }
+    try {
+        const response = await rateCaseById(caseId, anonymousUserId, rating);
+        setNotification(`Oyunuz (${rating}/10) başarıyla kaydedildi! Yeni Ortalama: ${response.averageRating}`);
+        setTimeout(() => setNotification(''), 4000);
+    } catch (error) {
+        setNotification(`Hata: ${error.message}`);
+        setTimeout(() => setNotification(''), 3000);
+    }
+  };
 
   useEffect(() => {
     // İlk yüklemedeki başlangıç mesajının hemen kaydedilmemesi için kontrol
@@ -258,6 +281,15 @@ function CasePage({ userSettings, onOpenSettings, anonymousUserId }) {
                 </button>
             </div>
           </div>
+
+          {caseType === 'common' && (
+            <div className="case-rating-section">
+              <h3><i className="fa-solid fa-star-half-alt"></i> Bu Vakayı Değerlendir</h3>
+              <p>Bu vakanın kalitesini, öğreticiliğini ve gerçekçiliğini 10 üzerinden puanlayarak topluluğa yardımcı olun.</p>
+              <StarRating onRatingSubmit={handleRatingSubmit} />
+            </div>
+          )}
+
         </div>
         
         <div className="case-content-right">

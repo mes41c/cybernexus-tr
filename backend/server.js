@@ -523,30 +523,56 @@ app.post('/api/concepts/define', async (req, res) => {
     }
 });
 
-app.get('/api/cases/:caseId', (req, res) => {
+app.get('/api/cases/:caseId', async (req, res) => {
     const { caseId } = req.params;
+    const { anonymousUserId } = req.query; // Frontend'den kullanıcı kimliğini alıyoruz
 
-    // Güvenlik için: Path traversal saldırılarını önle
+    // Güvenlik için dosya adını temizle
     const safeCaseId = path.basename(caseId);
-    const caseFilePath = path.join(__dirname, 'cases', `${safeCaseId}.json`);
+    const fileName = `${safeCaseId}.json`;
 
-    fs.readFile(caseFilePath, 'utf8', (err, data) => {
-        if (err) {
-            console.error("Vaka dosyası okuma hatası:", err);
-            return res.status(404).json({ error: "Belirtilen vaka bulunamadı." });
+    // Dosyanın bulunabileceği olası yolları bir diziye ekliyoruz
+    const possiblePaths = [];
+
+    // 1. Öncelik: Kullanıcının kendi özel klasörü
+    if (anonymousUserId) {
+        const safeUserId = path.basename(anonymousUserId);
+        possiblePaths.push(path.join(__dirname, 'cases', 'private', safeUserId, fileName));
+    }
+    // 2. Öncelik: Herkesin görebileceği ortak klasör
+    possiblePaths.push(path.join(__dirname, 'cases', 'common', fileName));
+
+    let caseData = null;
+    let foundPath = null;
+
+    // Olası yolları sırayla kontrol et
+    for (const filePath of possiblePaths) {
+        if (fs.existsSync(filePath)) {
+            try {
+                const fileContent = await fs.promises.readFile(filePath, 'utf8');
+                caseData = JSON.parse(fileContent);
+                foundPath = filePath;
+                break; // Dosya bulundu, döngüden çık
+            } catch (error) {
+                console.error(`Dosya bulundu ama okunamadı: ${filePath}`, error);
+                // Hata durumunda diğer yolları aramaya devam et
+            }
         }
+    }
 
-        const caseData = JSON.parse(data);
-
-        // Frontend'e sadece gerekli olan başlık ve brifing metnini gönderiyoruz.
-        // İpuçları (clues) güvenlik nedeniyle backend'de kalıyor.
+    if (caseData) {
+        console.log(`Vaka başarıyla bulundu ve gönderiliyor: ${foundPath}`);
         res.json({
             title: caseData.title,
             briefing: caseData.news_article_text,
-            related_concepts: caseData.related_concepts || [], // Eğer bu alan yoksa boş bir dizi gönder
-            artifacts: caseData.artifacts || []
+            related_concepts: caseData.related_concepts || [],
+            artifacts: caseData.artifacts || [],
+            type: caseData.type || (foundPath.includes(path.join('cases', 'common')) ? 'common' : 'private')
         });
-    });
+    } else {
+        console.error(`Vaka bulunamadı: ${fileName}`);
+        return res.status(404).json({ error: "Belirtilen vaka bulunamadı." });
+    }
 });
 
 const casesDirectory = path.join(__dirname, 'cases');
@@ -563,65 +589,86 @@ if (!fs.existsSync(solutionsDirectory)) {
     console.log(`'solutions' klasörü oluşturuldu: ${solutionsDirectory}`);
 }
 
-app.get('/api/cases', (req, res) => {
-    // 1. Frontend'den gelen sayfa ve limit parametrelerini alıyoruz.
-    // Varsayılan değerler: 1. sayfa, sayfa başına 12 vaka.
-    const page = parseInt(req.query.page) || 1;
-    const limit = parseInt(req.query.limit) || 12;
-    const offset = (page - 1) * limit;
+app.get('/api/cases', async (req, res) => {
+    // 1. Gerekli tüm parametreleri alıyoruz
+    const { anonymousUserId, page = 1, limit = 12 } = req.query;
+    const pageNum = parseInt(page);
+    const limitNum = parseInt(limit);
+    const offset = (pageNum - 1) * limitNum;
 
-    fs.readdir(casesDirectory, (err, files) => {
-        if (err) {
-            console.error("Vaka klasörü okunurken hata oluştu:", err);
-            return res.status(500).json({ error: 'Vakalar listelenemedi.' });
+    try {
+        const commonCasesDir = path.join(__dirname, 'cases', 'common');
+        let allJsonFiles = [];
+
+        // 2. Ortak vakaları oku
+        if (fs.existsSync(commonCasesDir)) {
+            const commonFiles = await fs.promises.readdir(commonCasesDir);
+            allJsonFiles.push(...commonFiles.filter(f => f.endsWith('.json')).map(file => ({ file, dir: commonCasesDir })));
         }
 
-        const jsonFiles = files.filter(file => file.endsWith('.json'));
-        // 2. Toplam vaka sayısını hesaplıyoruz.
-        const totalCases = jsonFiles.length;
-        const totalPages = Math.ceil(totalCases / limit);
-
-        // 3. Sadece istenen sayfadaki dosyaları alıyoruz.
-        const paginatedFiles = jsonFiles.slice(offset, offset + limit);
-
-        if (paginatedFiles.length === 0 && page > 1) {
-             return res.json({ cases: [], currentPage: page, totalPages: totalPages });
+        // 3. Eğer kullanıcı kimliği varsa, özel vakalarını da oku
+        if (anonymousUserId) {
+            // Güvenlik için kullanıcı kimliğini temizle
+            const safeUserId = path.basename(anonymousUserId);
+            const privateDir = path.join(__dirname, 'cases', 'private', safeUserId);
+            if (fs.existsSync(privateDir)) {
+                const privateFiles = await fs.promises.readdir(privateDir);
+                allJsonFiles.push(...privateFiles.filter(f => f.endsWith('.json')).map(file => ({ file, dir: privateDir })));
+            }
         }
 
-       const casePromises = paginatedFiles.map(file => {
-            return new Promise((resolve, reject) => {
-                const caseFilePath = path.join(casesDirectory, file);
-                fs.readFile(caseFilePath, 'utf8', (err, data) => {
-                    if (err) { 
-                        console.error(`Hata: ${file} dosyası okunamadı.`, err);
-                        return resolve(null);
+        // 4. Sayfalama işlemini yap
+        const totalCases = allJsonFiles.length;
+        const totalPages = Math.ceil(totalCases / limitNum);
+        const paginatedFiles = allJsonFiles.slice(offset, offset + limitNum);
+
+        // 5. Dosya içeriklerini okuma (Promise.all ile)
+        const casePromises = paginatedFiles.map(fileInfo => {
+            return new Promise(async (resolve) => {
+                const caseFilePath = path.join(fileInfo.dir, fileInfo.file);
+                try {
+                    const data = await fs.promises.readFile(caseFilePath, 'utf8');
+                    const caseData = JSON.parse(data);
+                    const caseId = path.basename(fileInfo.file, '.json');
+
+                    const isCommon = fileInfo.dir.includes(path.join('cases', 'common'));
+                    const caseType = isCommon ? 'common' : 'private';
+
+                    let ratingInfo = { averageRating: 0, ratingCount: 0 };
+                    if (isCommon && caseData.ratings && caseData.ratings.length > 0) {
+                        const totalRating = caseData.ratings.reduce((sum, r) => sum + r.rating, 0);
+                        ratingInfo.averageRating = (totalRating / caseData.ratings.length);
+                        ratingInfo.ratingCount = caseData.ratings.length;
                     }
-                    try {
-                        const caseData = JSON.parse(data);
-                        const caseId = path.basename(file, '.json');
-                        resolve({
-                            id: caseId,
-                            title: caseData.title,
-                            related_concepts: caseData.related_concepts || [],
-                            difficulty: caseData.difficulty || 'intermediate'
-                        });
-                    } catch (parseErr) { 
-                        console.error(`Hata: ${file} dosyası JSON formatında değil.`, parseErr);
-                        resolve(null); 
-                    }
-                });
+
+                    resolve({
+                        id: caseId,
+                        title: caseData.title,
+                        related_concepts: caseData.related_concepts || [],
+                        difficulty: caseData.difficulty || 'intermediate',
+                        type: caseType,
+                        ...ratingInfo
+                    });
+                } catch (err) {
+                    console.error(`Hata: ${fileInfo.file} dosyası okunamadı veya bozuk.`, err);
+                    resolve(null);
+                }
             });
         });
 
-        Promise.all(casePromises).then(cases => {
-            const validCases = cases.filter(c => c !== null);
-            res.json({
-                cases: validCases,
-                currentPage: page,
-                totalPages: totalPages
-            });
+        const cases = (await Promise.all(casePromises)).filter(c => c !== null);
+        
+        // 6. Sonucu frontend'e gönder
+        res.json({
+            cases: cases,
+            currentPage: pageNum,
+            totalPages: totalPages
         });
-    });
+
+    } catch (error) {
+        console.error("Vakalar listelenirken genel bir hata oluştu:", error);
+        res.status(500).json({ error: 'Vakalar listelenemedi.' });
+    }
 });
 
 app.post('/api/cases/ask', async (req, res) => {
@@ -749,8 +796,11 @@ ${JSON.stringify(artifactsForAI, null, 2)}
 
 // --- YENİ ENDPOINT: AI İLE YENİ VAKA OLUŞTURMA ---
 app.post('/api/cases/create', async (req, res) => {
-    // 1. ZORLUK SEVİYESİNİ DE ARTIK İSTEKTEN ALIYORUZ
-    const { articleText, userSettings, difficulty } = req.body;
+    const { articleText, userSettings, difficulty, caseType, anonymousUserId } = req.body;
+
+    if (!caseType || (caseType === 'private' && !anonymousUserId)) {
+        return res.status(400).json({ error: 'Vaka türü veya özel vaka için kullanıcı kimliği eksik.' });
+    }
 
     if (!articleText || !userSettings || !userSettings.provider || !userSettings[`${userSettings.provider}ApiKey`] || !difficulty) {
         return res.status(400).json({ error: 'Makale metni, kullanıcı ayarları ve zorluk seviyesi gereklidir.' });
@@ -890,7 +940,8 @@ ${articleText}
                 const response = await openai.chat.completions.create({
                     model: modelName,
                     messages: [
-                        { role: 'system', content: 'You are an API that only returns valid, raw JSON code based on the user\'s request. Do not add any extra text or markdown formatting like ```json.' },
+                        // --- DÜZELTME: DAHA AGRESİF SİSTEM MESAJI ---
+                        { role: 'system', content: "You are an API that ONLY returns valid, raw JSON. Your entire response must start with '{' and end with '}'. Do not include markdown like ```json or any other explanatory text before or after the JSON object." },
                         { role: 'user', content: promptForAI }
                     ],
                     response_format: { type: "json_object" },
@@ -912,6 +963,8 @@ ${articleText}
         return res.status(500).json({ success: false, error: "Tüm AI sağlayıcıları ile vaka oluşturma işlemi başarısız oldu. Lütfen API anahtarlarınızı kontrol edin." });
     }
     
+    let newCaseId = `case-${Date.now()}-${crypto.randomBytes(4).toString('hex')}`;
+
     try {
         let generatedText = result.text();
         const startIndex = generatedText.indexOf('{');
@@ -924,17 +977,28 @@ ${articleText}
 
         const jsonString = generatedText.substring(startIndex, endIndex + 1);
         const newCaseData = JSON.parse(jsonString);
-        
-        const newCaseId = `case-${Date.now()}-${crypto.randomBytes(4).toString('hex')}`;
-        const newCaseFilePath = path.join(__dirname, 'cases', `${newCaseId}.json`);
+
+        let saveDirectory;
+        if (caseType === 'private') {
+            const safeUserId = path.basename(anonymousUserId);
+            const userDir = path.join(__dirname, 'cases', 'private', safeUserId);
+            if (!fs.existsSync(userDir)) {
+                fs.mkdirSync(userDir, { recursive: true });
+            }
+            saveDirectory = userDir;
+        } else { // 'common'
+            saveDirectory = path.join(__dirname, 'cases', 'common');
+        }
+
+        const newCaseFilePath = path.join(saveDirectory, `${newCaseId}.json`);
         await fs.promises.writeFile(newCaseFilePath, JSON.stringify(newCaseData, null, 2));
 
-        console.log(`Yeni vaka başarıyla kaydedildi: ${newCaseId}.json`);
+        console.log(`Yeni vaka başarıyla kaydedildi: ${newCaseFilePath}`);
         res.json({ success: true, newCaseId: newCaseId });
 
     } catch (parseError) {
         console.error("AI yanıtını parse etme hatası:", parseError);
-        console.error("Orijinal AI Yanıtı:", result.text ? result.text() : 'Yanıt alınamadı');
+        console.error(`Hata oluştuğunda VAKA ID: ${newCaseId}`);
         res.status(500).json({ success: false, error: "AI'dan gelen yanıt geçerli bir formatta değil." });
     }
 });
@@ -1099,32 +1163,103 @@ ${groundTruth}
     }
 });
 
-app.delete('/api/cases/:caseId', (req, res) => {
+app.delete('/api/cases/:caseId', async (req, res) => {
     const { caseId } = req.params;
+    // Silme işlemi için kullanıcı kimliğini de almamız gerekiyor
+    const { anonymousUserId } = req.query; 
 
-    // --- GÜVENLİK ÖNLEMİ ---
-    // Path Traversal saldırılarını önlemek için gelen caseId'yi temizliyoruz.
-    // Bu, ../ gibi karakterlerle üst dizinlere erişilmesini engeller.
     const safeCaseId = path.basename(caseId);
+    const fileName = `${safeCaseId}.json`;
 
-    // Silinecek dosyanın tam yolunu oluşturuyoruz.
-    const caseFilePath = path.join(__dirname, 'cases', `${safeCaseId}.json`);
+    // Dosyanın bulunabileceği olası yolları bir diziye ekliyoruz
+    const possiblePaths = [];
 
-    // Dosyanın var olup olmadığını kontrol et
-    if (!fs.existsSync(caseFilePath)) {
+    // 1. Olası konum: Kullanıcının kendi özel klasörü
+    if (anonymousUserId) {
+        const safeUserId = path.basename(anonymousUserId);
+        possiblePaths.push(path.join(__dirname, 'cases', 'private', safeUserId, fileName));
+    }
+    // 2. Olası konum: Herkesin görebileceği ortak klasör
+    possiblePaths.push(path.join(__dirname, 'cases', 'common', fileName));
+
+    let filePathToDelete = null;
+
+    // Olası yolları sırayla kontrol et
+    for (const filePath of possiblePaths) {
+        if (fs.existsSync(filePath)) {
+            filePathToDelete = filePath;
+            break; // Silinecek dosya bulundu, döngüden çık
+        }
+    }
+
+    if (!filePathToDelete) {
         return res.status(404).json({ success: false, message: 'Silinecek vaka bulunamadı.' });
     }
 
-    // Dosyayı sil
-    fs.unlink(caseFilePath, (err) => {
-        if (err) {
-            console.error("Vaka silinirken hata oluştu:", err);
-            return res.status(500).json({ success: false, message: 'Vaka silinirken bir sunucu hatası oluştu.' });
+    try {
+        await fs.promises.unlink(filePathToDelete);
+        console.log(`Vaka başarıyla silindi: ${filePathToDelete}`);
+        res.status(200).json({ success: true, message: 'Vaka başarıyla silindi.' });
+    } catch (err) {
+        console.error("Vaka silinirken hata oluştu:", err);
+        return res.status(500).json({ success: false, message: 'Vaka silinirken bir sunucu hatası oluştu.' });
+    }
+});
+
+app.post('/api/cases/:caseId/rate', async (req, res) => {
+    const { caseId } = req.params;
+    const { anonymousUserId, rating } = req.body;
+
+    if (!anonymousUserId || !rating || rating < 1 || rating > 10) {
+        return res.status(400).json({ success: false, message: 'Geçersiz istek. Kullanıcı kimliği ve 1-10 arası bir puan gereklidir.' });
+    }
+
+    const safeCaseId = path.basename(caseId);
+    // Oylama sadece ortak vakalar için geçerlidir.
+    const caseFilePath = path.join(__dirname, 'cases', 'common', `${safeCaseId}.json`);
+
+    if (!fs.existsSync(caseFilePath)) {
+        return res.status(404).json({ success: false, message: 'Oylanacak vaka bulunamadı veya bu bir ortak vaka değil.' });
+    }
+
+    try {
+        const fileContent = await fs.promises.readFile(caseFilePath, 'utf8');
+        const caseData = JSON.parse(fileContent);
+
+        // 'ratings' dizisi yoksa oluştur.
+        if (!caseData.ratings) {
+            caseData.ratings = [];
         }
 
-        console.log(`Vaka başarıyla silindi: ${safeCaseId}.json`);
-        res.status(200).json({ success: true, message: 'Vaka başarıyla silindi.' });
-    });
+        // Kullanıcının daha önceki oyunu bul.
+        const existingRatingIndex = caseData.ratings.findIndex(r => r.userId === anonymousUserId);
+
+        if (existingRatingIndex > -1) {
+            // Oy zaten varsa, güncelle.
+            caseData.ratings[existingRatingIndex].rating = rating;
+        } else {
+            // Oy yoksa, yeni bir oy ekle.
+            caseData.ratings.push({ userId: anonymousUserId, rating: rating });
+        }
+
+        // Yeni veriyi dosyaya geri yaz.
+        await fs.promises.writeFile(caseFilePath, JSON.stringify(caseData, null, 2));
+
+        // Güncel ortalamayı ve oy sayısını hesapla.
+        const totalRating = caseData.ratings.reduce((sum, r) => sum + r.rating, 0);
+        const averageRating = totalRating / caseData.ratings.length;
+
+        res.status(200).json({
+            success: true,
+            message: 'Oyunuz başarıyla kaydedildi.',
+            averageRating: averageRating.toFixed(1),
+            ratingCount: caseData.ratings.length
+        });
+
+    } catch (error) {
+        console.error(`Vaka oylanırken hata oluştu (${safeCaseId}):`, error);
+        res.status(500).json({ success: false, message: 'Oylama sırasında bir sunucu hatası oluştu.' });
+    }
 });
 
 app.delete('/api/solutions/:anonymousUserId', async (req, res) => {
