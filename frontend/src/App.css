@@ -21,22 +21,6 @@ body {
     line-height: 1.6;
 }
 
-header {
-    text-align: center;
-    padding: 2rem 1rem;
-    border-bottom: 1px solid var(--border-color);
-}
-
-header h1 {
-    color: var(--accent-color);
-    font-weight: 700;
-}
-
-header p {
-    color: var(--secondary-text-color);
-    font-weight: 300;
-}
-
 main {
     max-width: 1200px;
     margin: 2rem auto;
@@ -1136,5 +1120,217 @@ mark {
 @keyframes spin {
   to {
     transform: rotate(360deg);
+  }
+}
+/* SettingsView için CSS */
+
+.settings-actions {
+  margin-top: 2rem;
+  border-top: 1px solid var(--border-color);
+  padding-top: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.action-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.action-item .read-more-btn {
+  width: 100%;
+}
+
+.action-description {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-top: 0.75rem;
+  line-height: 1.5;
+  min-height: 50px; /* Butonların hizalı kalması için */
+}
+
+/* Tehlike (Danger) butonu için özel stil */
+.read-more-btn.danger {
+  border-color: rgba(231, 76, 60, 0.5);
+  color: #e74c3c;
+}
+.read-more-btn.danger:hover {
+  background-color: rgba(231, 76, 60, 0.1);
+  color: #ff6b5c;
+  border-color: #e74c3c;
+}
+
+.settings-footer {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: flex-end; /* Butonları sağa yasla */
+    align-items: center;
+    gap: 1rem;
+}
+
+.settings-footer .save-status-message {
+    margin-right: auto; /* Durum mesajını sola yasla */
+    margin-top: 0;
+}
+/* frontend/src/App.css dosyanızın header ile ilgili bölümüne ekleyin */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.info-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: 1px solid transparent;
+  color: var(--text-secondary);
+  font-size: 1.5rem; /* İkonu büyüt */
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.info-btn:hover {
+  color: var(--secondary-glow);
+  background-color: var(--glass-bg);
+}
+/* frontend/src/App.css */
+
+/* ==========================================================================
+   HEADER BÖLÜMÜ (TÜM KURALLAR)
+   ========================================================================== */
+
+header {
+  padding: 0.75rem 2rem;
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--background-blue-deep);
+}
+
+.header-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  position: relative; /* İçerideki mutlak konumlandırma için gereklidir */
+  height: 50px; /* Sabit bir yükseklik vererek hizalamayı garantiler */
+}
+
+/* --- SOL TARAF: Logo ve Başlık --- */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  /* position: absolute ile akıştan çıkarıp sola sabitliyoruz */
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.logo {
+  height: 40px;
+}
+
+header h1 {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+/* --- ORTA KISIM: Navigasyon Linkleri --- */
+nav {
+  display: flex;
+  gap: 2rem;
+  /* position: absolute ile akıştan çıkarıp tam ortaya sabitliyoruz */
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.nav-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.5rem 0;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  color: var(--primary-glow);
+  border-bottom-color: var(--primary-glow);
+}
+
+/* --- SAĞ TARAF: Aksiyon Butonları --- */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  /* position: absolute ile akıştan çıkarıp sağa sabitliyoruz */
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.info-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.info-btn:hover {
+  color: var(--secondary-glow);
+  background-color: var(--glass-bg);
+}
+
+.settings-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.settings-btn:hover {
+  color: var(--primary-glow);
+  border-color: var(--primary-glow);
+}
+
+/* --- KÜÇÜK EKRANLAR İÇİN UYARLAMA (Responsive) --- */
+@media (max-width: 900px) {
+  .header-content {
+    flex-direction: column;
+    height: auto;
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+
+  .logo-container, nav, .header-actions {
+    position: static;
+    transform: none;
+    width: 100%;
+    justify-content: center;
   }
 }

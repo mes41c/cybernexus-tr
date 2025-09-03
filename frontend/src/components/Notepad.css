@@ -1,0 +1,156 @@
+/* Notepad.css - Nihai ve Basitleştirilmiş Versiyon */
+
+.notepad-and-entities-wrapper {
+  margin-top: 1.5rem;
+}
+
+.notepad-container {
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  background-color: var(--background-blue-deep);
+  display: flex;
+  flex-direction: column;
+  min-height: 250px;
+  overflow: hidden;
+}
+
+.notepad-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  flex-shrink: 0;
+}
+.notepad-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--secondary-glow);
+}
+.notepad-header h3 i {
+  margin-right: 0.75rem;
+}
+.notepad-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.save-status {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+.save-status.saving {
+  color: var(--primary-glow);
+}
+.notepad-action-btn {
+  background: none;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  color: var(--text-secondary);
+  padding: 0.3rem 0.7rem;
+  cursor: pointer;
+}
+.notepad-action-btn:hover {
+  color: var(--text-primary);
+  border-color: var(--primary-glow);
+}
+
+.notepad-body {
+  flex-grow: 1;
+  position: relative;
+  display: grid;
+}
+
+/* Ortak stiller (metni şeffaf yapan kural buradan kaldırıldı) */
+.notepad-body textarea,
+.highlighter-overlay {
+  padding: 1.5rem;
+  font-family: 'Fira Code', 'Source Code Pro', monospace;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  grid-area: 1 / 1 / 2 / 2; /* İki katmanı üst üste bindirir */
+  background: transparent;
+  border: none;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow: auto;
+}
+
+/* SADECE textarea'nın metnini şeffaf yapıyoruz */
+.notepad-body textarea {
+  z-index: 2;
+  color: transparent;
+  caret-color: var(--primary-glow); /* Yazma imleci görünür kalsın */
+  resize: none;
+  -webkit-text-fill-color: transparent; /* Bu kural artık sadece burada */
+}
+
+.notepad-body textarea:focus {
+  outline: none;
+}
+
+/* highlighter-overlay'in metni görünür olacak */
+.highlighter-overlay {
+  z-index: 1;
+  color: var(--text-primary); /* Metin rengini buradan alacak */
+  pointer-events: none; /* Tıklama olaylarının textarea'ya geçmesini sağlar */
+}
+
+.highlighted-cyber-entity {
+  background-color: rgba(0, 170, 255, 0.2);
+  padding: 2px 0;
+  border-radius: 3px;
+}
+
+/* --- YENİ SORGULANABİLİR VARLIKLAR PANELİ --- */
+.entities-panel {
+  margin-top: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--glass-bg);
+}
+
+.entities-panel h4 {
+  padding: 0.75rem 1rem;
+  margin: 0;
+  cursor: pointer;
+  color: var(--secondary-glow);
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+}
+.entities-panel h4 .fa-chevron-down {
+  margin-right: 0.75rem;
+  transition: transform 0.3s ease;
+}
+.entities-panel h4 .fa-chevron-down.open {
+  transform: rotate(180deg);
+}
+
+.entities-list {
+  list-style: none;
+  padding: 0 1rem 1rem 1rem;
+  margin: 0;
+  max-height: 150px;
+  overflow-y: auto;
+  border-top: 1px solid var(--border-color);
+  padding-top: 1rem;
+}
+
+.entities-list li {
+  padding: 0.5rem 0.75rem;
+  color: var(--text-primary);
+  font-family: 'Fira Code', monospace;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.entities-list li:hover {
+  background-color: var(--primary-glow);
+  color: var(--background-blue-deep);
+}

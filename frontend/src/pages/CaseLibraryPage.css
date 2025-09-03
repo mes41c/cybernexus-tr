@@ -1,0 +1,328 @@
+/* frontend/src/pages/CaseLibraryPage.css */
+
+.case-library-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  color: var(--text-primary);
+}
+
+.library-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.library-header h1 {
+  font-size: 2.5rem;
+  color: var(--primary-glow);
+  margin-bottom: 0.5rem;
+}
+
+.library-header p {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+}
+
+.language-toggle-lib {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: var(--glass-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.case-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.case-card-link {
+  text-decoration: none;
+}
+
+.case-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+}
+
+.case-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary-glow);
+  box-shadow: 0 10px 30px rgba(0, 170, 255, 0.2);
+}
+
+.case-card h3 {
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  flex-grow: 1; /* Başlığın kalan boşluğu doldurmasını sağlar */
+}
+
+.case-card-concepts {
+  margin-bottom: 1.5rem;
+}
+
+.concept-tag-sm {
+  display: inline-block;
+  background-color: rgba(0, 170, 255, 0.1);
+  color: var(--secondary-glow);
+  padding: 0.3rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.case-card-footer {
+  margin-top: auto;
+  text-align: right;
+  font-weight: bold;
+  color: var(--primary-glow);
+}
+/* frontend/src/pages/CaseLibraryPage.css dosyasının sonuna ekleyin */
+
+.case-card {
+  position: relative; /* Silme butonunu konumlandırmak için gerekli */
+}
+
+.delete-case-btn {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease;
+  opacity: 0.5;
+}
+
+.case-card:hover .delete-case-btn {
+  opacity: 1; /* Sadece kartın üzerine gelince butonu belirginleştir */
+}
+
+.delete-case-btn:hover {
+  background-color: rgba(255, 80, 80, 0.2);
+  color: #ff5050; /* Tehlike rengi */
+}
+/* frontend/src/pages/CaseLibraryPage.css dosyasının sonuna ekleyin */
+
+.library-search-container {
+  position: relative;
+  max-width: 500px;
+  margin: 2rem auto 0 auto; /* Başlığın altına ve ortaya konumlandır */
+}
+
+.library-search-container input[type="search"] {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  padding-left: 3rem; /* İkon için yer aç */
+  border-radius: 30px; /* Tam yuvarlak köşeler */
+  border: 1px solid var(--border-color);
+  background-color: var(--background-blue-deep);
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.library-search-container input[type="search"]::placeholder {
+  color: var(--text-secondary);
+}
+
+.library-search-container input[type="search"]:focus {
+  outline: none;
+  border-color: var(--primary-glow);
+  box-shadow: 0 0 15px rgba(0, 170, 255, 0.3);
+}
+
+.library-search-container .fa-search {
+  position: absolute;
+  left: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-secondary);
+}
+/* frontend/src/pages/CaseLibraryPage.css dosyasının sonuna ekleyin */
+
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.pagination-controls button {
+  background-color: var(--glass-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.pagination-controls button:hover:not(:disabled) {
+  background-color: var(--primary-glow);
+  border-color: var(--primary-glow);
+  color: var(--background-blue-deep);
+}
+
+.pagination-controls button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.pagination-controls span {
+  color: var(--text-secondary);
+  font-weight: bold;
+}
+/* frontend/src/pages/CaseLibraryPage.css */
+
+/* Arama ve Sıralamayı yan yana getirmek için */
+.library-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  align-items: center;
+  max-width: 800px;
+  margin: 2rem auto 0 auto;
+  flex-wrap: wrap; /* Küçük ekranlar için */
+}
+
+.library-search-container {
+  flex-grow: 1; /* Arama çubuğu daha fazla yer kaplasın */
+  min-width: 300px;
+  margin: 0;
+}
+
+/* Sıralama menüsü için yeni stiller */
+.library-sort-container {
+  position: relative;
+}
+
+.library-sort-container select {
+  -webkit-appearance: none; /* Varsayılan tarayıcı stilini kaldır */
+  -moz-appearance: none;
+  appearance: none;
+  
+  width: 100%;
+  min-width: 220px;
+  padding: 0.85rem 1rem;
+  padding-left: 2.75rem; /* İkon için yer aç */
+  border-radius: 30px;
+  border: 1px solid var(--border-color);
+  background-color: var(--background-blue-deep);
+  color: var(--text-primary);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.library-sort-container select:focus {
+  outline: none;
+  border-color: var(--primary-glow);
+  box-shadow: 0 0 15px rgba(0, 170, 255, 0.3);
+}
+
+.library-sort-container .fa-sort {
+  position: absolute;
+  left: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-secondary);
+  pointer-events: none; /* İkonun tıklamayı engellememesi için */
+}
+/* CaseLibraryPage.css dosyasının sonuna ekleyin */
+.empty-state-container {
+  grid-column: 1 / -1; /* Grid'in tamamını kapla */
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: var(--glass-bg);
+  border-radius: 12px;
+  border: 1px dashed var(--border-color);
+  color: var(--text-secondary);
+}
+
+.empty-state-container i {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary-glow);
+  opacity: 0.5;
+}
+
+.empty-state-container h3 {
+  color: var(--text-primary);
+  font-size: 1.5rem;
+}
+
+.empty-state-container p {
+  max-width: 400px;
+  margin: 0.5rem auto 1.5rem auto;
+}
+
+.empty-state-container .read-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--primary-glow);
+  color: var(--background-blue-deep);
+  border-color: var(--primary-glow);
+}
+/* CaseLibraryPage.css dosyasının sonuna ekleyin */
+
+/* Çözülmüş vaka kartı için genel stil */
+.case-card--solved {
+  border-color: #1d976c; /* Yeşil bir çerçeve */
+  background: radial-gradient(circle, rgba(29, 151, 108, 0.1) 0%, var(--glass-bg) 70%);
+}
+
+/* Çözüldü Etiketi */
+.solved-badge {
+  position: absolute;
+  top: 1.1rem;
+  right: 3rem; /* Silme butonunun solunda */
+  background-color: rgba(29, 151, 108, 0.8);
+  color: #fff;
+  padding: 0.3rem 0.7rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Çözülmüş kartın footer'ındaki metni ayarla */
+.case-card--solved .case-card-footer span {
+  color: var(--text-secondary);
+}

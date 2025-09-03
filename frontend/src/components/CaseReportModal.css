@@ -1,0 +1,246 @@
+/* ==========================================================================
+   Vaka Sayfasındaki "Rapor Sun" Butonu
+   ========================================================================== */
+
+.report-submission-container {
+  margin-top: 2rem;
+  border-top: 1px solid var(--border-color);
+  padding-top: 2rem;
+}
+
+.submit-report-btn {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #1d976c, #24b37f);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.submit-report-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(36, 179, 127, 0.4);
+}
+
+
+/* ==========================================================================
+   Rapor Modalı Genel Stilleri (Overlay, Content, Header)
+   ========================================================================== */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+  background: var(--background-blue-deep);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  width: 90%;
+  max-width: 700px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 40px rgba(0, 170, 255, 0.2);
+  color: var(--text-primary);
+  animation: slideIn 0.4s ease;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  flex-shrink: 0;
+}
+
+.modal-header h2 {
+  color: var(--primary-glow);
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.close-modal-btn {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 2rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0.5rem;
+  transition: color 0.2s ease;
+}
+
+.close-modal-btn:hover {
+    color: #fff;
+}
+
+/* ==========================================================================
+   YENİ VE GELİŞTİRİLMİŞ Form Stilleri
+   ========================================================================== */
+
+.modal-content form,
+.evaluation-result {
+  padding: 1rem 1.5rem 1.5rem 1.5rem;
+  overflow-y: auto;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.form-group-header i {
+  font-size: 1.5rem;
+  color: var(--primary-glow);
+  opacity: 0.8;
+}
+
+.form-group-title label {
+  display: block;
+  font-weight: bold;
+  color: var(--text-primary);
+  font-size: 1.1rem;
+}
+
+.form-group-title span {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  color: var(--text-primary);
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  resize: vertical;
+  min-height: 100px;
+  transition: all 0.2s ease;
+}
+
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-glow);
+  box-shadow: 0 0 10px rgba(0, 170, 255, 0.2);
+}
+
+.char-counter {
+  text-align: right;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  opacity: 0.7;
+  padding-top: 0.25rem;
+}
+
+.submit-evaluation-btn {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #00aaff, #00f0ff);
+  color: var(--background-blue-deep);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.submit-evaluation-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.submit-evaluation-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 170, 255, 0.3);
+}
+
+/* ==========================================================================
+   YENİ VE GELİŞTİRİLMİŞ Değerlendirme Sonucu Stilleri
+   ========================================================================== */
+
+.evaluation-result h3 { /* ✅ Başarılı Tespitler gibi başlıklar için */
+  font-size: 1.2rem;
+  color: var(--primary-glow);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.evaluation-result h3:first-child {
+  margin-top: 0;
+}
+
+.evaluation-result {
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.evaluation-result strong {
+    color: var(--text-primary);
+}
+
+.evaluation-result p {
+    margin-bottom: 1rem;
+}
+
+.evaluation-result ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.evaluation-result li {
+  padding-left: 1.5rem;
+  position: relative;
+  margin-bottom: 0.75rem;
+}
+
+/* Liste elemanlarının başına ikon ekliyoruz */
+.evaluation-result li::before {
+  content: '🔹';
+  position: absolute;
+  left: 0;
+  color: var(--secondary-glow);
+}
+
+/* Animasyonlar */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
