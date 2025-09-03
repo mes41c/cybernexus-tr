@@ -2,91 +2,119 @@
   <img src="./frontend/public/cybernexus.png" alt="CyberNexus TR Logo" width="150"/>
 </p>
 
-CyberNexus TR 🇹🇷
-Küresel Siber İstihbarat ve Dil Geliştirme Portalınız
-Canlı Demo: https://cybernexus.mes41.site/
+<h1 align="center">CyberNexus TR 🇹🇷</h1>
 
-💡 Proje Hakkında
-CyberNexus TR, siber güvenlik alanında kendini geliştirmeyi hedefleyen öğrenciler ve profesyoneller için tasarlanmış kişisel bir full-stack projedir. Bu platform, güncel siber güvenlik haberlerini takip etme, temel ve ileri düzey kavramları öğrenme ve teknik İngilizce pratiği yapma ihtiyacından doğmuştur.
+<p align="center">
+  <strong>Yapay Zeka Destekli, İnteraktif Siber Güvenlik Eğitim ve Analiz Platformu</strong>
+  <br />
+  <a href="https://cybernexus.mes41.site/" target="_blank"><strong>Canlı Demo »</strong></a>
+</p>
 
-Bu proje, herhangi bir resmi kodlama eğitimi almadan önce, kişisel bir merak ve öğrenme azmiyle, Google'ın Gemini Pro modellerinin yardımıyla yalnızca 4 gün gibi kısa bir sürede sıfırdan geliştirilmiştir. Amacı, modern web teknolojilerini kullanarak siber güvenlik alanındaki bilgiye erişimi kolaylaştırmak ve dil bariyerini bir avantaja dönüştürmektir.
+---
 
-✨ Temel Özellikler
-Çok Kaynaklı Haber Akışı: Sektör lideri 20'ye yakın uluslararası ve yerel kaynaktan gelen RSS akışlarını anlık olarak çeken ve sunan, sunucu taraflı önbellekleme (caching) ile optimize edilmiş bir haber motoru.
+## 💡 Proje Hakkında
 
-Kavram Odaklı Keşfetme: Siber güvenliğin 9 ana kategorisi altında toplanmış 160'tan fazla temel ve ileri düzey kavramı keşfetme ve ilgili haberlere anında ulaşma imkanı.
+**CyberNexus TR**, siber güvenlik alanındaki öğrencilerin ve profesyonellerin pratik yeteneklerini geliştirmeleri için tasarlanmış, baştan sona (full-stack) bir web platformudur. Bu proje, teorik bilgiyi gerçekçi senaryolarla birleştirerek, bir SOC analistinin günlük iş akışını simüle etmeyi ve bu süreçte yapay zekayı kişiselleştirilmiş bir mentor olarak konumlandırmayı hedefler.
 
-AI Destekli Tanımlar: Herhangi bir siber güvenlik kavramı için, NIST ve SANS gibi otorite kaynakları referans alarak, yapay zeka tarafından anlık, akademik ve Türkçe tanımlar üretme özelliği.
+Bu platform, kişisel bir ihtiyaçtan doğmuş ve Google'ın Gemini Pro modellerinin yoğun asistanlığıyla, konseptten tam özellikli bir ürüne dönüştürülmüştür. Amaç, modern web teknolojilerini kullanarak siber güvenlik eğitiminde karşılaşılan pratik yapma eksikliğini gidermek ve öğrenme sürecini dinamik, ilgi çekici ve kişiye özel hale getirmektir.
 
-Akıllı Bağlantılar (Cross-linking): AI tarafından üretilen tanımların içinde geçen diğer siber güvenlik terimlerini otomatik olarak algılayıp, o terimlerin kendi sayfalarına yönlendiren tıklanabilir linklere dönüştüren akıllı bir içerik ağı.
+## ✨ Öne Çıkan Özellikler
 
-Gelişmiş Arama Motoru:
+Bu platform, standart bir bilgi portalının ötesinde, kullanıcıyı aktif bir katılımcı haline getiren bir dizi yenilikçi modül sunar:
 
-Vurgulama (Highlighting): Arama sonuçlarında, aranan kelimeyi başlık ve açıklamalarda görsel olarak vurgulama.
+### 🕵️‍♂️ Cyber Detective Modülü: İnteraktif Vaka Çözümü
+Kullanıcıların, gerçek dünya olaylarından esinlenerek yapay zeka tarafından oluşturulmuş siber saldırı vakalarını çözdüğü, oyunlaştırılmış bir simülasyon ortamı.
 
-Akıllı Öneri Sistemi: Doğrudan sonuç bulunamadığında, "ilişkili anahtar kelimeler" üzerinden kullanıcıya "Bunu mu demek istediniz?" şeklinde alternatif kavramlar sunma.
+* **Akıllı AI Mentor "Mergen":** Türk mitolojisindeki bilgelik tanrısından esinlenerek adlandırılan Mergen, kullanıcının sorularını yanıtlar, komutlarını (örn: `WHOIS sorgusu yap`) simüle eder ve tıkandığı noktalarda Sokratik metotla yol gösterir.
+* **Dinamik Kanıt Sistemi:** Her vaka, bir analistin inceleyeceği türden log kayıtları, raporlar ve kod parçacıkları gibi somut dijital kanıtlar (`Artifacts`) içerir.
+* **Vaka Raporlama ve Değerlendirme:** Kullanıcılar, vaka sonunda bulgularını içeren bir analiz raporu sunar. Mergen, bu raporu vakanın gerçek çözümüyle karşılaştırarak detaylı ve yapıcı geri bildirimler sunar.
 
-Kaynak Odaklı Tarama: Kullanıcıların belirli bir haber kaynağını (örneğin Cisco Talos Blog) seçerek sadece o kaynaktan gelen haberleri görmesine ve içinde arama yapmasına olanak tanır.
+### 🧠 Kişiselleştirilmiş Gelişim Takibi (Hafızalı AI)
+Platformun en yenilikçi özelliği, her kullanıcının öğrenme yolculuğunu takip etmesidir.
 
-🛠️ Kullanılan Teknolojiler (Tech Stack)
-Frontend (Cloudflare Pages üzerinde)
-React (Vite): Hızlı ve modern bir kullanıcı arayüzü için.
+* **Anonim Gelişim Profili:** Tarayıcı tabanlı benzersiz bir kimlik (`localStorage`) sayesinde, platform her kullanıcının çözdüğü vakaları ve aldığı geri bildirimleri hatırlar.
+* **Özelleştirilmiş Mentorluk:** Mergen, yeni bir raporu değerlendirirken kullanıcının **geçmişteki hatalarını ve başarılarını** dikkate alır. Eğer kullanıcı daha önce yaptığı bir hatayı tekrarlarsa nazikçe hatırlatır, eski bir eksiğini gidermişse bunu özellikle tebrik eder.
 
-CSS3: Projenin ruhuna uygun, özel tasarlanmış karanlık tema.
+### ✒️ Akıllı Analist Not Defteri
+Her vaka ekranına entegre, bir analistin iş akışını hızlandırmak için tasarlanmış özel bir not defteri.
 
-axios: Güçlü ve esnek API istekleri için.
+* **Otomatik Varlık Tanıma:** Not defteri, içine yazılan metni anlık olarak analiz ederek IP adresleri, dosya hash'leri (MD5, SHA256), URL'ler ve CVE numaraları gibi siber güvenlik varlıklarını otomatik olarak tanır ve vurgular.
+* **Sorgulanabilir Varlıklar Paneli:** Tanınan tüm varlıklar, not defterinin yanındaki bir panelde listelenir. Kullanıcı bu listedeki bir varlığa tıklayarak, tek tıkla Mergen'e o varlık hakkında sorgu gönderebilir.
+* **Kanıt Entegrasyonu:** Kullanıcılar, vaka kanıtlarını veya Mergen'in verdiği önemli bilgileri tek bir tıkla doğrudan not defterine ekleyebilir.
 
-react-markdown: AI tarafından üretilen zengin metin içeriklerini render etmek için.
+### 🛠️ Dinamik Vaka Üretim Motoru
+Kullanıcıların kendi interaktif vaka senaryolarını yaratabildiği güçlü bir modül.
 
-Backend (Render.com üzerinde)
-Node.js & Express.js: Hızlı, esnek ve ölçeklenebilir bir REST API sunucusu için.
+* **Haberden Vakaya:** Kullanıcı, ilgisini çeken herhangi bir siber güvenlik haber metnini sisteme girer.
+* **AI Destekli Senaryolaştırma:** Yapay zeka, bu metni analiz ederek seçilen zorluk seviyesine (Başlangıç, Orta, İleri) uygun bir SIEM uyarısı, çözümü destekleyecek dijital kanıtlar ve bir hikaye oluşturur.
+* **Sürekli Genişleyen İçerik:** Oluşturulan her yeni vaka, "Vaka Kütüphanesi"ne eklenerek platformun içerik havuzunu sürekli olarak zenginleştirir.
 
-SQLite3: Projenin tüm kavram verilerini tutan, sunucuya entegre, dosya tabanlı veritabanı.
+### 📚 Vaka Kütüphanesi ve Yönetim
+Oluşturulan tüm vakaların bulunduğu, kapsamlı yönetim özelliklerine sahip bir merkez.
 
-CORS: Frontend ve backend arasında güvenli iletişimi sağlamak için.
+* **Gelişmiş Arama ve Sıralama:** Vakaları başlığa, ilgili kavramlara göre arama; son eklenme tarihine, zorluk seviyesine veya "çözülme durumuna" göre sıralama.
+* **İlerleme Takibi:** Kullanıcılar, çözdükleri vakaları "Çözüldü" olarak işaretleyebilir veya bu işareti kaldırabilirler. Bu işaretleme, bir vaka raporu sunulduğunda otomatik olarak da gerçekleşir.
 
-rss-parser & cheerio: Farklı formatlardaki RSS akışlarını güvenilir bir şekilde işlemek ve temizlemek için.
+---
 
-dotenv: Geliştirme ortamındaki gizli verileri yönetmek için.
+## 🏛️ Mimarisi (Architecture)
 
-🏛️ Mimari (Architecture)
-Proje, modern ve ölçeklenebilir bir "headless" (ayrık) mimari kullanır:
+Proje, modern ve ölçeklenebilir bir **ayrık (headless)** mimari kullanır:
 
-Frontend: React ile oluşturulan kullanıcı arayüzü, statik varlık olarak derlenir ve Cloudflare Pages'in küresel ağı üzerinden ışık hızında sunulur.
+* **Frontend (Cloudflare Pages):** `React (Vite)` ile oluşturulan kullanıcı arayüzü, statik varlık olarak derlenir ve Cloudflare Pages'in küresel ağı üzerinden yüksek performansla sunulur.
+* **Backend (Render.com):** `Node.js / Express.js` ile oluşturulan REST API sunucusu, Render.com'un "Web Service" altyapısında barındırılır. Tüm dinamik işlemler (veri çekme, AI istekleri, vaka yönetimi) bu sunucu tarafından yönetilir.
+* **Veri Depolama:**
+    * **SQLite3:** Siber güvenlik kavramları gibi yapısal veriler için sunucuya entegre, dosya tabanlı bir veritabanı.
+    * **JSON Dosyaları:** AI tarafından üretilen vakalar (`/cases`) ve kullanıcı çözümleri (`/solutions`), yönetim ve taşınabilirlik kolaylığı için `.json` dosyaları olarak saklanır.
 
-Backend: Node.js/Express ile oluşturulan REST API sunucusu, Render.com'un "Web Service" altyapısında barındırılır. Tüm dinamik işlemler (veri çekme, haber akışı, AI istekleri) bu sunucu tarafından yönetilir.
+Bu yapı, frontend ve backend'in birbirinden bağımsız olarak geliştirilmesine ve ölçeklenmesine olanak tanır.
 
-Bu yapı, frontend ve backend'in birbirinden bağımsız olarak geliştirilmesine, ölçeklenmesine ve bakımının yapılmasına olanak tanır.
+---
 
-🚀 Yerelde Çalıştırma (Getting Started)
+## 🛠️ Kullanılan Teknolojiler (Tech Stack)
+
+**Frontend:**
+* React (Vite), React Router
+* ReactMarkdown
+* `localStorage` (Kullanıcıya özel verilerin tarayıcıda saklanması için)
+* CSS3 (Özel Tasarım)
+
+**Backend:**
+* Node.js, Express.js
+* **AI Entegrasyonu:** Google Generative AI (Gemini), OpenAI (GPT), DeepSeek
+* **Veritabanı:** SQLite3
+* **Veri İşleme:** Cheerio, rss-parser
+* **Güvenlik:** CORS, dotenv
+
+---
+
+## 🚀 Yerelde Çalıştırma (Getting Started)
+
 Projeyi kendi bilgisayarınızda çalıştırmak için:
 
-1. Projeyi Klonlayın:
+1.  **Projeyi Klonlayın:**
+    ```bash
+    git clone [https://github.com/mes41c/cybernexus-tr.git](https://github.com/mes41c/cybernexus-tr.git)
+    cd cybernexus-tr
+    ```
+2.  **Backend'i Başlatma:**
+    ```bash
+    cd backend
+    npm install
+    node server.js
+    # Sunucu http://localhost:5000 adresinde başlayacaktır
+    ```
+3.  **Frontend'i Başlatma:**
+    ```bash
+    cd ../frontend
+    npm install
+    npm run dev
+    # Uygulama http://localhost:5173 adresinde açılacaktır
+    ```
+(Not: AI özelliklerini test etmek için Ayarlar menüsünden kendi API anahtarlarınızı girmeniz gerekmektedir.)
 
-Bash
+---
 
-git clone https://github.com/mes41c/cybernexus-tr.git
-cd cybernexus-tr
-2. Backend'i Başlatma:
+## 📜 Lisans
 
-Bash
-
-cd backend
-npm install
-node server.js
-# Sunucu http://localhost:5000 adresinde başlayacaktır
-3. Frontend'i Başlatma:
-
-Bash
-
-cd ../frontend
-npm install
-npm run dev
-# Uygulama http://localhost:5173 adresinde açılacaktır
-(Not: AI özelliklerini test etmek için frontend/src/services/api.js dosyasında API_URL sabitini http://localhost:5000/api olarak ayarlamanız ve Ayarlar menüsünden kendi API anahtarınızı girmeniz gerekmektedir.)
-
-📜 Lisans
-Bu proje, MIT Lisansı ile lisanslanmıştır. Daha fazla bilgi için LICENSE dosyasına bakınız.
-
-✨ Teşekkür
-Bu projenin 4 gün gibi rekor bir sürede hayata geçirilmesinde, konsept geliştirme, kodlama, karmaşık hataları ayıklama ve en iyi pratiklerin öğrenilmesi aşamalarında Google Gemini Pro'nun sağladığı anlık ve isabetli destek kritik bir rol oynamıştır.
+Bu proje, MIT Lisansı ile lisanslanmıştır. Daha fazla bilgi için `LICENSE` dosyasına bakınız.
