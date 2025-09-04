@@ -10,6 +10,7 @@ const cheerio = require('cheerio');
 const axios = require('axios');
 const fs = require('fs'); // YENİ
 const path = require('path');
+const dataDirectory = path.join('/var/data');
 
 let parser = new Parser({ 
     timeout: 10000, // 10 saniye zaman aşımı süresi ekliyoruz
@@ -537,7 +538,8 @@ app.get('/api/cases/:caseId', async (req, res) => {
     // 1. Öncelik: Kullanıcının kendi özel klasörü
     if (anonymousUserId) {
         const safeUserId = path.basename(anonymousUserId);
-        possiblePaths.push(path.join(__dirname, 'cases', 'private', safeUserId, fileName));
+        possiblePaths.push(path.join(casesDirectory, 'private', safeUserId, fileName));
+        possiblePaths.push(path.join(casesDirectory, 'common', fileName));
     }
     // 2. Öncelik: Herkesin görebileceği ortak klasör
     possiblePaths.push(path.join(__dirname, 'cases', 'common', fileName));
@@ -575,18 +577,16 @@ app.get('/api/cases/:caseId', async (req, res) => {
     }
 });
 
-const casesDirectory = path.join(__dirname, 'cases');
-const solutionsDirectory = path.join(__dirname, 'solutions');
+const casesDirectory = path.join(dataDirectory, 'cases');
+const solutionsDirectory = path.join(dataDirectory, 'solutions');
 
 if (!fs.existsSync(casesDirectory)) {
-    fs.mkdirSync(casesDirectory);
-    console.log(`'cases' klasörü oluşturuldu: ${casesDirectory}`);
+    fs.mkdirSync(casesDirectory, { recursive: true });
+    console.log(`Yazılabilir vaka klasörü oluşturuldu: ${casesDirectory}`);
 }
-
-// 'solutions' klasörü var mı? Yoksa oluştur.
 if (!fs.existsSync(solutionsDirectory)) {
-    fs.mkdirSync(solutionsDirectory);
-    console.log(`'solutions' klasörü oluşturuldu: ${solutionsDirectory}`);
+    fs.mkdirSync(solutionsDirectory, { recursive: true });
+    console.log(`Yazılabilir çözüm klasörü oluşturuldu: ${solutionsDirectory}`);
 }
 
 app.get('/api/cases', async (req, res) => {
@@ -597,7 +597,7 @@ app.get('/api/cases', async (req, res) => {
     const offset = (pageNum - 1) * limitNum;
 
     try {
-        const commonCasesDir = path.join(__dirname, 'cases', 'common');
+        const commonCasesDir = path.join(casesDirectory, 'common');
         let allJsonFiles = [];
 
         // 2. Ortak vakaları oku
@@ -610,7 +610,7 @@ app.get('/api/cases', async (req, res) => {
         if (anonymousUserId) {
             // Güvenlik için kullanıcı kimliğini temizle
             const safeUserId = path.basename(anonymousUserId);
-            const privateDir = path.join(__dirname, 'cases', 'private', safeUserId);
+            const privateDir = path.join(casesDirectory, 'private', safeUserId);
             if (fs.existsSync(privateDir)) {
                 const privateFiles = await fs.promises.readdir(privateDir);
                 allJsonFiles.push(...privateFiles.filter(f => f.endsWith('.json')).map(file => ({ file, dir: privateDir })));
@@ -680,7 +680,21 @@ app.post('/api/cases/ask', async (req, res) => {
     
     const apiKey = userSettings[`${userSettings.provider}ApiKey`];
     const safeCaseId = path.basename(caseId);
-    const caseFilePath = path.join(__dirname, 'cases', `${safeCaseId}.json`);
+
+    let caseFilePath = null;
+    const safeUserId = path.basename(anonymousUserId);
+    const privatePath = path.join(casesDirectory, 'private', safeUserId, `${safeCaseId}.json`);
+    const commonPath = path.join(casesDirectory, 'common', `${safeCaseId}.json`);
+
+    if (fs.existsSync(privatePath)) {
+        caseFilePath = privatePath;
+    } else if (fs.existsSync(commonPath)) {
+        caseFilePath = commonPath;
+    }
+
+    if (!caseFilePath) {
+        return res.status(404).json({ reply: "Sohbet edilecek vaka bulunamadı." });
+    }
 
     try {
         const caseFileContent = await fs.promises.readFile(caseFilePath, 'utf8');
@@ -920,7 +934,7 @@ ${articleText}
             continue; // Bu sağlayıcı için anahtar yoksa, bir sonrakine geç
         }
 
-        console.log(`Deneniyor: Vaka ${provider} ile oluşturuluyor...`);
+        const newCaseId = `case-${Date.now()}-${crypto.randomBytes(4).toString('hex')}`;
 
         try {
             if (provider === 'gemini') {
@@ -983,29 +997,19 @@ ${articleText}
         let saveDirectory;
         if (caseType === 'private') {
             const safeUserId = path.basename(anonymousUserId);
-            const userDir = path.join(__dirname, 'cases', 'private', safeUserId);
-            saveDirectory = userDir;
-        } else { // 'common'
-            const commonDir = path.join(__dirname, 'cases', 'common');
-            saveDirectory = commonDir;
+            saveDirectory = path.join(casesDirectory, 'private', safeUserId); // YOL GÜNCELLENDİ
+        } else {
+            saveDirectory = path.join(casesDirectory, 'common'); // YOL GÜNCELLENDİ
         }
 
-        // --- YENİ EKLENEN VE HATAYI ÇÖZECEK KOD ---
-        // Dosyayı yazmadan önce, kayıt edilecek klasörün var olduğundan emin ol.
-        // Eğer klasör yoksa, `{ recursive: true }` sayesinde iç içe bile olsa oluştur.
         if (!fs.existsSync(saveDirectory)) {
             fs.mkdirSync(saveDirectory, { recursive: true });
-            console.log(`Klasör oluşturuldu: ${saveDirectory}`);
         }
-        // --- Değişiklik sonu ---
 
         const newCaseFilePath = path.join(saveDirectory, `${newCaseId}.json`);
         await fs.promises.writeFile(newCaseFilePath, JSON.stringify(newCaseData, null, 2));
-
-        console.log(`Yeni vaka başarıyla kaydedildi: ${newCaseFilePath}`);
         res.json({ success: true, newCaseId: newCaseId });
-
-    } catch (parseError) {
+    } catch (error) {
         console.error("====================== JSON PARSE HATASI ======================");
         console.error("Hata Mesajı:", parseError.message);
         console.error(`Oluşturulan VAKA ID: ${newCaseId}`);
@@ -1017,40 +1021,56 @@ ${articleText}
 });
 
 app.post('/api/cases/:caseId/evaluate', async (req, res) => {
-    // anonymousUserId'yi request body'sinden alın
+    // 1. Gerekli verileri request body'sinden al
     const { report, userSettings, language, anonymousUserId } = req.body;
+    const { caseId } = req.params;
 
-    // anonymousUserId'nin varlığını kontrol edin
-    if (!report || !userSettings || !language || !anonymousUserId) {
-        return res.status(400).json({ error: 'Eksik parametreler. anonymousUserId gereklidir.' });
+    // Gerekli verilerin varlığını kontrol et
+    if (!report || !userSettings || !language || !anonymousUserId || !caseId) {
+        return res.status(400).json({ error: 'Eksik parametreler. Rapor, kullanıcı ayarları, dil, kullanıcı kimliği ve vaka kimliği gereklidir.' });
     }
 
     try {
-        const { caseId } = req.params;
         const safeCaseId = path.basename(caseId);
-        const caseFilePath = path.join(__dirname, 'cases', `${safeCaseId}.json`);
+        const safeUserId = path.basename(anonymousUserId);
+
+        // 2. Değerlendirilecek vaka dosyasını hem özel hem de ortak klasörlerde ara
+        //    Doğru dosya yolu olan 'casesDirectory' kullanılıyor.
+        let caseFilePath = null;
+        const privatePath = path.join(casesDirectory, 'private', safeUserId, `${safeCaseId}.json`);
+        const commonPath = path.join(casesDirectory, 'common', `${safeCaseId}.json`);
+
+        if (fs.existsSync(privatePath)) {
+            caseFilePath = privatePath;
+        } else if (fs.existsSync(commonPath)) {
+            caseFilePath = commonPath;
+        }
+
+        // Vaka dosyası bulunamazsa 404 hatası döndür
+        if (!caseFilePath) {
+            console.error(`Değerlendirilecek vaka bulunamadı: ${safeCaseId}`);
+            return res.status(404).json({ error: 'Değerlendirilecek vaka bulunamadı.' });
+        }
         
         const caseFileContent = await fs.promises.readFile(caseFilePath, 'utf8');
         const caseData = JSON.parse(caseFileContent);
-        const groundTruth = caseData.news_article_text[language]; // Vakanın çözümü
+        const groundTruth = caseData.news_article_text[language]; // Vakanın asıl çözümü
 
-        const solutionsDir = path.join(__dirname, 'solutions');
+        // 3. Kullanıcının geçmiş çözümlerinden geri bildirimleri topla
+        //    Doğru dosya yolu olan 'solutionsDirectory' kullanılıyor.
         let previousFeedbacks = "Analistin çözdüğü ilk vaka, geçmiş geri bildirim bulunmuyor.";
-
-        if (fs.existsSync(solutionsDir)) {
-            const allSolutionFiles = await fs.promises.readdir(solutionsDir);
-            const userSolutionFiles = allSolutionFiles.filter(file => file.includes(anonymousUserId));
+        if (fs.existsSync(solutionsDirectory)) {
+            const allSolutionFiles = await fs.promises.readdir(solutionsDirectory);
+            const userSolutionFiles = allSolutionFiles.filter(file => file.includes(safeUserId));
 
             if (userSolutionFiles.length > 0) {
                 const feedbackPromises = userSolutionFiles.map(async (file) => {
-                    const filePath = path.join(solutionsDir, file);
+                    const filePath = path.join(solutionsDirectory, file);
                     const fileContent = await fs.promises.readFile(filePath, 'utf8');
                     const solutionData = JSON.parse(fileContent);
-                    // Sadece "Gözden Kaçan Noktalar" ve "Tavsiyeler" kısımlarını alıyoruz
                     const evaluation = solutionData.aiEvaluation || "";
                     const missedPointsMatch = evaluation.match(/### 🤔 Gözden Kaçan Noktalar([\s\S]*?)###/);
                     const recommendationsMatch = evaluation.match(/### 💡 Genel Değerlendirme ve Tavsiyeler([\s\S]*)/);
-                    
                     let feedback = "";
                     if(missedPointsMatch) feedback += missedPointsMatch[1].trim();
                     if(recommendationsMatch) feedback += "\n" + recommendationsMatch[1].trim();
@@ -1064,19 +1084,17 @@ app.post('/api/cases/:caseId/evaluate', async (req, res) => {
             }
         }
 
+        // 4. AI Değerlendirmesi için Prompt'u oluştur
         const evaluationPrompt = `
 # GÖREVİN
 Sen, tecrübeli, empatik ve gelişim odaklı bir SOC (Güvenlik Operasyon Merkezi) Yöneticisisin. Görevin, ekibindeki bir junior analistin siber saldırı vakası hakkındaki raporunu, analistin GEÇMİŞ PERFORMANSINI da dikkate alarak kişiselleştirilmiş bir şekilde değerlendirmektir.
-
 # YENİ VE EN KRİTİK KURAL: GELİŞİM TAKİBİ
 Sana, bu analistin daha önceki vakalarda yaptığı hatalar ve aldığı tavsiyeler "GEÇMİŞ GERİ BİLDİRİMLER" başlığı altında sunuluyor. Değerlendirmeni yaparken BU GEÇMİŞİ MUTLAKA GÖZ ÖNÜNDE BULUNDUR.
 * Eğer analist, daha önce gözden kaçırdığı bir noktayı bu sefer doğru tespit ettiyse, bunu MUTLAKA FARK ET ve "Gelişimini görmek harika, geçen sefer gözden kaçırdığın X konusunu bu sefer başarıyla tespit etmişsin." gibi bir cümleyle onu özellikle tebrik et.
 * Eğer analist, daha önce de yaptığı bir hatayı TEKRAR EDİYORSA, bunu nazikçe belirt. Örneğin: "Daha önceki analizimizde de konuştuğumuz gibi, tehdit istihbaratı entegrasyonu konusuna biraz daha odaklanmamız gerekiyor gibi görünüyor."
 * Tavsiyelerini, analistin sürekli eksik kaldığı alanlara yönelik daha spesifik hale getir.
-
 # DEĞERLENDİRME KRİTERLERİ
 (Diğer tüm kriterler, dil ve format kuralları aynı kalacak...)
-
 ---
 # GEÇMİŞ GERİ BİLDİRİMLER (Analistin Önceki Hataları ve Tavsiyeler)
 ${previousFeedbacks}
@@ -1092,14 +1110,9 @@ ${groundTruth}
 ---
 `;
 
-        // MentorNet için kullandığımız AI çağırma mantığını burada da kullanabiliriz.
-        // Şimdilik basitlik adına sadece tercih edilen sağlayıcıyı kullanacağız.
-        const provider = userSettings.provider;
-        const apiKey = userSettings[`${provider}ApiKey`];
+        // 5. AI Sağlayıcıları ile Değerlendirmeyi Almaya Çalış
         let evaluationText = '';
         let success = false;
-        
-        // Kullanıcının öncelikli tercihini başa alarak sağlayıcı listesini oluşturuyoruz.
         const providerPriority = [
             userSettings.provider, 
             ...['gemini', 'openai', 'deepseek'].filter(p => p !== userSettings.provider)
@@ -1107,10 +1120,7 @@ ${groundTruth}
 
         for (const provider of providerPriority) {
             const apiKey = userSettings[`${provider}ApiKey`];
-            if (!apiKey) {
-                console.log(`Değerlendirme için ${provider} atlanıyor: API anahtarı eksik.`);
-                continue; // Bu sağlayıcı için API anahtarı yoksa bir sonrakine geç
-            }
+            if (!apiKey) continue;
 
             try {
                 console.log(`Değerlendirme için ${provider} deneniyor...`);
@@ -1119,59 +1129,48 @@ ${groundTruth}
                     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-latest" });
                     const result = await model.generateContent(evaluationPrompt);
                     evaluationText = await result.response.text();
-                } else { // OpenAI ve DeepSeek için
+                } else {
                     const baseURL = provider === 'deepseek' ? 'https://api.deepseek.com/v1' : null;
                     const openai = new OpenAI({ apiKey, ...(baseURL && { baseURL }) });
                     const modelName = provider === 'deepseek' ? 'deepseek-chat' : 'gpt-4o-mini';
-                    
                     const response = await openai.chat.completions.create({
                         model: modelName,
                         messages: [{ role: 'user', content: evaluationPrompt }]
                     });
                     evaluationText = response.choices[0].message.content;
                 }
-                
-                success = true; // Başarılı olursa döngüden çık
+                success = true;
                 console.log(`${provider} ile değerlendirme başarılı.`);
                 break;
-
             } catch (err) {
                 console.error(`${provider} ile değerlendirme hatası:`, err.message);
-                // Hata oluşursa bir sonraki sağlayıcıyı denemek için döngüye devam et
             }
         }
 
         if (!success) {
-            // Eğer tüm sağlayıcılar başarısız olduysa hata döndür
             throw new Error("Tüm AI sağlayıcıları denendi ancak değerlendirme alınamadı.");
         }
 
+        // 6. Sonucu JSON dosyasına kaydet
+        //    Doğru dosya yolu olan 'solutionsDirectory' kullanılıyor.
         const solutionData = {
             caseId: safeCaseId,
-            anonymousUserId: anonymousUserId, // Kimliği de veriye ekleyelim
+            anonymousUserId: safeUserId,
             userReport: report,
             aiEvaluation: evaluationText,
             solvedAt: new Date().toISOString()
         };
-
-        // Dosya adını anonymousUserId ile oluşturuyoruz
-        const solutionFilename = `solution-${safeCaseId}-${anonymousUserId}.json`;
-        
-        // 'solutions' klasörü yoksa oluştur
-        if (!fs.existsSync(solutionsDir)) {
-            fs.mkdirSync(solutionsDir);
-        }
-
-        const solutionFilePath = path.join(solutionsDir, solutionFilename);
+        const solutionFilename = `solution-${safeCaseId}-${safeUserId}.json`;
+        const solutionFilePath = path.join(solutionsDirectory, solutionFilename);
         await fs.promises.writeFile(solutionFilePath, JSON.stringify(solutionData, null, 2));
         
         console.log(`Çözüm başarıyla kaydedildi: ${solutionFilename}`);
-        // --- Değişiklik sonu ---
-
+        
+        // 7. Başarılı yanıtı frontend'e gönder
         res.json({ evaluation: evaluationText });
 
     } catch (error) {
-        console.error("Vaka değerlendirme hatası:", error);
+        console.error("Vaka değerlendirme genel hatası:", error);
         res.status(500).json({ error: 'Değerlendirme sırasında bir sunucu hatası oluştu.' });
     }
 });
@@ -1190,10 +1189,9 @@ app.delete('/api/cases/:caseId', async (req, res) => {
     // 1. Olası konum: Kullanıcının kendi özel klasörü
     if (anonymousUserId) {
         const safeUserId = path.basename(anonymousUserId);
-        possiblePaths.push(path.join(__dirname, 'cases', 'private', safeUserId, fileName));
+        possiblePaths.push(path.join(casesDirectory, 'private', safeUserId, fileName)); // YOL GÜNCELLENDİ
     }
-    // 2. Olası konum: Herkesin görebileceği ortak klasör
-    possiblePaths.push(path.join(__dirname, 'cases', 'common', fileName));
+    possiblePaths.push(path.join(casesDirectory, 'common', fileName)); 
 
     let filePathToDelete = null;
 
@@ -1229,7 +1227,7 @@ app.post('/api/cases/:caseId/rate', async (req, res) => {
 
     const safeCaseId = path.basename(caseId);
     // Oylama sadece ortak vakalar için geçerlidir.
-    const caseFilePath = path.join(__dirname, 'cases', 'common', `${safeCaseId}.json`);
+    const caseFilePath = path.join(casesDirectory, 'common', `${safeCaseId}.json`);
 
     if (!fs.existsSync(caseFilePath)) {
         return res.status(404).json({ success: false, message: 'Oylanacak vaka bulunamadı veya bu bir ortak vaka değil.' });
@@ -1277,10 +1275,10 @@ app.post('/api/cases/:caseId/rate', async (req, res) => {
 
 app.delete('/api/solutions/:anonymousUserId', async (req, res) => {
     const { anonymousUserId } = req.params;
-    const safeUserId = path.basename(anonymousUserId); // Güvenlik için temizleme
-    const solutionsDir = path.join(__dirname, 'solutions');
-
-    if (!fs.existsSync(solutionsDir)) {
+    const safeUserId = path.basename(anonymousUserId);
+    // Bu endpoint zaten en başta tanımlanan 'solutionsDirectory' değişkenini kullanıyor,
+    // bu yüzden otomatik olarak doğru çalışacaktır.
+    if (!fs.existsSync(solutionsDirectory)) {
         return res.status(200).json({ success: true, message: 'Silinecek bir çözüm geçmişi bulunmuyor.' });
     }
 
