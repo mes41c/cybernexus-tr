@@ -56,11 +56,32 @@
 }
 
 .modal-body {
+  /* 1. Esneklik: Bu alanın, başlık ve alt bilgiden kalan tüm boşluğu doldurmasını sağlar. */
   flex-grow: 1;
-  padding: 0; 
-  display: flex;
-  flex-direction: column; /* Dikey esneme için */
-  overflow-y: hidden; /* Taşmayı engelle, scroll textarea'da olacak */
+
+  /* 2. Kaydırma: İçerik bu alana sığmadığında, dikey bir kaydırma çubuğu çıkarır. */
+  overflow-y: auto;
+
+  /* 3. Estetik: İçeriğin kenarlara yapışmaması için boşluk bırakır. */
+  padding: 1rem 1.5rem;
+
+  /* Tarayıcıya göre kaydırma çubuğunu güzelleştirelim (isteğe bağlı) */
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-glow) var(--background-blue-deep);
+}
+
+.modal-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-body::-webkit-scrollbar-track {
+  background: var(--background-blue-deep);
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+  background-color: var(--primary-glow);
+  border-radius: 10px;
+  border: 2px solid var(--background-blue-deep);
 }
 
 /* Modal içindeki textarea için özel stil */
