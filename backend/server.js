@@ -963,10 +963,12 @@ ${articleText}
         return res.status(500).json({ success: false, error: "Tüm AI sağlayıcıları ile vaka oluşturma işlemi başarısız oldu. Lütfen API anahtarlarınızı kontrol edin." });
     }
     
-    let newCaseId = `case-${Date.now()}-${crypto.randomBytes(4).toString('hex')}`;
+    const newCaseId = `case-${Date.now()}-${crypto.randomBytes(4).toString('hex')}`;
+    let generatedText = ''; 
 
     try {
-        let generatedText = result.text();
+        generatedText = result.text(); 
+        
         const startIndex = generatedText.indexOf('{');
         const endIndex = generatedText.lastIndexOf('}');
         
@@ -982,13 +984,20 @@ ${articleText}
         if (caseType === 'private') {
             const safeUserId = path.basename(anonymousUserId);
             const userDir = path.join(__dirname, 'cases', 'private', safeUserId);
-            if (!fs.existsSync(userDir)) {
-                fs.mkdirSync(userDir, { recursive: true });
-            }
             saveDirectory = userDir;
         } else { // 'common'
-            saveDirectory = path.join(__dirname, 'cases', 'common');
+            const commonDir = path.join(__dirname, 'cases', 'common');
+            saveDirectory = commonDir;
         }
+
+        // --- YENİ EKLENEN VE HATAYI ÇÖZECEK KOD ---
+        // Dosyayı yazmadan önce, kayıt edilecek klasörün var olduğundan emin ol.
+        // Eğer klasör yoksa, `{ recursive: true }` sayesinde iç içe bile olsa oluştur.
+        if (!fs.existsSync(saveDirectory)) {
+            fs.mkdirSync(saveDirectory, { recursive: true });
+            console.log(`Klasör oluşturuldu: ${saveDirectory}`);
+        }
+        // --- Değişiklik sonu ---
 
         const newCaseFilePath = path.join(saveDirectory, `${newCaseId}.json`);
         await fs.promises.writeFile(newCaseFilePath, JSON.stringify(newCaseData, null, 2));
@@ -997,9 +1006,13 @@ ${articleText}
         res.json({ success: true, newCaseId: newCaseId });
 
     } catch (parseError) {
-        console.error("AI yanıtını parse etme hatası:", parseError);
-        console.error(`Hata oluştuğunda VAKA ID: ${newCaseId}`);
-        res.status(500).json({ success: false, error: "AI'dan gelen yanıt geçerli bir formatta değil." });
+        console.error("====================== JSON PARSE HATASI ======================");
+        console.error("Hata Mesajı:", parseError.message);
+        console.error(`Oluşturulan VAKA ID: ${newCaseId}`);
+        console.error("--- AI'dan Gelen Ham Yanıt (HATANIN KAYNAĞI) ---");
+        console.error(generatedText);
+        console.error("==============================================================");
+        res.status(500).json({ success: false, error: "AI'dan gelen yanıt geçerli bir JSON formatında değil. Sunucu konsolunu kontrol edin." });
     }
 });
 
