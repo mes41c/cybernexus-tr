@@ -234,7 +234,7 @@ export const askMentorNet = async (caseId, messages, language, userSettings) => 
     return data.reply;
   } catch (error) {
     console.error("MentorNet'e soru sorma hatası:", error);
-    return "MentorNet ile iletişim kurulamadı. Lütfen API anahtarınızı kontrol edin veya daha sonra tekrar deneyin.";
+    return "Mergen ile iletişim kurulamadı. Lütfen API anahtarınızı kontrol edin veya daha sonra tekrar deneyin.";
   }
 };
 
