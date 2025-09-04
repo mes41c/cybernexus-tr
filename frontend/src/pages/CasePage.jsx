@@ -128,15 +128,17 @@ function CasePage({ userSettings, onOpenSettings, anonymousUserId }) {
     setIsMentorTyping(true);
 
     try {
-      const mentorReplyText = await askMentorNet(caseId, updatedMessages, language, userSettings);
-      const mentorResponse = { 
+        // DÜZELTME: API çağrısına anonymousUserId'yi ekliyoruz
+      const mentorReplyText = await askMentorNet(caseId, updatedMessages, language, userSettings, anonymousUserId);
+      const mentorResponse = {
         sender: 'mentor', 
         text: mentorReplyText,
         entities: getWordsToHighlight(mentorReplyText) 
       };
       setMessages(prev => [...prev, mentorResponse]);
     } catch (error) {
-      const errorResponse = { sender: 'mentor', text: `Bir hata oluştu: ${error.message}`, entities: [] };
+      // Hata mesajını artık doğrudan error.message'dan alıyoruz
+      const errorResponse = { sender: 'mentor', text: `MentorNet ile iletişim kurulamadı.\nLütfen API anahtarınızı kontrol edin veya daha sonra tekrar deneyin.\n\nHata: ${error.message}`, entities: [] };
       setMessages(prev => [...prev, errorResponse]);
     } finally {
       setIsMentorTyping(false);

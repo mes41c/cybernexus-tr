@@ -217,24 +217,36 @@ export const fetchAllConcepts = async () => {
  * @param {string} language - Mevcut dil ('tr' veya 'en').
  * @returns {Promise<string>} - MentorNet'in cevabını içeren bir string.
  */
-export const askMentorNet = async (caseId, messages, language, userSettings) => { 
+export const askMentorNet = async (caseId, messages, language, userSettings, anonymousUserId) => {
   try {
     const response = await fetch(`${API_URL}/cases/ask`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ caseId, messages, language, userSettings }), 
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      // Body'ye anonymousUserId'yi ekliyoruz
+      body: JSON.stringify({ caseId, messages, language, userSettings, anonymousUserId }),
     });
 
     if (!response.ok) {
-      const errorData = await response.json();
-      throw new Error(errorData.reply || 'Sunucudan bir hata yanıtı alındı.');
+      // Hata JSON formatında olabilir, onu parse etmeyi dene
+      try {
+        const errorData = await response.json();
+        throw new Error(errorData.reply || 'Bilinmeyen bir sunucu hatası oluştu.');
+      } catch (e) {
+        // Eğer hata JSON değilse (HTML geldiyse), genel bir hata ver
+        throw new Error('MentorNet ile iletişim kurulamadı. Sunucu yanıt vermiyor.');
+      }
     }
-
+    
+    // Yanıtın JSON olduğunu varsayıyoruz
     const data = await response.json();
     return data.reply;
+
   } catch (error) {
     console.error("MentorNet'e soru sorma hatası:", error);
-    return "Mergen ile iletişim kurulamadı. Lütfen API anahtarınızı kontrol edin veya daha sonra tekrar deneyin.";
+    // Hata mesajını doğrudan fırlat
+    throw error;
   }
 };
 

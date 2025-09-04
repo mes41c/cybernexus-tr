@@ -680,15 +680,17 @@ app.get('/api/cases', async (req, res) => {
 });
 
 app.post('/api/cases/ask', async (req, res) => {
-    const { caseId, messages, language, userSettings } = req.body;
+    // Frontend'den artık anonymousUserId'yi de alıyoruz
+    const { caseId, messages, language, userSettings, anonymousUserId } = req.body;
 
-    if (!caseId || !messages || !language || !userSettings) {
-        return res.status(400).json({ reply: 'Gerekli alanlar eksik.' });
+    // Gerekli tüm verilerin geldiğinden emin olalım
+    if (!caseId || !messages || !language || !userSettings || !anonymousUserId) {
+        return res.status(400).json({ reply: 'İstek için gerekli alanlar eksik.' });
     }
     
-    const apiKey = userSettings[`${userSettings.provider}ApiKey`];
     const safeCaseId = path.basename(caseId);
-
+    
+    // --- DÜZELTME: Vaka dosyasını doğru, yazılabilir klasörlerde (hem özel hem ortak) ara ---
     let caseFilePath = null;
     const safeUserId = path.basename(anonymousUserId);
     const privatePath = path.join(casesDirectory, 'private', safeUserId, `${safeCaseId}.json`);
@@ -701,8 +703,9 @@ app.post('/api/cases/ask', async (req, res) => {
     }
 
     if (!caseFilePath) {
-        return res.status(404).json({ reply: "Sohbet edilecek vaka bulunamadı." });
+        return res.status(404).json({ reply: "Sohbet edilecek vaka bulunamadı. Dosya yolu geçersiz." });
     }
+    // --- DÜZELTME SONU ---
 
     try {
         const caseFileContent = await fs.promises.readFile(caseFilePath, 'utf8');
