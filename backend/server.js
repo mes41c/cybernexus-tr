@@ -29,24 +29,32 @@ const newsCache = {
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const app = express();
 const PORT = 5000;
+
 const allowedOrigins = [
-  'https://cybernexus.mes41.site', // Canlı frontend adresin
-  'http://localhost:5173'         // Yerel geliştirme adresin
+  'https://cybernexus.mes41.site', // Cloudflare Pages adresiniz
+  'http://localhost:5173'         // Yerel geliştirme adresiniz
 ];
 
 const corsOptions = {
   origin: function (origin, callback) {
-    // Eğer gelen istek bu listede varsa veya bir şekilde 'origin' tanımsızsa (örn: mobil app'ler)
+    // Eğer gelen istek izin verilenler listesindeyse veya istek bir sunucu-içi
+    // işlem gibi bir yerden geliyorsa (origin tanımsız), izin ver.
     if (!origin || allowedOrigins.indexOf(origin) !== -1) {
-      callback(null, true); // İsteğe izin ver
+      callback(null, true);
     } else {
-      callback(new Error('Bu adresin CORS politikası tarafından erişimine izin verilmiyor.')); // İsteği reddet
+      console.warn(`CORS Engellemesi: ${origin} adresinden gelen isteğe izin verilmedi.`);
+      callback(new Error('Bu adresin CORS politikası tarafından erişimine izin verilmiyor.'));
     }
   },
-  optionsSuccessStatus: 200
+  // Tarayıcıların yaptığı 'pre-flight' (ön kontrol) isteklerine izin ver
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  credentials: true,
+  optionsSuccessStatus: 204
 };
 
+// CORS middleware'ini bu seçeneklerle kullan
 app.use(cors(corsOptions));
+
 app.use(express.json({ limit: '10mb' }));
 
 const feedUrls = [
