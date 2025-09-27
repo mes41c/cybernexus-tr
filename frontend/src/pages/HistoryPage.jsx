@@ -1,35 +1,52 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { fetchHistoryEvents } from '../services/api';
 import TimelineEvent from '../components/TimelineEvent';
-import EventDetailModal from '../components/EventDetailModal'; // Modal'ı artık burada import ediyoruz
+import EventDetailModal from '../components/EventDetailModal';
 import './HistoryPage.css';
 
 function HistoryPage() {
-  const [events, setEvents] = useState([]);
+  const [allEvents, setAllEvents] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  
-  // YENİ: Hangi olayın seçildiğini tutacak olan merkezi state'imiz
   const [selectedEvent, setSelectedEvent] = useState(null);
-  // YENİ: Modal'daki dil tercihini tutacak state
   const [modalLanguage, setModalLanguage] = useState('tr');
+  
+  // YENİ: Arama terimi için state
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     const loadEvents = async () => {
       setIsLoading(true);
       const data = await fetchHistoryEvents();
-      setEvents(data);
+      setAllEvents(data);
       setIsLoading(false);
     };
     loadEvents();
   }, []);
 
-  // TimelineEvent'ten gelen olayı ve dil bilgisini state'e kaydeden fonksiyon
+  // YENİ: Arama işlevselliği için `useMemo` kullanımı
+  // Bu, her harf yazıldığında listeyi verimli bir şekilde filtreler.
+  const filteredEvents = useMemo(() => {
+    if (!searchTerm) {
+      return allEvents;
+    }
+    const lowercasedFilter = searchTerm.toLowerCase();
+    return allEvents.filter(event => {
+      // Başlıkta, anlatıda veya kilit isimlerde/teknolojilerde arama yap
+      const titleMatch = event.title.tr.toLowerCase().includes(lowercasedFilter) || event.title.en.toLowerCase().includes(lowercasedFilter);
+      const narrativeMatch = event.narrative.tr.toLowerCase().includes(lowercasedFilter) || event.narrative.en.toLowerCase().includes(lowercasedFilter);
+      const metadataMatch = [...event.metadata.key_people, ...event.metadata.technologies_used].some(tag =>
+        tag.toLowerCase().includes(lowercasedFilter)
+      );
+      return titleMatch || narrativeMatch || metadataMatch;
+    });
+  }, [searchTerm, allEvents]);
+
+
   const handleShowDetails = (event, language) => {
     setSelectedEvent(event);
     setModalLanguage(language);
   };
 
-  // Modal'ı kapatmak için state'i temizleyen fonksiyon
   const handleCloseModal = () => {
     setSelectedEvent(null);
   };
@@ -48,21 +65,37 @@ function HistoryPage() {
       <div className="history-header">
         <h1><i className="fa-solid fa-scroll"></i> Siber Güvenlik Tarihçesi</h1>
         <p>Dijital dünyanın en önemli olaylarında bir yolculuğa çıkın. Dünü anlamak, yarını korumanın ilk adımıdır.</p>
-      </div>
-      <div className="timeline-container">
-        {events.map((event) => (
-          // TimelineEvent'e artık onShowDetails fonksiyonunu prop olarak geçiyoruz
-          <TimelineEvent 
-            key={event.id} 
-            event={event} 
-            onShowDetails={handleShowDetails} 
+        
+        {/* YENİ: ARAMA ÇUBUĞU */}
+        <div className="history-search-container">
+          <i className="fa-solid fa-search"></i>
+          <input
+            type="search"
+            placeholder="Olay, kişi veya teknoloji ara..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
           />
-        ))}
+        </div>
       </div>
 
-      {/* YENİ: Sadece BİR TANE Modal'ı burada render ediyoruz.
-        Görünürlüğü, selectedEvent state'inin dolu olup olmamasına bağlı.
-      */}
+      <div className="timeline-container">
+        {/* YENİ: Artık filtrelenmiş listeyi render ediyoruz */}
+        {filteredEvents.length > 0 ? (
+          filteredEvents.map((event) => (
+            <TimelineEvent 
+              key={event.id} 
+              event={event} 
+              onShowDetails={handleShowDetails} 
+            />
+          ))
+        ) : (
+          <div className="no-results-found">
+            <i className="fa-solid fa-ghost"></i>
+            <p>"{searchTerm}" ile eşleşen bir olay bulunamadı.</p>
+          </div>
+        )}
+      </div>
+
       {selectedEvent && (
         <EventDetailModal 
           event={selectedEvent}

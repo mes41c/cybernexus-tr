@@ -170,3 +170,83 @@
     left: 0;
   }
 }
+/* HistoryPage.css sonuna eklenecekler */
+
+/* Arama Çubuğu Stilleri */
+.history-search-container {
+  position: relative;
+  max-width: 500px;
+  margin: 2rem auto 0 auto; /* Başlığın altına ve ortaya konumlandır */
+}
+
+.history-search-container input[type="search"] {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  padding-left: 3rem; /* İkon için yer aç */
+  border-radius: 30px; /* Tam yuvarlak köşeler */
+  border: 1px solid var(--border-color);
+  background-color: var(--background-blue-deep);
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.history-search-container input[type="search"]::placeholder {
+  color: var(--text-secondary);
+}
+
+.history-search-container input[type="search"]:focus {
+  outline: none;
+  border-color: var(--primary-glow);
+  box-shadow: 0 0 15px rgba(0, 170, 255, 0.3);
+}
+
+.history-search-container .fa-search {
+  position: absolute;
+  left: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-secondary);
+}
+
+/* Arama Sonucu Bulunamadığında Gösterilecek Alan */
+.no-results-found {
+  text-align: center;
+  color: var(--text-secondary);
+  padding: 3rem;
+}
+.no-results-found i {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+/* Timeline Kartı İçin Ekstra Görsel İyileştirmeler */
+.timeline-event-content {
+  position: relative;
+  overflow: hidden; /* Pseudo-element için gerekli */
+}
+
+/* Kartın üstüne hafif bir parlama efekti ekleyelim */
+.timeline-event-content::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0, 170, 255, 0.15) 0%, rgba(0, 170, 255, 0) 70%);
+  transition: opacity 0.5s ease;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.timeline-event:hover .timeline-event-content::before {
+  opacity: 1;
+}
+
+/* Detayları göster butonuna küçük bir animasyon */
+.details-toggle-btn:hover {
+    background-color: var(--primary-glow);
+    color: var(--background-blue-deep);
+}
