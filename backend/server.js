@@ -69,7 +69,6 @@ const feedUrls = [
     'https://news.sophos.com/en-us/feed/', // Sophos Naked Security
     'https://www.schneier.com/feed/atom/', // Bruce Schneier
     'https://www.wired.com/feed/category/security/latest/rss', // Wired Threat Level
-    'https://www.zdnet.com/topic/security/rss.xml', // ZDNet Security
     
     // Yerel (Türkçe)
     'https://www.bthaber.com/feed/', // BT Haber
