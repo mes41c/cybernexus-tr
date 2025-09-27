@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-// import { useState } from 'react'; // Zaten React import edildiği için gerek yok
-import EventDetailModal from './EventDetailModal'; // Yeni modal'ı import et
 
-function TimelineEvent({ event, index }) {
-  const [isModalOpen, setIsModalOpen] = useState(false); // Modal durumu için yeni state
+// Artık modal import etmiyoruz.
+// 'onShowDetails' adında yeni bir prop alıyoruz.
+function TimelineEvent({ event, onShowDetails }) {
   const [language, setLanguage] = useState('tr');
 
   const toggleLanguage = (e) => {
@@ -11,12 +10,10 @@ function TimelineEvent({ event, index }) {
     setLanguage(prev => (prev === 'tr' ? 'en' : 'tr'));
   };
 
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
+  // Bu fonksiyon artık modal açmak yerine,
+  // ana bileşene tıklanan olayın verisini gönderiyor.
+  const handleShowDetailsClick = () => {
+    onShowDetails(event, language);
   };
 
   return (
@@ -26,25 +23,18 @@ function TimelineEvent({ event, index }) {
         <span className="event-date">{event.event_date}</span>
         <h3>{event.title[language]}</h3>
         <p className="narrative-snippet">
-          {`${event.narrative[language].substring(0, 200)}...`} {/* Artık her zaman kısa özet */}
+          {`${event.narrative[language].substring(0, 200)}...`}
         </p>
 
-        {/* Detayları gösterme butonu artık modal'ı açacak */}
-        <button onClick={openModal} className="details-toggle-btn">
+        {/* Buton tıklandığında yeni fonksiyonumuzu çağırıyoruz */}
+        <button onClick={handleShowDetailsClick} className="details-toggle-btn">
           Detayları Göster
         </button>
         <button onClick={toggleLanguage} className="details-toggle-btn" style={{marginLeft: '10px'}}>
           {language === 'tr' ? 'EN' : 'TR'}
         </button>
       </div>
-
-      {/* Modal'ı buraya dahil et */}
-      <EventDetailModal
-        event={event}
-        onClose={closeModal}
-        language={language}
-        isOpen={isModalOpen}
-      />
+      {/* Modal'ı buradan tamamen kaldırdık */}
     </div>
   );
 }
