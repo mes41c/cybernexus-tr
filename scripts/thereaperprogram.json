@@ -1,0 +1,37 @@
+{
+  "event_date": "1972-01-01",
+  "title": {
+    "tr": "Dijital Savunmanın Şafağı: Creeper'a Karşı Orakçı 'Reaper'",
+    "en": "The Dawn of Digital Defense: Reaper, the Scythe Against Creeper"
+  },
+  "narrative": {
+    "tr": "1971'de ARPANET'in dijital koridorlarında \"BEN CREEPER: YAKALAYABİLİRSEN YAKALA!\" mesajıyla dolaşan zararsız ama başıboş bir program, siber güvenlik tarihinin ilk meydan okumasını ortaya koymuştu. Bob Thomas tarafından bir deney olarak yaratılan Creeper, bir programın ağ üzerinde kendi kendine hareket edebileceğini kanıtlamıştı. Ancak bu dijital hayaletin varlığı, bir süre sonra bir düzene ve kontrole ihtiyaç duyulduğunu da gösterdi. Bu çağrıya cevap veren kişi, Creeper'ın yaratıcısı Thomas'ın meslektaşı ve e-postanın mucidi olarak da tanınan dahi mühendis Ray Tomlinson oldu. Tomlinson, bu dijital anarşiye bir son vermek ve ağın kontrolünü yeniden sağlamak amacıyla tarihin ilk 'iyi niyetli' solucanını, ya da daha doğru bir ifadeyle ilk antivirüs programını tasarladı. Adını 'Orakçı' anlamına gelen 'Reaper' koydu. Reaper, Creeper gibi ağ üzerinde kendi kendine hareket etme yeteneğine sahipti. Ancak onun amacı yıkmak ya da varlığını duyurmak değil, tam tersine, avlanmaktı. Reaper, ARPANET üzerinde metodik bir şekilde dolaşıyor, bağlı olan her bir DEC PDP-10 ana bilgisayarını tarıyor ve Creeper'ın izlerini arıyordu. Bir sistemde Creeper'ı tespit ettiğinde, onu kalıcı olarak siliyordu. Bu, siber güvenlikteki ilk 'kedi-fare' oyunuydu; bir program diğerini avlamak için ağda geziniyordu. Reaper'ın başarısı, bir tehdidin yine aynı teknoloji kullanılarak etkisiz hale getirilebileceğini gösteren devrim niteliğinde bir kanıttı ve siber savunma endüstrisinin temel felsefesini oluşturdu.",
+    "en": "In 1971, a harmless but rogue program roamed the digital corridors of ARPANET with the message \"I'M THE CREEPER: CATCH ME IF YOU CAN!\", posing the first challenge in cybersecurity history. Creeper, created as an experiment by Bob Thomas, had proven that a program could move across a network on its own. However, the existence of this digital ghost soon highlighted the need for order and control. The person who answered this call was the brilliant engineer Ray Tomlinson, a colleague of Creeper's creator Thomas and also known as the inventor of email. To end this digital anarchy and re-establish control over the network, Tomlinson designed the first-ever 'benevolent' worm, or more accurately, the first antivirus program. He named it 'Reaper'. Like Creeper, Reaper had the ability to move across the network by itself. But its purpose was not to disrupt or announce its presence, but quite the opposite: to hunt. Reaper methodically roamed the ARPANET, scanning each connected DEC PDP-10 mainframe and searching for traces of Creeper. When it detected Creeper on a system, it would permanently delete it. This was the first 'cat-and-mouse' game in cybersecurity; one program traversing the network to hunt down another. Reaper's success was a revolutionary proof-of-concept, demonstrating that a threat could be neutralized using the very same technology, and it established the foundational philosophy of the entire cyber defense industry."
+  },
+  "metadata": {
+    "key_people": [
+      "Ray Tomlinson",
+      "Bob Thomas"
+    ],
+    "technologies_used": [
+      "ARPANET",
+      "DEC PDP-10",
+      "TENEX Operating System"
+    ],
+    "methods_used": [
+      "Self-replicating program",
+      "Network scanning",
+      "Virus removal / Code deletion"
+    ],
+    "significance": {
+      "tr": "Reaper, tarihteki ilk antivirüs yazılımı olarak kabul edilir. Kötü amaçlı bir yazılım olan Creeper'ı bulup silmek için tasarlanmış ilk 'iyi niyetli' veya 'etik' solucandı. Bu olay, siber güvenlikte saldırı (virüs) ve savunma (antivirüs) arasındaki sürekli mücadelenin başlangıcını simgeler. Reaper'ın varlığı, ağa bağlı sistemlerdeki tehditlerin yine ağ yeteneklerini kullanan özel savunma yazılımlarıyla ortadan kaldırılabileceği paradigmasını oluşturmuş ve günümüz antivirüs endüstrisinin temelini atmıştır.",
+      "en": "Reaper is considered the first antivirus software in history. It was the first 'benevolent' or 'ethical' worm, designed specifically to find and delete the malicious software, Creeper. This event symbolizes the beginning of the perpetual struggle between offense (viruses) and defense (antivirus) in cybersecurity. The existence of Reaper established the paradigm that threats on networked systems could be eliminated by specialized defensive software that also utilizes network capabilities, laying the groundwork for the modern antivirus industry."
+    },
+    "sources": [
+      "https://www.webopedia.com/definitions/reaper/",
+      "https://encyclopedia.kaspersky.com/knowledge/years-1970s/",
+      "https://www.historyofinformation.com/detail.php?entryid=2860",
+      "https://www.redhotcyber.com/en/post/creeper-reaper-the-story-of-the-first-worm-and-the-first-antivirus-software/"
+    ]
+  }
+}

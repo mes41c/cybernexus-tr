@@ -1,0 +1,40 @@
+{
+  "event_date": "2011-03-17",
+  "title": {
+    "tr": "Güvenin Kırılışı: RSA SecurID Kalesinin Düşüşü",
+    "en": "The Breach of Trust: The Fall of the RSA SecurID Fortress"
+  },
+  "narrative": {
+    "tr": "2011 yılının Mart ayında, siber güvenlik dünyasının en korunaklı kalelerinden biri olarak kabul edilen RSA'nın içinde, her şey sıradan bir iş günü gibi başlamıştı. RSA, dijital güvenliğin temel taşlarından olan SecurID iki faktörlü kimlik doğrulama sisteminin yaratıcısıydı ve dünya genelindeki hükümetler, savunma sanayii devleri ve büyük şirketler tarafından kullanılıyordu. Ancak bu devasa güven imparatorluğu, son derece basit ve aldatıcı bir yöntemle sarsılmak üzereydi. Her şey, bir grup RSA çalışanının posta kutusuna düşen zararsız görünümlü bir e-posta ile başladı. '2011 İşe Alım Planı' başlığını taşıyan bu e-posta, hedeflenmiş bir oltalama (spear-phishing) saldırısının ilk adımıydı. Merakına yenik düşen bir çalışan, e-postanın ekindeki '2011_recruitment_plan.xls' adlı Excel dosyasını açtı. O an, kalenin duvarlarındaki ilk çatlak oluşmuştu. Dosyanın içine gizlenmiş olan, o güne dek kimsenin bilmediği bir Adobe Flash sıfır gün açığı (CVE-2011-0609) anında tetiklendi. Bu, saldırganların kurbanın bilgisayarına görünmez bir kapı açmasını sağladı. Bu kapıdan içeri sızan 'Poison Ivy' adlı uzaktan erişim truva atı (RAT), saldırganlara ağ içinde bir köprübaşı kazandırdı. Artık içerideydiler ve avları, RSA'nın en değerli hazinesiydi: SecurID tokenlarının çalışmasını sağlayan gizli 'seed' verileri. Saldırganlar, aylarca sürebilecek bir sabır ve titizlikle, bir hayalet gibi ağ içinde gezindiler. Yetkilerini artırdılar, sistem yöneticilerinin hesaplarını ele geçirdiler ve fark edilmeden en kritik sunuculara doğru ilerlediler. Amaçları para çalmak ya da sistemleri çökertmek değildi; daha büyük bir planın parçasıydılar. RSA'nın müşterileri olan savunma sanayii şirketlerinin ağlarına sızmak için kullanabilecekleri evrensel bir anahtarı, SecurID'nin kalbini çalmak istiyorlardı. Sonunda hedeflerine ulaştılar. Hassas verileri paketleyip şifrelediler ve RSA'nın sunucularından kendi kontrol ettikleri sistemlere sessizce aktardılar. RSA saldırıyı fark ettiğinde artık çok geçti. Güven üzerine inşa edilmiş bir imparatorluk, tek bir çalışanın bir anlık dikkatsizliği ve saldırganların gelişmiş teknik becerileriyle derinden sarsılmıştı. Bu olay, siber güvenlik tarihinde bir dönüm noktası oldu; artık hiçbir kurumun, adı ne kadar büyük olursa olsun, hedef alınamaz olmadığını ve en güçlü zincirin bile en zayıf halkası kadar sağlam olduğunu acı bir şekilde kanıtladı.",
+    "en": "In March 2011, within what was considered one of the most secure fortresses in the cybersecurity world, the day began like any other at RSA. As the creator of the SecurID two-factor authentication system—a cornerstone of digital security—RSA was trusted by governments, defense contractors, and major corporations worldwide. However, this vast empire of trust was about to be shaken by a deceptively simple method. It all started with an innocuous-looking email that landed in the inboxes of a few RSA employees. Titled '2011 Recruitment Plan,' this email was the first step in a targeted spear-phishing campaign. An employee, overcome by curiosity, opened the attached Excel file: '2011_recruitment_plan.xls.' In that moment, the first crack appeared in the fortress walls. Embedded within the file was a then-unknown Adobe Flash zero-day vulnerability (CVE-2011-0609), which triggered instantly. This allowed the attackers to open an invisible door into the victim's computer. Through this door crept the 'Poison Ivy' Remote Access Trojan (RAT), giving the attackers a beachhead inside the network. They were in, and their prize was RSA's most valuable treasure: the secret 'seed' data that powered the SecurID tokens. With a patience and precision that could span months, the attackers moved through the network like ghosts. They escalated privileges, compromised administrator accounts, and stealthily advanced toward the most critical servers. Their goal wasn't to steal money or crash systems; they were part of a much larger plan. They wanted to steal a universal key—the very heart of SecurID—which they could then use to infiltrate the networks of RSA's clients, such as major defense contractors. Ultimately, they reached their objective. They packaged and encrypted the sensitive data, quietly exfiltrating it from RSA's servers to their own command-and-control systems. By the time RSA detected the intrusion, it was too late. An empire built on trust was profoundly shaken by a single employee's momentary lapse in judgment and the attackers' advanced technical skills. The event became a turning point in cybersecurity history, proving painfully that no organization, no matter how prominent, was unbreachable, and that the strongest chain is only as strong as its weakest link."
+  },
+  "metadata": {
+    "key_people": [
+      "Advanced Persistent Threat (APT) Actors (Attributed to China-based groups)"
+    ],
+    "technologies_used": [
+      "RSA SecurID Tokens",
+      "Adobe Flash (CVE-2011-0609)",
+      "Poison Ivy RAT (Remote Access Trojan)"
+    ],
+    "methods_used": [
+      "Spear Phishing",
+      "Zero-Day Exploit",
+      "Social Engineering",
+      "Data Exfiltration",
+      "Privilege Escalation",
+      "Lateral Movement"
+    ],
+    "significance": {
+      "tr": "RSA SecurID ihlali, Gelişmiş Kalıcı Tehditlerin (APT) ne kadar sofistike ve tehlikeli olabileceğini gözler önüne seren bir dönüm noktasıdır. Bu saldırı, sadece bir şirketi değil, o şirketin ürünlerini kullanan tüm ekosistemi hedef alan 'tedarik zinciri saldırılarının' en çarpıcı örneklerinden biri oldu. Güvenlik endüstrisinin devlerinden birinin bile hedeflenebileceğini göstererek, iki faktörlü kimlik doğrulamanın yanılmazlığına dair algıyı sarstı. Olay, savunma sanayii ve kritik altyapıların siber güvenliğe olan yaklaşımlarını yeniden gözden geçirmelerine neden oldu ve sıfır gün açıklarının ve sosyal mühendisliğin birleşiminin ne kadar yıkıcı olabileceğini kanıtladı. RSA, bu olaydan sonra milyonlarca dolarlık bir maliyetle on milyonlarca SecurID tokenını değiştirmek zorunda kaldı.",
+      "en": "The RSA SecurID breach was a landmark event that exposed the sophistication and danger of Advanced Persistent Threats (APT). This attack became a prime example of a 'supply chain attack,' which targets not just one company but the entire ecosystem that relies on its products. It demonstrated that even a giant in the security industry could be breached, shaking the perception that two-factor authentication was infallible. The incident forced the defense industrial base and critical infrastructure sectors to reassess their cybersecurity postures, proving how devastating the combination of a zero-day exploit and social engineering could be. In the aftermath, RSA had to undertake a costly replacement program for tens of millions of SecurID tokens, with costs running into the millions of dollars."
+    },
+    "sources": [
+      "https://www.wired.com/2011/08/rsa-hack-how-they-did-it/",
+      "https://www.csoonline.com/article/562378/rsa-securid-hack-how-it-was-done-and-what-it-means-to-you.html",
+      "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-0609",
+      "https://www.darkreading.com/attacks-breaches/anatomy-of-the-rsa-attack",
+      "https://arstechnica.com/information-technology/2011/04/how-the-rsa-hack-went-down/"
+    ]
+  }
+}

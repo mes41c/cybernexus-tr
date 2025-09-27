@@ -1,0 +1,46 @@
+{
+  "event_date": "2022-07-05",
+  "title": {
+    "tr": "NIST, Kuantum Sonrası Kriptografi (PQC) Standartlarını Duyurdu: Dijital Güvenlikte Yeni Bir Çağ",
+    "en": "NIST Announces Post-Quantum Cryptography (PQC) Standards: A New Era in Digital Security"
+  },
+  "narrative": {
+    "tr": "21. yüzyılın dijital altyapısı, görünmez ama güçlü bir tehdidin gölgesinde yaşıyordu: Kuantum bilgisayarlar. Teorik olarak Peter Shor'un 1994'te geliştirdiği algoritma, yeterince güçlü bir kuantum bilgisayarın, günümüzün internet bankacılığını, güvenli iletişimini ve e-ticaretini koruyan RSA ve Eliptik Eğri Kriptografisi (ECC) gibi temel şifreleme yöntemlerini anlamsız kılacağını vaat ediyordu. Bu, 'K-Günü' (Kuantum Günü) olarak bilinen, dijital dünyanın sırlarının bir anda savunmasız kalacağı bir kıyamet senaryosuydu. Bu varoluşsal tehdidi önlemek için ABD Ulusal Standartlar ve Teknoloji Enstitüsü (NIST), 2016 yılında küresel bir arayış başlattı. Bu, bir nevi kriptografik bir olimpiyattı: Dünyanın en parlak zihinlerini, hem bugünün süper bilgisayarlarına hem de geleceğin kuantum makinelerine karşı dayanıklı yeni nesil şifreleme algoritmaları geliştirmeye davet etti. Yıllar süren ve onlarca adayın halka açık bir şekilde 'kırılmaya' çalışıldığı zorlu bir eleme sürecinin ardından, 5 Temmuz 2022'de NIST, ilk şampiyonları ilan etti. Güvenli anahtar değişimi için 'CRYSTALS-Kyber' ve dijital kimlik doğrulama için 'CRYSTALS-Dilithium', 'Falcon' ve 'SPHINCS+' algoritmaları, kuantum çağına karşı ilk savunma hattı olarak standartlaştırılmak üzere seçildi. Bu duyuru, sadece bir grup algoritmanın seçimi değil, dijital güvenliğin temelden yeniden inşa edileceği yeni bir dönemin resmi başlangıcıydı.",
+    "en": "The digital infrastructure of the 21st century was living under the shadow of an invisible but potent threat: quantum computers. In theory, Peter Shor's 1994 algorithm promised that a sufficiently powerful quantum computer could render obsolete the foundational encryption methods like RSA and Elliptic Curve Cryptography (ECC) that protect modern online banking, secure communications, and e-commerce. This was the doomsday scenario known as 'Q-Day' (Quantum Day), when the world's digital secrets could suddenly become vulnerable. To preempt this existential threat, the U.S. National Institute of Standards and Technology (NIST) initiated a global search in 2016. It was a cryptographic Olympics of sorts: a call to the world's brightest minds to develop a new generation of encryption algorithms resistant to both classical supercomputers and future quantum machines. After a grueling, multi-year process where dozens of candidates were publicly scrutinized and attacked, NIST announced the first champions on July 5, 2022. For secure key exchange, 'CRYSTALS-Kyber' was chosen, and for digital authentication, the algorithms 'CRYSTALS-Dilithium', 'Falcon', and 'SPHINCS+' were selected for standardization. This announcement was not merely the selection of a few algorithms; it was the official beginning of a new era, one in which the very foundation of digital security would be rebuilt."
+  },
+  "metadata": {
+    "key_people": [
+      "NIST (National Institute of Standards and Technology)",
+      "Dustin Moody (NIST PQC Project Lead)",
+      "CRYSTALS Team (Developers of Kyber and Dilithium)",
+      "Falcon Team",
+      "SPHINCS+ Team"
+    ],
+    "technologies_used": [
+      "Post-Quantum Cryptography (PQC)",
+      "Lattice-based cryptography",
+      "Hash-based cryptography",
+      "CRYSTALS-Kyber (Key Encapsulation Mechanism - KEM)",
+      "CRYSTALS-Dilithium (Digital Signature Algorithm)",
+      "Falcon (Digital Signature Algorithm)",
+      "SPHINCS+ (Stateless Hash-based Signature Scheme)"
+    ],
+    "methods_used": [
+      "Public standardization process",
+      "Global cryptographic competition",
+      "Security analysis against quantum attacks",
+      "Key Encapsulation Mechanism (KEM)",
+      "Digital Signature Algorithm"
+    ],
+    "significance": {
+      "tr": "Bu olay, kuantum bilgisayarların mevcut kriptografik altyapıya yönelik oluşturduğu varoluşsal tehdide karşı atılan ilk somut ve küresel adımdır. Kuantum sonrası kriptografiyi teorik bir alandan, dünya çapında endüstrilerin ve hükümetlerin uygulamaya başlayabileceği standartlaştırılmış bir teknolojiye dönüştürdü. 'Şimdi topla, sonra şifresini çöz' (harvest now, decrypt later) saldırılarına karşı savunmayı başlatmış ve dijital güvenliğin geleceği için bir yol haritası sunmuştur.",
+      "en": "This event marks the first concrete, global step against the existential threat posed by quantum computers to the current cryptographic infrastructure. It transformed post-quantum cryptography from a theoretical field into a standardized technology that industries and governments worldwide can begin to implement. It initiated the defense against 'harvest now, decrypt later' attacks and provided a roadmap for the future of digital security."
+    },
+    "sources": [
+      "https://www.nist.gov/news-events/news/2022/07/nist-announces-first-four-quantum-resistant-cryptographic-algorithms",
+      "https://csrc.nist.gov/Projects/post-quantum-cryptography",
+      "https://www.nature.com/articles/d41586-022-01878-z",
+      "https://www.wired.com/story/nist-post-quantum-cryptography-algorithms/"
+    ]
+  }
+}

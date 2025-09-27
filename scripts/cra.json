@@ -1,0 +1,44 @@
+{
+  "event_date": "2024-05-13",
+  "title": {
+    "tr": "Avrupa Birliği Siber Dayanıklılık Yasası'nın (CRA) Tarihi Yürürlüğe Girişi",
+    "en": "The Historic Entry into Force of the EU's Cyber Resilience Act (CRA)"
+  },
+  "narrative": {
+    "tr": "21. yüzyılın başlarında dijital dünya, görülmemiş bir paradoksla karşı karşıyaydı. Akıllı ev aletlerinden endüstriyel sensörlere kadar her cihaz internete bağlanarak hayatı kolaylaştırırken, bu bağlantı aynı zamanda devasa ve kontrolsüz bir saldırı yüzeyi yaratıyordu. Üreticiler, pazara hızla ürün sürme yarışında siber güvenliği çoğu zaman bir lüks veya sonradan eklenecek bir özellik olarak görüyordu. Bu durum, 'sat ve unut' zihniyetini doğurmuş, milyonlarca kullanıcıyı ve tüm dijital altyapıyı, kolayca sömürülebilen güvenlik açıklarıyla dolu 'dijital saatli bombalar' üzerinde yaşamak zorunda bırakmıştı. İşte bu tehlikeli gidişata dur demek için Avrupa Birliği sahneye çıktı. Yıllar süren hazırlık, tartışma ve müzakerelerin ardından, 2024 baharında dijital ürünler için oyunun kurallarını kökünden değiştiren Siber Dayanıklılık Yasası'nı (CRA) hayata geçirdi. Bu yasa, bir regülasyondan çok daha fazlasıydı; üreticilere basit bir mesaj veriyordu: 'Eğer ürününüz Avrupa pazarında yer alacaksa, en başından itibaren güvenli olmak zorunda ve bu güvenliği ürünün tüm yaşam döngüsü boyunca sağlamak sizin sorumluluğunuzdadır.' Yasa, güvenlik açıklarının 24 saat içinde bildirilmesinden, ürünlerin piyasaya sürülmeden önce sıkı güvenlik testlerinden geçmesine kadar bir dizi zorunluluk getirerek, siber güvenlik sorumluluğunu tüketicinin omuzlarından alıp doğrudan üreticinin masasına koydu. CRA'nın yürürlüğe girmesi, dijital çağ için bir dönüm noktası oldu; tıpkı otomobiller için emniyet kemerlerinin zorunlu hale getirilmesi gibi, dijital ürünler için de temel bir güvenlik standardı belirleyerek küresel bir etki yarattı ve daha güvenli bir dijital geleceğin temelini attı.",
+    "en": "In the early 21st century, the digital world faced an unprecedented paradox. While every device, from smart home appliances to industrial sensors, connected to the internet to make life easier, this connectivity also created a vast and uncontrolled attack surface. In the race to bring products to market quickly, manufacturers often treated cybersecurity as a luxury or an afterthought. This gave rise to a 'sell and forget' mentality, forcing millions of users and the entire digital infrastructure to live on 'digital time bombs' riddled with easily exploitable vulnerabilities. It was to halt this dangerous trend that the European Union took the stage. After years of preparation, debate, and negotiation, in the spring of 2024, it enacted the Cyber Resilience Act (CRA), a piece of legislation that fundamentally changed the rules of the game for digital products. This act was more than just a regulation; it sent a simple message to manufacturers: 'If your product is to be sold in the European market, it must be secure from the outset, and it is your responsibility to maintain that security throughout its entire lifecycle.' The law imposed a series of obligations, from reporting vulnerabilities within 24 hours to subjecting products to rigorous security testing before they could be launched, thereby shifting the burden of cybersecurity from the consumer's shoulders directly onto the manufacturer's desk. The entry into force of the CRA became a turning point for the digital age; much like the mandatory introduction of seatbelts for cars, it established a baseline security standard for digital products, creating a global impact and laying the foundation for a more secure digital future."
+  },
+  "metadata": {
+    "key_people": [
+      "European Commission",
+      "Thierry Breton (Commissioner for Internal Market)",
+      "European Parliament",
+      "Council of the European Union",
+      "ENISA (The European Union Agency for Cybersecurity)"
+    ],
+    "technologies_used": [
+      "Legislative Regulation",
+      "Security by Design and by Default Principles",
+      "Vulnerability Management and Disclosure Frameworks",
+      "CE Marking for Cybersecurity Compliance",
+      "Software Bill of Materials (SBOM)"
+    ],
+    "methods_used": [
+      "Legislative Proposal and Ratification",
+      "Market Surveillance and Enforcement",
+      "Setting Mandatory Security Requirements for Products with Digital Elements",
+      "Obligatory Vulnerability Reporting",
+      "Harmonisation of Rules for the EU Single Market"
+    ],
+    "significance": {
+      "tr": "Siber Dayanıklılık Yasası, sorumluluğu son kullanıcıdan üreticiye kaydırarak dijital ürün güvenliğinde bir paradigma değişikliği yaratmıştır. AB'nin devasa pazar büyüklüğü sayesinde, bu yasa 'Brüksel Etkisi' yaratarak dünya genelindeki üreticileri daha güvenli ürünler geliştirmeye teşvik eden fiili bir küresel standart haline gelmiştir. Yasa, bağlantılı cihazların oluşturduğu sistemik riskleri azaltarak Avrupa'nın ve dolayısıyla küresel dijital ekosistemin genel dayanıklılığını artırmayı amaçlamaktadır.",
+      "en": "The Cyber Resilience Act created a paradigm shift in digital product security by shifting the responsibility from the end-user to the manufacturer. Due to the EU's massive market size, this act has become a de facto global standard, creating a 'Brussels Effect' that incentivizes manufacturers worldwide to develop more secure products. The law aims to enhance the overall resilience of Europe's, and by extension the global, digital ecosystem by mitigating systemic risks posed by connected devices."
+    },
+    "sources": [
+      "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1173",
+      "https://digital-strategy.ec.europa.eu/en/library/cyber-resilience-act",
+      "https://www.consilium.europa.eu/en/press/press-releases/2024/03/12/cyber-resilience-act-council-gives-final-green-light-to-new-rules-on-cybersecurity-of-digital-products/",
+      "https://www.enisa.europa.eu/topics/cyber-resilience-act"
+    ]
+  }
+}

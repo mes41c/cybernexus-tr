@@ -1,0 +1,39 @@
+{
+  "event_date": "2021-12-09",
+  "title": {
+    "tr": "Log4Shell: İnterneti Ateşe Veren Güvenlik Açığı",
+    "en": "Log4Shell: The Vulnerability That Set the Internet on Fire"
+  },
+  "narrative": {
+    "tr": "Kasım 2021'in sonlarında, Alibaba'nın bulut güvenlik ekibinden bir araştırmacı olan Chen Zhaojun, dijital dünyanın temel taşlarından birinde, sessizce duran bir çatlak keşfetti. Bu çatlak, milyonlarca Java uygulamasında olayları kaydetmek için kullanılan, görünüşte zararsız ve her yerde bulunan bir kütüphane olan Apache Log4j'nin içindeydi. Zhaojun, bir kullanıcının girdiği verinin, örneğin bir kullanıcı adı veya bir arama sorgusunun, özel olarak hazırlandığında, Log4j'nin bu metni bir komut olarak yorumlamasına neden olabileceğini fark etti. Bu komut, sunucuya dışarıdan bir saldırganın kontrolündeki bir adresten kod indirmesini ve çalıştırmasını emrediyordu. Bu, bir kütüphaneciye masum bir not uzatıp, onun farkında olmadan tüm kütüphaneyi yakacak bir mekanizmayı tetiklemesini istemek gibiydi. 24 Kasım'da Apache Software Foundation'a yapılan sorumlu bir bildirimle, zaman karşı bir yarış başladı. Geliştiriciler, dünyanın haberi olmadan bu dijital saatli bombayı etkisiz hale getirmek için hummalı bir çalışma içine girdiler. Ancak sırlar dijital çağda uzun süre saklanamazdı. 9 Aralık'ta, güvenlik açığı Minecraft oyuncuları arasında bir istismar yoluyla kamuoyuna sızdığında, artık gizlilik perdesi kalkmıştı. CVE-2021-44228 olarak adlandırılan ve 'Log4Shell' lakabı takılan bu açık, 10 üzerinden 10'luk en yüksek kritiklik puanını aldı. O andan itibaren internet, bir yangın yerine döndü. Güvenlik ekipleri tatillerini ve hafta sonlarını iptal ederek, sistemlerinin neresinde bu savunmasız kütüphanenin saklandığını bulmak için çaresizce taramalar yapmaya başladı. Saldırganlar ise, bu altın fırsatı değerlendirmek için internetin her köşesini otomatik olarak tarayan bot sürüleri saldı. Log4Shell, sadece bir kod hatası değil; modern yazılım tedarik zincirinin ne kadar kırılgan olduğunu, tek bir küçük bileşendeki bir hatanın nasıl küresel bir kaosa yol açabileceğini acı bir şekilde gösteren tarihi bir dersti.",
+    "en": "In late November 2021, Chen Zhaojun, a researcher from Alibaba's cloud security team, discovered a silent crack in one of the foundational stones of the digital world. This crack was inside Apache Log4j, a seemingly harmless and ubiquitous library used for logging events in millions of Java applications. Zhaojun realized that user-input data, such as a username or a search query, if specially crafted, could cause Log4j to interpret the text as a command. This command would instruct the server to download and execute code from an external address controlled by an attacker. It was like handing a librarian an innocent-looking note, only for it to trigger a mechanism that would burn down the entire library. A responsible disclosure to the Apache Software Foundation on November 24th initiated a race against time. Developers worked feverishly to defuse this digital time bomb before the world knew it existed. But secrets are hard to keep in the digital age. On December 9th, when the vulnerability was leaked to the public through an exploit among Minecraft players, the veil of secrecy was lifted. Designated as CVE-2021-44228 and nicknamed 'Log4Shell,' the vulnerability received a maximum criticality score of 10.0 out of 10. From that moment on, the internet was on fire. Security teams canceled their holidays and weekends, desperately scanning to find where this vulnerable library was hidden in their systems. Meanwhile, attackers unleashed swarms of bots automatically scanning every corner of the internet to exploit this golden opportunity. Log4Shell was not just a bug; it was a historic and painful lesson on the fragility of the modern software supply chain, demonstrating how a flaw in a single, tiny component could lead to global chaos."
+  },
+  "metadata": {
+    "key_people": [
+      "Chen Zhaojun (Alibaba Cloud Security Team)",
+      "Apache Software Foundation"
+    ],
+    "technologies_used": [
+      "Apache Log4j",
+      "Java",
+      "JNDI (Java Naming and Directory Interface)",
+      "LDAP (Lightweight Directory Access Protocol)"
+    ],
+    "methods_used": [
+      "Remote Code Execution (RCE)",
+      "JNDI Injection",
+      "Log Poisoning"
+    ],
+    "significance": {
+      "tr": "Log4Shell, modern yazılım tedarik zincirinin ne kadar birbirine bağlı ve kırılgan olduğunu ortaya koyan en önemli siber güvenlik olaylarından biri olarak kabul edilir. Birçok kuruluşun, kullandıkları yazılımların derinliklerinde Log4j'nin varlığından haberdar bile olmadığını göstermiştir. Bu olay, Yazılım Malzeme Listesi (SBOM) gibi şeffaflık uygulamalarının önemini artırmış ve açık kaynaklı yazılımların güvenliğini sağlamanın kolektif bir sorumluluk olduğu bilincini güçlendirmiştir. Milyarlarca cihazı etkileme potansiyeli ve istismarının kolaylığı nedeniyle on yılın en ciddi güvenlik açıklarından biri olarak tarihe geçmiştir.",
+      "en": "Log4Shell is considered one of the most significant cybersecurity events for exposing the interconnectedness and fragility of the modern software supply chain. It revealed that many organizations were not even aware of Log4j's presence deep within their software stacks. The incident accelerated the adoption of transparency practices like the Software Bill of Materials (SBOM) and reinforced the understanding that securing open-source software is a collective responsibility. It is remembered as one of the most severe vulnerabilities of the decade due to its potential to affect billions of devices and its ease of exploitation."
+    },
+    "sources": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-44228",
+      "https://www.cisa.gov/uscert/apache-log4j-vulnerability-guidance",
+      "https://www.wired.com/story/log4j-flaw-hacking-internet/",
+      "https://logging.apache.org/log4j/2.x/security.html",
+      "https://thehackernews.com/2021/12/extremely-critical-log4j-vulnerability.html"
+    ]
+  }
+}

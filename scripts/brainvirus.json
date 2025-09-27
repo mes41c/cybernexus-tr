@@ -1,0 +1,41 @@
+{
+  "event_date": "1986-01-19",
+  "title": {
+    "tr": "©Brain: Dijital Salgını Başlatan 'İyi Niyetli' Virüs",
+    "en": "©Brain: The 'Benevolent' Virus That Started a Digital Pandemic"
+  },
+  "narrative": {
+    "tr": "1986 yılının Lahor, Pakistan'ında, kişisel bilgisayar devrimi tüm hızıyla devam ederken, iki kardeş, Basit ve Amjad Farooq Alvi, 'Brain Computer Services' adında küçük bir dükkan işletiyordu. Yazdıkları bir medikal yazılımın müşterileri tarafından sürekli olarak izinsiz kopyalanmasından bıkmışlardı. Fikri mülkiyetlerini korumak için, o güne dek eşi benzeri görülmemiş bir yola başvurdular: Verilere zarar vermeyen ama korsan kopyayla birlikte seyahat edecek 'iyi niyetli' bir program yazmaya karar verdiler. Bu program, bir nevi dijital bir 'damga' olacak ve disketin önyükleme sektörüne (boot sector) yerleşecekti. Bir disk kopyalandığında, virüs yeni kopyaya da bulaşıyor, disketin etiketini '©Brain' olarak değiştiriyor ve içinde 'Aşılama için bize ulaşın' notuyla birlikte kendi isimlerini, telefon numaralarını ve adreslerini barındıran bir mesaj saklıyordu. Amaçları sadece kendi yazılımlarının kopyalarını takip etmekti. Ancak bu dijital 'deneyin', kontrolsüz bir şekilde yayılacağını asla öngörememişlerdi. Öğrenciler, gezginler ve iş insanları tarafından kullanılan disketler aracılığıyla virüs, Pakistan sınırlarını aştı ve aylar içinde küresel bir salgına dönüştü. Alvi kardeşlerin telefonu, dünyanın dört bir yanından gelen ve bilgisayarlarına 'Brain' virüsü bulaşmış öfkeli kullanıcılardan gelen çağrılarla susmaz oldu. Kendi mülkiyetlerini korumak için attıkları bu adım, istemeden de olsa tarihin ilk yaygın PC virüsü salgınını başlatmış ve tüm dünyaya bu yeni dijital tehdidin ne kadar bulaşıcı olabileceğini göstermişti.",
+    "en": "In Lahore, Pakistan, in 1986, as the personal computer revolution was in full swing, two brothers, Basit and Amjad Farooq Alvi, were running a small shop called 'Brain Computer Services.' They were frustrated by the constant unauthorized copying of a medical software program they had written. To protect their intellectual property, they resorted to an unprecedented method: they decided to write a 'benevolent' program that wouldn't harm data but would travel along with any pirated copy. This program was intended to be a digital 'stamp' that would reside in the boot sector of a floppy disk. When a disk was copied, the virus would infect the new copy, change the disk's volume label to '©Brain,' and hide a message containing their names, phone number, and address with the note 'Contact us for vaccination.' Their goal was simply to track copies of their own software. However, they never anticipated that this digital 'experiment' would spread uncontrollably. Through floppy disks used by students, travelers, and business people, the virus crossed the borders of Pakistan and, within months, turned into a global pandemic. The Alvi brothers' phone began to ring incessantly with calls from angry users all over the world whose computers were infected with the 'Brain' virus. Their attempt to protect their property had inadvertently launched the first widespread PC virus epidemic in history, demonstrating to the entire world just how contagious this new digital threat could be."
+  },
+  "metadata": {
+    "key_people": [
+      "Basit Farooq Alvi",
+      "Amjad Farooq Alvi"
+    ],
+    "technologies_used": [
+      "IBM PC Compatible",
+      "MS-DOS",
+      "5.25-inch Floppy Disk",
+      "Assembly Language"
+    ],
+    "methods_used": [
+      "Boot Sector Infection",
+      "Stealth Mechanism (Hiding the original boot sector)",
+      "Memory Residency",
+      "Volume Label Modification"
+    ],
+    "significance": {
+      "tr": "Brain, IBM PC uyumlu bilgisayarları hedef alan ilk virüs olarak kabul edilir ve tarihteki ilk geniş çaplı bilgisayar virüsü salgınına neden olmuştur. Veri yok etme amacı taşımasa da, disketleri yavaşlatması ve yayılma hızı, halkın ve endüstrinin 'virüs' tehdidiyle ilk kez kitlesel olarak tanışmasına yol açmıştır. Brain'in en önemli miraslarından biri, virüsün varlığını gizlemek için kullandığı 'stealth' (gizlenme) tekniğidir; virüs, kendisi tarafından değiştirilen önyükleme sektörünü okuma girişimlerini engelleyip yerine orijinal sektörü göstererek tespit edilmesini zorlaştırmıştır. Bu olay, siber güvenlik bilincini artırmış ve doğrudan bir sonuç olarak ticari antivirüs endüstrisinin doğuşunu tetiklemiştir.",
+      "en": "Brain is considered the first virus to target IBM PC compatible computers and caused the first large-scale computer virus epidemic in history. Although it was not designed to destroy data, its slowing of floppy disks and its rapid spread led to the first mass public and industry awareness of the 'virus' threat. One of Brain's most significant legacies was its use of a 'stealth' technique to hide its presence; the virus would intercept attempts to read the infected boot sector and present the original, uninfected sector instead, making detection difficult. This event raised cybersecurity consciousness and, as a direct consequence, triggered the birth of the commercial antivirus industry."
+    },
+    "sources": [
+      "https://ethw.org/Computer_Viruses",
+      "https://medium.com/geekculture/brain-the-worlds-first-computer-virus-f3758323d894",
+      "https://www.pcmag.com/encyclopedia/term/brain-virus",
+      "https://www.welivesecurity.com/2018/11/05/malware-1980s-brain-virus-morris-worm/",
+      "https://www.trtworld.com/magazine/the-making-of-the-first-computer-virus-the-pakistani-brain-12731383",
+      "https://en.wikipedia.org/wiki/Brain_(computer_virus)"
+    ]
+  }
+}

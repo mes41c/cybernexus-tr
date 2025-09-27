@@ -1,0 +1,49 @@
+{
+  "event_date": "2010-06-17",
+  "title": {
+    "tr": "Dijital Bir Silahın İfşası: Stuxnet Solucanının Keşfi",
+    "en": "The Unveiling of a Digital Weapon: The Discovery of the Stuxnet Worm"
+  },
+  "narrative": {
+    "tr": "2010 yılının Haziran ayında, Belaruslu siber güvenlik firması VirusBlokAda'dan Sergey Ulasen, İran'daki bir müşterisinden gelen tuhaf bir vaka ile karşılaştı. Müşterinin bilgisayarları, görünürde hiçbir sebep yokken sürekli olarak yeniden başlıyordu. İlk başta sıradan bir Windows hatası gibi görünen bu durum, Ulasen'in derinlere inmesiyle tarihin en karmaşık siber saldırılarından birinin ilk ipucuna dönüştü. Ulasen, sorunun kaynağının devasa boyutlarda (o dönem için alışılmadık bir şekilde 500KB) ve inanılmaz derecede karmaşık bir zararlı yazılım olduğunu keşfetti. Bu sıradan bir virüs değildi; daha önce hiç görülmemiş dört farklı 'sıfır-gün' (zero-day) açığını kullanıyor, kendini gizlemek için bir rootkit barındırıyor ve meşru görünmek için Realtek gibi tanınmış şirketlerden çalınmış dijital sertifikalarla kendini imzalıyordu. Bu, amatörlerin işi olamazdı; arkasında devasa kaynaklara sahip bir devlet gücü olduğu açıktı. Asıl şok ise kodun amacını analiz ederken geldi. Stuxnet, para çalmak veya veri sızdırmak için tasarlanmamıştı. Onun tek bir hedefi vardı: Siemens tarafından üretilen ve endüstriyel süreçleri kontrol eden özel bir yazılım olan Step7. Yazılımın derinliklerinde, yalnızca belirli bir frekans konvertörü konfigürasyonuna sahip sistemleri arayan bir kod parçası gizliydi. Bu konfigürasyon, dünyada neredeyse sadece İran'ın Natanz'daki nükleer zenginleştirme tesisinde bulunan uranyum santrifüjleriyle eşleşiyordu. Stuxnet, 'hava boşluğu' (air-gap) ile korunan, yani internete bağlı olmayan bu tesise, enfekte olmuş USB bellekler aracılığıyla sızmıştı. İçeri girdiğinde ise şeytani planını devreye soktu: Santrifüjlerin dönüş hızlarını, operatörlerin fark edemeyeceği kadar hassas bir şekilde artırıp azaltarak onlara fiziksel zarar veriyordu. En dahiyane ve korkutucu kısmı ise, santrifüjleri yavaş yavaş yok ederken, kontrol odasındaki mühendislere her şeyin normal çalıştığını gösteren sahte sensör verileri yansıtmasıydı. Operatörler, sistemlerinin dijital bir hayalet tarafından sabote edildiğinden habersiz, her şeyin yolunda olduğunu sanıyordu. Stuxnet'in keşfi, bir dönüm noktasıydı. Siber dünya ile fiziksel dünya arasındaki duvar yıkılmıştı. Artık bir kod parçası, bir ülkenin kritik altyapısına somut, fiziksel hasar verebiliyordu. Dünya, ilk dijital silahıyla tanışmıştı.",
+    "en": "In June 2010, Sergey Ulasen from the Belarusian cybersecurity firm VirusBlokAda encountered a peculiar case from a client in Iran. The client's computers were constantly rebooting for no apparent reason. What initially seemed like a mundane Windows error turned into the first clue to one of the most complex cyberattacks in history as Ulasen delved deeper. He discovered that the source of the problem was a piece of malware of enormous size (an unusual 500KB for the time) and incredible complexity. This was no ordinary virus; it utilized four different, previously unknown 'zero-day' vulnerabilities, contained a rootkit to hide its presence, and was signed with stolen digital certificates from reputable companies like Realtek to appear legitimate. This could not be the work of amateurs; it was clear that a state-level power with vast resources was behind it. The real shock came when analyzing the code's purpose. Stuxnet was not designed to steal money or exfiltrate data. It had a single target: Step7, a specific software produced by Siemens to control industrial processes. Hidden deep within its code was a payload that searched for systems with a very specific frequency converter configuration. This configuration matched almost exclusively with the uranium centrifuges at Iran's Natanz nuclear enrichment facility. Stuxnet had infiltrated this 'air-gapped' facility, which was not connected to the internet, via infected USB flash drives. Once inside, it executed its diabolical plan: it caused physical damage to the centrifuges by subtly increasing and decreasing their rotational speeds in a way that operators would not notice. The most brilliant and terrifying part was that while it was slowly destroying the centrifuges, it replayed fake sensor data to the engineers in the control room, showing that everything was operating normally. The operators, unaware that their systems were being sabotaged by a digital ghost, believed everything was fine. The discovery of Stuxnet was a turning point. The wall between the cyber world and the physical world had been demolished. A piece of code could now inflict tangible, physical damage on a nation's critical infrastructure. The world had just met its first digital weapon."
+  },
+  "metadata": {
+    "key_people": [
+      "Sergey Ulasen",
+      "Liam O'Murchu",
+      "Eric Chien",
+      "Symantec Security Response",
+      "Kaspersky Lab (GReAT)",
+      "NSA (Attributed)",
+      "Unit 8200 - Israeli Intelligence Corps (Attributed)"
+    ],
+    "technologies_used": [
+      "Siemens SIMATIC Step7 Software",
+      "Programmable Logic Controllers (PLCs)",
+      "Windows Zero-Day Exploits (CVE-2010-2568, CVE-2010-2772, etc.)",
+      "Stolen Digital Certificates",
+      "Windows Rootkit (to hide files)",
+      "SCADA Systems"
+    ],
+    "methods_used": [
+      "Air Gap Crossing via USB drives",
+      "Targeted Sabotage of Industrial Control Systems",
+      "Man-in-the-Middle Attack on PLC I/O",
+      "Worm Propagation through LAN and USB",
+      "Code Injection into PLC logic",
+      "Multi-stage, multi-exploit attack vector"
+    ],
+    "significance": {
+      "tr": "Stuxnet'in keşfi, siber güvenlik tarihinde bir milat kabul edilir. Dünyanın ilk dijital silahı olarak, bir yazılımın sadece veri çalmakla kalmayıp, fiziksel dünyadaki altyapıya doğrudan zarar verebileceğini kanıtlamıştır. Bu olay, 'hava boşluğu' (air-gap) ile korunan endüstriyel kontrol sistemlerinin (ICS) ve kritik altyapıların sanıldığı kadar güvende olmadığı gerçeğini ortaya koymuştur. Stuxnet, devlet destekli siber savaşın potansiyelini ve tehlikelerini gözler önüne sererek, kritik altyapı güvenliği kavramını kökten değiştirmiş ve uluslararası siber güvenlik politikalarında yeni bir çağ başlatmıştır. Ayrıca, kodunun analiz edilip kopyalanmasıyla gelecekteki siber silahlara bir şablon oluşturarak 'Pandora'nın Kutusu'nu açmıştır.",
+      "en": "The discovery of Stuxnet is considered a watershed moment in the history of cybersecurity. As the world's first digital weapon, it proved that software could not only steal data but could also cause direct damage to physical infrastructure. This event revealed the reality that 'air-gapped' industrial control systems (ICS) and critical infrastructures were not as secure as previously believed. Stuxnet demonstrated the potential and dangers of state-sponsored cyber warfare, fundamentally changing the concept of critical infrastructure security and ushering in a new era of international cybersecurity policy. Furthermore, by being analyzed and reverse-engineered, its code opened 'Pandora's Box,' providing a blueprint for future cyber weapons."
+    },
+    "sources": [
+      "https://www.wired.com/2014/11/countdown-to-zero-day-stuxnet/",
+      "https://arstechnica.com/tech-policy/2011/07/how-digital-detectives-found-stuxnet-and-uncovered-the-next-big-cyber-threat/",
+      "https://www.belfercenter.org/publication/stuxnet-legacy",
+      "https://docs.broadcom.com/doc/w32-stuxnet-dossier-1-en",
+      "https://www.csoonline.com/article/567222/what-is-stuxnet-who-created-it-and-how-does-it-work.html"
+    ]
+  }
+}

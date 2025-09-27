@@ -1,0 +1,38 @@
+{
+  "event_date": "1962-01-01",
+  "title": {
+    "tr": "Dijital Masumiyetin Sonu: MIT'nin CTSS Parola Dosyası İfşası",
+    "en": "The End of Digital Innocence: The MIT CTSS Password File Disclosure"
+  },
+  "narrative": {
+    "tr": "1960'ların başında, Massachusetts Teknoloji Enstitüsü'nün (MIT) Computation Center'ı, devasa IBM 7094 ana bilgisayarının uğultusuyla geleceğin sesini yansıtıyordu. Burada, Fernando Corbató liderliğindeki bir grup öncü, bilgisayar tarihinde bir devrim olan Uyumlu Zaman Paylaşım Sistemi'ni (CTSS) hayata geçirmişti. CTSS, birden fazla kullanıcının aynı anda tek bir bilgisayarı kullanmasına olanak tanıyarak, her birine kendi özel alanını ve dosyalarını sunan sihirli bir yenilikti. Bu özel alanları korumak için ise tarihteki ilk bilgisayar parolaları icat edilmişti. O dönemde bu, devrim niteliğinde bir güvenlik önlemi olarak görülüyordu, ancak bu dijital kalenin duvarları, kimsenin beklemediği bir şekilde, bir anlık dikkatsizlik sonucu yerle bir olacaktı.\n\nSıradan bir günde, sistem yöneticilerinden biri rutin bir görevle meşguldü: kullanıcılar oturum açtığında görünen 'günün mesajını' düzenlemek. Eş zamanlı olarak, başka bir personel de sistemin en kutsal emanetlerinden biri olan ana parola dosyası üzerinde bakım yapıyordu. CTSS'in o dönemki tasarımında, düzenleme işlemleri için geçici dosyalar kullanılıyordu ve bir yazılım hatası, bu iki işlemi birbiriyle karıştırdı. Aniden, olması gereken şey olmadı. Günün sıkıcı mesajı yerine, sistemdeki her bir kullanıcının parolasını içeren tam liste, oturum açan herkesin terminal ekranına akmaya başladı. Bir an için, MIT'nin en parlak beyinlerinin dijital anahtarları, herkesin görebileceği şekilde ortalığa saçılmıştı. Bu, kötü niyetli bir saldırı değildi; aksine, sistemin kendi içindeki bir hatanın, dijital güvenliğin ne kadar kırılgan olabileceğini acı bir şekilde ortaya koyan masum bir kazaydı. Bu olay, siber güvenlik tarihinin sıfır noktası olarak kabul edilir; bilgisayar sistemlerinin sadece teknik birer başarı değil, aynı zamanda korunması gereken hassas kaleler olduğunun anlaşıldığı an.",
+    "en": "In the early 1960s, the Computation Center at the Massachusetts Institute of Technology (MIT) echoed with the hum of the massive IBM 7094 mainframe, the sound of the future. Here, a group of pioneers led by Fernando Corbató had brought to life the Compatible Time-Sharing System (CTSS), a revolution in computing history. CTSS was a magical innovation that allowed multiple users to use a single computer simultaneously, giving each their own private space and files. To protect these private spaces, the first-ever computer passwords were invented. At the time, this was seen as a groundbreaking security measure, but the walls of this digital fortress were about to crumble in a way no one expected, due to a moment of carelessness.\n\nOn an ordinary day, one of the system administrators was busy with a routine task: editing the 'message of the day' that appeared when users logged in. Simultaneously, another staff member was performing maintenance on one of the system's most sacred relics: the master password file. In the design of CTSS at that time, temporary files were used for editing processes, and a software bug caused these two operations to become intertwined. Suddenly, the unthinkable happened. Instead of the mundane message of the day, the complete list containing every single user's password began streaming onto the terminal screen of anyone who logged in. For a moment, the digital keys to the brightest minds at MIT were laid bare for all to see. This was not a malicious attack; rather, it was an innocent accident, a system's internal flaw painfully revealing just how fragile digital security could be. This event is considered the ground zero of cybersecurity history; the moment it was understood that computer systems were not just technical achievements, but also sensitive fortresses that required protection."
+  },
+  "metadata": {
+    "key_people": [
+      "Fernando J. Corbató (CTSS Project Lead)",
+      "MIT System Administrators"
+    ],
+    "technologies_used": [
+      "Compatible Time-Sharing System (CTSS)",
+      "IBM 7094 Mainframe",
+      "Text Editors",
+      "Plaintext Password Storage"
+    ],
+    "methods_used": [
+      "Software Bug",
+      "File Handling Error",
+      "Accidental Information Disclosure"
+    ],
+    "significance": {
+      "tr": "Bu olay, tarihteki ilk parola tabanlı veri ihlallerinden biri olarak kabul edilir. Kötü niyet olmadan, bir yazılım hatasının tüm sistemin güvenliğini nasıl tehlikeye atabileceğini göstermiştir. Bu deneyim, dosya izinleri, erişim kontrol listeleri ve en önemlisi parola karması (hashing) gibi temel güvenlik kavramlarının geliştirilmesine doğrudan yol açmıştır. CTSS'den öğrenilen dersler, güvenlik odaklı olarak tasarlanan bir sonraki nesil işletim sistemi olan Multics'in temel tasarım prensiplerini şekillendirmiştir.",
+      "en": "This incident is regarded as one of the first password-based data breaches in history. It demonstrated how a software bug, without malicious intent, could compromise the security of an entire system. This experience directly led to the development of fundamental security concepts such as file permissions, access control lists, and, most importantly, password hashing. The lessons learned from CTSS shaped the core design principles of the next-generation operating system, Multics, which was designed with security as a primary focus."
+    },
+    "sources": [
+      "https://www.multicians.org/thvv/7094.html",
+      "https://www.cisco.com/c/r/newsroom/en/us/a/y2022/m11/security-timeline.html",
+      "https://rist.tech.cornell.edu/6431papers/MorrisThompson1979.pdf",
+      "https://www.thinkbrg.com/thinkset/ts-case-of-purloined-password/"
+    ]
+  }
+}

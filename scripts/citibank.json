@@ -1,0 +1,41 @@
+{
+  "event_date": "1994-06-01",
+  "title": {
+    "tr": "Dijital Bankacılığın İlk Büyük Soygunu: Vladimir Levin ve Citibank Vakası",
+    "en": "The First Major Heist of Digital Banking: The Vladimir Levin and Citibank Case"
+  },
+  "narrative": {
+    "tr": "1994 yılının yaz aylarında, internetin henüz emeklediği bir dönemde, dünya finans devi Citibank'ın New York'taki merkezinde kimsenin fark etmediği dijital bir fırtına kopuyordu. Okyanusun ötesinde, St. Petersburg'daki loş bir odada, bir telefon hattının çevir sesi, tarihin ilk büyük siber banka soygunlarından birinin başlangıç melodisiydi. Bu operasyonun merkezindeki isim, 30'lu yaşlarında bir matematikçi olan Vladimir Levin'di. Levin ve ekibi, Citibank'ın kurumsal müşterilerine elektronik para transferi imkanı sunan 'Cash Management System' adlı ağının zayıf bir noktasını keşfetmişti. Onlar, internetin kendisini değil, bankanın daha az korunan, eski usul çevirmeli ağ bağlantılarını hedef aldılar. Aylarca süren bir sabırla, bu hatlar üzerinden bankanın sistemine sızarak, kurumsal müşterilerin kullanıcı adı ve şifrelerini ele geçirdiler. Artık kasanın anahtarları ellerindeydi. Haziran'dan Ekim'e kadar süren bir operasyonla, sanki meşru birer müşteriymiş gibi davranarak, dünyanın dört bir yanındaki hesaplara (Finlandiya, ABD, Hollanda, Almanya ve İsrail) 40'tan fazla transfer emri verdiler. Toplamda 10 milyon dolardan fazla parayı, fark edilmeden bankanın dışına çıkardılar. Ancak hırsları, onların sonu oldu. Transferlerin sıklığı ve ulaştığı alakasız hesaplar, Citibank'ın otomatik sistemlerinde kırmızı alarmların çalmasına neden oldu. Banka, durumu fark ettiğinde FBI ile temasa geçti. Artık oyun değişmişti; avcılar ava dönüşmüştü. FBI, paranın izini sürerek Levin'in suç ortaklarını bir bir yakalamaya başladı. Levin'i yakalamak için ise uluslararası bir tuzak kuruldu. Sahte bir iş teklifiyle Londra'ya çekilen Levin, 1995 yılında Heathrow Havaalanı'na indiği an Scotland Yard tarafından tutuklandı. Bu olay, bankacılık dünyasını sonsuza dek değiştirecek bir uyanış çağrısıydı; artık en büyük tehditler, çelik kasaları delen matkaplar değil, telefon hatlarından sızan kodlardı.",
+    "en": "In the summer of 1994, during an era when the internet was still in its infancy, a silent digital storm was brewing unnoticed inside the New York headquarters of the global financial giant, Citibank. Across the ocean, in a dimly lit room in St. Petersburg, the sound of a dial-up tone was the opening melody to one of history's first major cyber bank heists. At the center of this operation was Vladimir Levin, a mathematician in his 30s. Levin and his team had discovered a vulnerability in Citibank's 'Cash Management System,' a network that allowed corporate clients to transfer funds electronically. They didn't target the internet itself, but rather the bank's less-protected, old-fashioned dial-up network connections. With months of patience, they infiltrated the bank's system through these lines, capturing the usernames and passwords of corporate customers. The keys to the vault were now in their hands. In an operation spanning from June to October, they acted as if they were legitimate clients, issuing more than 40 transfer orders to accounts across the globe—in Finland, the US, the Netherlands, Germany, and Israel. In total, they moved over $10 million out of the bank without being detected. However, their ambition became their downfall. The frequency of the transfers and the unrelated accounts they were sent to triggered red alarms in Citibank's automated systems. When the bank realized what was happening, they contacted the FBI. The game had changed; the hunters had become the hunted. The FBI traced the money, capturing Levin's accomplices one by one. To catch Levin himself, an international trap was set. Lured to London with a fake job offer, Levin was arrested by Scotland Yard the moment he landed at Heathrow Airport in 1995. This event was a wake-up call that would change the world of banking forever; the greatest threats were no longer drills breaking into steel vaults, but code seeping through telephone lines."
+  },
+  "metadata": {
+    "key_people": [
+      "Vladimir Levin",
+      "FBI Cybercrime Investigators",
+      "Scotland Yard"
+    ],
+    "technologies_used": [
+      "Dial-up Networking",
+      "Citibank's proprietary Cash Management System",
+      "X.25 protocol (common for financial networks)"
+    ],
+    "methods_used": [
+      "Network Intrusion",
+      "Credential Theft",
+      "Electronic Wire Fraud",
+      "Money Laundering",
+      "Use of Money Mules"
+    ],
+    "significance": {
+      "tr": "Vladimir Levin'in Citibank soygunu, büyük bir finans kurumuna yönelik ilk küresel ve organize siber soygunlardan biri olarak kabul edilir. Bu olay, coğrafi sınırların siber suçlar için bir engel teşkil etmediğini ve bankaların en büyük güvenlik risklerinin artık fiziksel değil dijital olduğunu acı bir şekilde ortaya koymuştur. Vaka, finans sektöründe siber güvenlik yatırımlarının patlamasına, çok faktörlü kimlik doğrulama gibi yeni güvenlik önlemlerinin geliştirilmesine ve siber suçlarla mücadelede uluslararası kolluk kuvvetleri işbirliğinin önemini vurgulamasına neden olmuştur. Modern bankacılık güvenliğinin temelleri, bu cüretkar dijital soygunun külleri üzerinde yükselmiştir.",
+      "en": "The Vladimir Levin Citibank heist is considered one of the first global and organized cyber-attacks against a major financial institution. This event painfully demonstrated that geographical borders were no obstacle for cybercrime and that the greatest security risks for banks were no longer physical but digital. The case triggered a boom in cybersecurity investments within the financial sector, led to the development of new security measures like multi-factor authentication, and highlighted the importance of international law enforcement cooperation in combating cybercrime. The foundations of modern banking security were built upon the ashes of this audacious digital heist."
+    },
+    "sources": [
+      "https://www.justice.gov/usao-sdny/pr/leader-russian-computer-hacking-ring-sentenced-3-years-prison-and-ordered-pay-240015",
+      "https://www.wired.com/1997/03/hacker/",
+      "https://www.nytimes.com/1995/03/22/us/suspect-in-computer-fraud-case-is-held-in-britain-for-extradition-to-us.html",
+      "https://archives.fbi.gov/archives/news/stories/2007/march/cyber-criminal-impressions",
+      "https://content.time.com/time/subscriber/article/0,33009,983321,00.html"
+    ]
+  }
+}

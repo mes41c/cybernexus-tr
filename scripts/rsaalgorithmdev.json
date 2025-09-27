@@ -1,0 +1,38 @@
+{
+  "event_date": "1977-04-04",
+  "title": {
+    "tr": "RSA Algoritmasının Geliştirilmesi: Dijital Çağ İçin Bir Anahtar",
+    "en": "The Development of the RSA Algorithm: A Key for the Digital Age"
+  },
+  "narrative": {
+    "tr": "1976 sonbaharında, kriptografi dünyası Whitfield Diffie ve Martin Hellman'ın 'Kriptografide Yeni Yönelimler' başlıklı devrim niteliğindeki makalesiyle sarsıldı. Bu makale, her kullanıcının bir genel (public) bir de özel (private) anahtara sahip olduğu 'açık anahtarlı şifreleme' adında büyüleyici bir teorik konsept ortaya koyuyordu. Ancak ortada büyük bir sorun vardı: Diffie ve Hellman, bu teoriyi hayata geçirecek pratik bir matematiksel fonksiyon, yani bir 'tek yönlü tuzak kapı fonksiyonu' sunamamıştı. MIT'de, bu entelektüel meydan okuma üç genç araştırmacının dikkatini çekti: bilgisayar bilimcisi Ron Rivest, matematikçi Adi Shamir ve teorik bilgisayar bilimcisi Leonard Adleman. Rivest, kendini bu imkansız gibi görünen fonksiyonu bulmaya adadı. Aylar boyunca 40'tan fazla potansiyel yaklaşımı denedi, ancak her birini zeki meslektaşları Shamir ve Adleman bir bir çürüttü. Umutsuzluğun eşiğine gelindiği bir anda, 1977 yılının Nisan ayında bir Hamursuz Bayramı (Passover Seder) gecesi, Rivest uykusuz bir şekilde kanepesinde uzanırken zihninde bir şimşek çaktı: Çok büyük iki asal sayıyı çarpmanın kolay, ancak çıkan sonucu tekrar bu asal çarpanlarına ayırmanın neredeyse imkansız olduğu gerçeği. Aradığı 'tuzak kapı' buydu. O gece sabaha kadar çalışarak makalenin ilk taslağını kaleme aldı. Takip eden günlerde üçlü, bu matematiksel temeli sağlamlaştırarak hem veriyi şifreleyebilen hem de dijital olarak imzalayabilen, dünyanın ilk pratik ve güvenli açık anahtarlı şifreleme sistemini dünyaya tanıttı. Soyadlarının baş harflerini taşıyan bu sisteme 'RSA' adını verdiler ve dijital güvenliğin temelini atarak geleceği şekillendirdiler.",
+    "en": "In the autumn of 1976, the world of cryptography was shaken by a revolutionary paper from Whitfield Diffie and Martin Hellman titled 'New Directions in Cryptography.' This paper introduced a fascinating theoretical concept called 'public-key cryptography,' where each user possesses both a public and a private key. However, there was a major problem: Diffie and Hellman could not provide a practical mathematical function—a 'one-way trapdoor function'—to bring this theory to life. At MIT, this intellectual challenge captured the attention of three young researchers: computer scientist Ron Rivest, mathematician Adi Shamir, and theoretical computer scientist Leonard Adleman. Rivest dedicated himself to finding this seemingly impossible function. For months, he explored over 40 potential approaches, but his brilliant colleagues, Shamir and Adleman, debunked each one. On the brink of despair, during a Passover Seder night in April 1977, as Rivest lay sleepless on his couch, an idea struck him like lightning: the fact that multiplying two very large prime numbers is easy, but factoring the resulting product back into its original primes is nearly impossible. This was the 'trapdoor' he had been searching for. He worked through the night, drafting the first version of their paper. In the following days, the trio solidified this mathematical foundation, introducing the world to the first practical and secure public-key cryptosystem capable of both encrypting data and creating digital signatures. They named it 'RSA,' after the initials of their surnames, and in doing so, laid the foundation for digital security and shaped the future."
+  },
+  "metadata": {
+    "key_people": [
+      "Ron Rivest",
+      "Adi Shamir",
+      "Leonard Adleman"
+    ],
+    "technologies_used": [
+      "Public-Key Cryptography",
+      "Number Theory",
+      "MIT Laboratory for Computer Science (LCS)"
+    ],
+    "methods_used": [
+      "Asymmetric Encryption",
+      "Prime Factorization",
+      "Digital Signatures"
+    ],
+    "significance": {
+      "tr": "RSA, simetrik şifrelemede büyük bir engel olan 'anahtar dağıtım sorununu' çözmüştür. Güvenli e-ticaretin (SSL/TLS protokollerinin temeli olarak), dijital imzaların ve özel iletişimlerin temelini atarak modern kriptografinin ve internet güvenliğinin temel taşı haline gelmiştir.",
+      "en": "RSA solved the 'key distribution problem,' a major obstacle in symmetric cryptography. It became the cornerstone of modern cryptography and internet security by providing the foundation for secure e-commerce (as the basis for SSL/TLS protocols), digital signatures, and private communications."
+    },
+    "sources": [
+      "https://people.csail.mit.edu/rivest/Rsapaper.pdf",
+      "https://amturing.acm.org/award_winners/rivest_1114389.cfm",
+      "https://www.wired.com/2002/11/the-rsa-algorithm-from-the-passover-seder-to-the-data-age/",
+      "https://web.archive.org/web/20070526023247/http://swiss.csail.mit.edu/classes/6.857/articles/rsa-sciam.pdf"
+    ]
+  }
+}

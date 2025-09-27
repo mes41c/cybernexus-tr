@@ -1,0 +1,42 @@
+{
+  "event_date": "2012-08-15",
+  "title": {
+    "tr": "Dijital Kıyım: Shamoon Virüsü Saudi Aramco'yu Nasıl Felç Etti?",
+    "en": "Digital Devastation: How the Shamoon Virus Crippled Saudi Aramco"
+  },
+  "narrative": {
+    "tr": "15 Ağustos 2012, Ramazan ayının ortasında, dünyanın en büyük petrol şirketi Saudi Aramco'nun kurumsal ağlarında her şey normal görünüyordu. Ancak görünmeyen bir fırtına kopmak üzereydi. Birkaç hafta önce, bir çalışanın dikkatsiz bir anında tıkladığı kötü amaçlı bir e-posta ile 'Shamoon' adlı bir dijital silah, şirketin savunma hatlarını sessizce yarmıştı. Virüs, bir avcı gibi sabırla ağ içinde yayıldı, yönetici şifrelerini çaldı ve on binlerce bilgisayara sızarak doğru anı bekledi. O gün, yerel saatle 11:08'de, zaman ayarlı bomba patladı. Saudi Aramco'nun 30,000'den fazla iş istasyonunun ekranı aniden karardı. Shamoon'un 'silecek' (wiper) modülü, bilgisayarların ana önyükleme kaydını (MBR) ve sabit disklerdeki verileri geri döndürülemez bir şekilde siliyordu. Verilerin üzerine ise provokatif bir şekilde yanan bir Amerikan bayrağı resmi yazılıyordu. Bu, bir veri hırsızlığı değil, saf bir yıkım eylemiydi. Amaç, şirketin operasyonel kalbini durdurmaktı. Panik içindeki IT ekipleri, virüsün daha fazla yayılmasını önlemek için çaresizce ağ kablolarını çekmeye başladı. Şirketin iş ağları çöktü, e-posta iletişimi durdu ve Aramco, petrol sevkiyatını sürdürebilmek için faks makineleri ve daktilolar gibi 1970'lerin teknolojilerine geri dönmek zorunda kaldı. 'Adaletin Keskin Kılıcı' adını kullanan bir grup saldırının sorumluluğunu üstlendi ve bunu Suudi rejiminin politikalarına bir misilleme olarak nitelendirdi. Shamoon saldırısı, siber savaşın ne denli yıkıcı olabileceğini ve kritik altyapıların ne kadar savunmasız olduğunu tüm dünyaya acı bir şekilde gösteren bir dönüm noktası oldu.",
+    "en": "On August 15, 2012, in the middle of Ramadan, everything seemed normal on the corporate networks of Saudi Aramco, the world's largest oil company. However, an unseen storm was about to break. A few weeks prior, a digital weapon named 'Shamoon' had silently breached the company's defenses through a malicious email clicked by an unsuspecting employee. Like a patient predator, the virus spread laterally across the network, stealing administrator credentials and infiltrating tens of thousands of computers, waiting for the right moment. That day, at 11:08 AM local time, the time bomb detonated. The screens of over 30,000 workstations at Saudi Aramco suddenly went blank. Shamoon's 'wiper' module was irreversibly erasing the Master Boot Record (MBR) and data on the hard drives. It overwrote the data with a provocative image of a burning American flag. This was not an act of data theft, but one of pure destruction. The goal was to stop the company's operational heart. Panicked IT teams began desperately pulling network cables to prevent the virus from spreading further. The company's business networks collapsed, email communication ceased, and to maintain oil shipments, Aramco was forced to revert to 1970s-era technology like fax machines and typewriters. A group calling itself the 'Cutting Sword of Justice' claimed responsibility for the attack, framing it as retaliation against the policies of the Saudi regime. The Shamoon attack became a landmark event, painfully demonstrating to the world the devastating potential of cyber warfare and the vulnerability of critical infrastructure."
+  },
+  "metadata": {
+    "key_people": [
+      "Cutting Sword of Justice (Hacker Grubu)",
+      "Saudi Aramco (Kurban)"
+    ],
+    "technologies_used": [
+      "Shamoon (Disttrack) Malware",
+      "Wiper (Veri Silici) Modülü",
+      "Master Boot Record (MBR) Overwriting",
+      "Windows NT Kernel",
+      "RawDisk Driver"
+    ],
+    "methods_used": [
+      "Spear-Phishing (Oltalama)",
+      "Credential Theft (Kimlik Bilgisi Hırsızlığı)",
+      "Lateral Movement (Yatay Hareket)",
+      "Data Destruction (Veri İmhası)",
+      "Time Bomb (Zaman Ayarlı Tetikleme)"
+    ],
+    "significance": {
+      "tr": "Shamoon saldırısı, o tarihe kadar tek bir kuruluşa yönelik en yıkıcı siber saldırılardan biriydi. Bu olay, siber savaşın sadece casusluk veya hırsızlık amaçlı değil, aynı zamanda fiziksel dünyada operasyonel kaosa yol açmayı hedefleyen saf yıkım için de kullanılabileceğini kanıtladı. Saldırı, 'wiper' kötü amaçlı yazılımlarını küresel bir tehdit olarak gündeme taşıdı ve kritik ulusal altyapıların (enerji, finans vb.) siber güvenliğe yönelik stratejilerini kökten gözden geçirmesine neden oldu. Saudi Aramco'nun on binlerce sabit diski acilen değiştirmek zorunda kalması ve operasyonlarını haftalarca eski usul yöntemlerle sürdürmesi, dijital altyapıların kırılganlığını ve siber güvenliğin ulusal güvenlik için ne kadar hayati olduğunu gözler önüne serdi.",
+      "en": "The Shamoon attack was one of the most destructive cyberattacks against a single organization to date. The event proved that cyber warfare could be waged not just for espionage or theft, but for pure destruction aimed at causing operational chaos in the physical world. The attack brought 'wiper' malware into the spotlight as a global threat and forced critical national infrastructures (energy, finance, etc.) to fundamentally reassess their cybersecurity strategies. The fact that Saudi Aramco had to urgently replace tens of thousands of hard drives and conduct its operations with archaic methods for weeks exposed the fragility of digital infrastructures and the vital importance of cybersecurity for national security."
+    },
+    "sources": [
+      "https://www.cfr.org/cyber-operations/compromise-saudi-aramco-and-rasgas",
+      "https://www.symantec.com/connect/blogs/shamoon-back-dead-and-more-destructive-ever",
+      "https://securelist.com/shamoon-the-wiper-in-details/34369/",
+      "https://www.nytimes.com/2012/10/24/world/middleeast/iran-seen-as-prime-suspect-in-cyberattack-on-saudi-oil-firm.html",
+      "https://unit42.paloaltonetworks.com/unit42-shamoon-2-return-disttrack-wiper/"
+    ]
+  }
+}

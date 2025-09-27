@@ -397,3 +397,17 @@ export const rateCaseById = async (caseId, anonymousUserId, rating) => {
     throw error;
   }
 };
+
+export const fetchHistoryEvents = async () => {
+  try {
+    const response = await fetch(`${API_URL}/history/events`);
+    if (!response.ok) {
+      throw new Error('Tarihsel olaylar alınamadı.');
+    }
+    const data = await response.json();
+    return data.data; // Backend'de 'data' anahtarı altında gönderiyoruz
+  } catch (error) {
+    console.error("Tarihçe verisi çekme hatası:", error);
+    return []; // Hata durumunda boş bir dizi döndür
+  }
+};

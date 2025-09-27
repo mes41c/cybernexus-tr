@@ -1,0 +1,40 @@
+{
+  "event_date": "2012-06-05",
+  "title": {
+    "tr": "Tuzsuz Parolalar: 2012 LinkedIn Veri İhlali",
+    "en": "Unsalted Passwords: The 2012 LinkedIn Data Breach"
+  },
+  "narrative": {
+    "tr": "2012 yılında LinkedIn, profesyonel dünyanın dijital merkeziydi; milyonlarca insanın kariyerlerini, bağlantılarını ve itibarlarını emanet ettiği güvenilir bir kaleydi. Ancak 5 Haziran'da bu kalenin duvarlarında devasa bir gedik açıldı. Güvenlik araştırmacıları, bir Rus hacker forumunda şok edici bir gönderi keşfettiler: Yaklaşık 6.5 milyon LinkedIn kullanıcısına ait olduğu iddia edilen, şifrelenmiş parolalardan oluşan devasa bir dosya. Topluluktan, bu şifrelerin kırılması için yardım isteniyordu. Kısa sürede acı gerçek doğrulandı; sızıntı gerçekti ve profesyonel dünyanın en büyük veri ihlallerinden biri başlamıştı. LinkedIn'in güvenlik ekibi alarma geçtiğinde, krizin merkezinde basit ama ölümcül bir hata yattığını fark ettiler: Parolalar, endüstri standardı olan 'salting' (tuzlama) işlemi uygulanmadan, zayıf kabul edilen SHA-1 algoritmasıyla şifrelenmişti. Tuzlama olmadan, aynı parolaya sahip tüm kullanıcıların şifrelenmiş halleri de aynıydı. Bu durum, 'gökkuşağı tabloları' olarak bilinen önceden hesaplanmış hash listeleriyle milyonlarca hesabın saniyeler içinde kırılmasına olanak tanıyordu. LinkedIn, etkilenen milyonlarca kullanıcının parolasını derhal sıfırlamak ve kamuoyuna bir zafiyeti itiraf etmek zorunda kaldı. Bu olay, sadece LinkedIn için bir itibar felaketi olmakla kalmadı, aynı zamanda tüm teknoloji endüstrisi için bir uyandırma servisi oldu. Parola güvenliğinin ne kadar kritik olduğu ve 'tuzlama' gibi temel bir güvenlik önleminin ihmal edilmesinin sonuçlarının ne kadar yıkıcı olabileceği, milyonlarca profesyonelin verileri üzerinden acı bir şekilde öğrenilmişti. İhlalin tam boyutu ise yıllar sonra, 2016'da aynı sızıntıdan kaynaklanan 100 milyondan fazla hesabın daha satışa çıkmasıyla anlaşılacaktı.",
+    "en": "In 2012, LinkedIn was the digital hub of the professional world—a trusted fortress where millions of people entrusted their careers, connections, and reputations. But on June 5th, a massive breach was torn in the walls of that fortress. Security researchers discovered a shocking post on a Russian hacker forum: a huge file containing what was claimed to be the encrypted passwords of approximately 6.5 million LinkedIn users. The poster was asking the community for help in cracking them. The grim truth was quickly confirmed; the leak was real, and one of the largest data breaches in the professional world had begun. As LinkedIn's security team scrambled, they realized a simple but fatal flaw was at the heart of the crisis: the passwords had been hashed with the weak SHA-1 algorithm without 'salting,' an industry-standard practice. Without a salt, every user with the same password had the identical hash. This allowed attackers to use pre-computed hash lists, known as 'rainbow tables,' to crack millions of accounts in seconds. LinkedIn was forced to immediately reset the passwords of millions of affected users and publicly admit to a critical vulnerability. The incident was not just a reputational disaster for LinkedIn; it was a wake-up call for the entire tech industry. The critical importance of password security, and the devastating consequences of neglecting a basic security measure like salting, were painfully learned through the compromised data of millions of professionals. The full scale of the breach would only be understood years later, in 2016, when data from over 100 million more accounts from the same incident appeared for sale."
+  },
+  "metadata": {
+    "key_people": [
+      "Yevgeniy Nikulin (Indicted Russian Hacker)",
+      "LinkedIn Security Team"
+    ],
+    "technologies_used": [
+      "SHA-1 Hashing (Unsalted)",
+      "Russian Hacker Forums",
+      "Rainbow Table Attacks"
+    ],
+    "methods_used": [
+      "Data Exfiltration",
+      "Password Cracking",
+      "Public Data Leak",
+      "Credential Stuffing (Post-Breach)"
+    ],
+    "significance": {
+      "tr": "2012 LinkedIn ihlali, modern internet tarihindeki en öğretici güvenlik olaylarından biridir. Milyonlarca kullanıcının verisini riske atarak, parola karmasında 'tuzlama' (salting) işleminin mutlak gerekliliğini gözler önüne sermiştir. Bu olay, endüstride parola güvenliği standartlarının sorgulanmasına ve bcrypt gibi daha güçlü karma algoritmalarının yaygınlaşmasına öncülük etmiştir. Şirketlerin sadece veri sızıntılarını önlemekle kalmayıp, sızdırılan veriyi de kullanılamaz hale getirme sorumluluğunu vurgulamıştır. Ayrıca, kullanıcıların farklı platformlarda aynı şifreyi kullanmasının tehlikelerini ortaya koymuş ve çok faktörlü kimlik doğrulama (MFA) gibi ek güvenlik önlemlerinin benimsenmesini hızlandırmıştır.",
+      "en": "The 2012 LinkedIn breach is one of the most instructive security incidents in modern internet history. By exposing the data of millions, it starkly demonstrated the absolute necessity of 'salting' in password hashing. The event triggered an industry-wide re-evaluation of password security standards, leading to the broader adoption of stronger hashing algorithms like bcrypt. It underscored the responsibility of companies not only to prevent data leaks but also to render any leaked data useless. Furthermore, it highlighted the dangers of password reuse across different platforms and accelerated the adoption of additional security measures like multi-factor authentication (MFA)."
+    },
+    "sources": [
+      "https://www.cbsnews.com/news/linkedin-2012-data-breach-hack-much-worse-than-we-thought-passwords-emails/",
+      "https://www.justice.gov/archives/opa/pr/yevgeniy-nikulin-indicted-hacking-linkedin-dropbox-and-formspring",
+      "https://krebsonsecurity.com/2016/05/as-scope-of-2012-breach-expands-linkedin-to-again-reset-passwords-for-some-users/",
+      "https://news.sophos.com/en-us/2015/02/25/linkedin-settles-class-action-suit-over-2012-unsalted-password-leak/",
+      "https://www.theregister.com/2012/06/06/linkedin_password_leak/",
+      "https://arxiv.org/pdf/1703.06586"
+    ]
+  }
+}

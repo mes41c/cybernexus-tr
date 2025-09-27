@@ -1,0 +1,41 @@
+{
+  "event_date": "2013-11-27",
+  "title": {
+    "tr": "Target Veri İhlali: Bir HVAC Satıcısı Üzerinden Gerçekleşen Milyonlarca Dolarlık Soygun",
+    "en": "The Target Data Breach: The Million-Dollar Heist That Came Through an HVAC Vendor"
+  },
+  "narrative": {
+    "tr": "2013'ün sonlarına doğru, Amerika'nın en büyük perakendecilerinden biri olan Target, tatil sezonu alışverişinin zirvesindeydi. Milyonlarca müşteri, sevdiklerine hediye almak için mağazaları dolduruyor, kasalarda kredi kartlarını güvenle kullanıyordu. Ancak bu yoğunluğun perde arkasında, siber güvenlik tarihinin en büyük soygunlarından biri sessizce ve ustalıkla sahneleniyordu. Operasyonun başlangıç noktası, Target'ın milyonlarca dolarlık güvenlik duvarları veya karmaşık sistemleri değildi; aksine, son derece sıradan bir hedefti: Target'ın mağazalarına ısıtma, havalandırma ve iklimlendirme (HVAC) hizmeti sağlayan Fazio Mechanical Services adında küçük bir taşeron firma. Saldırganlar, bu firmanın bir çalışanına gönderdikleri basit bir oltalama (phishing) e-postası ile Target'ın iş ortağı portalına erişim için kullanılan kimlik bilgilerini ele geçirdiler. Bu, devasa kalenin ana kapısını değil, unutulmuş bir yan kapıyı açan anahtardı. İçeri sızdıktan sonra, saldırganlar sabırla Target'ın ağı içinde yanlamasına hareket ettiler. Ağ segmentasyonundaki zayıflıklardan faydalanarak, ödeme verilerinin işlendiği en kutsal alana, Satış Noktası (POS) sistemlerine ulaştılar. Buraya, 'BlackPOS' olarak bilinen ve bellekten veri kazıyan (memory-scraping) özel bir kötü amaçlı yazılım yerleştirdiler. Bu yazılımın görevi basitti: Müşterinin kartı okutulduğu o kısacık an içinde, veriler şifrelenmeden önce RAM'den çalmaktı. 27 Kasım'dan 15 Aralık'a kadar, üç hafta boyunca, her bir kart okutma işlemi, görünmez bir hırsızlık eylemine dönüştü. Milyonlarca müşterinin kart bilgileri, isimleri, adresleri ve telefon numaraları, Target'ın ağından gizlice sızdırılarak Doğu Avrupa'daki sunuculara aktarıldı. İşin trajik yanı, Target'ın güvenlik sistemlerinin bu anormalliği tespit etmiş olmasıydı. Güvenlik ekibine uyarılar gönderildi, ancak bu uyarılar ya 'yanlış alarm' olarak değerlendirildi ya da operasyonel yoğunluk içinde gözden kaçırıldı. Soygun, Target tarafından değil, bankaların ve kolluk kuvvetlerinin çalınan kartlarla yapılan sahte işlemlerdeki artışı fark etmesiyle ortaya çıktı. Haberler patlak verdiğinde, sonuç bir felaketti: 40 milyon kredi kartı ve 70 milyon müşteri kaydı çalınmıştı. Target'ın CEO'su istifa etti, şirket milyarlarca dolarlık zarara uğradı ve en önemlisi, milyonlarca müşterinin markaya olan güveni sarsıldı. Bu olay, siber güvenliğin sadece IT departmanının bir sorunu olmadığını, bir şirketin en zayıf halkasının (bu durumda bir HVAC satıcısı) tüm kaleyi düşürebileceğini acı bir şekilde kanıtladı.",
+    "en": "In late 2013, as the holiday shopping season hit its peak, Target, one of America's largest retailers, was bustling with activity. Millions of customers filled the stores, swiping their credit cards at the checkout counters with confidence, purchasing gifts for their loved ones. But behind the scenes of this festive rush, one of the largest heists in cybersecurity history was being staged with silence and skill. The entry point for the operation wasn't Target's multi-million dollar firewalls or complex systems; it was a remarkably mundane target: a small subcontractor named Fazio Mechanical Services, which provided heating, ventilation, and air conditioning (HVAC) services to Target's stores. The attackers stole credentials for Target's supplier portal through a simple phishing email sent to an employee of this firm. This was the key that unlocked not the main gate of the massive fortress, but a forgotten side door. Once inside, the attackers patiently moved laterally within Target's network. Exploiting weaknesses in network segmentation, they reached the most sacred ground where payment data was processed: the Point of Sale (POS) systems. Here, they deployed a special piece of memory-scraping malware known as 'BlackPOS'. The malware's task was simple: to steal data from RAM in the fleeting moment a customer's card was swiped, before the data could be encrypted. For three weeks, from November 27th to December 15th, every single card swipe became an act of invisible theft. The card information, names, addresses, and phone numbers of millions of customers were quietly siphoned from Target's network to servers in Eastern Europe. The tragic irony was that Target's own security systems had detected the anomaly. Alerts were sent to the security team, but they were either dismissed as 'false positives' or overlooked amidst the operational intensity. The heist was uncovered not by Target, but by banks and law enforcement who noticed a spike in fraudulent transactions using the stolen cards. When the news broke, the result was a catastrophe: 40 million credit cards and 70 million customer records had been compromised. Target's CEO resigned, the company suffered billions of dollars in losses, and most importantly, the trust of millions of customers in the brand was shattered. This incident painfully proved that cybersecurity is not just an IT problem and that a company's weakest link—in this case, an HVAC vendor—could bring down the entire fortress."
+  },
+  "metadata": {
+    "key_people": [
+      "Gregg Steinhafel (Former Target CEO)",
+      "Brian Krebs (Journalist who broke the story)",
+      "Fazio Mechanical Services (Third-party HVAC vendor)"
+    ],
+    "technologies_used": [
+      "Point of Sale (POS) Systems",
+      "Memory-Scraping Malware (BlackPOS/Kaptoxa)",
+      "Third-Party Vendor Portals",
+      "Windows Embedded for Point of Service"
+    ],
+    "methods_used": [
+      "Spear Phishing",
+      "Third-Party Credential Theft",
+      "Lateral Movement",
+      "Privilege Escalation",
+      "Data Exfiltration"
+    ],
+    "significance": {
+      "tr": "Target veri ihlali, siber güvenliğin sadece teknik bir konu olmadığını, aynı zamanda bir iş riski ve tedarik zinciri yönetimi meselesi olduğunu kanıtlayan bir dönüm noktası oldu. Bu olay, üçüncü parti satıcıların oluşturduğu riskleri (üçüncü parti riski) somut bir şekilde gözler önüne serdi ve şirketlerin güvenlik denetimlerini iş ortaklarını da kapsayacak şekilde genişletmelerine neden oldu. Ayrıca, gelişmiş güvenlik araçlarının varlığına rağmen insan faktörünün ve olay müdahale süreçlerinin kritik önemini vurguladı; çünkü uyarılar mevcuttu ancak etkili bir şekilde yanıtlanmadı. Bu ihlal, ABD'de çipli ve PIN'li (EMV) kart teknolojisine geçişi hızlandıran en önemli etkenlerden biri olarak kabul edilir ve siber güvenliğin yönetim kurulu seviyesinde tartışılan bir konu haline gelmesinde büyük rol oynamıştır.",
+      "en": "The Target data breach was a turning point that proved cybersecurity is not just a technical issue but also a business risk and a matter of supply chain management. This incident concretely demonstrated the risks posed by third-party vendors (third-party risk) and led companies to extend their security audits to include their business partners. Furthermore, it highlighted the critical importance of the human factor and incident response procedures, even in the presence of advanced security tools, as alerts were generated but not acted upon effectively. The breach is considered one of the most significant catalysts that accelerated the transition to chip-and-PIN (EMV) card technology in the United States and played a major role in making cybersecurity a boardroom-level concern."
+    },
+    "sources": [
+      "https://krebsonsecurity.com/2013/12/target-hit-by-massive-data-breach/",
+      "https://www.nytimes.com/2014/01/15/business/target-breach-said-to-have-begun-with-phishing-email.html",
+      "https://www.hsgac.senate.gov/wp-content/uploads/2021/02/A-Kill-Chain-Analysis-of-the-2013-Target-Data-Breach.pdf",
+      "https://www.wsj.com/articles/SB10001424052702303491404579363041463262938"
+    ]
+  }
+}

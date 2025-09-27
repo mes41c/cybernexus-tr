@@ -679,6 +679,60 @@ app.get('/api/cases', async (req, res) => {
     }
 });
 
+app.get('/api/history/events', (req, res) => {
+    // Bu karmaşık sorgu, tüm bağlantı tablolarını birleştirerek
+    // her olay için ilişkili tüm verileri tek bir satırda toplar.
+    const sql = `
+        SELECT
+            he.*,
+            GROUP_CONCAT(DISTINCT p.name) AS key_people,
+            GROUP_CONCAT(DISTINCT t.name) AS technologies_used,
+            GROUP_CONCAT(DISTINCT m.name) AS methods_used,
+            GROUP_CONCAT(DISTINCT s.url) AS sources
+        FROM
+            historical_events he
+        LEFT JOIN event_people_link epl ON he.id = epl.event_id
+        LEFT JOIN people p ON epl.person_id = p.id
+        LEFT JOIN event_technologies_link etl ON he.id = etl.event_id
+        LEFT JOIN technologies t ON etl.technology_id = t.id
+        LEFT JOIN event_methods_link eml ON he.id = eml.event_id
+        LEFT JOIN methods m ON eml.method_id = m.id
+        LEFT JOIN event_sources_link esl ON he.id = esl.event_id
+        LEFT JOIN sources s ON esl.source_id = s.id
+        GROUP BY
+            he.id
+        ORDER BY
+            he.event_date ASC;
+    `;
+
+    db.all(sql, [], (err, rows) => {
+        if (err) {
+            res.status(500).json({ "error": err.message });
+            return;
+        }
+        
+        // Veritabanından gelen veriyi frontend'in daha kolay işleyeceği bir formata dönüştürüyoruz.
+        const formattedData = rows.map(row => ({
+            id: row.id,
+            event_date: row.event_date,
+            title: { tr: row.title_tr, en: row.title_en },
+            narrative: { tr: row.narrative_tr, en: row.narrative_en },
+            metadata: {
+                key_people: row.key_people ? row.key_people.split(',') : [],
+                technologies_used: row.technologies_used ? row.technologies_used.split(',') : [],
+                methods_used: row.methods_used ? row.methods_used.split(',') : [],
+                significance: { tr: row.significance_tr, en: row.significance_en },
+                sources: row.sources ? row.sources.split(',') : []
+            }
+        }));
+
+        res.json({
+            "message": "success",
+            "data": formattedData
+        });
+    });
+});
+
 app.post('/api/cases/ask', async (req, res) => {
     // Frontend'den artık anonymousUserId'yi de alıyoruz
     const { caseId, messages, language, userSettings, anonymousUserId } = req.body;

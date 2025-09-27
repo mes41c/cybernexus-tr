@@ -1,0 +1,42 @@
+{
+  "event_date": "2022-02-27",
+  "title": {
+    "tr": "Conti Fidye Yazılımı Grubunun İç Yazışmaları Sızdırıldı",
+    "en": "Conti Ransomware Group's Internal Chats Leaked"
+  },
+  "narrative": {
+    "tr": "2022'nin Şubat ayı sonlarında, dünya Ukrayna'nın işgalinin şokunu yaşarken, siber suç dünyasında da benzer bir tektonik sarsıntı meydana gelmek üzereydi. Rusya merkezli olduğu düşünülen, dünyanın en korkulan fidye yazılımı gruplarından biri olan Conti, büyük bir stratejik hata yaparak resmi web sitelerinde Rus hükümetine tam desteklerini açıkladı. Bu, sadece bir sadakat ilanı değil, aynı zamanda görünmez bir düşmana çekilmiş bir kılıçtı. Misilleme, kimsenin beklemediği bir yerden ve şekilde geldi. Ukraynalı bir siber güvenlik araştırmacısı olduğu düşünülen 'ContiLeaks' takma adlı bir kişi, bu ilana öfkelenerek grubun kalbine sızdı. Kısa bir süre sonra, Conti'nin iki yıllık iç iletişimini, tüm sırlarını, operasyonel planlarını ve finansal kayıtlarını içeren 60.000'den fazla Jabber sohbet mesajını dünyaya ifşa etti. Bu, bir veri sızıntısından çok daha fazlasıydı; adeta bir dijital imparatorluğun otopsisiydi. Araştırmacılar ve gazeteciler, kendilerini bir anda, maaş pazarlıkları yapan, teknik destek sorunları yaşayan, hatta birbirleriyle şakalaşan siber suçluların dünyasında buldu. Sızıntı, Conti'nin ne kadar kurumsal bir yapıya sahip olduğunu gözler önüne serdi: İnsan kaynakları departmanı, pazarlıkçılar, sistem yöneticileri ve hatta 'ayın elemanı' ödülleri... Siber suçun anonim ve karanlık perdesi, bir vatanseverin cüretkar hamlesiyle sonsuza dek yırtılmıştı.",
+    "en": "In late February 2022, as the world was reeling from the invasion of Ukraine, a tectonic shock of a different kind was about to rock the cybercrime underworld. Conti, one of the world's most feared ransomware groups, believed to be based in Russia, made a major strategic misstep: they declared their full support for the Russian government on their official website. This was not merely a declaration of loyalty, but a sword drawn against an unseen enemy. The retaliation came from an unexpected quarter and in a devastating fashion. A figure using the handle 'ContiLeaks,' believed to be a Ukrainian cybersecurity researcher angered by the declaration, infiltrated the group's inner sanctum. Shortly thereafter, they unleashed over 60,000 internal Jabber chat messages, exposing two years of the group's secrets, operational plans, and financial records to the world. It was more than a data leak; it was a public autopsy of a digital empire. Researchers and journalists suddenly found themselves inside the world of cybercriminals who negotiated salaries, had IT support issues, and even told jokes. The leak revealed Conti's surprisingly corporate structure, complete with an HR department, negotiators, system administrators, and even 'employee of the month' awards. The anonymous, dark curtain of cybercrime had been torn away forever by the daring act of a patriot."
+  },
+  "metadata": {
+    "key_people": [
+      "A Ukrainian security researcher (using the handle 'ContiLeaks')",
+      "Members and leadership of the Conti Ransomware Group"
+    ],
+    "technologies_used": [
+      "XMPP/Jabber (for internal communication)",
+      "Ransomware-as-a-Service (RaaS) Platform",
+      "TrickBot (Botnet for initial access)",
+      "BazarLoader (Backdoor for malware deployment)",
+      "Cryptocurrency (Bitcoin, Monero for ransoms)",
+      "Twitter (for disseminating the leak)"
+    ],
+    "methods_used": [
+      "Data Exfiltration",
+      "Public Disclosure of Internal Communications",
+      "Doxing",
+      "Ransomware Deployment",
+      "Double Extortion"
+    ],
+    "significance": {
+      "tr": "Conti sızıntıları, modern siber suç tarihinin en önemli olaylarından biridir. İlk defa, üst düzey bir fidye yazılımı grubunun iç işleyişi, hiyerarşisi, araçları ve hatta maaş yapısı bu kadar detaylı bir şekilde kamuoyuna açılmıştır. Bu sızıntı, kolluk kuvvetleri ve güvenlik araştırmacıları için paha biçilmez bir istihbarat hazinesi sağlamış ve Conti markasının itibarını onarılamaz şekilde zedeleyerek grubun dağılmasına yol açmıştır. Olay, jeopolitik olayların siber suç grupları üzerindeki doğrudan etkisini ve operasyonel güvenliğin (OPSEC) en ufak bir siyasi hatayla nasıl çökebileceğini çarpıcı bir şekilde göstermiştir.",
+      "en": "The Conti leaks represent one of the most significant events in modern cybercrime history. For the first time, the inner workings, hierarchy, tools, and even pay structure of a top-tier ransomware group were exposed in granular detail. This leak provided an invaluable treasure trove of intelligence for law enforcement and security researchers, and it irreparably damaged the Conti brand, leading to the group's eventual dissolution. The event dramatically demonstrated the direct impact of geopolitical events on cybercrime groups and how operational security (OPSEC) can collapse with a single political miscalculation."
+    },
+    "sources": [
+      "https://krebsonsecurity.com/2022/02/conti-ransomware-group-diaries-part-i-the-office/",
+      "https://www.bleepingcomputer.com/news/security/conti-ransomware-internal-chats-leaked-after-siding-with-russia/",
+      "https://www.wired.com/story/conti-ransomware-leak-russia-ukraine/",
+      "https://www.cisa.gov/news-events/cybersecurity-advisories/aa22-140a"
+    ]
+  }
+}

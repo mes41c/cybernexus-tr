@@ -1,0 +1,44 @@
+{
+  "event_date": "2011-04-20",
+  "title": {
+    "tr": "Dijital Karanlık: Sony PlayStation Network Kesintisi",
+    "en": "Digital Blackout: The Sony PlayStation Network Outage"
+  },
+  "narrative": {
+    "tr": "2011 baharında, dijital eğlence dünyasının kalbi olan PlayStation Network (PSN), eşi benzeri görülmemiş bir sessizliğe büründü. Milyonlarca oyuncu için çevrimiçi oyun oynamanın, arkadaşlarıyla sohbet etmenin ve dijital içerik satın almanın birincil adresi olan bu platform, bir anda karanlığa gömüldü. 20 Nisan'da başlayan ve basit bir teknik arıza gibi görünen kesinti, aslında dijital dünyanın o güne dek gördüğü en büyük siber soygunlardan birinin perdesini aralıyordu. Sony, sunucularına yönelik 'harici bir saldırı' olduğunu fark ettiğinde, 77 milyon kullanıcının kaderi belirsizliğe sürüklenmişti. Bu, sadece bir hizmet kesintisi değildi; bu, milyonlarca insanın isimlerinin, adreslerinin, e-posta bilgilerinin ve en önemlisi finansal verilerinin çalındığı devasa bir veri ihlaliydi. Saldırının kökenleri, Sony'nin kopya korumasını kıran hacker George Hotz'a karşı açtığı davaya ve bu duruma tepki olarak 'Anonymous' grubunun başlattığı siber protestolara dayanıyordu. Ancak bu protestolar, kimliği belirsiz saldırganların Sony'nin savunmasındaki kritik bir zafiyeti, yani yamalanmamış ve güncel olmayan bir uygulama sunucusundaki bir açığı keşfetmesi için bir sis perdesi oluşturmuştu. Saldırganlar bu çatlaktan içeri sızarak, şirketin en değerli hazinesine, yani kullanıcı veritabanına ulaştılar. Oyuncular için 23 gün süren bu karanlık dönem, belirsizlik ve endişeyle geçti. Oyun konsolları, ağ bağlantısı olmadan neredeyse işlevsiz kalmıştı. Sony, bir yandan devasa bir teknik ve güvenlik soruşturması yürütürken, diğer yandan da kamuoyunun ve hükümetlerin artan baskısıyla yüzleşmek zorunda kaldı. Şirket, ağını tamamen yeniden inşa etmek, güvenlik duvarlarını güçlendirmek ve daha sıkı şifreleme politikaları uygulamak zorunda kaldı. Nihayet 15 Mayıs'ta hizmetler geri döndüğünde, PSN artık eskisi gibi değildi. Bu olay, sadece Sony için değil, tüm teknoloji ve oyun endüstrisi için acı bir ders oldu. Müşteri verilerinin ne kadar savunmasız olabileceğini ve siber güvenliğin artık göz ardı edilemeyecek bir iş önceliği olduğunu tüm dünyaya gösterdi.",
+    "en": "In the spring of 2011, the heart of the digital entertainment world, the PlayStation Network (PSN), fell into an unprecedented silence. This platform, the primary destination for millions of gamers to play online, chat with friends, and purchase digital content, suddenly went dark. What began on April 20th as a seemingly simple technical outage was, in fact, the prelude to one of the largest cyber heists the digital world had ever seen. By the time Sony realized it was facing an 'external intrusion' into its servers, the fate of 77 million users had been cast into uncertainty. This was not just a service disruption; it was a colossal data breach where the names, addresses, email information, and, most critically, the financial data of millions were stolen. The roots of the attack traced back to Sony's lawsuit against hacker George Hotz for cracking its copy protection, and the subsequent cyber protests launched by the group 'Anonymous' in response. However, these protests created a smokescreen for unidentified attackers to discover a critical flaw in Sony's defenses: a vulnerability in an unpatched and outdated application server. Slipping through this crack, the attackers gained access to the company's most valuable treasure—its user database. For gamers, the 23-day blackout period was filled with uncertainty and anxiety. Game consoles were rendered nearly useless without a network connection. Sony found itself grappling with a massive technical and security investigation while facing mounting pressure from the public and governments. The company was forced to completely rebuild its network, strengthen firewalls, and implement stricter encryption policies. When services were finally restored on May 15th, the PSN was no longer the same. This event became a harsh lesson not just for Sony, but for the entire technology and gaming industry. It demonstrated to the world how vulnerable customer data could be and proved that cybersecurity was a business priority that could no longer be ignored."
+  },
+  "metadata": {
+    "key_people": [
+      "Kazuo Hirai",
+      "George Hotz ('GeoHot')",
+      "Philip Reitinger"
+    ],
+    "technologies_used": [
+      "PlayStation Network (PSN)",
+      "Apache Web Server",
+      "Application Servers",
+      "SQL Databases"
+    ],
+    "methods_used": [
+      "External Intrusion",
+      "Data Breach",
+      "Exploitation of Known Vulnerabilities",
+      "Distributed Denial-of-Service (DDoS) Attacks (Preceding the main breach)"
+    ],
+    "significance": {
+      "tr": "2011 Sony PlayStation Network saldırısı, tarihin en büyük veri ihlallerinden biri olarak kabul edilir. 77 milyon kullanıcının kişisel ve potansiyel olarak finansal bilgilerinin ifşa olması, siber güvenliğin tüketici elektroniği ve eğlence sektöründeki önemini çarpıcı bir şekilde ortaya koymuştur. Olay, şirketlerin müşteri verilerini koruma konusundaki yasal ve ahlaki sorumlulukları hakkında küresel bir tartışma başlatmıştır. Sony'nin yaklaşık 171 milyon dolara mal olan bu krizle başa çıkma süreci, kriz yönetimi ve halkla ilişkiler açısından bir vaka çalışması haline gelmiştir. Saldırı, şirketleri siber güvenlik altyapılarını güçlendirmeye, şifreleme standartlarını yükseltmeye ve veri koruma politikalarını daha ciddiye almaya zorlamıştır. Aynı zamanda, milyonlarca kullanıcı için çevrimiçi güvenlik ve kişisel verilerin değeri konusunda bir farkındalık anı olmuştur.",
+      "en": "The 2011 Sony PlayStation Network attack is regarded as one of the largest data breaches in history. The exposure of personal and potentially financial information of 77 million users starkly highlighted the importance of cybersecurity in the consumer electronics and entertainment industries. The event triggered a global conversation about the legal and ethical responsibilities of corporations to protect customer data. Sony's handling of the crisis, which cost the company an estimated $171 million, became a case study in crisis management and public relations. The attack compelled companies to strengthen their cybersecurity infrastructures, upgrade encryption standards, and take data protection policies more seriously. It also served as a moment of awakening for millions of users regarding online security and the value of their personal data."
+    },
+    "sources": [
+      "https://www.theguardian.com/technology/gamesblog/2011/apr/27/playstation-network-hack-sony",
+      "https://blog.playstation.com/2011/04/26/update-on-playstation-network-and-qriocity/",
+      "https://www.cnet.com/news/privacy/expert-sony-attack-may-have-been-multipronged/",
+      "https://www.govinfo.gov/content/pkg/CHRG-112hhrg71258/html/CHRG-112hhrg71258.htm",
+      "https://www.strongdm.com/what-is/sony-data-breach",
+      "https://en.wikipedia.org/wiki/2011_PlayStation_Network_outage",
+      "https://openscholarship.wustl.edu/cgi/viewcontent.cgi?article=1581&context=law_journal_law_policy",
+      "https://www.siliconrepublic.com/enterprise/sony-playstation-breach-how-each-country-has-been-hit"
+    ]
+  }
+}

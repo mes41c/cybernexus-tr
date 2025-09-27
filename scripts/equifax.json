@@ -1,0 +1,42 @@
+{
+  "event_date": "2017-05-13",
+  "title": {
+    "tr": "Equifax Veri İhlali: Yamalanmamış Bir Zafiyetin Milyonlarca Hayatı Etkileyen Bedeli",
+    "en": "The Equifax Data Breach: The Cost of an Unpatched Vulnerability That Impacted Millions of Lives"
+  },
+  "narrative": {
+    "tr": "2017 yılının baharında, finans dünyasının devlerinden Equifax, dijital altyapısının temel taşlarından biri olan Apache Struts web uygulamasında kritik bir zafiyetin keşfedildiğinden haberdardı. 8 Mart'ta yayınlanan yama, tüm sistem yöneticilerine gönderilen acil bir dijital uyarı niteliğindeydi. Ancak bu uyarı, Equifax'ın karmaşık ve devasa ağının derinliklerinde bir yerlerde yankısını yitirdi. Kritik bir sunucu yamasız kaldı ve dijital kalenin kapısı aralık bırakılmış oldu.\n\nİki ay sonra, 13 Mayıs'ta, dünyanın öbür ucundaki siber aktörler bu aralık kapıyı fark etti. 'CVE-2017-5638' olarak bilinen bu zafiyeti kullanarak sessizce içeri sızdılar. Bu, gürültülü bir saldırı değildi; aksine, son derece metodik ve sabırlı bir operasyondu. Saldırganlar, 76 gün boyunca Equifax'ın ağında adeta hayalet gibi dolaştılar. Bir sistemden diğerine atlayarak, şirketin en değerli hazinesi olan ve milyonlarca insanın finansal kimliğini oluşturan veritabanlarına ulaştılar. İsimler, Sosyal Güvenlik Numaraları, doğum tarihleri, adresler ve hatta sürücü belgesi bilgileri... Neredeyse 148 milyon Amerikalının en mahrem bilgileri, fark edilmeden küçük paketler halinde ağdan dışarı sızdırıldı.\n\nŞirket içindeki alarmlar ancak 29 Temmuz'da, şüpheli ağ trafiğinin tespit edilmesiyle çalmaya başladı. Ancak hasar çoktan verilmişti. Equifax, 7 Eylül 2017'de kamuoyuna tarihin en büyük ve en hassas veri ihlallerinden birini yaşadığını duyurduğunda, bir güven abidesi yerle bir oldu. Bu olay, sadece bir şirketin ihmalini değil, aynı zamanda dijital çağda kişisel verilerin ne kadar kırılgan olduğunu ve basit bir yama yönetim hatasının ne denli yıkıcı küresel sonuçlar doğurabileceğini acı bir şekilde ortaya koydu.",
+    "en": "In the spring of 2017, Equifax, one of the giants of the financial world, was aware that a critical vulnerability had been discovered in its Apache Struts web application, a cornerstone of its digital infrastructure. The patch released on March 8th was an urgent digital alert sent to all system administrators. However, this alert lost its echo somewhere in the depths of Equifax's complex and massive network. A critical server remained unpatched, and the gate to the digital fortress was left ajar.\n\nTwo months later, on May 13th, cyber actors on the other side of the world noticed this open gate. They silently infiltrated using the vulnerability known as 'CVE-2017-5638'. This was not a noisy attack; on the contrary, it was a highly methodical and patient operation. For 76 days, the attackers moved like ghosts through Equifax's network. Leaping from one system to another, they reached the company's most valuable treasure: the databases that constituted the financial identities of millions of people. Names, Social Security Numbers, birth dates, addresses, and even driver's license numbers... The most private information of nearly 148 million Americans was exfiltrated from the network in small, unnoticed packets.\n\nThe alarms within the company only began to sound on July 29th, when suspicious network traffic was detected. But the damage had already been done. When Equifax announced to the public on September 7, 2017, that it had suffered one of the largest and most sensitive data breaches in history, a pillar of trust crumbled. This event revealed not just the negligence of a single company, but also how fragile personal data is in the digital age, and how a simple patch management failure could lead to devastating global consequences."
+  },
+  "metadata": {
+    "key_people": [
+      "Richard F. Smith (Equifax CEO at the time)",
+      "State-sponsored threat actors (Attributed to China's People's Liberation Army)",
+      "Affected Consumers (~148 million individuals)"
+    ],
+    "technologies_used": [
+      "Apache Struts (vulnerable version)",
+      "ACIS (Automated Consumer Interview System) database",
+      "Web Application Servers",
+      "Data Exfiltration Tools"
+    ],
+    "methods_used": [
+      "Exploitation of a Known Public Vulnerability (CVE-2017-5638)",
+      "Failure in Patch Management Protocol",
+      "Lateral Movement within the Network",
+      "Data Exfiltration over Encrypted Channels",
+      "Reconnaissance of Network Architecture"
+    ],
+    "significance": {
+      "tr": "Equifax ihlali, çalınan verinin muazzam hacminden çok, verilerin niteliği (değiştirilemeyen Sosyal Güvenlik Numaraları gibi) nedeniyle bir dönüm noktasıdır. Temel siber hijyen ve zamanında yama yönetimi konusundaki kurumsal başarısızlığın ne kadar yıkıcı olabileceğini kanıtlamıştır. Bu olay, küresel çapta veri ihlali bildirim yasalarının sıkılaştırılmasına, kurumsal hesap verebilirlik standartlarının yükselmesine ve bireylerin kişisel verilerinin değeri ve güvenliği konusundaki farkındalığın artmasına neden olmuştur.",
+      "en": "The Equifax breach is a landmark case, not primarily because of the sheer volume of data stolen, but because of its nature (such as irreplaceable Social Security Numbers). It proved how devastating corporate failure in basic cyber hygiene and timely patch management can be. This event led to the strengthening of data breach notification laws globally, raised the standards of corporate accountability, and increased public awareness regarding the value and security of personal data."
+    },
+    "sources": [
+      "https://www.ftc.gov/enforcement/cases-proceedings/refunds/equifax-data-breach-settlement",
+      "https://www.gao.gov/assets/gao-19-123t.pdf",
+      "https://www.justice.gov/opa/pr/four-members-chinese-military-charged-hacking-equifax",
+      "https://nvd.nist.gov/vuln/detail/CVE-2017-5638",
+      "https://www.wired.com/story/equifax-breach-one-year-later/"
+    ]
+  }
+}

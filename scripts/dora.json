@@ -1,0 +1,43 @@
+{
+  "event_date": "2025-01-17",
+  "title": {
+    "tr": "Finansal Direncin Şafağı: Avrupa Birliği'nin DORA Yönetmeliği Yürürlüğe Giriyor",
+    "en": "The Dawn of Financial Resilience: The European Union's DORA Regulation Comes into Force"
+  },
+  "narrative": {
+    "tr": "21. yüzyılın ilk çeyreğinde Avrupa'nın finansal sistemi, görünmez ama her an çökebilecek dijital bir kuleye dönüşmüştü. Bankalar, sigorta şirketleri ve yatırım firmaları, operasyonlarını bulut bilişim, veri merkezleri ve yazılım sağlayıcıları gibi üçüncü parti teknoloji devlerinin omuzlarına yüklemişti. Bu dijitalleşme devrimi verimlilik getirirken, aynı zamanda sistemik bir Aşil topuğu yaratmıştı: Tek bir büyük teknoloji sağlayıcısında yaşanacak bir kesinti veya başarılı bir siber saldırı, tüm kıtanın ekonomisini durma noktasına getirebilecek bir domino etkisi başlatabilirdi. Her ülkenin kendi siber güvenlik kuralları vardı, ancak bu parçalı yaklaşım, ortak düşmana karşı birleşik bir cephe oluşturmakta yetersiz kalıyordu.\n\nBu büyüyen tehdidi gören Avrupa Komisyonu, radikal bir adım attı. Sadece tavsiyelerde bulunmak yerine, tüm üye ülkeler için geçerli, demir gibi bir kural kitabı oluşturmaya karar verdi: Dijital Operasyonel Dayanıklılık Yasası, yani DORA. Yıllar süren müzakerelerin ardından, 17 Ocak 2025 tarihi, bu yeni dönemin miladı olarak belirlendi. O gün, DORA sadece bir yasa metni olmaktan çıkıp, Avrupa'daki tüm finansal kuruluşlar için yaşayan bir gerçekliğe dönüştü. Artık mesele sadece bir bankanın kendi sunucularını koruması değildi; mesele, en küçük yatırım fonundan en büyük bulut sağlayıcısına kadar zincirin her halkasının sarsılmaz bir bütün oluşturmasıydı. DORA, finans sektörüne şu mesajı veriyordu: 'Sadece güçlü olmak yetmez, aynı zamanda en kötü siber fırtınalara bile dayanıklı olmak zorundasınız.' Bu, siber güvenliğin bir maliyet kalemi olmaktan çıkıp, finansal istikrarın temel direği haline geldiği bir devrimin başlangıcıydı.",
+    "en": "In the first quarter of the 21st century, Europe's financial system had become a digital tower, invisible yet constantly at risk of collapse. Banks, insurance companies, and investment firms had placed the weight of their operations on the shoulders of third-party tech giants like cloud computing, data centers, and software providers. While this digital revolution brought efficiency, it also created a systemic Achilles' heel: an outage at a single major tech provider or a successful cyberattack could trigger a domino effect, potentially grinding the entire continent's economy to a halt. Each country had its own cybersecurity rules, but this fragmented approach was insufficient to form a united front against a common enemy.\n\nRecognizing this growing threat, the European Commission took a radical step. Instead of merely making recommendations, it decided to create an ironclad rulebook applicable to all member states: the Digital Operational Resilience Act, or DORA. After years of negotiations, January 17, 2025, was set as the dawn of this new era. On that day, DORA ceased to be just a legal text and became a living reality for all financial institutions in Europe. The issue was no longer just about a bank protecting its own servers; it was about every link in the chain, from the smallest investment fund to the largest cloud provider, forming an unbreakable whole. DORA sent a clear message to the financial sector: 'It is not enough to be strong; you must also be resilient enough to withstand the worst cyber storms.' This marked the beginning of a revolution where cybersecurity evolved from a cost center into a fundamental pillar of financial stability."
+  },
+  "metadata": {
+    "key_people": [
+      "European Commission",
+      "European Parliament",
+      "Council of the European Union",
+      "European Supervisory Authorities (EBA, ESMA, EIOPA)"
+    ],
+    "technologies_used": [
+      "Regulatory Technology (RegTech)",
+      "ICT Risk Management Frameworks",
+      "Threat-Led Penetration Testing (TLPT)",
+      "Cloud Computing Services",
+      "Digital Operational Resilience Frameworks"
+    ],
+    "methods_used": [
+      "Regulatory Harmonization",
+      "Systemic Risk Management",
+      "Third-Party Risk Oversight",
+      "ICT Incident Reporting and Classification",
+      "Digital Resilience Testing"
+    ],
+    "significance": {
+      "tr": "DORA, finans sektöründe siber güvenliğe yaklaşımı temelden değiştirmiştir. Sadece saldırıları önlemeye odaklanmak yerine, saldırı ve kesintiler meydana geldiğinde dahi operasyonların devamlılığını sağlama becerisi olan 'operasyonel dayanıklılığa' odaklanmıştır. AB genelinde kuralları standartlaştırarak yasal karmaşıklığı ortadan kaldırmış ve ilk kez, finans sektörüne hizmet veren kritik teknoloji sağlayıcılarını doğrudan denetim altına almıştır. Bu, DORA'yı küresel çapta bir emsal haline getirmiş ve dijital çağda finansal istikrarın nasıl sağlanacağına dair yeni bir standart belirlemiştir.",
+      "en": "DORA has fundamentally changed the approach to cybersecurity in the financial sector. Instead of focusing solely on preventing attacks, it emphasizes 'operational resilience'—the ability to maintain operations even when attacks and disruptions occur. By standardizing rules across the EU, it has eliminated regulatory fragmentation and, for the first time, brought critical technology providers serving the financial sector under direct oversight. This has made DORA a global precedent, setting a new standard for ensuring financial stability in the digital age."
+    },
+    "sources": [
+      "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R2554",
+      "https://www.eba.europa.eu/regulation-and-policy/digital-finance-and-innovation/digital-operational-resilience-act-dora",
+      "https://www.europarl.europa.eu/news/en/press-room/20221107IPR49607/digital-finance-meps-adopt-rules-to-make-the-eu-s-financial-sector-more-resilient",
+      "https://www.digital-operational-resilience-act.com/"
+    ]
+  }
+}

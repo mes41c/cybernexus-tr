@@ -1,0 +1,38 @@
+{
+  "event_date": "1990-01-01",
+  "title": {
+    "tr": "Dijital Bukalemun: Antivirüs Dünyasını Değiştiren İlk Polimorfik Virüs",
+    "en": "The Digital Chameleon: The First Polymorphic Virus That Changed the Antivirus World"
+  },
+  "narrative": {
+    "tr": "1980'lerin sonu, siber güvenlik için daha basit bir zamandı. Virüsler vardı, ancak genellikle öngörülebilir canavarlardı. Antivirüs yazılımları, dijital birer kan tazısı gibi çalışarak, her virüsün ardında bıraktığı benzersiz bir 'koku' olan sabit kod dizilimlerini, yani imzalarını arıyorlardı. Bu, virüs yazarları ile savunmacılar arasında bir kedi-fare oyunuydu, ancak kurallar belliydi. Ta ki Mark Washburn adında bir programcı, bu oyunu kökünden değiştirene kadar. Washburn, mevcut antivirüs teknolojisinin ne kadar kırılgan olduğunu göstermek istiyordu. Sadece yeni bir virüs yaratmakla kalmadı, adeta dijital bir yaşam formu tasarladı. 'Chameleon' (Bukalemun) veya teknik adıyla '1260/V2P1' olarak bilinen bu virüs, adının hakkını veriyordu. O, sabit bir kimliği reddediyordu. Her yeni bulaşmada, Chameleon sihirli bir numara yapıyordu: ana gövdesini tamamen farklı bir anahtarla yeniden şifreliyor ve kendisini çözen minik kod parçasını (dekriptör) değiştiriyordu. Sonuç, her seferinde farklı görünen bir virüstü. Bir önceki kurbanındaki dijital parmak izi, bir sonrakinde tamamen yok oluyordu. Bu durum, imza tabanlı tarayıcılar için tam bir kabustu. Antivirüs şirketleri, sürekli şekil değiştiren bir düşman için tek bir 'aranıyor' posteri hazırlayamıyorlardı. Chameleon'un ortaya çıkışı, antivirüs endüstrisinde bir şok dalgası yarattı. Basit imza avcılığı dönemi sona ermişti. Artık savunmacıların daha akıllı olması, virüsün ne 'olduğuna' değil, ne 'yaptığına' odaklanması gerekiyordu. Bu olay, kodun davranışını analiz eden, şüpheli kalıpları arayan ve virüsü güvenli bir sanal alanda çalıştırarak kendini ifşa etmesini sağlayan sezgisel (heuristic) analiz ve emülasyon gibi devrimci tekniklerin doğuşunu tetikledi. Washburn'un deneyi, siber güvenliğin sonsuz bir silahlanma yarışı olacağını ve adaptasyonun hayatta kalmanın tek anahtarı olduğunu kanıtlamıştı.",
+    "en": "The late 1980s were a simpler time for cybersecurity. Viruses existed, but they were generally predictable monsters. Antivirus software acted like digital bloodhounds, searching for the unique 'scent' each virus left behind—a fixed sequence of code known as its signature. It was a cat-and-mouse game between virus writers and defenders, but the rules were clear. That was until a programmer named Mark Washburn decided to change the game entirely. Washburn wanted to demonstrate just how fragile the existing antivirus technology was. He didn't just create a new virus; he designed what was essentially a digital lifeform. Known as 'Chameleon,' or by its technical name '1260/V2P1,' this virus lived up to its name. It refused to have a fixed identity. With each new infection, Chameleon performed a magic trick: it re-encrypted its main body with a completely different key and altered the small piece of code (the decryptor) that unlocked it. The result was a virus that looked different every single time. The digital fingerprint from its last victim vanished in the next. This was an absolute nightmare for signature-based scanners. Antivirus companies couldn't create a single 'wanted' poster for a foe that was constantly changing its appearance. The arrival of Chameleon sent a shockwave through the antivirus industry. The era of simple signature hunting was over. Defenders now had to be smarter, focusing not on what a virus 'was,' but on what it 'did.' This event triggered the birth of revolutionary techniques like heuristic analysis and emulation—methods that analyze code behavior, look for suspicious patterns, and trick the virus into revealing itself by running it in a safe, virtual space. Washburn's experiment proved that cybersecurity was to become a perpetual arms race, where adaptation was the only key to survival."
+  },
+  "metadata": {
+    "key_people": [
+      "Mark Washburn"
+    ],
+    "technologies_used": [
+      "MS-DOS",
+      "Assembly Language",
+      "Self-Encryption",
+      "Polymorphic Engine"
+    ],
+    "methods_used": [
+      "Polymorphic Code Generation",
+      "COM File Infection",
+      "Signature Obfuscation"
+    ],
+    "significance": {
+      "tr": "Chameleon (1260), bilinen ilk polimorfik virüs olmasıyla siber güvenlik tarihinde bir dönüm noktasıdır. Her enfeksiyonda kodunu tamamen değiştirerek, o dönemde endüstri standardı olan imza tabanlı tespit yöntemlerini işlevsiz hale getirmiştir. Bu virüs, antivirüs endüstrisini, davranış tabanlı ve sezgisel (heuristic) analiz gibi çok daha karmaşık ve proaktif tespit stratejileri geliştirmeye zorlamıştır. Chameleon, modern kötü amaçlı yazılımların kullandığı gizlenme ve tespit edilmekten kaçınma tekniklerinin temelini atarak, virüsler ve antivirüsler arasındaki teknolojik silahlanma yarışında yeni bir çağ başlatmıştır.",
+      "en": "Chameleon (1260) is a landmark in cybersecurity history as the first known polymorphic virus. By completely changing its code with every infection, it rendered the industry-standard signature-based detection methods of the time obsolete. This virus forced the antivirus industry to evolve, compelling the development of far more complex and proactive detection strategies like behavior-based and heuristic analysis. Chameleon laid the groundwork for the evasion and obfuscation techniques used by modern malware, initiating a new era in the technological arms race between viruses and antiviruses."
+    },
+    "sources": [
+      "https://en.wikipedia.org/wiki/1260_(computer_virus)",
+      "https://www.malwarebytes.com/polymorphic-virus",
+      "https://www.virusbulletin.com/uploads/pdf/magazine/1991/199104.pdf",
+      "https://archive.org/details/PcFraudAGuideToComputerAndTelecommunicationsFraud/page/n163/mode/2up",
+      "https://csrc.nist.gov/publications/detail/nistir/4939/archive/1992-10-01"
+    ]
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "event_date": "2013-06-05",
+  "title": {
+    "tr": "Gözetleyenleri İfşa Eden Muhbir: Edward Snowden'ın NSA Sızıntıları",
+    "en": "The Whistleblower Who Revealed the Watchers: Edward Snowden's NSA Leaks"
+  },
+  "narrative": {
+    "tr": "Haziran 2013'te, Hong Kong'daki bir otel odası, dijital çağın en büyük sarsıntılarından birinin merkez üssü haline geldi. Odada, NSA ve CIA için çalışmış, Booz Allen Hamilton'da görevli sıradan bir sistem analisti gibi görünen Edward Snowden vardı. Ancak Snowden, sıradan biri değildi. O, 11 Eylül sonrası dünyada 'güvenlik' adına inşa edilen ve kamuoyunun ruhunun bile duymadığı devasa bir küresel gözetim mekanizmasının sırlarını taşıyordu. Aylarca süren titiz bir planlamanın ardından, gazeteciler Glenn Greenwald ve Laura Poitras ile bu otel odasında buluştu. Amacı, ABD hükümetinin anayasayı ihlal ettiğine ve dünya çapında milyonlarca insanın mahremiyetini yok ettiğine inandığı programları ifşa etmekti. 5 Haziran'da The Guardian gazetesinde ilk bomba patladı: NSA, Verizon gibi telekom devlerini gizli bir mahkeme kararıyla zorlayarak milyonlarca Amerikalının telefon görüşme metapodatasını (kimin kimi, ne zaman, nereden aradığı bilgisi) topluyordu. Bu sadece başlangıçtı. Takip eden günlerde 'PRISM' adlı bir programın varlığı ortaya çıktı. Bu programla NSA, Google, Facebook, Apple gibi teknoloji devlerinin sunucularından doğrudan veri alabiliyordu. Dünya, XKeyscore gibi araçlarla neredeyse internetteki her hareketin izlenebildiğini, en yakın müttefiklerin liderlerinin bile dinlendiğini öğrendi. Snowden'ın sızıntıları, bir kişinin bir devlete karşı nasıl durabileceğinin simgesi olurken, onu vatan haini ve kahraman olarak ikiye bölen küresel bir tartışma başlattı. O otel odasından çıkan belgeler, sadece bir istihbarat skandalını değil, aynı zamanda 21. yüzyılda mahremiyet, güvenlik ve dijital haklar arasındaki hassas dengenin ne kadar kolay kırılabileceğini de tüm çıplaklığıyla gözler önüne serdi.",
+    "en": "In June 2013, a hotel room in Hong Kong became the epicenter of one of the biggest seismic shocks of the digital age. Inside was Edward Snowden, a man who, on the surface, was an ordinary systems analyst for Booz Allen Hamilton, having previously worked for the NSA and CIA. But Snowden was far from ordinary. He carried the secrets of a massive global surveillance apparatus built in the post-9/11 world under the guise of 'security,' a mechanism the public had no knowledge of. After months of meticulous planning, he met with journalists Glenn Greenwald and Laura Poitras in that hotel room. His mission: to expose programs he believed violated the U.S. Constitution and destroyed the privacy of millions worldwide. On June 5th, the first bombshell dropped in The Guardian: the NSA was compelling telecom giants like Verizon, via a secret court order, to hand over the telephone metadata of millions of Americans—who called whom, when, and from where. This was just the beginning. In the following days, the existence of a program called 'PRISM' was revealed, which allowed the NSA to pull data directly from the servers of tech giants like Google, Facebook, and Apple. The world learned that with tools like XKeyscore, nearly every online activity could be tracked, and even the leaders of the closest allied nations were being monitored. Snowden's leaks ignited a global debate that polarized him as both a traitor and a hero, symbolizing how one individual could stand against a state. The documents that emerged from that hotel room didn't just expose an intelligence scandal; they laid bare how fragile the delicate balance between privacy, security, and digital rights had become in the 21st century."
+  },
+  "metadata": {
+    "key_people": [
+      "Edward Snowden",
+      "Glenn Greenwald",
+      "Laura Poitras",
+      "James Clapper"
+    ],
+    "technologies_used": [
+      "PRISM (Data Collection Program)",
+      "XKeyscore (Data Analysis Tool)",
+      "Boundless Informant (Data Visualization Tool)",
+      "Bulk Metadata Collection",
+      "Massive Data Storage and Processing Systems"
+    ],
+    "methods_used": [
+      "Whistleblowing",
+      "Leaking of Classified Documents",
+      "Investigative Journalism",
+      "Mass Surveillance",
+      "Signals Intelligence (SIGINT)"
+    ],
+    "significance": {
+      "tr": "Edward Snowden'ın sızıntıları, modern tarihin en önemli ifşaatlarından biridir. Bu olay, hükümetlerin kitlesel gözetim kapasiteleri hakkındaki küresel farkındalığı kökten değiştirdi ve vatandaş mahremiyeti ile ulusal güvenlik arasındaki denge üzerine uluslararası bir tartışma başlattı. Sızıntılar, ABD'nin USA FREEDOM Act gibi bazı gözetim yasalarında reform yapılmasına yol açtı. Teknoloji şirketlerini, kullanıcı verilerini korumak için şifrelemeyi ve güvenlik önlemlerini artırmaya teşvik etti. Aynı zamanda, ABD ile Almanya ve Brezilya gibi müttefikleri arasında diplomatik gerilimlere neden oldu. Snowden'ın eylemleri, dijital çağda muhbirliğin gücünü ve potansiyel sonuçlarını göstererek, siber güvenlik, gazetecilik ve insan hakları alanlarında kalıcı bir etki bıraktı.",
+      "en": "Edward Snowden's leaks are one of the most significant disclosures in modern history. The event fundamentally altered global awareness of governments' mass surveillance capabilities and ignited an international debate on the balance between citizen privacy and national security. The revelations led to reforms in some U.S. surveillance laws, such as the USA FREEDOM Act. It prompted technology companies to enhance encryption and security measures to protect user data. Furthermore, it caused significant diplomatic tensions between the United States and its allies, including Germany and Brazil. Snowden's actions demonstrated the power and potential consequences of whistleblowing in the digital age, leaving a lasting impact on the fields of cybersecurity, journalism, and human rights."
+    },
+    "sources": [
+      "https://www.theguardian.com/world/2013/jun/06/nsa-phone-records-verizon-court-order",
+      "https://www.theguardian.com/world/2013/jun/09/edward-snowden-nsa-whistleblower-surveillance",
+      "https://www.washingtonpost.com/investigations/us-intelligence-mining-data-from-nine-us-internet-companies-in-broad-secret-program/2013/06/06/3a0c0da8-cebf-11e2-8845-d970ccb04497_story.html",
+      "https://www.theguardian.com/world/2013/jul/31/nsa-top-secret-program-online-data",
+      "https://en.wikipedia.org/wiki/PRISM_(surveillance_program)",
+      "https://www.aclu.org/issues/national-security/privacy-and-surveillance/nsa-surveillance"
+    ]
+  }
+}

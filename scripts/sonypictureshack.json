@@ -1,0 +1,47 @@
+{
+  "event_date": "2014-11-24",
+  "title": {
+    "tr": "Sony Pictures Hack: Hollywood'un Jeopolitika ile Çarpıştığı An",
+    "en": "The Sony Pictures Hack: When Hollywood Collided with Geopolitics"
+  },
+  "narrative": {
+    "tr": "Takvimler 24 Kasım 2014'ü gösterdiğinde, Hollywood devi Sony Pictures Entertainment çalışanları, bilgisayarlarını açtıklarında sıradan bir pazartesi sabahı beklemiyorlardı. Ekranlarında, tehditkar bir kırmızı iskelet ve kendilerini 'Guardians of Peace' (GOP - Barışın Koruyucuları) olarak adlandıran bir grubun mesajı belirdi. Bu, basit bir sistem arızası değildi; bu, şirketin dijital kalbine yönelik cerrahi bir operasyondu. Şirketin ağı tamamen çökmüş, çalışanların verilere erişimi imkansız hale gelmişti. Ancak asıl kabus daha yeni başlıyordu. Saldırganlar, Sony'nin kasalarından çaldıkları 100 terabaytı aşan gizli veriyi internetin karanlık köşelerine ve herkese açık platformlara yavaş yavaş sızdırmaya başladı. Henüz vizyona girmemiş filmler (Fury, Annie gibi), ünlü oyuncuların ve personelin kişisel bilgileri, maaş detayları ve en yıkıcısı olan üst düzey yöneticilerin on binlerce e-postası kamuoyuna döküldü. Bu e-postalar, sektördeki hassas ilişkileri, dürüst olmayan yorumları ve utanç verici iç yazışmaları ifşa ederek Sony'yi benzeri görülmemiş bir halkla ilişkiler krizinin içine soktu. GOP, talebini net bir şekilde ortaya koydu: Sony'nin, Kuzey Kore liderine yönelik bir suikast komedisi olan 'The Interview' filminin yayınını iptal etmesi. Aksi takdirde, filmi gösterecek sinema salonlarına yönelik 11 Eylül'ü anımsatan terör tehditleri savurdular. Bu tehditler, dijital savaşı fiziksel bir korku atmosferine taşıdı. FBI, olayı benzeri görülmemiş bir hızla araştırarak, saldırının arkasında Kuzey Kore hükümetinin olduğuna dair güçlü kanıtlar sunduğunu açıkladı. Sony, başlangıçta filmi geri çekse de, artan kamuoyu baskısı ve ifade özgürlüğü tartışmaları üzerine filmi sınırlı sayıda salonda ve çevrimiçi platformlarda yayınladı. Ancak hasar çoktan verilmişti. Saldırı, Sony'ye yüz milyonlarca dolara mal oldu ve siber güvenliğin artık sadece bir IT sorunu değil, aynı zamanda ulusal güvenlik ve jeopolitik bir mesele olduğunu tüm dünyaya acı bir şekilde gösterdi.",
+    "en": "On November 24, 2014, employees at the Hollywood giant Sony Pictures Entertainment booted up their computers not to a typical Monday morning, but to a chilling image. A red skeleton loomed on their screens, accompanied by a message from a group calling itself the 'Guardians of Peace' (GOP). This wasn't a simple system failure; it was a surgical strike on the company's digital heart. The corporate network was completely paralyzed, making it impossible for employees to access any data. But the real nightmare was just beginning. The attackers started to slowly leak over 100 terabytes of confidential data stolen from Sony's vaults onto the dark corners of the internet and public platforms. Unreleased blockbuster films (like 'Fury' and 'Annie'), personal information of famous actors and staff, salary details, and most devastatingly, tens of thousands of emails from top executives were dumped for public consumption. These emails exposed sensitive industry relationships, candid comments, and embarrassing internal communications, plunging Sony into an unprecedented public relations crisis. The GOP made their demand clear: Sony must cancel the release of 'The Interview,' a comedy centered on the assassination of the North Korean leader. They followed up with terror threats reminiscent of 9/11 against any movie theater that dared to show the film, escalating the digital war into an atmosphere of physical fear. The FBI investigated with remarkable speed and, in a rare move, publicly attributed the attack to the government of North Korea, citing strong evidence. After initially pulling the film, Sony, facing immense public pressure and debates on free speech, released it in a limited number of theaters and online. But the damage was done. The hack cost Sony hundreds of millions of dollars and painfully demonstrated to the world that cybersecurity was no longer just an IT problem, but an issue of national security and geopolitics."
+  },
+  "metadata": {
+    "key_people": [
+      "Guardians of Peace (Hacker Group)",
+      "Sony Pictures Entertainment (Victim)",
+      "U.S. Federal Bureau of Investigation (FBI)",
+      "North Korea (Alleged State Sponsor)",
+      "Amy Pascal (Co-Chairman of Sony Pictures Entertainment)",
+      "Seth Rogen (Actor/Director of 'The Interview')"
+    ],
+    "technologies_used": [
+      "Wiper Malware (Destover)",
+      "Server Message Block (SMB) Worm",
+      "Spear Phishing",
+      "Hard-coded Credentials",
+      "Public Cloud Storage (for data exfiltration)"
+    ],
+    "methods_used": [
+      "Data Exfiltration",
+      "Data Destruction (Wiping)",
+      "Credential Theft",
+      "Public Shaming / Doxing",
+      "Coercion and Extortion",
+      "Geopolitically Motivated Attack"
+    ],
+    "significance": {
+      "tr": "Sony Pictures saldırısı, siber güvenlik tarihinde bir dönüm noktasıdır. İlk defa, bir devlet destekli siber saldırının temel motivasyonunun casusluk veya finansal kazanç değil, özel bir şirketi sanatsal bir ürün nedeniyle sansürlemeye zorlamak ve cezalandırmak olduğu net bir şekilde görüldü. Bu olay, siber savaşın yıkıcı ve zorlayıcı taktiklerle özel sektörü hedef alabileceğini gösterdi. Şirketlerin artık sadece siber suçluları değil, aynı zamanda jeopolitik aktörleri de tehdit modeli olarak görmesi gerektiğini ortaya koydu. Ayrıca, ifade özgürlüğü, kurumsal sorumluluk ve bir şirketin yabancı bir devletin tehditlerine karşı nasıl durması gerektiği konularında küresel bir tartışma başlattı.",
+      "en": "The Sony Pictures hack is a landmark event in cybersecurity history. It was one of the first times a state-sponsored cyberattack was clearly motivated not by espionage or financial gain, but by the desire to coerce and punish a private company over an artistic product. This incident demonstrated that cyber warfare could employ destructive and coercive tactics directly against the private sector. It established that corporations must now consider geopolitical actors, not just cybercriminals, in their threat models. Furthermore, it ignited a global debate on freedom of speech, corporate responsibility, and how a company should respond to threats from a foreign state."
+    },
+    "sources": [
+      "https://www.fbi.gov/news/press-releases/update-on-sony-investigation",
+      "https://www.justice.gov/opa/pr/us-charges-north-korean-hacker-sony-picture-entertainment-attack-and-wannacry-ransomware",
+      "https://www.wired.com/2015/01/sony-hack-what-we-know/",
+      "https://www.cfr.org/cyber-operations/sony-pictures-hack",
+      "https://www.arstechnica.com/information-technology/2014/12/inside-the-nsas-secret-tool-for-mapping-your-social-network/"
+    ]
+  }
+}

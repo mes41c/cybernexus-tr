@@ -1,0 +1,37 @@
+{
+  "event_date": "1971-01-01",
+  "title": {
+    "tr": "İlk Bilgisayar Virüsü: Creeper'ın Doğuşu ve Reaper'ın Avı",
+    "en": "The First Computer Virus: The Birth of Creeper and the Hunt by Reaper"
+  },
+  "narrative": {
+    "tr": "1971 yılı... Soğuk Savaş'ın teknolojik yankılarının hissedildiği, bilgisayar ağlarının emekleme dönemindeydi. Amerikan İleri Savunma Araştırma Projeleri Ajansı'nın (ARPA) devrim niteliğindeki projesi ARPANET, farklı şehirlerdeki devasa DEC PDP-10 ana bilgisayarlarını birbirine bağlıyordu. İşte bu yenilikçi ortamda, Bolt, Beranek ve Newman (BBN) şirketinde çalışan bir mühendis olan Bob Thomas, \"Bir program kendi kendine ağ üzerinde hareket edebilir mi?\" sorusuna takılmıştı. Bu bir kötü niyet denemesi değil, saf bir merak ve teknik bir meydan okumaydı. Thomas, bu fikri test etmek için TENEX işletim sistemi üzerinde çalışan \"Creeper\" adını verdiği bir program yazdı. Creeper, bir bilgisayarda çalışmaya başlıyor, kendini ağ üzerindeki başka bir PDP-10'a kopyalıyor, orada çalışmaya başlıyor ve çoğu zaman orijinal kopyasını siliyordu. Varlığını belli etmek için ise gittiği her terminale şu basit ve alaycı mesajı bırakıyordu: \"BEN CREEPER: YAKALAYABİLİRSEN YAKALA!\". Creeper, bir tehdit olmaktan çok, ağ üzerinde dolaşan dijital bir hayaletti. Ancak bu \"hayalet\", bir karşı hamleyi de beraberinde getirecekti. Thomas'ın meslektaşı ve e-postanın mucidi olarak da bilinen Ray Tomlinson, bu meydan okumayı kabul etti. Tomlinson, Creeper'ı avlamak için tasarlanmış, yine kendi kendine çoğalan bir program olan \"Reaper\"ı (Orakçı) yarattı. Reaper, ARPANET üzerinde dolaşıyor, Creeper'ın izlerini sürüyor ve bulduğu yerde onu sistemden siliyordu. Böylece, siber güvenlik tarihinin ilk kedi-fare oyunu başlamış oldu: ilk \"virüs\" ve ilk \"antivirüs\" sahneye çıkmıştı.",
+    "en": "The year is 1971... It was the dawn of computer networking, with the technological echoes of the Cold War still palpable. ARPANET, the revolutionary project of the American Advanced Research Projects Agency (ARPA), connected massive DEC PDP-10 mainframes across different cities. In this innovative environment, Bob Thomas, an engineer at Bolt, Beranek and Newman (BBN), was captivated by a question: \"Can a program move itself across a network?\" This was not an act of malice, but one of pure curiosity and a technical challenge. To test his idea, Thomas wrote a program called \"Creeper\" that ran on the TENEX operating system. Creeper would start running on one computer, copy itself to another PDP-10 on the network, begin executing there, and often delete its original copy. To announce its presence, it left a simple, taunting message on every terminal it visited: \"I'M THE CREEPER: CATCH ME IF YOU CAN!\". Creeper was less of a threat and more of a digital ghost wandering the network. However, this \"ghost\" would soon inspire a countermeasure. Thomas's colleague, Ray Tomlinson, also known as the inventor of email, accepted the challenge. Tomlinson created \"Reaper,\" another self-replicating program designed specifically to hunt down Creeper. Reaper roamed the ARPANET, searching for traces of Creeper and deleting it from any system where it was found. Thus, the first cat-and-mouse game in cybersecurity history began: the first \"virus\" and the first \"antivirus\" had taken the stage."
+  },
+  "metadata": {
+    "key_people": [
+      "Bob Thomas",
+      "Ray Tomlinson"
+    ],
+    "technologies_used": [
+      "ARPANET",
+      "DEC PDP-10",
+      "TENEX Operating System"
+    ],
+    "methods_used": [
+      "Self-replicating program",
+      "Network propagation",
+      "Remote code execution"
+    ],
+    "significance": {
+      "tr": "Creeper, genellikle tarihteki ilk bilgisayar \"solucanı\" (worm) olarak kabul edilir. Kötü niyetli olmasa da, bir programın ağ üzerinde kendi kendine yayılabilme yeteneğini kanıtlayan ilk örnektir. Bu olay, ağa bağlı sistemlerin potansiyel güvenlik açıklarını ilk kez gözler önüne sermiş ve bu tür programları tespit edip ortadan kaldırmak için özel yazılımlara (antivirüs) ihtiyaç duyulacağı fikrini doğurmuştur. Creeper ve onu temizleyen Reaper, siber güvenlikte saldırı ve savunma diyalektiğinin temelini atmıştır.",
+      "en": "Creeper is widely regarded as the first-ever computer \"worm.\" Although not malicious, it was the first proof of concept demonstrating that a program could propagate itself across a network. This event exposed the potential vulnerabilities of networked systems for the first time and gave birth to the idea that specialized software (antivirus) was needed to detect and eliminate such programs. Creeper, and its counterpart Reaper, laid the foundational dialectic of attack and defense in cybersecurity."
+    },
+    "sources": [
+      "https://www.history.com/news/the-first-computer-virus",
+      "https://www.britannica.com/technology/Creeper-computer-program",
+      "https://www.computerhistory.org/timeline/1971/",
+      "https://spectrum.ieee.org/the-real-story-of-the-first-computer-virus"
+    ]
+  }
+}

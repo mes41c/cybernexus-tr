@@ -1,0 +1,45 @@
+{
+  "event_date": "2022-06-16",
+  "title": {
+    "tr": "Hermit'in Maskesinin Düşürülmesi: Yeni Bir Devlet Destekli Ticari Casus Yazılım Ortaya Çıkıyor",
+    "en": "The Unmasking of Hermit: A New State-Sponsored Commercial Spyware Emerges"
+  },
+  "narrative": {
+    "tr": "2022 yılı, dijital gözetim dünyasının Pegasus skandalının yankılarıyla çalkalandığı bir dönemdi. Ancak siber güvenlik araştırmacıları, gölgelerde başka bir sofistike avcının daha faaliyet gösterdiğinden habersizdi. Güvenlik firması Lookout'taki analistler, Kazakistan'da bir hedefin cihazında sıra dışı anormallikler tespit ettiklerinde, sıradan bir kötü amaçlı yazılımdan çok daha fazlasıyla karşı karşıya olduklarını anladılar. Bu, 'Hermit' adını verdikleri, hem Android hem de iOS cihazlarını hedef alabilen, modüler ve son derece gelişmiş bir casus yazılımdı. Hermit, bir cihazın dijital ruhunu ele geçirebilen bir hayalet gibiydi; ortam seslerini kaydedebiliyor, telefon görüşmelerini yönlendirebiliyor, fotoğraflara, mesajlara, kişilere ve takvime erişebiliyordu. Soruşturma derinleştikçe, bu güçlü silahın ardındaki ismin, 'yasal dinleme' çözümleriyle tanınan İtalyan şirketi RCS Lab olduğu ortaya çıktı. Kısa bir süre sonra Google'ın Tehdit Analiz Grubu (TAG) da devreye girdi ve bulguları doğruladı. TAG, saldırganların hedeflerini kandırmak için kullandığı acımasız yöntemleri deşifre etti: Hedefin mobil internet bağlantısını kesmek için internet servis sağlayıcıları (İSS) ile işbirliği yapıyor, ardından sahte bir 'kurtarma' uygulaması indirmeleri için SMS yoluyla oltalama saldırıları (smishing) düzenliyorlardı. Hermit'in sadece Kazakistan'da değil, aynı zamanda geliştirildiği ülke olan İtalya'da da kullanıldığının ortaya çıkması, ticari casus yazılım pazarının ne kadar kontrolsüz ve tehlikeli bir boyuta ulaştığını bir kez daha kanıtladı. Bu olay, devlet destekli dijital casusluğun sadece birkaç kötü şöhretli ismin tekelinde olmadığını, küresel bir endüstri haline geldiğini acı bir şekilde gözler önüne serdi.",
+    "en": "The year 2022 was already echoing with the aftershocks of the Pegasus scandal in the digital surveillance world. However, cybersecurity researchers were unaware that another sophisticated predator was operating in the shadows. When analysts at the security firm Lookout detected unusual anomalies on a target's device in Kazakhstan, they realized they were facing something far more complex than ordinary malware. This was 'Hermit,' a modular and highly advanced spyware they named, capable of targeting both Android and iOS devices. Hermit was like a ghost capable of possessing a device's digital soul; it could record ambient audio, redirect phone calls, and access photos, messages, contacts, and calendars. As the investigation deepened, the name behind this potent weapon was revealed: RCS Lab, an Italian company known for its 'lawful intercept' solutions. Shortly after, Google's Threat Analysis Group (TAG) joined the effort, corroborating the findings. TAG also deciphered the ruthless methods used by the attackers to deceive their targets: they collaborated with Internet Service Providers (ISPs) to disable the target's mobile data, then launched smishing attacks via SMS to trick them into downloading a fake 'recovery' application. The revelation that Hermit was used not only in Kazakhstan but also in Italy, its country of origin, proved once again how uncontrolled and dangerous the commercial spyware market had become. This incident starkly illustrated that state-sponsored digital espionage was not the monopoly of a few infamous names but had evolved into a global industry."
+  },
+  "metadata": {
+    "key_people": [
+      "Lookout (Discovering Researchers)",
+      "Google Threat Analysis Group (TAG) (Supporting Researchers)",
+      "RCS Lab (Developer)",
+      "Government of Kazakhstan (Suspected User)",
+      "Government of Italy (Suspected User)"
+    ],
+    "technologies_used": [
+      "Commercial Spyware (Hermit)",
+      "Android & iOS Exploits",
+      "Modular Payload Delivery",
+      "Data Exfiltration",
+      "Audio Surveillance",
+      "Call Redirection"
+    ],
+    "methods_used": [
+      "Smishing (SMS-based Phishing)",
+      "ISP Collaboration (Man-on-the-Side Attack)",
+      "Malicious Application Sideloading",
+      "Drive-by Downloads",
+      "Zero-day/N-day Vulnerability Exploitation"
+    ],
+    "significance": {
+      "tr": "Hermit vakası, NSO Group (Pegasus) ötesinde, ticari casus yazılım pazarında başka büyük oyuncuların (RCS Lab) da varlığını ortaya çıkardı. Gelişmiş gözetim araçlarının küresel yayılımını ve hükümetler tarafından hedefe yönelik casusluk için kullanıldığını gözler önüne serdi. Bu vaka, potansiyel İSS işbirliği de dahil olmak üzere gelişmiş saldırı vektörlerini gösterdi ve kullanıcı gizliliğinin korunmasında bağımsız güvenlik araştırmalarının ve şirketler arası işbirliğinin (Lookout & Google) kritik rolünü pekiştirdi.",
+      "en": "The Hermit case revealed the existence of other major players (RCS Lab) in the commercial spyware market beyond NSO Group (Pegasus). It highlighted the global proliferation of sophisticated surveillance tools and their use by governments for targeted espionage. The case demonstrated advanced attack vectors, including potential ISP collaboration, and reinforced the critical role of independent security research and inter-company collaboration (Lookout & Google) in protecting user privacy."
+    },
+    "sources": [
+      "https://lookout.com/blog/hermit-spyware-discovery",
+      "https://blog.google/threat-analysis-group/new-italian-spyware-vendor-exploiting-ios-and-android-vulnerabilities/",
+      "https://techcrunch.com/2022/06/23/hermit-spyware-rcs-lab-kazakhstan-syria-italy/",
+      "https://www.reuters.com/technology/google-says-italian-firm-helped-hack-smartphones-italy-kazakhstan-2022-06-23/"
+    ]
+  }
+}

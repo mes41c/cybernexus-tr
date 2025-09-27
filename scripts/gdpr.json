@@ -1,0 +1,44 @@
+{
+  "event_date": "2018-05-25",
+  "title": {
+    "tr": "Genel Veri Koruma Yönetmeliği (GDPR) Yürürlüğe Girdi",
+    "en": "The General Data Protection Regulation (GDPR) Came into Force"
+  },
+  "narrative": {
+    "tr": "21. yüzyılın başlarında dijital dünya, veri toplamanın adeta bir 'Vahşi Batı' olduğu bir dönemi yaşıyordu. Büyük teknoloji şirketleri, kullanıcıların kişisel bilgilerini devasa ölçeklerde topluyor, analiz ediyor ve çoğu zaman kullanıcıların bilgisi veya rızası olmadan ticarileştiriyordu. 1995 tarihli Veri Koruma Direktifi, internetin ve sosyal medyanın yükselişiyle birlikte çağın gerisinde kalmıştı. Avrupa'da, vatandaşların dijital kimlikleri üzerindeki kontrollerini kaybettiklerine dair artan bir endişe vardı. Bu endişeye yanıt olarak Avrupa Komisyonu, 2012'de bireylere dijital egemenliklerini geri vermeyi amaçlayan iddialı bir yasa tasarısı sundu. Yıllar süren yoğun müzakereler, lobi faaliyetleri ve tartışmaların ardından, 'Genel Veri Koruma Yönetmeliği' Nisan 2016'da kabul edildi. Ancak asıl sarsıntı, iki yıllık bir geçiş döneminin ardından, 25 Mayıs 2018'de yaşandı. O gün, GDPR resmen uygulanmaya başlandı. Dünya çapındaki şirketlerin e-posta kutuları, kullanıcıları güncellenmiş gizlilik politikaları hakkında bilgilendiren mesajlarla dolup taşarken, hukuk ve BT departmanları bu yeni ve katı kurallara uyum sağlamak için hummalı bir çalışma yürütüyordu. GDPR, sadece bir yasa değil, aynı zamanda veri gizliliğini temel bir insan hakkı olarak tanıyan ve gücün dengesini şirketlerden bireylere kaydıran bir manifestoydu. O gün, dijital dünyada yeni bir çağ başladı.",
+    "en": "In the early 21st century, the digital world was a 'Wild West' of data collection. Large tech companies were gathering and analyzing vast amounts of personal information, often commercializing it without users' full knowledge or consent. The 1995 Data Protection Directive had become obsolete with the rise of the internet and social media. A growing concern was spreading across Europe: citizens were losing control over their digital identities. In response to this anxiety, the European Commission introduced an ambitious legislative proposal in 2012, aiming to give individuals their digital sovereignty back. After years of intense negotiations, lobbying, and debates, the 'General Data Protection Regulation' was adopted in April 2016. However, the real tremor was felt on May 25, 2018, after a two-year transition period. On that day, GDPR officially became enforceable. Inboxes worldwide were flooded with emails from companies informing users about updated privacy policies, while legal and IT departments scrambled to comply with the new, stringent rules. GDPR was not just a regulation; it was a manifesto that recognized data privacy as a fundamental human right, shifting the balance of power from corporations to individuals. That day marked the beginning of a new era in the digital world."
+  },
+  "metadata": {
+    "key_people": [
+      "Věra Jourová (European Commissioner for Justice)",
+      "Jan Philipp Albrecht (MEP, Rapporteur for the GDPR)",
+      "European Commission",
+      "European Parliament"
+    ],
+    "technologies_used": [
+      "Personal Data Processing Systems",
+      "Big Data Analytics",
+      "Cloud Computing Infrastructure",
+      "Online Advertising and Tracking Technologies (Cookies)",
+      "Customer Relationship Management (CRM) Platforms"
+    ],
+    "methods_used": [
+      "Extraterritorial Scope Application",
+      "Privacy by Design and by Default Principles",
+      "Right to Erasure ('Right to be Forgotten')",
+      "Mandatory Data Breach Notification (within 72 hours)",
+      "Data Protection Impact Assessments (DPIA)",
+      "Requirement for Explicit and Unambiguous Consent"
+    ],
+    "significance": {
+      "tr": "GDPR, bireylerin kişisel verileri üzerindeki kontrolünü temelden değiştiren ve veri gizliliğini küresel bir öncelik haline getiren bir dönüm noktasıdır. Şirketleri veri işleme faaliyetlerinde daha şeffaf ve sorumlu olmaya zorlamıştır. En önemli mirası, dünya çapında benzer yasal düzenlemelere (örneğin Kaliforniya'nın CCPA'sı, Brezilya'nın LGPD'si) ilham vererek veri koruma için küresel bir 'altın standart' oluşturmasıdır. Siber güvenlik açısından, 'tasarım gereği güvenlik' ve 'varsayılan olarak güvenlik' ilkelerini zorunlu kılarak sistemlerin daha en başından güvenli ve gizliliği koruyacak şekilde geliştirilmesini teşvik etmiştir.",
+      "en": "GDPR is a landmark regulation that fundamentally changed individuals' control over their personal data and made data privacy a global priority. It forced companies to be more transparent and accountable for their data processing activities. Its most significant legacy is setting a global 'gold standard' for data protection, inspiring similar legislation worldwide (e.g., California's CCPA, Brazil's LGPD). From a cybersecurity perspective, it promoted the development of systems that are secure and privacy-preserving from the outset by mandating the principles of 'security by design' and 'security by default'."
+    },
+    "sources": [
+      "https://gdpr.eu/",
+      "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32016R0679",
+      "https://www.wired.co.uk/article/what-is-gdpr-uk-law-regulation-personal-data-privacy",
+      "https://iapp.org/resources/article/the-new-european-data-protection-regulation/"
+    ]
+  }
+}

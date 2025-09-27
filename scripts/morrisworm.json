@@ -1,0 +1,43 @@
+{
+  "event_date": "1988-11-02",
+  "title": {
+    "tr": "İnterneti Diz Çöktüren Masum Deney: Morris Solucanı",
+    "en": "The Innocent Experiment That Brought the Internet to Its Knees: The Morris Worm"
+  },
+  "narrative": {
+    "tr": "1988 sonbaharında, internet bugünkü devasa ağ değildi; akademisyenlerin ve araştırmacıların birbirine güvendiği, yaklaşık 60.000 bilgisayardan oluşan küçük, samimi bir topluluktu. Cornell Üniversitesi'nde zeki bir lisansüstü öğrencisi olan Robert Tappan Morris, bu yeni dijital dünyanın ne kadar büyük olduğunu merak ediyordu. Aklında teorik bir fikir vardı: Ağ üzerinde kendi kendine dolaşacak, her makineye bir kez uğrayıp varlığını bildirecek ve böylece internetin bir haritasını çıkaracak zararsız bir program yazmak. Bu, kimseye zarar vermemesi gereken, tamamen akademik bir merakın ürünüydü. 2 Kasım akşamı Morris, kökenini gizlemek için MIT'nin bilgisayarlarından birini kullanarak programını serbest bıraktı. Ancak bu dijital kaşifin kalbinde ölümcül bir kusur yatıyordu. Morris, programının sistem yöneticileri tarafından kolayca bulunup silinmesini önlemek için küçük bir kurnazlık eklemişti. Solucan, bir makineye ulaştığında, o makinede zaten bir kopyasının olup olmadığını kontrol edecekti. Eğer varsa, çoğalmayacaktı. Ancak Morris, sahte 'evet, ben buradayım' sinyalleriyle solucanın kandırılabileceğinden endişelendiği için, her 7 kontrolden 1'inde, makine dolu olsa bile solucanın kendini yeniden kopyalamasını sağlayan bir kod ekledi. Bu küçük olasılık, bir felaketin formülüydü. Solucan, VAX ve Sun sistemlerindeki 'sendmail' ve 'fingerd' gibi programlardaki bilinen zafiyetleri ve zayıf şifreleri kullanarak inanılmaz bir hızla yayıldı. Morris'in hesaba katmadığı şey, bir bilgisayarın kendini tekrar tekrar ve hızla enfekte edeceğiydi. Her bir kopya, değerli işlemci zamanını tüketiyor, makineleri yavaşlatıyor ve sonunda tamamen kullanılamaz hale getiriyordu. Birkaç saat içinde, ülkenin dört bir yanındaki üniversiteler ve askeri laboratuvarlar, sistemlerinin gizemli bir güç tarafından ele geçirildiğini fark etti. İnternet, kendi yarattığı bir trafik sıkışıklığıyla durma noktasına geldi. Berkeley ve MIT'deki en parlak beyinler, bu dijital vebanın kodunu çözmek için uykusuz geceler geçirdiler. Robert Morris, yarattığı kaosu dehşet içinde izleyerek durumu düzeltmek için anonim bir mesaj göndermeye çalıştı, ancak ironik bir şekilde, kendi solucanının neden olduğu ağ tıkanıklığı yüzünden mesajı kimseye zamanında ulaşmadı. O gün, internet masumiyetini kaybetti. Bir öğrencinin deneyi, dijital dünyanın ne kadar kırılgan olduğunu ve kötü niyet olmasa bile tek bir kod parçasının ne kadar büyük bir hasara yol açabileceğini tüm dünyaya göstermişti.",
+    "en": "In the autumn of 1988, the internet was not the sprawling network of today; it was a small, tight-knit community of about 60,000 computers, built on trust among academics and researchers. At Cornell University, a brilliant graduate student named Robert Tappan Morris was curious about how large this new digital world truly was. He had a theoretical idea: to write a harmless program that would travel across the network on its own, visit each machine once, report its existence, and thus create a map of the internet. It was a product of purely academic curiosity, intended to cause no harm. On the evening of November 2, Morris released his program from one of MIT's computers to obscure its origin. However, a fatal flaw lay at the heart of this digital explorer. To prevent his program from being easily found and deleted by system administrators, Morris added a clever trick. When the worm reached a machine, it would check if a copy was already running. If so, it wouldn't replicate. But Morris, worried that administrators could trick the worm with fake 'yes, I'm here' signals, added a piece of code that forced the worm to replicate itself on 1 out of every 7 checks, even if the machine was already infected. This small probability was the formula for disaster. The worm spread with incredible speed, exploiting known vulnerabilities in programs like 'sendmail' and 'fingerd' on VAX and Sun systems, as well as weak passwords. What Morris hadn't accounted for was how quickly a machine would reinfect itself over and over. Each copy consumed precious processor time, slowing the machines down until they became completely unusable. Within hours, universities and military labs across the country realized their systems were being hijacked by a mysterious force. The internet ground to a halt, choked by its own self-generated traffic. The brightest minds at Berkeley and MIT spent sleepless nights disassembling the code of this digital plague. Robert Morris, watching in horror at the chaos he had created, tried to send an anonymous message with instructions on how to stop it, but ironically, his message never got through in time due to the network congestion caused by his own worm. On that day, the internet lost its innocence. One student's experiment had shown the world just how fragile the digital world was and how much damage a single piece of code could do, even without malicious intent."
+  },
+  "metadata": {
+    "key_people": [
+      "Robert Tappan Morris"
+    ],
+    "technologies_used": [
+      "ARPANET/NSFNET",
+      "Unix (BSD 4.3)",
+      "SunOS",
+      "VAX and Sun-3 systems",
+      "Sendmail",
+      "fingerd (finger daemon)",
+      "rsh (Remote Shell)"
+    ],
+    "methods_used": [
+      "Network Worm Propagation",
+      "Buffer Overflow Vulnerability in fingerd",
+      "Sendmail DEBUG Command Exploitation",
+      "Weak Password Guessing",
+      "Denial of Service (unintentional)"
+    ],
+    "significance": {
+      "tr": "Morris Solucanı, internet tarihindeki ilk büyük ölçekli ağ solucanı olayı olarak kabul edilir ve siber güvenlik için bir dönüm noktasıdır. Bu olay, teorik olan siber tehditlerin pratik ve yıkıcı sonuçlar doğurabileceğini kanıtlamıştır. Doğrudan bir sonucu olarak, ABD Savunma Bakanlığı'nın fonlarıyla Carnegie Mellon Üniversitesi'nde dünyanın ilk Bilgisayar Acil Durum Müdahale Ekibi (CERT/CC) kurulmuştur. Bu olay, ağ güvenliği, yama yönetimi ve parola politikalarının önemini vurgulamış ve siber güvenlik bilincinin doğuşunu tetiklemiştir. Robert Tappan Morris, 1986 tarihli Bilgisayar Dolandırıcılığı ve Kötüye Kullanımı Yasası (CFAA) kapsamında hüküm giyen ilk kişi olmuştur. Bu olay, internetin güvene dayalı yapısının sürdürülemez olduğunu göstermiş ve modern siber güvenlik endüstrisinin temellerini atmıştır.",
+      "en": "The Morris Worm is considered the first large-scale network worm incident in internet history and represents a turning point for cybersecurity. This event proved that theoretical cyber threats could have practical and devastating consequences. As a direct result, the world's first Computer Emergency Response Team (CERT/CC) was established at Carnegie Mellon University with funding from DARPA. The incident highlighted the critical importance of network security, patch management, and password policies, triggering the birth of cybersecurity awareness. Robert Tappan Morris became the first person to be convicted under the 1986 Computer Fraud and Abuse Act (CFAA). This event demonstrated that the internet's trust-based architecture was unsustainable and laid the groundwork for the modern cybersecurity industry."
+    },
+    "sources": [
+      "https://www.fbi.gov/history/this-day-in-history/morris-worm",
+      "https://dl.acm.org/doi/10.1145/63039.63043",
+      "https://www.cert.org/about/history/",
+      "https://www.wired.com/2008/11/the-morris-worm-turns-20/",
+      "https://www.law.cornell.edu/supremecourt/text/94-1888"
+    ]
+  }
+}

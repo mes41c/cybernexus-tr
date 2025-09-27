@@ -1,0 +1,38 @@
+{
+  "event_date": "1976-11-01",
+  "title": {
+    "tr": "Kriptografide Devrim: Diffie-Hellman Açık Anahtar Değişimi",
+    "en": "A Revolution in Cryptography: The Diffie-Hellman Key Exchange"
+  },
+  "narrative": {
+    "tr": "1970'lerin ortasında, dijital dünya sessiz ama derin bir krizle karşı karşıyaydı. Bilgisayar ağları filizleniyor, ARPANET gibi projelerle makineler birbirleriyle konuşmaya başlıyordu. Ancak bu yeni bağlantı çağının kalbinde binlerce yıllık bir sorun yatıyordu: İki taraf, aralarını dinleyen bir düşman varken, nasıl güvenli bir şekilde iletişim kurabilirdi? O güne dek kriptografinin tek bir cevabı vardı: simetrik anahtarlar. Bir mesajı kilitleyen anahtar ne ise, açan anahtar da oydu. Bu, iki tarafın mesajlaşmadan *önce* bir şekilde buluşup gizli anahtarı birbirlerine vermelerini gerektiriyordu. Bu durum, birbirinden binlerce kilometre uzaktaki bilgisayarlar için tam bir imkansızlıktı. Kriptografi, hükümetlerin ve askeri kurumların tekelinde, sırlarla dolu bir sanattı. Ta ki Stanford Üniversitesi'nden iki aykırı düşünür, Whitfield Diffie ve Martin Hellman, sahneye çıkana kadar. Onlar, bu 'anahtar dağıtım problemini' çözmek için kafa yoruyorlardı. Diffie, uzun saçları ve otorite karşıtı duruşuyla, kriptografiyi sıradan insanların da kullanabileceği bir araca dönüştürme hayali kuruyordu. Hellman ise daha akademik bir titizlikle, bu hayali matematiksel bir temele oturtmaya çalışıyordu. Aylarca süren beyin fırtınalarının ardından, renklerin karıştırılması analojisiyle açıklanabilecek dahiyane bir fikir buldular. İki taraf, herkesin bildiği (halka açık) bir başlangıç rengi üzerinde anlaşıyor, ardından her biri kendi gizli rengini seçiyordu. Sonra, başlangıç rengini kendi gizli renkleriyle karıştırıp elde ettikleri yeni renkleri, güvensiz olan ağ üzerinden birbirlerine gönderiyorlardı. Son adımda, her biri karşıdan aldığı karışık renge kendi *orijinal gizli rengini* eklediğinde, her ikisi de sihirli bir şekilde aynı nihai renge, yani paylaşılan sırra ulaşıyordu. Ortadaki dinleyici ise sadece başlangıç rengini ve iki ara karışımı görebiliyor, ancak bu bilgilerle o nihai gizli renge ulaşması matematiksel olarak imkansız oluyordu. Kasım 1976'da yayınladıkları 'New Directions in Cryptography' (Kriptografide Yeni Yönelimler) başlıklı makaleleriyle bu metodu dünyaya duyurduklarında, bir bomba etkisi yarattılar. Sadece binlerce yıllık bir problemi çözmekle kalmadılar, aynı zamanda 'açık anahtar kriptografisi' adını verdikleri yepyeni bir alanın kapılarını araladılar. Artık iki tarafın önceden tanışmasına gerek yoktu; güven, güvensiz bir kanal üzerinde, matematiğin zarafetiyle inşa edilebilirdi. O gün, internetin güvenli geleceğinin temelleri atılmıştı.",
+    "en": "In the mid-1970s, the digital world faced a quiet but profound crisis. Computer networks were burgeoning, and machines were beginning to talk to each other through projects like ARPANET. At the heart of this new era of connectivity, however, lay a problem thousands of years old: How could two parties communicate securely when an adversary was listening in? Until then, cryptography had only one answer: symmetric keys. The key that locked a message was the same key that unlocked it. This required the two parties to somehow meet and exchange the secret key *before* they could communicate. For computers thousands of kilometers apart, this was an impossibility. Cryptography was an art shrouded in secrecy, a monopoly of governments and military agencies. That was until two iconoclastic thinkers from Stanford University, Whitfield Diffie and Martin Hellman, entered the scene. They were obsessed with solving this 'key distribution problem.' Diffie, with his long hair and anti-authoritarian stance, dreamed of turning cryptography into a tool that ordinary people could use. Hellman, with more academic rigor, sought to ground this dream in a solid mathematical foundation. After months of brainstorming, they conceived of a brilliant idea, often explained by the analogy of mixing colors. Two parties agree on a common, public starting color. Then, each chooses their own secret color. They mix the public starting color with their own secret color and send the resulting mixed colors to each other over the insecure network. In the final step, when each person adds their *original secret color* to the mixed color received from the other, they magically arrive at the exact same final color—the shared secret. An eavesdropper, who only sees the public starting color and the two intermediate mixtures, finds it mathematically impossible to determine that final secret color. When they published this method to the world in November 1976 in their paper titled 'New Directions in Cryptography,' it had the impact of a bombshell. They had not only solved a millennial-old problem but had also opened the doors to an entirely new field they called 'public-key cryptography.' Parties no longer needed to meet beforehand; trust could be built upon an untrusted channel through the elegance of mathematics. On that day, the foundations for the secure future of the internet were laid."
+  },
+  "metadata": {
+    "key_people": [
+      "Whitfield Diffie",
+      "Martin Hellman",
+      "Ralph Merkle"
+    ],
+    "technologies_used": [
+      "Public-Key Cryptography (Concept)",
+      "Modular Arithmetic",
+      "Discrete Logarithm Problem"
+    ],
+    "methods_used": [
+      "Asymmetric Key Exchange",
+      "Public Key Distribution"
+    ],
+    "significance": {
+      "tr": "Diffie-Hellman anahtar değişimi, kriptografi tarihinde bir dönüm noktasıdır ve açık anahtar kriptografisinin ilk pratik örneğidir. Bu icat, iki tarafın daha önce hiç karşılaşmadan, güvensiz bir kanal üzerinden ortak bir sır (simetrik şifreleme anahtarı) oluşturmasına olanak tanıyarak 'anahtar dağıtım problemini' çözmüştür. Bu gelişme, SSL/TLS, SSH, IPsec ve VPN'ler gibi günümüz internet altyapısının temelini oluşturan sayısız güvenli iletişim protokolünün önünü açmıştır. Kriptografiyi devlet tekellerinden çıkarıp halka açık bir bilim dalı haline getirerek dijital çağda gizlilik ve güvenliğin temelini atmıştır.",
+      "en": "The Diffie-Hellman key exchange is a landmark event in the history of cryptography and the first practical implementation of public-key cryptography. This invention solved the 'key distribution problem' by allowing two parties, with no prior acquaintance, to establish a shared secret (a symmetric encryption key) over an insecure channel. This breakthrough paved the way for numerous secure communication protocols that form the bedrock of the modern internet, such as SSL/TLS, SSH, IPsec, and VPNs. It effectively broke the governmental monopoly on cryptography, turning it into a public science and laying the foundation for privacy and security in the digital age."
+    },
+    "sources": [
+      "https://www.rfc-editor.org/rfc/rfc2631",
+      "https://web.archive.org/web/20121025215124/http://www.stanford.edu/class/ee380/Abstracts/070926-hellman-key-exchange.pdf",
+      "https://www.wired.com/2014/11/the-men-who-cracked-enigma-and-invented-public-key-cryptography/",
+      "https://amturing.acm.org/award_winners/diffie_8717166.cfm",
+      "https://ee.stanford.edu/~hellman/publications/24.pdf"
+    ]
+  }
+}

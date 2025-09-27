@@ -1,0 +1,43 @@
+{
+  "event_date": "2003-08-11",
+  "title": {
+    "tr": "Kaosun Adı: Blaster Solucanı ve Yankıları",
+    "en": "The Name of Chaos: The Blaster Worm and Its Aftermath"
+  },
+  "narrative": {
+    "tr": "2003 yazı, dijital dünya için bir masumiyetin sonuydu. Milyonlarca insan, Windows XP'nin parlak yeşil 'Başlat' düğmesine basarak internetin sunduğu olanakları keşfediyordu. Geniş bant bağlantıları evlere yayılıyor, dünya her zamankinden daha bağlantılı hale geliyordu. Ancak bu bağlantının derinliklerinde, sessiz bir saatli bomba bekliyordu. 16 Temmuz 2003'te Microsoft, neredeyse tüm modern Windows sürümlerini etkileyen 'kritik' bir güvenlik bülteni (MS03-026) yayınladı. Windows'un ağ iletişiminin temel taşlarından biri olan DCOM RPC arayüzündeki bir bellek taşması zafiyeti, uzaktan bir saldırganın hiçbir kullanıcı etkileşimi olmadan sistemin tam kontrolünü ele geçirmesine olanak tanıyordu. Güvenlik uzmanları için alarm zilleri çalmaya başlamıştı; bu, 'solucanlaştırılabilir' bir zafiyetti. Sorun yamanın varlığı değil, milyonlarca ev ve iş bilgisayarının bu yamadan habersiz olması veya uygulama disiplinine sahip olmamasıydı. Neredeyse bir ay sonra, 11 Ağustos'ta korkulan oldu. İnternet, kendi kendine yayılan bir kod olan Blaster (veya Lovesan) solucanının saldırısı altında kaldı. Blaster, verileri silmiyor veya çalmıyordu; daha sinir bozucu bir şey yapıyordu. Zafiyeti barındıran sistemleri TCP port 135 üzerinden sürekli tarıyor, bulduğu kurbanlara sızıyor ve ardından onlara rahatsız edici bir mesaj gönderiyordu: 'RPC hizmeti beklenmedik şekilde sonlandırıldı. Sistem kapatılıyor.' Kullanıcılara işlerini kaydetmeleri için 60 saniye veren bu geri sayım, milyonlarca bilgisayarın aniden ve tekrar tekrar yeniden başlamasına neden olarak küresel bir kaos ve verimlilik kaybı dalgası yarattı. Ancak Blaster'ın tek marifeti bu değildi. Kodunun derinliklerine iki mesaj gizlenmişti. Biri masum bir nottu: 'Sadece seni sevdiğimi söylemek istiyorum san!!'. Diğeri ise doğrudan Microsoft'un kurucusuna yönelikti: 'billy gates neden bunu mümkün kılıyorsun? Para kazanmayı bırak ve yazılımını düzelt!!'. Solucan ayrıca, 15 Ağustos'tan sonra enfekte olmuş tüm makinelerden Microsoft'un Windows Update web sitesine (windowsupdate.com) yönelik koordineli bir DDoS saldırısı başlatmak üzere programlanmıştı. Bu, kurbanların kendilerini korumak için ihtiyaç duydukları yamaları almalarını engellemeyi amaçlayan ironik bir saldırıydı. Blaster'ın yarattığı kargaşa, hem kullanıcıların yama yönetimi konusundaki zayıflığını hem de varsayılan olarak açık olan hizmetlerin ne kadar tehlikeli olabileceğini gözler önüne serdi. Bu olay, Microsoft için bir dönüm noktası oldu ve şirketin güvenlik felsefesini temelden sarsarak Windows XP Service Pack 2 gibi çok daha güvenli ve varsayılan olarak güvenlik duvarı etkinleştirilmiş sistemlerin geliştirilmesini tetikledi.",
+    "en": "The summer of 2003 marked the end of an era of innocence for the digital world. Millions of people were exploring the possibilities of the internet, clicking the bright green 'Start' button on Windows XP. Broadband connections were spreading to homes, making the world more connected than ever. But deep within this connectivity, a silent time bomb was ticking. On July 16, 2003, Microsoft issued a 'critical' security bulletin (MS03-026) affecting almost all modern versions of Windows. A buffer overflow vulnerability in the DCOM RPC interface, a cornerstone of Windows network communication, allowed a remote attacker to gain complete control of a system with no user interaction. For security experts, alarm bells were ringing; this was a 'wormable' vulnerability. The problem wasn't the existence of the patch, but that millions of home and business computers were either unaware of it or lacked the discipline to apply it. Nearly a month later, on August 11th, the inevitable happened. The internet came under assault from a self-propagating code: the Blaster (or Lovesan) worm. Blaster didn't delete or steal data; it did something far more frustrating. It relentlessly scanned for vulnerable systems on TCP port 135, infiltrated the victims it found, and then presented them with a vexing message: 'The Remote Procedure Call (RPC) service terminated unexpectedly. The system is shutting down.' This countdown, giving users 60 seconds to save their work, caused millions of computers to suddenly and repeatedly reboot, creating a global wave of chaos and lost productivity. But that wasn't Blaster's only trick. Hidden deep in its code were two messages. One was an innocent note: 'I just want to say LOVE YOU SAN!!'. The other was aimed directly at Microsoft's founder: 'billy gates why do you make this possible ? Stop making money and fix your software!!'. The worm was also programmed to launch a coordinated DDoS attack from all infected machines against Microsoft's Windows Update website (windowsupdate.com) after August 15th—an ironic attack designed to prevent victims from getting the very patches they needed to protect themselves. The havoc wrought by Blaster exposed the weakness of user patch management and the danger of services being left open by default. The event became a turning point for Microsoft, fundamentally shaking its security philosophy and triggering the development of much more secure systems like Windows XP Service Pack 2, which featured a firewall enabled by default."
+  },
+  "metadata": {
+    "key_people": [
+      "Jeffrey Lee Parson (Creator of Blaster.B variant)",
+      "The Polish security research group 'Last Stage of Delirium' (Who originally discovered the RPC vulnerability)"
+    ],
+    "technologies_used": [
+      "Windows XP",
+      "Windows 2000",
+      "DCOM (Distributed Component Object Model)",
+      "RPC (Remote Procedure Call)",
+      "TFTP (Trivial File Transfer Protocol)"
+    ],
+    "methods_used": [
+      "Buffer Overflow Exploit",
+      "Network Worm Propagation",
+      "Port Scanning (TCP 135)",
+      "Denial-of-Service (DoS)",
+      "Remote Command Shell (TCP 4444)"
+    ],
+    "significance": {
+      "tr": "Blaster solucanı, siber güvenlik tarihinde bir dönüm noktasıdır. Teknik olarak karmaşık olmamasına rağmen, milyonlarca yamalanmamış Windows sistemindeki tek bir zafiyeti sömürerek küresel çapta büyük bir kesintiye neden olmuştur. Bu olay, son kullanıcılar için otomatik güncellemelerin ve yama yönetiminin kritik önemini acı bir şekilde ortaya koymuştur. Microsoft için ise 'Güvenilir Bilgi İşlem' (Trustworthy Computing) girişimini güçlendiren ve güvenlik odaklı Windows XP Service Pack 2'nin geliştirilmesini hızlandıran bir uyandırma çağrısı olmuştur. SP2, ilk kez varsayılan olarak bir güvenlik duvarını etkinleştirmiş ve işletim sistemi çekirdeğine bellek koruma teknolojileri eklemiştir. Blaster, yazılım güvenliğinin sadece bir ürün özelliği değil, temel bir gereklilik olduğunu ve varsayılan yapılandırmaların 'güvenli' olması gerektiğini tüm endüstriye kanıtlamıştır.",
+      "en": "The Blaster worm is a landmark event in cybersecurity history. Despite not being technically complex, it caused massive global disruption by exploiting a single vulnerability across millions of unpatched Windows systems. The incident painfully highlighted the critical importance of automatic updates and patch management for end-users. For Microsoft, it was a wake-up call that reinforced its 'Trustworthy Computing' initiative and accelerated the development of the security-focused Windows XP Service Pack 2. SP2, for the first time, enabled a firewall by default and added memory protection technologies to the operating system's core. Blaster proved to the entire industry that software security is not just a feature but a fundamental requirement, and that default configurations must be secure by default."
+    },
+    "sources": [
+      "https://learn.microsoft.com/en-us/security-updates/securitybulletins/2003/ms03-026",
+      "https://www.justice.gov/archive/criminal/cybercrime/press-releases/2005/parsonSent.htm",
+      "https://www.cisa.gov/news-events/alerts/2003/08/w32blaster-worm",
+      "http://blog.erratasec.com/2013/08/10-years-of-blaster-retrospective.html",
+      "https://www.pandasecurity.com/en/mediacenter/virus-blaster/",
+      "https://www.wired.com/2003/08/blaster-worm-unleashed-on-net/"
+    ]
+  }
+}

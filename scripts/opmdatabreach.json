@@ -1,0 +1,46 @@
+{
+  "event_date": "2015-06-04",
+  "title": {
+    "tr": "OPM Veri İhlali: Bir Ulusun Sırlarının Dijital Soygunu",
+    "en": "The OPM Data Breach: The Digital Heist of a Nation's Secrets"
+  },
+  "narrative": {
+    "tr": "2014 yılının ortalarında, ABD hükümetinin devasa insan kaynakları departmanı olan Personel Yönetimi Ofisi'nin (OPM) dijital koridorlarında sessiz ve görünmez bir istila başladı. Bu, gürültülü bir 'hack' değildi; aksine, sabırlı ve metodik bir casusluk operasyonuydu. Her şey, OPM'in güvenlik soruşturmalarını yürüten bir taşeron olan KeyPoint Government Solutions'daki bir çalışanın, zararsız görünen bir e-postadaki linke tıklamasıyla başladı. Bu tek bir tıklama, ulus devlet destekli olduğu düşünülen saldırganların, ABD'nin en hassas ağlarından birine bir köprü başı kurmasına yetti. Aylarca fark edilmeden ağın içinde gezindiler, yönetici yetkilerini ele geçirdiler ve adeta dijital bir hayalet gibi sistemden sisteme atladılar. Hedefleri, sıradan personel kayıtları değildi; amaçları, ulusal güvenlik sırlarına erişimi olan milyonlarca federal çalışanın hayatlarının en mahrem detaylarını içeren SF-86 güvenlik soruşturması formlarıydı. 2015 baharında OPM, bir veri sızıntısını tespit ettiğinde, ilk başta 4.2 milyon mevcut ve eski çalışanın etkilendiğini düşündü. Ancak bu, buzdağının sadece görünen kısmıydı. Soruşturma derinleştikçe, çok daha vahim, ikinci ve devasa bir ihlal ortaya çıkarıldı. Saldırganlar, sadece isimleri ve sosyal güvenlik numaralarını değil, aynı zamanda 21.5 milyon kişinin güvenlik soruşturması dosyalarını, aile üyelerinin, arkadaşlarının, mali geçmişlerinin ve hatta 5.6 milyon kişinin parmak izi verilerini çalmışlardı. Bu, bir veri hırsızlığından çok daha fazlasıydı; bir ülkenin istihbarat ve savunma yapısının temelini oluşturan insan sermayesi hakkında paha biçilmez bir bilgi hazinesinin ele geçirilmesiydi. OPM ihlali, modern çağın en yıkıcı siber casusluk eylemlerinden biri olarak tarihe geçti.",
+    "en": "In mid-2014, a silent and invisible invasion began in the digital corridors of the Office of Personnel Management (OPM), the vast human resources department of the U.S. government. This was not a noisy 'hack'; rather, it was a patient and methodical espionage operation. It all started when an employee at KeyPoint Government Solutions, a contractor conducting security clearances for OPM, clicked a link in a seemingly harmless email. This single click was enough for the attackers, believed to be nation-state sponsored, to establish a beachhead into one of the most sensitive U.S. networks. For months, they moved undetected through the network, escalating their privileges and jumping from system to system like digital ghosts. Their target was not ordinary personnel records; their goal was the SF-86 security clearance forms, which contained the most intimate details of the lives of millions of federal employees with access to national security secrets. When OPM detected a data leak in the spring of 2015, it initially thought 4.2 million current and former employees were affected. But this was just the tip of the iceberg. As the investigation deepened, a second, far more devastating breach was uncovered. The attackers had stolen not only names and Social Security numbers but also the security clearance files of 21.5 million people, including information on family members, friends, financial histories, and even the fingerprint data of 5.6 million individuals. This was more than just data theft; it was the acquisition of an invaluable treasure trove of information on the human capital that forms the bedrock of a nation's intelligence and defense structure. The OPM breach went down in history as one of the most devastating acts of cyber-espionage of the modern era."
+  },
+  "metadata": {
+    "key_people": [
+      "Nation-State Actors (widely attributed to China, tracked as 'Deep Panda' or 'APT10')",
+      "Katherine Archuleta (OPM Director at the time of discovery)",
+      "21.5 Million U.S. Federal Employees and Applicants (The Victims)",
+      "KeyPoint Government Solutions (The compromised third-party contractor)"
+    ],
+    "technologies_used": [
+      "Sakula Remote Access Trojan (RAT)",
+      "Custom Malware and Backdoors",
+      "Windows PowerShell (for lateral movement and privilege escalation)",
+      "SSL/TLS Encrypted Channels (for data exfiltration)",
+      "Mainframe Databases (hosting the sensitive data)"
+    ],
+    "methods_used": [
+      "Advanced Persistent Threat (APT)",
+      "Spear-Phishing",
+      "Supply Chain Attack (targeting a contractor to pivot to the main target)",
+      "Credential Theft and Reuse",
+      "Privilege Escalation",
+      "Lateral Movement across networks",
+      "Large-scale Data Exfiltration"
+    ],
+    "significance": {
+      "tr": "OPM veri ihlali, ABD hükümetine yönelik en önemli ve yıkıcı siber saldırılardan biridir. Çalınan verilerin (özellikle SF-86 formları ve parmak izleri) hassasiyeti, yabancı istihbarat teşkilatlarına şantaj, casusların tespiti ve yeni ajanlar devşirme konularında on yıllarca kullanılabilecek stratejik bir avantaj sağladı. Bu olay, federal hükümetin siber güvenlik konusundaki zafiyetlerini gözler önüne serdi ve Ulusal Geçmiş Kontrol Bürosu'nun (NBIB) kurulması ve federal çapta siber güvenlik iyileştirmelerinin hızlandırılması gibi önemli reformlara yol açan bir uyandırma çağrısı oldu.",
+      "en": "The OPM data breach is one of the most significant and damaging cyberattacks ever launched against the U.S. government. The sensitivity of the stolen data, particularly the SF-86 forms and fingerprints, provided foreign intelligence agencies with a strategic advantage that could be used for decades for blackmail, identifying intelligence officers, and recruiting new agents. The incident exposed profound cybersecurity weaknesses within the federal government and served as a major wake-up call, leading to significant reforms such as the creation of the National Background Investigations Bureau (NBIB) and a government-wide push to accelerate cybersecurity improvements."
+    },
+    "sources": [
+      "https://www.wired.com/2016/05/opm-hack-report/",
+      "https://www.washingtonpost.com/news/federal-eye/wp/2015/07/09/the-opm-hack-how-the-governments-hr-database-was-plundered/",
+      "https://arstechnica.com/information-technology/2015/09/how-the-opm-breach-went-down-and-how-it-was-almost-stopped/",
+      "https://www.gao.gov/products/gao-17-649t",
+      "https://www.csis.org/blogs/technology-policy-blog/opm-data-breach-what-and-what-now"
+    ]
+  }
+}

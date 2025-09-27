@@ -1,0 +1,40 @@
+{
+  "event_date": "2001-07-13",
+  "title": {
+    "tr": "Code Red Solucanı: Beyaz Saray'ı Hedef Alan Dijital Tsunami",
+    "en": "The Code Red Worm: The Digital Tsunami that Targeted the White House"
+  },
+  "narrative": {
+    "tr": "2001 yılının yaz ayları, internetin henüz emekleme dönemini yeni aştığı, siber güvenliğin ise birçok sistem yöneticisi için bir lüks olarak görüldüğü bir zamandı. Microsoft'un Internet Information Services (IIS) yazılımı, web'in görünmez altyapısının büyük bir kısmını oluşturuyordu. Ancak bu altyapının derinliklerinde, bir ay önce Microsoft tarafından yaması yayınlanmış olmasına rağmen milyonlarca sunucuda açık duran sinsi bir zafiyet gizliydi: bir arabellek taşması açığı. 13 Temmuz 2001'de, bu zafiyet dijital bir avcı tarafından keşfedildi. Adı 'Code Red' olacaktı. Adını, onu ilk keşfeden eEye Digital Security analistlerinin o an içtikleri 'Code Red' Mountain Dew içeceğinden alan bu solucan, sessizce ve hızla yayılmaya başladı. Tamamen bellekte çalışan ve arkasında hiçbir dosya izi bırakmayan bu sofistike yazılım, tespit edilmeyi neredeyse imkansız kılıyordu. Enfekte ettiği sunuculardan rastgele IP adresleri üretiyor ve yeni kurbanlar arıyordu. Sadece birkaç saat içinde yüz binlerce sunucu onun kontrolü altına girmişti. Ayın ilk 19 günü boyunca tek amacı yayılmaktı. Ancak sonrasında, gerçek niyetini ortaya koydu. Solucan, ele geçirdiği web sitelerinin içeriğini provokatif bir mesajla değiştiriyordu: 'HELLO! Welcome to http://www.worm.com! Hacked By Chinese!'. Bu dijital grafiti, tüm dünyada manşetlere taşındı. Ama asıl fırtına ayın 20'sinde kopacaktı. Programlandığı üzere, enfekte olan yüz binlerce sunucudan oluşan devasa bir botnet, tek bir hedefe kilitlendi: www.whitehouse.gov. Tarihin en büyük DDoS saldırılarından biri başlamak üzereydi. Federal ajanlar ve siber güvenlik uzmanları zamanla yarışıyordu. Saldırı başlamadan hemen önce, Beyaz Saray'ın web sitesinin IP adresi, saldırı trafiğini etkisiz bir 'kara deliğe' yönlendirecek şekilde değiştirildi. Dev dalga hedefine ulaşamadan kırılmıştı. Code Red, her ne kadar engellenmiş olsa da, internetin ne kadar kırılgan olduğunu ve yama yönetiminin ne denli hayati bir önem taşıdığını tüm dünyaya acı bir şekilde göstermişti. Bu olay, Microsoft'u güvenlik stratejisini temelden değiştirmeye iten ve modern siber güvenlik anlayışının şekillenmesinde bir milat olan olaylardan biri olarak tarihe geçti.",
+    "en": "In the summer of 2001, the internet had just moved beyond its infancy, and cybersecurity was still considered a luxury by many system administrators. Microsoft's Internet Information Services (IIS) formed a significant part of the web's invisible infrastructure. However, deep within this infrastructure lay a sinister vulnerability that remained open on millions of servers, despite a patch being released by Microsoft a month earlier: a buffer overflow vulnerability. On July 13, 2001, this flaw was exploited by a digital predator. It would be named 'Code Red.' Taking its name from the 'Code Red' Mountain Dew beverage that the eEye Digital Security analysts who discovered it were drinking, the worm began to spread silently and rapidly. This sophisticated software operated entirely in memory, leaving no file traces behind, making detection nearly impossible. It generated random IP addresses from the servers it infected, searching for new victims. Within just a few hours, hundreds of thousands of servers had fallen under its control. For the first 19 days of the month, its sole purpose was to propagate. But afterward, it revealed its true intent. The worm defaced the websites it compromised with a provocative message: 'HELLO! Welcome to http://www.worm.com! Hacked By Chinese!'. This digital graffiti made headlines worldwide. But the real storm was set to break on the 20th of the month. As programmed, a massive botnet consisting of hundreds of thousands of infected servers locked onto a single target: www.whitehouse.gov. One of the largest DDoS attacks in history was about to begin. Federal agents and cybersecurity experts were racing against time. Just before the attack commenced, the IP address of the White House website was changed to redirect the attack traffic into an effective 'black hole.' The giant wave was broken before it could reach its target. Although Code Red was thwarted, it painfully demonstrated to the world how fragile the internet was and the critical importance of patch management. This event became a milestone, pushing Microsoft to fundamentally change its security strategy and shaping the modern understanding of cybersecurity."
+  },
+  "metadata": {
+    "key_people": [
+      "Marc Maiffret (eEye Digital Security)",
+      "Ryan Permeh (eEye Digital Security)",
+      "Unknown Creators ('Hacked by Chinese' persona)"
+    ],
+    "technologies_used": [
+      "Microsoft Internet Information Services (IIS) 4.0/5.0",
+      "Idq.dll ISAPI Extension",
+      "TCP/IP"
+    ],
+    "methods_used": [
+      "Buffer Overflow",
+      "Self-propagation (Worm)",
+      "Website Defacement",
+      "Distributed Denial of Service (DDoS)"
+    ],
+    "significance": {
+      "tr": "Code Red, yama yönetiminin kritik önemini ve internet altyapısının zafiyetini gözler önüne seren bir dönüm noktasıydı. Yüz binlerce sunucuyu etkileyerek büyük ekonomik hasara yol açmış ve Microsoft'u daha güvenli yazılım geliştirme pratiklerini benimsemeye yönelten 'Güvenilir Bilişim (Trustworthy Computing)' girişimini başlatmaya iten ana faktörlerden biri olmuştur. Aynı zamanda, büyük ölçekli ve koordine bir DDoS saldırısının potansiyelini göstererek ulusal güvenlik kurumlarının siber tehditlere yaklaşımını değiştirmiştir.",
+      "en": "Code Red was a turning point that exposed the critical importance of patch management and the vulnerability of internet infrastructure. By affecting hundreds of thousands of servers, it caused significant economic damage and was one of the main factors that pushed Microsoft to launch its 'Trustworthy Computing' initiative, leading to the adoption of more secure software development practices. It also changed the approach of national security agencies to cyber threats by demonstrating the potential of a large-scale, coordinated DDoS attack."
+    },
+    "sources": [
+      "https://www.wired.com/2001/07/code-red-worm-shuts-down-sites/",
+      "http://www.caida.org/publications/papers/2002/codered/codered.xml",
+      "https://www.f-secure.com/v-descs/code_red.shtml",
+      "https://web.archive.org/web/20020603091049/http://www.eeye.com/html/research/advisories/AL20010717.html",
+      "https://www.sans.org/white-papers/13/"
+    ]
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "event_date": "2014-04-07",
+  "title": {
+    "tr": "Heartbleed Zafiyeti: İnternetin Kalbi Kanarken",
+    "en": "The Heartbleed Vulnerability: When the Internet's Heart Bled"
+  },
+  "narrative": {
+    "tr": "2014 yılının Nisan ayında, internetin güvenli olduğu varsayılan kalbine sessiz ve yıkıcı bir darbe indirildi. Milyonlarca web sitesi, e-posta sunucusu ve anlık mesajlaşma hizmetini koruyan dijital kalkan olan OpenSSL'in, aslında iki yılı aşkın bir süredir kanadığı ortaya çıktı. Hikaye, 31 Aralık 2011'de, bir Alman geliştiricinin OpenSSL'e 'Heartbeat' adında yeni bir özellik eklemesiyle başlamıştı. Bu özellik, iki sunucu arasındaki bağlantının canlı olup olmadığını kontrol etmek için tasarlanmış zararsız bir 'nabız kontrolü' mekanizmasıydı. Ancak, bu iyi niyetli kodun içinde, basit ama felaket getirecek bir programlama hatası gizliydi: gönderilen veri miktarını doğrulamayı unutan bir satır. Bu küçük ihmal, dijital bir saatli bombaya dönüştü. İki yıl boyunca kimse bu kusurun farkına varmadı. Ta ki Google'dan güvenlik araştırmacısı Neel Mehta ve Finlandiyalı siber güvenlik firması Codenomicon'daki bir ekip, neredeyse aynı anda bu zafiyeti keşfedene kadar. Codenomicon ekibi, durumun ciddiyetini vurgulamak için ona unutulmaz bir isim verdi: Heartbleed. Çünkü bu hata, saldırganların sunucuların belleğine sızarak, sanki bir damardan kan çeker gibi, en hassas bilgileri—şifreler, özel anahtarlar, kullanıcı verileri—parça parça çekmesine olanak tanıyordu. Üstelik bu hırsızlık, geride hiçbir iz bırakmıyordu. 7 Nisan 2014'te zafiyet dünyaya duyurulduğunda, dijital dünyada bir panik dalgası yayıldı. Sistem yöneticileri sunucularını yamamak için uykusuz geceler geçirirken, milyonlarca kullanıcıya acilen parolalarını değiştirmeleri tavsiye edildi. Heartbleed, internetin en güvendiği teknolojilerden birinin bile ne kadar kırılgan olabileceğini ve küçücük bir hatanın nasıl küresel bir güvenlik krizine yol açabileceğini acı bir şekilde gösterdi.",
+    "en": "In April 2014, a silent and devastating blow was dealt to the supposedly secure heart of the internet. OpenSSL, the digital shield protecting millions of websites, email servers, and instant messaging services, was revealed to have been bleeding for over two years. The story began on December 31, 2011, when a German developer added a new feature called 'Heartbeat' to OpenSSL. This feature was designed as a harmless 'pulse check' mechanism to verify if the connection between two servers was still alive. However, hidden within this well-intentioned code was a simple yet catastrophic programming error: a line that forgot to validate the amount of data being sent. This small oversight turned into a digital time bomb. For two years, no one noticed this flaw. That was until Neel Mehta, a security researcher from Google, and a team at the Finnish cybersecurity firm Codenomicon, discovered the vulnerability almost simultaneously. To emphasize its severity, the Codenomicon team gave it a memorable name: Heartbleed. This was because the bug allowed attackers to read a server's memory, piece by piece, as if drawing blood from a vein, extracting the most sensitive information—passwords, private keys, user data. Moreover, this theft left no trace. When the vulnerability was publicly disclosed on April 7, 2014, a wave of panic spread across the digital world. System administrators spent sleepless nights patching their servers, while millions of users were urged to change their passwords immediately. Heartbleed served as a painful reminder of how fragile even the most trusted internet technologies can be, and how a tiny mistake can lead to a global security crisis."
+  },
+  "metadata": {
+    "key_people": [
+      "Neel Mehta (Google Security)",
+      "Codenomicon Security Team",
+      "Dr. Robin Seggelmann (Developer who introduced the bug)"
+    ],
+    "technologies_used": [
+      "OpenSSL (versions 1.0.1 through 1.0.1f)",
+      "TLS/DTLS Heartbeat Extension (RFC 6520)",
+      "HTTPS"
+    ],
+    "methods_used": [
+      "Buffer over-read",
+      "Missing Input Validation",
+      "Information Disclosure"
+    ],
+    "significance": {
+      "tr": "Heartbleed, internet tarihindeki en etkili zafiyetlerden biriydi çünkü tek bir uygulamayı değil, internetin güvenli iletişim altyapısının temel taşlarından birini hedef alıyordu. Etkisi, küresel bir parola sıfırlama telaşına neden oldu ve internet kullanıcılarının 'güvenli' bağlantılara olan inancını sarstı. Bu olay, kritik açık kaynaklı projelerin ne kadar yetersiz finanse edildiğini ve denetlendiğini gözler önüne serdi. Sonuç olarak, Linux Vakfı öncülüğünde, OpenSSL gibi hayati öneme sahip projeleri desteklemek için 'Core Infrastructure Initiative' (Temel Altyapı Girişimi) kuruldu. Heartbleed, aynı zamanda markalaştırılmış zafiyetlerin (logo, web sitesi, akılda kalıcı isim) kamuoyunu ve şirketleri siber güvenlik tehditleri konusunda harekete geçirmedeki gücünü kanıtladı.",
+      "en": "Heartbleed was one of the most impactful vulnerabilities in internet history because it didn't target a single application, but one of the cornerstones of the internet's secure communication infrastructure. Its impact caused a global password reset frenzy and shook users' faith in 'secure' connections. The incident exposed how underfunded and under-audited critical open-source projects were. In response, the 'Core Infrastructure Initiative' was founded, led by the Linux Foundation, to support vital projects like OpenSSL. Heartbleed also proved the power of branded vulnerabilities (with a logo, website, and catchy name) in mobilizing the public and corporations to act on cybersecurity threats."
+    },
+    "sources": [
+      "https://heartbleed.com/",
+      "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0160",
+      "https://www.openssl.org/news/secadv/20140407.txt",
+      "https://www.schneier.com/blog/archives/2014/04/heartbleed.html",
+      "https://arstechnica.com/information-technology/2014/04/critical-crypto-bug-in-openssl-opens-two-thirds-of-the-web-to-eavesdropping/"
+    ]
+  }
+}

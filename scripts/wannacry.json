@@ -1,0 +1,43 @@
+{
+  "event_date": "2017-05-12",
+  "title": {
+    "tr": "WannaCry Fidye Yazılımı Saldırısı: Dijital Bir Pandeminin Anatomisi",
+    "en": "The WannaCry Ransomware Attack: Anatomy of a Digital Pandemic"
+  },
+  "narrative": {
+    "tr": "Takvimler 12 Mayıs 2017'yi gösterdiğinde, dijital dünya sessiz ve yıkıcı bir pandeminin eşiğindeydi. Her şey, bir aydan kısa bir süre önce 'The Shadow Brokers' adlı gizemli bir grup tarafından sızdırılan dijital silahlarla başladı. Bu silahlar arasında, ABD Ulusal Güvenlik Ajansı (NSA) tarafından geliştirildiği iddia edilen ve 'EternalBlue' olarak bilinen son derece güçlü bir zafiyet de bulunuyordu. Microsoft bu açık için bir yama yayınlamış olsa da, dünya genelinde milyonlarca sistem hala savunmasızdı. Cuma sabahı, İngiltere Ulusal Sağlık Servisi'ndeki (NHS) doktorlar ve hemşireler, hasta kayıtlarına erişemediklerini fark ettiler. Ekranlarında tek bir mesaj vardı: Dosyalarınız şifrelendi. 300 dolar değerinde Bitcoin ödemezseniz, sonsuza dek kilitli kalacaklar. Bu, WannaCry'ın ilk kurbanlarından sadece biriydi. WannaCry, sıradan bir fidye yazılımı değildi. EternalBlue zafiyetini kullanarak bir solucan gibi kendi kendine yayılma yeteneğine sahipti. Bir ağa sızdığında, yama uygulanmamış diğer tüm bilgisayarları otomatik olarak bularak onlara da bulaşıyordu. Saatler içinde İspanya'nın telekom devi Telefónica, Almanya'nın demiryolu ağı Deutsche Bahn, otomotiv üreticileri ve on binlerce bireysel kullanıcı aynı kabusu yaşamaya başladı. Saldırı, 150'den fazla ülkede 200.000'den fazla bilgisayarı etkileyerek küresel bir kaosa neden oldu. Tam kaosun ortasında, 22 yaşındaki İngiliz siber güvenlik araştırmacısı Marcus Hutchins, namıdiğer 'MalwareTech', saldırıyı durduracak beklenmedik bir anahtar keşfetti. WannaCry'ın kodunu analiz ederken, yazılımın yayılmadan önce belirli, anlamsız bir alan adına bağlandığını fark etti. Bu alan adı kayıtlı değildi. Hutchins, sadece 10.69 dolara bu alan adını kaydederek istemeden bir 'kill switch' (durdurma anahtarı) aktive etmiş oldu. WannaCry'ın yeni kopyaları bu adrese ulaştığında, yazılım durması gerektiğini anladı ve yayılımı dramatik bir şekilde yavaşladı. Marcus Hutchins bir gecede kahraman olmuştu, ancak WannaCry'ın verdiği hasar, siber güvenliğin sadece IT departmanlarının değil, tüm kurumların ve devletlerin en kritik önceliği olması gerektiğini acı bir şekilde dünyaya hatırlatmıştı.",
+    "en": "On May 12, 2017, the digital world was on the brink of a silent and devastating pandemic. It all began less than a month earlier, with a leak of digital weapons by a mysterious group called 'The Shadow Brokers.' Among these weapons was an exceptionally powerful exploit known as 'EternalBlue,' allegedly developed by the U.S. National Security Agency (NSA). Although Microsoft had released a patch for this vulnerability, millions of systems worldwide remained unprotected. That Friday morning, doctors and nurses in the UK's National Health Service (NHS) found they couldn't access patient records. Their screens displayed a single message: Your files are encrypted. Pay $300 in Bitcoin, or they will remain locked forever. This was just one of the first victims of WannaCry. WannaCry was no ordinary ransomware. It possessed the ability to self-propagate like a worm, using the EternalBlue exploit. Once it infiltrated a network, it automatically sought out and infected other unpatched computers. Within hours, Spain's telecom giant Telefónica, Germany's railway network Deutsche Bahn, automotive manufacturers, and tens of thousands of individual users began to experience the same nightmare. The attack caused global chaos, affecting over 200,000 computers in more than 150 countries. In the midst of the chaos, a 22-year-old British cybersecurity researcher, Marcus Hutchins, also known as 'MalwareTech,' discovered an unexpected key to stopping the attack. While analyzing WannaCry's code, he noticed that the malware connected to a specific, nonsensical domain name before spreading. This domain was unregistered. For a mere $10.69, Hutchins registered the domain, inadvertently activating a 'kill switch.' When new copies of WannaCry reached this address, the software understood it should stop, and its spread slowed dramatically. Marcus Hutchins became a hero overnight, but the damage WannaCry inflicted was a bitter reminder to the world that cybersecurity is not just the responsibility of IT departments, but a critical priority for all institutions and governments."
+  },
+  "metadata": {
+    "key_people": [
+      "The Lazarus Group (Attributed Creators)",
+      "The Shadow Brokers (Leakers of Exploit)",
+      "Marcus Hutchins (Researcher who activated the kill switch)",
+      "U.S. National Security Agency (NSA) (Alleged Original Developers of EternalBlue)"
+    ],
+    "technologies_used": [
+      "EternalBlue (SMBv1 Exploit - MS17-010)",
+      "Windows Operating Systems (Notably Windows 7 and Windows Server 2008)",
+      "Bitcoin (Cryptocurrency for Ransom)",
+      "DoublePulsar (Backdoor often used with EternalBlue)"
+    ],
+    "methods_used": [
+      "Ransomware",
+      "Worm Propagation (Self-Spreading)",
+      "Exploitation of an Unpatched Vulnerability",
+      "File Encryption",
+      "Network Scanning (Port 445)"
+    ],
+    "significance": {
+      "tr": "WannaCry, bir ulus-devlet tarafından geliştirilen siber silahların sızdırıldığında ne kadar büyük bir küresel hasara yol açabileceğini gözler önüne seren ilk ve en çarpıcı örnektir. Zamanında yama yönetiminin ve eski işletim sistemlerini güncellemenin hayati önemini acı bir tecrübeyle öğretmiştir. Saldırı, özellikle hastaneler gibi kritik altyapıların siber saldırılara karşı ne kadar savunmasız olduğunu göstermiş ve fidye yazılımlarını yönetim kurullarının en önemli gündem maddelerinden biri haline getirmiştir. Aynı zamanda, tek bir araştırmacının bile doğru analizle küresel bir krizi nasıl yavaşlatabileceğinin de bir kanıtı olmuştur.",
+      "en": "WannaCry is the first and most striking example of the immense global damage that can be caused when nation-state-developed cyber weapons are leaked. It taught a harsh lesson on the critical importance of timely patch management and upgrading legacy operating systems. The attack highlighted the vulnerability of critical infrastructure, especially hospitals, to cyberattacks and elevated ransomware to a top-tier concern for corporate boardrooms. It also served as proof that even a single researcher, with the right analysis, can mitigate a global crisis."
+    },
+    "sources": [
+      "https://www.wired.com/story/wannacry-ransomware-three-years-later/",
+      "https://www.kaspersky.com/resource-center/threats/wannacry-ransomware",
+      "https://www.cisa.gov/news-events/alerts/2017/05/12/multiple-ransomware-infections-reported",
+      "https://www.theguardian.com/technology/2017/may/13/accidental-hero-finds-kill-switch-to-stop-spread-of-ransomware-cyber-attack",
+      "https://www.symantec.com/blogs/threat-intelligence/wannacry-ransomware-attack-what-you-need-know"
+    ]
+  }
+}

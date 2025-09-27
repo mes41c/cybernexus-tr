@@ -1,0 +1,39 @@
+{
+  "event_date": "2021-07-02",
+  "title": {
+    "tr": "Tedarik Zincirinin Kâbusu: Kaseya VSA Saldırısı",
+    "en": "The Supply Chain Nightmare: The Kaseya VSA Attack"
+  },
+  "narrative": {
+    "tr": "2021'in Amerikan Bağımsızlık Günü hafta sonu yaklaşırken, binlerce işletme sessizliğe bürünmeye hazırlanıyordu. Ancak bu tatil, siber güvenlik dünyası için bir fırtınanın başlangıcı olacaktı. Yönetilen Hizmet Sağlayıcılar (MSP'ler), müşterilerinin BT altyapılarını uzaktan yönetmek için Kaseya VSA adlı bir yazılıma güveniyorlardı. Bu, onlara verimlilik ve merkezi kontrol sağlıyordu. Ancak, REvil olarak bilinen kötü şöhretli bir fidye yazılımı çetesi, bu güven zincirindeki tek bir zayıf halkayı, Kaseya VSA'nın kendisini hedef almıştı. REvil, yazılımda daha önce bilinmeyen bir sıfırıncı gün güvenlik açığını (CVE-2021-30116) keşfetti ve bunu bir Truva Atı gibi kullanmaya karar verdi. Tatilin başlangıcını kendilerine bir kalkan olarak kullanan saldırganlar, 2 Temmuz'da düğmeye bastı. Kaseya VSA sunucuları üzerinden, MSP'lerin müşterilerine meşru bir yazılım güncellemesi gibi görünen sahte bir komut gönderdiler. Ancak bu 'güncelleme', aslında REvil'in fidye yazılımını taşıyordu. Bir anda, İsveç'teki bir süpermarket zincirinden Yeni Zelanda'daki okullara kadar dünya çapında binlerce işletmenin bilgisayarları kilitlendi. Ekranda beliren tek şey, verilerin geri alınması için 70 milyon dolarlık rekor bir fidye talep eden bir nottu. Saldırı, tek bir yazılımın zafiyetinin nasıl bir domino etkisi yaratarak küresel bir krize yol açabileceğini acı bir şekilde gösterdi. Bu olay, 'tedarik zinciri saldırısı' kavramını siber güvenlik gündeminin en üst sırasına taşıdı ve şirketlere, sadece kendi güvenliklerine değil, güvendikleri tüm teknoloji ortaklarının güvenliğine de yatırım yapmaları gerektiğini öğretti. FBI ve diğer uluslararası kurumların devreye girmesiyle REvil çetesine yönelik operasyonlar sıklaştı ve bir süre sonra evrensel bir şifre çözücü anahtar elde edilerek kurbanların bir kısmının verileri kurtarıldı. Ancak Kaseya saldırısı, dijital dünyanın ne kadar birbirine bağlı ve kırılgan olduğunun unutulmaz bir kanıtı olarak tarihe geçti.",
+    "en": "As the American Independence Day weekend of 2021 approached, thousands of businesses were preparing to wind down. However, this holiday would mark the beginning of a storm for the cybersecurity world. Managed Service Providers (MSPs) relied on a software called Kaseya VSA to remotely manage their clients' IT infrastructures, providing them with efficiency and centralized control. But a notorious ransomware gang known as REvil had targeted a single weak link in this chain of trust: Kaseya VSA itself. REvil discovered a previously unknown zero-day vulnerability (CVE-2021-30116) in the software and decided to use it as a Trojan horse. Using the holiday weekend as a cover, the attackers struck on July 2nd. Through the Kaseya VSA servers, they pushed a malicious script disguised as a legitimate software update to the MSPs' customers. This 'update', however, was the REvil ransomware payload. Suddenly, computers in thousands of businesses worldwide, from a supermarket chain in Sweden to schools in New Zealand, were locked down. The only thing on their screens was a ransom note demanding a record $70 million for the data's return. The attack painfully demonstrated how a vulnerability in a single piece of software could create a domino effect, leading to a global crisis. This event propelled the concept of a 'supply chain attack' to the top of the cybersecurity agenda, teaching companies that they must invest not only in their own security but also in the security of all their trusted technology partners. Following the intervention of the FBI and other international agencies, operations against the REvil gang intensified, and eventually, a universal decryptor key was obtained, allowing some victims to recover their data. Nevertheless, the Kaseya attack went down in history as an unforgettable testament to how interconnected and fragile the digital world truly is."
+  },
+  "metadata": {
+    "key_people": [
+      "REvil (Ransomware Gang)",
+      "Fred Voccola (CEO of Kaseya)"
+    ],
+    "technologies_used": [
+      "Kaseya VSA (Remote Monitoring and Management - RMM)",
+      "Ransomware-as-a-Service (RaaS)",
+      "PowerShell"
+    ],
+    "methods_used": [
+      "Supply Chain Attack",
+      "Zero-Day Exploit (CVE-2021-30116)",
+      "Ransomware Deployment",
+      "Data Encryption"
+    ],
+    "significance": {
+      "tr": "Kaseya VSA saldırısı, siber güvenlik tarihindeki en etkili tedarik zinciri saldırılarından biridir. Yönetilen Hizmet Sağlayıcıları (MSP) gibi güvenilir bir kanal üzerinden binlerce kurbana aynı anda ulaşarak, bu tür saldırıların yıkıcı potansiyelini gözler önüne sermiştir. Olay, MSP'lerin ve onların kullandığı RMM yazılımlarının siber suçlular için ne kadar değerli hedefler olduğunu kanıtlamış ve yazılım tedarik zincirinin güvenliğini sağlamanın kritik önemini vurgulamıştır.",
+      "en": "The Kaseya VSA attack is one of the most impactful supply chain attacks in cybersecurity history. By reaching thousands of victims simultaneously through a trusted channel like Managed Service Providers (MSPs), it demonstrated the devastating potential of such attacks. The event proved how valuable MSPs and their RMM software are as targets for cybercriminals and highlighted the critical importance of securing the software supply chain."
+    },
+    "sources": [
+      "https://www.cisa.gov/news-events/cybersecurity-advisories/aa21-201a",
+      "https://www.mandiant.com/resources/blog/tracking-revil-kaseya-supply-chain-attack",
+      "https://www.reuters.com/technology/revil-ransomware-gang-demands-70-million-unlock-kaseya-attack-victims-2021-07-05/",
+      "https://www.bleepingcomputer.com/news/security/how-revils-supply-chain-attack-on-kaseya-unfolded/",
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-30116"
+    ]
+  }
+}

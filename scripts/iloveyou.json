@@ -1,0 +1,41 @@
+{
+  "event_date": "2000-05-04",
+  "title": {
+    "tr": "Küresel Bir Pandemi: ILOVEYOU Solucanı'nın Yükselişi ve Düşüşü",
+    "en": "A Global Pandemic: The Rise and Fall of the ILOVEYOU Worm"
+  },
+  "narrative": {
+    "tr": "4 Mayıs 2000 sabahı, dünya dijital bir aşk mektubuyla uyandı. Asya'daki ofislerin e-posta kutularına düşen basit bir mesajdı: Konu satırında 'ILOVEYOU' yazıyor, ekinde ise 'LOVE-LETTER-FOR-YOU.txt.vbs' adında masum görünümlü bir dosya bulunuyordu. İnsan doğasının en temel dürtülerinden biri olan merak, o gün on milyarlarca dolara mal olacak bir felaketin fitilini ateşledi. Kullanıcılar, bu sevgi vaadine karşı koyamayıp eke tıkladıklarında, aslında bir Truva Atı'nı sistemlerine davet ettiklerinin farkında değillerdi. O an, VBScript ile yazılmış kötücül bir kod sessizce çalışmaya başlıyordu. Solucan, önce yerel makinedeki değerli dosyaları (resimler, müzikler, belgeler) buluyor ve acımasızca kendi kopyasıyla üzerlerine yazarak onları yok ediyordu. Ancak yıkım bununla sınırlı değildi. Gerçek dehası, yayılma stratejisinde yatıyordu. Solucan, Microsoft Outlook uygulamasının adres defterine sızıyor ve listedeki *her bir kişiye* kendisini gönderiyordu. Bu, bir domino etkisi yarattı. E-postalar artık yabancılardan değil, tanıdık iş arkadaşlarından, arkadaşlardan ve aile üyelerinden geliyordu, bu da güvenilirliği ve açılma oranını katlanarak artırdı. Güneş Asya'dan Avrupa'ya ve ardından Amerika'ya doğru ilerlerken, dijital veba da onunla birlikte yayıldı. Ford Motor Company'den Pentagon'a, CIA'den İngiliz Parlamentosu'na kadar dev kurumlar, e-posta sistemlerini durdurmak zorunda kaldı. İnternet yavaşladı, iş akışları durdu ve küresel iletişim kaosa sürüklendi. Bu basit 'aşk mektubu', sosyal mühendisliğin ne kadar güçlü olabileceğini ve birbirine bağlı bir dünyanın ne kadar kırılgan olduğunu tüm dünyaya acı bir şekilde göstermişti. Sadece birkaç saat içinde, Filipinler'deki bir öğrenci odasından çıktığı düşünülen bu küçük kod parçası, tarihin en hızlı yayılan ve en maliyetli siber salgınlarından birine dönüşmüştü.",
+    "en": "On the morning of May 4, 2000, the world awoke to a digital love letter. It was a simple message dropping into email inboxes across Asia: the subject line read 'ILOVEYOU,' and it carried an innocently named attachment, 'LOVE-LETTER-FOR-YOU.txt.vbs.' Curiosity, one of the most fundamental human impulses, lit the fuse that day for a catastrophe that would cost tens of billions of dollars. When users, unable to resist the promise of affection, clicked on the attachment, they were unaware they were inviting a Trojan Horse into their systems. At that moment, a malicious code written in VBScript began to run silently. The worm first located valuable files on the local machine—pictures, music, documents—and mercilessly overwrote them with a copy of itself, destroying them. But the destruction was not limited to that. Its true genius lay in its propagation strategy. The worm infiltrated the Microsoft Outlook address book and sent itself to *every single contact* in the list. This created a domino effect. The emails were no longer coming from strangers, but from known colleagues, friends, and family members, which exponentially increased their credibility and the open rate. As the sun moved from Asia to Europe and then to the Americas, the digital plague spread with it. Giant institutions, from the Ford Motor Company to the Pentagon, the CIA, and the British Parliament, were forced to shut down their email systems. The internet slowed, workflows halted, and global communication descended into chaos. This simple 'love letter' had painfully demonstrated to the entire world just how powerful social engineering could be and how fragile an interconnected world was. In just a few hours, this small piece of code, thought to have originated from a student's room in the Philippines, had become one of the fastest-spreading and most costly cyber-pandemics in history."
+  },
+  "metadata": {
+    "key_people": [
+      "Onel de Guzman",
+      "Reonel Ramones"
+    ],
+    "technologies_used": [
+      "VBScript (Visual Basic Scripting Edition)",
+      "Microsoft Outlook",
+      "Windows 9x Operating Systems",
+      "COM Automation"
+    ],
+    "methods_used": [
+      "Social Engineering",
+      "Email Worm",
+      "File Overwriting",
+      "Credential Theft",
+      "Address Book Propagation"
+    ],
+    "significance": {
+      "tr": "ILOVEYOU solucanı, sosyal mühendisliğin yıkıcı gücünü küresel ölçekte kanıtlayan bir dönüm noktası oldu. İnsan psikolojisini hedef alarak teknolojinin kendisinden daha zayıf bir halka olduğunu gösterdi. Tahmini 10 milyar dolarlık hasarla, o zamana kadarki en maliyetli siber saldırı olarak tarihe geçti. Bu olay, dünya çapında siber suç yasalarının yetersizliğini gözler önüne serdi; Filipinler'de o sırada kötücül yazılım yazımını suç sayan bir yasa olmadığı için yaratıcıları yargılanamadı. Bu boşluk, birçok ülkenin acilen siber suçlarla ilgili mevzuat oluşturmasına veya güncellemesine yol açtı. Şirketler içinse e-posta güvenliği politikalarını, kullanıcı eğitimini ve antivirüs teknolojilerine yaklaşımlarını temelden değiştiren bir uyandırma servisi oldu. Microsoft'un varsayılan olarak dosya uzantılarını gizleme politikası gibi yazılım zafiyetleri de bu olayla birlikte sorgulanmaya başlandı.",
+      "en": "The ILOVEYOU worm was a turning point that proved the devastating power of social engineering on a global scale. It demonstrated that by targeting human psychology, the user could be a weaker link than the technology itself. With an estimated $10 billion in damages, it went down in history as the most costly cyberattack to date. The incident exposed the inadequacy of cybercrime laws worldwide; its creators could not be prosecuted because there was no law in the Philippines at the time that criminalized malware creation. This gap led many countries to urgently create or update legislation related to cybercrime. For corporations, it was a wake-up call that fundamentally changed their approach to email security policies, user education, and antivirus technologies. Software vulnerabilities, such as Microsoft's policy of hiding file extensions by default, also came under scrutiny following the event."
+    },
+    "sources": [
+      "https://www.f-secure.com/v-descs/love.shtml",
+      "https://www.csoportal.com/phishing-awareness/the-iloveyou-computer-virus-a-case-study-for-the-ages/",
+      "https://www.theguardian.com/technology/2020/may/04/iloveyou-computer-virus-20-years-old",
+      "https://www.bbc.com/news/stories-52464423",
+      "https://www.computerworld.com/article/2591537/the-love-bug--a-retrospective.html"
+    ]
+  }
+}

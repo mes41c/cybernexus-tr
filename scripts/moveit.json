@@ -1,0 +1,40 @@
+{
+  "event_date": "2023-05-27",
+  "title": {
+    "tr": "MOVEit Transfer Sıfırıncı Gün İstismarı: Küresel Bir Dijital Soygun",
+    "en": "MOVEit Transfer Zero-Day Exploitation: A Global Digital Heist"
+  },
+  "narrative": {
+    "tr": "2023 yılının Mayıs ayının son günlerinde, dünya siber güvenlik topluluğu henüz farkında değilken, Cl0p olarak bilinen kötü şöhretli siber suç şebekesi, tarihin en büyük ve en hızlı veri hırsızlığı operasyonlarından birini başlatıyordu. Hedefleri, binlerce kuruluş tarafından hassas verileri güvenli bir şekilde aktarmak için kullanılan, Progress Software'a ait bir yönetilen dosya transferi (MFT) yazılımı olan MOVEit Transfer'di. Cl0p, yazılımın kalbinde sessizce duran kritik bir zafiyeti, kimliği doğrulanmamış bir SQL enjeksiyonu açığını (CVE-2023-34362) keşfetmişti. Bu, dijital bir kalenin ana kapısında anahtar deliği bırakmak gibiydi. Saldırganların kilitleri açmasına bile gerek yoktu; veritabanına doğrudan komutlar 'enjekte ederek' kapıyı içeriden açtırabilirlerdi. Memorial Day hafta sonu tatilinin sessizliğini fırsat bilen Cl0p, bu sıfırıncı gün zafiyetini sistematik olarak istismar etmeye başladı. Saldırıları zarif olduğu kadar acımasızdı. Zafiyeti kullanarak 'human2.aspx' adında bir web kabuğu (webshell) sunuculara yerleştirdiler. Bu web kabuğu, onlara etkilenen sistemler üzerinde tam kontrol sağlayan gizli bir arka kapı işlevi gördü. Bu kapıdan girerek, şirketlerin en değerli varlıklarını -personel verileri, finansal kayıtlar, müşteri bilgileri, fikri mülkiyetler- sessizce ve hızla dışarı sızdırdılar. Progress Software 31 Mayıs'ta zafiyeti keşfedip bir yama yayınladığında, hasar çoktan verilmişti. Sonraki haftalarda, saldırının gerçek boyutu ortaya çıktı. British Airways, BBC, Shell gibi dev şirketlerden ABD devlet kurumlarına ve üniversitelere kadar yüzlerce kuruluş, verilerinin çalındığını duyurdu. Cl0p, fidye ödemeleri için kurbanlarını kendi karanlık web (dark web) sızıntı sitelerinde listelemeye başladı. Bu olay, tek bir yazılımdaki bir zafiyetin küresel bir tedarik zinciri felaketine nasıl yol açabileceğinin ve modern siber suçluların ne kadar organize ve etkili olabileceğinin altını çizen sarsıcı bir ders oldu.",
+    "en": "In the final days of May 2023, while the global cybersecurity community was still unaware, the notorious cybercrime syndicate known as Cl0p was launching one of the largest and fastest data theft operations in history. Their target was MOVEit Transfer, a managed file transfer (MFT) software from Progress Software used by thousands of organizations to securely transfer sensitive data. Cl0p had discovered a critical vulnerability lying dormant in the heart of the software: an unauthenticated SQL injection flaw (CVE-2023-34362). This was akin to leaving a keyhole in the main gate of a digital fortress. The attackers didn't even need to pick the lock; they could 'inject' commands directly into the database, forcing the gate to open from the inside. Taking advantage of the quiet of the Memorial Day weekend in the US, Cl0p began systematically exploiting this zero-day vulnerability. Their attack was as ruthless as it was elegant. Using the flaw, they deployed a webshell named 'human2.aspx' onto the servers. This webshell acted as a secret backdoor, giving them full control over the compromised systems. Through this door, they silently and rapidly exfiltrated the most valuable assets of companies—personnel data, financial records, customer information, and intellectual property. By the time Progress Software discovered the vulnerability and released a patch on May 31, the damage had already been done. In the following weeks, the true scale of the attack came to light. Hundreds of organizations, from corporate giants like British Airways, the BBC, and Shell to U.S. government agencies and universities, announced that their data had been stolen. Cl0p began listing its victims on its dark web leak site, demanding ransoms to prevent the data's publication. The event became a shocking lesson in how a single vulnerability in one piece of software could trigger a global supply chain disaster, highlighting the organized and potent capabilities of modern cybercriminals."
+  },
+  "metadata": {
+    "key_people": [
+      "Cl0p Ransomware Gang (also known as TA505 / FIN11)",
+      "Progress Software (Vendor of MOVEit)",
+      "Mandiant (Cybersecurity firm that investigated the attack)"
+    ],
+    "technologies_used": [
+      "MOVEit Transfer Software",
+      "SQL (Structured Query Language)",
+      "ASP.NET Web Application"
+    ],
+    "methods_used": [
+      "Zero-Day Exploitation",
+      "SQL Injection (SQLi)",
+      "Webshell Deployment",
+      "Mass Data Exfiltration",
+      "Data Extortion (without encryption)"
+    ],
+    "significance": {
+      "tr": "MOVEit istismarı, tedarik zinciri saldırılarının yıkıcı potansiyelini gözler önüne serdi. Tek bir yazılım sağlayıcısını hedef alarak, saldırganlar yüzlerce müşterisine aynı anda sızabildi. Bu olay, siber suçluların fidye yazılımı ile sistemleri şifrelemek yerine, doğrudan veri hırsızlığı ve şantaj modeline geçişini hızlandırdı. Olay, Yönetilen Dosya Transferi (MFT) çözümlerinin ne kadar kritik ve yüksek değerli hedefler olduğunu kanıtladı ve kuruluşlara sıfırıncı gün saldırılarına karşı hazırlıklı olmanın ve yama yönetiminin önemini acı bir şekilde hatırlattı.",
+      "en": "The MOVEit exploitation starkly demonstrated the devastating potential of supply chain attacks. By targeting a single software vendor, the attackers were able to compromise hundreds of its clients simultaneously. This event accelerated the shift in cybercriminal tactics away from system-encrypting ransomware towards a model of pure data theft and extortion. The incident proved that Managed File Transfer (MFT) solutions are critical and high-value targets, serving as a harsh reminder to organizations about the importance of patch management and preparedness for zero-day attacks."
+    },
+    "sources": [
+      "https://www.mandiant.com/resources/blog/clop-exploits-moveit-zero-day-for-data-theft",
+      "https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-158a",
+      "https://www.rapid7.com/blog/post/2023/06/01/rapid7-observed-exploitation-of-moveit-transfer-vulnerability/",
+      "https://www.bleepingcomputer.com/news/security/clop-ransomware-claims-responsibility-for-moveit-data-theft-attacks/"
+    ]
+  }
+}

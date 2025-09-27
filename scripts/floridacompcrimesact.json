@@ -1,0 +1,40 @@
+{
+  "event_date": "1978-06-15",
+  "title": {
+    "tr": "Dijital Vahşi Batı'ya Kanun Geliyor: Florida Bilgisayar Suçları Yasası",
+    "en": "Law Comes to the Digital Wild West: The Florida Computer Crimes Act"
+  },
+  "narrative": {
+    "tr": "1970'ler, bilgisayar çağının şafağıydı; ancak bu yeni dünya, kanunların henüz yetişemediği bir 'Vahşi Batı'yı andırıyordu. Şirketler ve devlet kurumları, verilerini ve operasyonlarını giderek daha fazla bilgisayarlara emanet ederken, bu dijital varlıkları koruyacak yasal bir kalkan neredeyse yoktu. Mevcut hırsızlık ve mülke tecavüz yasaları, fiziksel olmayan verilerin çalınması veya bir sisteme izinsiz girilmesi gibi eylemler karşısında çaresiz kalıyordu. Bir programı 'çalmak' ne anlama geliyordu? Bir sisteme uzaktan erişmek 'izinsiz girmek' sayılır mıydı? Savcılar, bu yeni tür suçluları adalete teslim etmekte zorlanıyordu. Bu yasal boşluğun tehlikesini ilk fark edenlerden biri Florida oldu. Eyalet, artan bilgisayar kullanımıyla birlikte ortaya çıkan bu yeni tehditlere karşı bir adım atma kararı aldı. Uzun süren tartışmalar ve hazırlıkların ardından, 1978'de Florida Yasama Meclisi, ülkenin ilk kapsamlı bilgisayar suçları yasasını kabul ederek tarihe geçti. Bu yasa bir devrimdi; çünkü ilk defa bilgisayar verilerini ve programlarını 'mülkiyet' olarak tanımlıyordu. Artık bir bilgisayar sistemine, ağına veya verilerine yetkisiz erişmek, bunları değiştirmek, zarar vermek veya yok etmek açıkça bir suçtu. Yasa, 'bilgisayar' ve 'veri' gibi terimleri geniş bir şekilde tanımlayarak gelecekteki teknolojik gelişmeleri de kapsamayı hedefliyordu. Florida'nın bu cesur adımı, domino etkisi yarattı. Diğer eyaletler ve nihayetinde federal hükümet (1986'daki Bilgisayar Dolandırıcılığı ve Kötüye Kullanımı Yasası ile), Florida'nın oluşturduğu bu modeli temel alarak kendi siber suç yasalarını hazırladılar. O gün Florida'da atılan imza, sadece bir eyaletin yasasını değil, tüm dijital dünyanın gelecekteki hukuki altyapısının temel taşını oluşturmuştu.",
+    "en": "The 1970s were the dawn of the computer age, but this new world resembled a 'Wild West' where laws had yet to catch up. As corporations and government agencies increasingly entrusted their data and operations to computers, there was virtually no legal shield to protect these digital assets. Existing laws on theft and trespassing were powerless against acts like stealing non-physical data or gaining unauthorized access to a system. What did it mean to 'steal' a program? Did remotely accessing a system count as 'breaking and entering'? Prosecutors struggled to bring this new breed of criminal to justice. Florida was one of the first to recognize the danger of this legal vacuum. The state decided to take a stand against the new threats emerging with the rise of computer use. After extensive debate and preparation, the Florida Legislature made history in 1978 by passing the nation's first comprehensive computer crimes act. This law was revolutionary because, for the first time, it defined computer data and programs as 'property.' It was now explicitly a crime to access, alter, damage, or destroy a computer system, network, or data without authorization. The act broadly defined terms like 'computer' and 'data,' aiming to encompass future technological advancements. Florida's bold move created a domino effect. Other states, and eventually the federal government (with the Computer Fraud and Abuse Act of 1986), used the model established by Florida to draft their own cybercrime legislation. The signature put to paper in Florida that day established not just a state law, but a foundational cornerstone for the legal infrastructure of the entire digital world to come."
+  },
+  "metadata": {
+    "key_people": [
+      "Bill Nelson (Florida Temsilcisi ve yasa destekçisi)",
+      "Susan Hubbell Nycum (Bilgisayar hukuku öncüsü)",
+      "Donn Parker (Bilgisayar suistimali araştırmacısı)"
+    ],
+    "technologies_used": [
+      "State-Level Legislation",
+      "Criminal Law",
+      "Legal Precedent"
+    ],
+    "methods_used": [
+      "Criminalization of Unauthorized Access",
+      "Legal Definition of Digital Property",
+      "Prohibition of Data Modification/Deletion",
+      "Establishing Penalties for Computer-Related Offenses"
+    ],
+    "significance": {
+      "tr": "Florida Bilgisayar Suçları Yasası, dijital varlıkları yasal olarak mülkiyet kabul eden ve bu varlıklara karşı işlenen suçları açıkça tanımlayan ilk kapsamlı eyalet yasası olması nedeniyle bir dönüm noktasıdır. Bu yasa, diğer eyaletler ve 1986'da çıkarılan federal Bilgisayar Dolandırıcılığı ve Kötüye Kullanımı Yasası (CFAA) için bir model oluşturarak Amerika Birleşik Devletleri'nde siber suç mevzuatının temelini atmıştır. Hukuk sisteminin dijital çağa adapte olmasında kritik bir ilk adım olmuştur.",
+      "en": "The Florida Computer Crimes Act is a landmark piece of legislation as it was the first comprehensive state law to legally recognize digital assets as property and to explicitly define crimes against them. This act served as a model for other states and for the federal Computer Fraud and Abuse Act (CFAA) of 1986, laying the foundation for cybercrime legislation in the United States. It was a critical first step in adapting the legal system to the digital age."
+    },
+    "sources": [
+      "https://historyofinformation.com/detail.php?id=3433",
+      "https://www.thinkbrg.com/insights/publications/nervous-system-florida-biden-federal-computer-crimes/",
+      "https://www.ojp.gov/ncjrs/virtual-library/abstracts/state-computer-crime-statutes",
+      "https://openscholarship.wustl.edu/cgi/viewcontent.cgi?article=2611&context=law_lawreview",
+      "https://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0800-0899/0815/0815.html"
+    ]
+  }
+}

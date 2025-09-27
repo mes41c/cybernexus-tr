@@ -287,6 +287,76 @@ function createTablesAndSeedData() {
             // Hata olmasa bile, bu son işlemden sonra veri eklemeye başla.
             seedInitialData(); 
         });
+
+        console.log("Siber Güvenlik Tarihçesi tabloları oluşturuluyor...");
+
+        db.run(`CREATE TABLE IF NOT EXISTS historical_events (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            event_date TEXT NOT NULL,
+            title_tr TEXT NOT NULL,
+            title_en TEXT NOT NULL,
+            narrative_tr TEXT NOT NULL,
+            narrative_en TEXT NOT NULL,
+            significance_tr TEXT,
+            significance_en TEXT
+        )`);
+
+        db.run(`CREATE TABLE IF NOT EXISTS people (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL UNIQUE
+        )`);
+
+        db.run(`CREATE TABLE IF NOT EXISTS technologies (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL UNIQUE
+        )`);
+
+        db.run(`CREATE TABLE IF NOT EXISTS methods (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL UNIQUE
+        )`);
+
+        db.run(`CREATE TABLE IF NOT EXISTS sources (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            url TEXT NOT NULL UNIQUE
+        )`);
+
+        // --- BAĞLANTI (JUNCTION) TABLOLARI ---
+
+        db.run(`CREATE TABLE IF NOT EXISTS event_people_link (
+            event_id INTEGER NOT NULL,
+            person_id INTEGER NOT NULL,
+            FOREIGN KEY(event_id) REFERENCES historical_events(id) ON DELETE CASCADE,
+            FOREIGN KEY(person_id) REFERENCES people(id) ON DELETE CASCADE,
+            PRIMARY KEY (event_id, person_id)
+        )`);
+
+        db.run(`CREATE TABLE IF NOT EXISTS event_technologies_link (
+            event_id INTEGER NOT NULL,
+            technology_id INTEGER NOT NULL,
+            FOREIGN KEY(event_id) REFERENCES historical_events(id) ON DELETE CASCADE,
+            FOREIGN KEY(technology_id) REFERENCES technologies(id) ON DELETE CASCADE,
+            PRIMARY KEY (event_id, technology_id)
+        )`);
+
+        db.run(`CREATE TABLE IF NOT EXISTS event_methods_link (
+            event_id INTEGER NOT NULL,
+            method_id INTEGER NOT NULL,
+            FOREIGN KEY(event_id) REFERENCES historical_events(id) ON DELETE CASCADE,
+            FOREIGN KEY(method_id) REFERENCES methods(id) ON DELETE CASCADE,
+            PRIMARY KEY (event_id, method_id)
+        )`);
+
+        db.run(`CREATE TABLE IF NOT EXISTS event_sources_link (
+            event_id INTEGER NOT NULL,
+            source_id INTEGER NOT NULL,
+            FOREIGN KEY(event_id) REFERENCES historical_events(id) ON DELETE CASCADE,
+            FOREIGN KEY(source_id) REFERENCES sources(id) ON DELETE CASCADE,
+            PRIMARY KEY (event_id, source_id)
+        )`);
+
+        console.log("Tarihçe tabloları başarıyla oluşturuldu veya zaten mevcuttu.");
+
     });
 }
 

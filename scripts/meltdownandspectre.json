@@ -1,0 +1,49 @@
+{
+  "event_date": "2018-01-03",
+  "title": {
+    "tr": "Meltdown ve Spectre: Modern İşlemcilerin Temelindeki Sarsıcı Zafiyetlerin İfşası",
+    "en": "Meltdown and Spectre: The Revelation of Critical Flaws at the Heart of Modern Processors"
+  },
+  "narrative": {
+    "tr": "2017'nin ortalarında, dünyanın farklı köşelerindeki siber güvenlik araştırmacıları, birbirlerinden habersiz, dijital dünyamızın en temel yapı taşı olan işlemcilerin kalbine doğru bir yolculuğa çıkmışlardı. Yirmi yılı aşkın bir süredir, işlemcileri daha hızlı hale getiren 'spekülatif yürütme' adlı bir optimizasyon tekniği, sorgusuz sualsiz bir güvenle kullanılıyordu. Bu teknik, işlemcinin ihtiyaç duyacağı bir sonraki komutu tahmin ederek önceden çalıştırmasına ve böylece zaman kazanmasına dayanıyordu. Eğer tahmin yanlışsa, sonuçlar basitçe iptal ediliyor ve sistem yoluna devam ediyordu. Herkes bu işlemin ardında hiçbir iz bırakmadığını varsaydı. Ancak bu varsayım, yavaş yavaş ve ürkütücü bir şekilde çökmek üzereydi.\n\nGoogle'ın Project Zero ekibinden Jann Horn, Graz Teknik Üniversitesi'nden bir grup akademisyen ve Cyberus Technology gibi bağımsız firmalardaki araştırmacılar, bu 'iptal edilmiş' işlemlerin aslında arkalarında fısıltı gibi zayıf izler, yani 'hayaletler' bıraktığını keşfettiler. Bu hayaletler, işlemcinin önbelleğinde, bir veriye ne kadar hızlı erişildiğini ölçerek okunabilen minik zamanlama farklarıydı. Bu, bir yan kanal saldırısı için mükemmel bir kapı aralıyordu. Araştırmacılar, özenle hazırlanmış kodlarla işlemciyi, aslında erişim izni olmayan hassas verileri (parolalar, şifreleme anahtarları, kişisel bilgiler) spekülatif olarak okuması için kandırabileceklerini fark ettiler. Program, veriyi doğrudan alamasa da, bellekte bıraktığı o hayalet izleri takip ederek, korunan sırları harf harf, bit bit yeniden birleştirebiliyordu.\n\nBu keşif, siber güvenlik dünyasında bir deprem etkisi yarattı. 'Meltdown' adı verilen zafiyet, kullanıcı programlarının, işletim sisteminin en korunaklı çekirdek belleğine sızmasına olanak tanıyarak aradaki duvarı eritiyordu. 'Spectre' ise adını, düzeltilmesi çok daha zor olan ve adeta bir hayalet gibi sistemlerde varlığını sürdürecek olmasından alıyordu; bir programı, diğer programların sırlarını ifşa etmesi için kandırabiliyordu. 3 Ocak 2018'de bu iki zafiyet kamuoyuna duyurulduğunda, son yirmi yılın neredeyse tüm Intel, AMD ve ARM işlemcilerinin etkilendiği anlaşıldı. Donanımın kendisinin güvenilmez olabileceği gerçeği, bulut bilişimden kişisel bilgisayarlara kadar tüm endüstrinin güvenlik anlayışını temelden sarsan acı bir gerçek olarak tarihe geçti.",
+    "en": "In mid-2017, completely unaware of each other, cybersecurity researchers from different corners of the globe embarked on a journey into the heart of our digital world's most fundamental component: the processor. For over two decades, an optimization technique called 'speculative execution', which made processors faster, had been used with unquestioned trust. This technique was based on the processor predicting the next command it would need and executing it in advance to save time. If the prediction was wrong, the results were simply discarded, and the system moved on. Everyone assumed this process left no trace behind. However, this assumption was about to collapse, slowly and terrifyingly.\n\nJann Horn from Google's Project Zero, a group of academics from Graz University of Technology, and researchers at independent firms like Cyberus Technology discovered that these 'discarded' operations actually left faint traces, or 'ghosts', behind them. These ghosts were minuscule timing differences in the processor's cache, which could be read by measuring how quickly data was accessed. This opened a perfect door for a side-channel attack. The researchers realized that with carefully crafted code, they could trick the processor into speculatively reading sensitive data (passwords, encryption keys, personal information) to which it should not have had access. Although the program couldn't obtain the data directly, it could reassemble the protected secrets, letter by letter, bit by bit, by following those ghostly traces left in memory.\n\nThe discovery sent shockwaves through the cybersecurity world. The vulnerability named 'Meltdown' melted the wall between user programs and the operating system's most protected kernel memory, allowing unauthorized access. 'Spectre' took its name from the fact that it was much harder to fix and would haunt systems like a ghost; it could trick one program into leaking the secrets of another. When these two vulnerabilities were publicly disclosed on January 3, 2018, it became clear that nearly all Intel, AMD, and ARM processors from the last two decades were affected. The fact that the hardware itself could be untrustworthy became a bitter reality that fundamentally shook the security principles of the entire industry, from cloud computing to personal computers."
+  },
+  "metadata": {
+    "key_people": [
+      "Jann Horn (Google Project Zero)",
+      "Daniel Gruss (Graz University of Technology)",
+      "Moritz Lipp (Graz University of Technology)",
+      "Michael Schwarz (Graz University of Technology)",
+      "Paul Kocher (Independent Researcher)",
+      "Werner Haas (Cyberus Technology)",
+      "Thomas Prescher (Cyberus Technology)"
+    ],
+    "technologies_used": [
+      "Modern CPUs (Intel, AMD, ARM)",
+      "Speculative Execution",
+      "Out-of-Order Execution",
+      "CPU Cache",
+      "Memory Management Unit (MMU)"
+    ],
+    "methods_used": [
+      "Side-Channel Attack",
+      "Transient Execution Attack",
+      "Cache Timing Attack",
+      "Flush+Reload",
+      "Responsible Disclosure"
+    ],
+    "significance": {
+      "tr": "Meltdown ve Spectre, donanım seviyesindeki optimizasyonların nasıl yıkıcı güvenlik açıklarına yol açabileceğini göstererek, donanımın doğası gereği güvenli olduğu varsayımını kırmıştır. Bu olay, işlemci mimarisinin yeniden değerlendirilmesine, yan kanal saldırılarına karşı farkındalığın artmasına ve yazılım ile donanım güvenliği arasındaki ilişkinin ne kadar karmaşık olduğunu ortaya koymasına neden olmuştur. Özellikle bulut sağlayıcıları için temel bir tehdit oluşturmuş ve yamaların getirdiği performans düşüşleri, güvenlik ve hız arasındaki kaçınılmaz dengeyi gözler önüne sermiştir.",
+      "en": "Meltdown and Spectre shattered the long-held assumption that hardware is inherently secure, demonstrating how performance optimizations at the hardware level could lead to devastating security vulnerabilities. This event prompted a re-evaluation of processor architecture, increased awareness of side-channel attacks, and revealed the complex relationship between software and hardware security. It posed a fundamental threat, especially to cloud providers, and the performance penalties of the resulting patches highlighted the unavoidable trade-off between security and speed."
+    },
+    "sources": [
+      "https://meltdownattack.com/",
+      "https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html",
+      "https://arxiv.org/pdf/1801.01207.pdf",
+      "https://arxiv.org/pdf/1801.01203.pdf",
+      "https://www.cve.org/CVERecord?id=CVE-2017-5754",
+      "https://www.cve.org/CVERecord?id=CVE-2017-5753",
+      "https://www.cve.org/CVERecord?id=CVE-2017-5715"
+    ]
+  }
+}

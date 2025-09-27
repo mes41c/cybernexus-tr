@@ -10,6 +10,7 @@ import SettingsView from './components/SettingsView';
 import './App.css';
 import GuidePage from './pages/GuidePage';
 import { fetchAllCases } from './services/api';
+import HistoryPage from './pages/HistoryPage';
 
 function App() {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
@@ -80,6 +81,7 @@ function App() {
           <nav>
             <Link to="/" className="nav-link">Ana Sayfa</Link>
             <Link to="/cases" className="nav-link">Vaka Kütüphanesi</Link>
+            <Link to="/history" className="nav-link">Siber Tarihçe</Link>
             <Link to="/create-case" className="nav-link">Yeni Vaka Oluştur</Link>
           </nav>
           <div className="header-actions">
@@ -138,6 +140,7 @@ function App() {
             } 
           />
           <Route path="/guide" element={<GuidePage />} />
+          <Route path="/history" element={<HistoryPage />} />
         </Routes>
       </main>
 

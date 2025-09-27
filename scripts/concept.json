@@ -1,0 +1,40 @@
+{
+  "event_date": "1995-07-01",
+  "title": {
+    "tr": "Bir Belgenin Fısıltısı: Siber Güvenliği Değiştiren Concept Virüsü",
+    "en": "The Whisper of a Document: The Concept Virus That Changed Cybersecurity"
+  },
+  "narrative": {
+    "tr": "1995 yazı, teknoloji dünyası için bir devrimin arifesiydi. Herkes Microsoft'un yakında çıkacak olan Windows 95'ini konuşuyor, kişisel bilgisayarların altın çağı başlıyordu. Bu dijital iyimserlik atmosferinde, bir Word belgesi (.doc) en masum, en güvenilir dosya türlerinden biri olarak kabul ediliyordu. O sadece metindi; statik, zararsız ve öngörülebilirdi. Ancak bu temel güven varsayımı, kimsenin beklemediği bir yerden, bir belgenin kendi içinden sarsılmak üzereydi. O yaz, dünya çapındaki bilgisayarlarda tuhaf bir mesaj kutusu belirmeye başladı. Belgeyi açan kullanıcıların karşısına, üzerinde sadece '1' rakamı ve altında 'That's enough to prove my point.' (Bu, meramımı anlatmak için yeterli.) yazan küçük bir pencere çıkıyordu. Bu, 'Concept' virüsüydü. Zararlı bir eylemde bulunmuyordu; dosyaları silmiyor, parolaları çalmıyor veya sistemi çökertmiyordu. Sadece fısıldıyordu: 'Ben buradayım ve bir belgenin içinde yaşıyorum.' Concept, Microsoft Word'ün o dönemki makro dili olan WordBasic ile yazılmıştı. Dehası, kendini programın kalbine, yani tüm belgeler için genel şablon olan 'NORMAL.DOT' dosyasına kopyalamasında yatıyordu. Bir kez bu merkezi dosyaya bulaştığında, kullanıcının 'Farklı Kaydet' fonksiyonuyla kaydettiği her Word belgesi, bu virüsün yeni bir taşıyıcısı haline geliyordu. O dönemde internet henüz yaygın bir bulaşma yolu değildi. Concept, 90'ların en popüler veri taşıma yöntemi olan disketlerle insandan insana, ofisten ofise yayıldı. İşin ironik yanı, virüsün en büyük dağıtıcılarından birinin bizzat Microsoft olmasıydı. Şirket, farkında olmadan, virüsü içeren bir dosyayı 'Windows 95 Yazılım Uyumluluk Testi' CD-ROM'una dahil ederek yüz binlerce kopyasını dünyaya dağıtmıştı. Concept'in yükü zararsız olsa da, yarattığı şok dalgası siber güvenlik endüstrisini sonsuza dek değiştirdi. O güne kadar antivirüs yazılımları yalnızca yürütülebilir dosyalara (.exe, .com) odaklanmıştı. Artık herkes, en masum görünen bir Word belgesinin bile bir Truva Atı olabileceğini anlamıştı. Concept, bir virüs değil, bir konseptin kanıtıydı; bir uyarı ateşiydi. Dijital dünyada güvenin ne kadar kırılgan olduğunu ve bir sonraki tehdidin her zaman en beklenmedik yerden gelebileceğini gösteren sessiz bir devrimdi.",
+    "en": "The summer of 1995 was the dawn of a revolution for the tech world. Everyone was talking about Microsoft's upcoming Windows 95, and the golden age of personal computing was beginning. In this atmosphere of digital optimism, a Word document (.doc) was considered one of the most innocent and trustworthy file types. It was just text; static, harmless, and predictable. However, this fundamental assumption of trust was about to be shattered from within a document itself, a place no one expected. That summer, a strange message box began to appear on computers worldwide. When users opened a document, a small window popped up displaying only the number '1' and the text 'That's enough to prove my point.' This was the 'Concept' virus. It performed no malicious action; it didn't delete files, steal passwords, or crash systems. It simply whispered: 'I am here, and I live inside a document.' Concept was written in WordBasic, Microsoft Word's macro language at the time. Its genius lay in copying itself to the heart of the program: the 'NORMAL.DOT' file, the global template for all documents. Once this central file was infected, every Word document a user saved via the 'Save As' function became a new carrier for the virus. In that era, the internet was not yet a common infection vector. Concept spread from person to person, office to office, via the most popular data transfer method of the 90s: the floppy disk. Ironically, one of the biggest distributors of the virus was Microsoft itself. The company had unknowingly included a file containing the virus on its 'Windows 95 Software Compatibility Test' CD-ROM, shipping hundreds of thousands of copies worldwide. Although Concept's payload was benign, the shockwave it created changed the cybersecurity industry forever. Until that day, antivirus software had focused solely on executable files (.exe, .com). Now, everyone understood that even the most innocent-looking Word document could be a Trojan Horse. Concept was not just a virus but a proof-of-concept; a warning shot. It was a quiet revolution that demonstrated how fragile trust was in the digital world and that the next threat could always come from the most unexpected place."
+  },
+  "metadata": {
+    "key_people": [
+      "Anonymous Creator(s)",
+      "Microsoft (as accidental distributor)"
+    ],
+    "technologies_used": [
+      "Microsoft Word 6.0 / Word 95",
+      "WordBasic (Macro Language)",
+      "NORMAL.DOT (Global Macro Template)",
+      "MS-DOS / Windows 95"
+    ],
+    "methods_used": [
+      "Macro Virus",
+      "File Infection (Document-based)",
+      "Proof-of-Concept (PoC)",
+      "Social Engineering (via trusted documents)"
+    ],
+    "significance": {
+      "tr": "Concept, 'vahşi doğada' yayılan ilk makro virüsü olarak tarihe geçmiştir. Yıkıcı bir yükü olmamasına rağmen, siber güvenlikte bir paradigma kaymasına neden olmuştur. Bu virüs, metin belgeleri gibi yürütülebilir olmayan dosyaların da güçlü birer siber tehdit vektörü olabileceğini kanıtlamıştır. Sonucunda, antivirüs şirketleri ürünlerini makro virüslerini tesp_t edecek şekilde güncellemek zorunda kalmış ve ofis yazılımlarında güvenlik ayarları daha önemli hale gelmiştir. Concept, kendisinden sonra gelen Melissa gibi çok daha yıkıcı makro virüsleri için yolu açan bir 'konsept kanıtı' olarak siber güvenlik tarihindeki yerini almıştır.",
+      "en": "Concept is historically significant as the first macro virus to spread 'in the wild.' Despite having no destructive payload, it caused a paradigm shift in cybersecurity. The virus proved that non-executable files, such as text documents, could be potent vectors for cyber threats. As a result, antivirus companies were forced to update their products to detect macro viruses, and security settings in office software became more critical. Concept cemented its place in cybersecurity history as the 'proof-of-concept' that paved the way for far more destructive macro viruses that followed, such as Melissa."
+    },
+    "sources": [
+      "https://www.f-secure.com/v-descs/concept.shtml",
+      "https://www.kaspersky.com/blog/macro-viruses-20-years/11033/",
+      "https://www.wired.com/2010/08/0802microsoft-ships-cd-rom-with-virus/",
+      "https://www.broadcom.com/support/security-center/writeup/2000-121511-3720-99",
+      "https://en.wikipedia.org/wiki/Concept_(computer_virus)"
+    ]
+  }
+}

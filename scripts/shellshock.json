@@ -1,0 +1,37 @@
+{
+  "event_date": "2014-09-24",
+  "title": {
+    "tr": "Shellshock: İnternetin Temellerini Sarsan Sessiz Hata",
+    "en": "Shellshock: The Silent Bug That Shook the Foundations of the Internet"
+  },
+  "narrative": {
+    "tr": "2014 yılının Eylül ayında, dijital dünyanın görünmez altyapısı, 25 yıllık bir temel taşının sarsılmasıyla derinden sarsıldı. Bu temel taşı, milyonlarca sunucudan en küçük akıllı cihazlara kadar sayısız sistemde komutları yorumlayan ve çalıştıran mütevazı ama her yerde bulunan bir program olan Bash kabuğuydu. Hikaye, bir hata avcısı gibi değil, sadece işini yapan titiz bir teknoloji uzmanı olan Fransız Unix/Linux uzmanı Stéphane Chazelas ile başladı. Chazelas, Bash'in tuhaf bir davranışını araştırırken, programın ortam değişkenleri adı verilen geçici bilgi parçalarını nasıl işlediğine dair derin bir anormallik fark etti. Keşfettiği şey şok ediciydi: Bir saldırgan, bir web sunucusuna gönderilen bir HTTP isteği gibi görünüşte zararsız bir veri parçasına gizlenmiş özel olarak hazırlanmış bir komut oluşturabiliyordu. Bash, bu veriyi işlediğinde, sadece bilgiyi kaydetmekle kalmıyor, aynı zamanda gizlenmiş komutu da körü körüne yürütüyordu. Bu, bir postacının sadece bir mektup teslim etmesi gerekirken, mektubun içindeki gizli bir talimat nedeniyle evin anahtarlarını bir yabancıya vermesine benziyordu. Bu zafiyet 'Shellshock' (veya 'Bashdoor') olarak adlandırıldı. 24 Eylül 2014'te kamuoyuna duyurulduğunda, siber güvenlik dünyasında bir panik dalgası yarattı. Zafiyetin sömürülmesi şaşırtıcı derecede kolaydı ve etkisi çok genişti. Güvenlik ekipleri, dijital altyapının büyük bir bölümünü oluşturan milyonlarca sunucu, yönlendirici ve IoT cihazını yamamak için yarışırken, saldırganlar savunmasız sistemleri tespit edip ele geçirmek için interneti tarayan otomatik botnetleri serbest bıraktı. Shellshock, en temel ve güvenilir yazılımlarımızın bile nasıl gizli tehlikeler barındırabileceğinin ve görünmez bir kod satırındaki tek bir hatanın tüm dijital ekosistemi nasıl tehdit edebileceğinin somut bir hatırlatıcısı oldu.",
+    "en": "In September 2014, the invisible infrastructure of the digital world was profoundly shaken, not by a new, sophisticated threat, but by the cracking of a 25-year-old cornerstone: the Bash shell. This humble yet ubiquitous program was the silent workhorse interpreting and running commands on countless systems, from massive servers to the smallest smart devices. The story began not with a bug hunter, but with a meticulous technologist simply doing his job: Stéphane Chazelas, a French Unix/Linux specialist. While investigating a quirky behavior in Bash, Chazelas noticed a deep anomaly in how the program processed temporary pieces of information called environment variables. What he discovered was shocking: an attacker could create a specially crafted command hidden within a seemingly harmless piece of data, such as an HTTP request sent to a web server. When Bash processed this data, it didn't just store the information; it blindly executed the hidden command as well. This was the digital equivalent of a mail carrier being instructed to hand over the house keys to a stranger because of a secret command written inside the letter they were supposed to deliver. The vulnerability was codenamed 'Shellshock' (or 'Bashdoor'). When its existence was publicly disclosed on September 24, 2014, it sent a shockwave of panic through the cybersecurity world. The exploit was breathtakingly simple, and its reach was vast. As security teams raced to patch the millions of servers, routers, and IoT devices that formed the backbone of the digital landscape, attackers unleashed automated botnets, scanning the internet to find and compromise vulnerable systems. Shellshock became a stark reminder of how even our most fundamental and trusted software can harbor latent dangers, and how a single flaw in an invisible line of code can threaten the entire digital ecosystem."
+  },
+  "metadata": {
+    "key_people": [
+      "Stéphane Chazelas"
+    ],
+    "technologies_used": [
+      "Bash (Bourne-Again Shell)",
+      "CGI (Common Gateway Interface)",
+      "Linux/Unix Operating Systems",
+      "HTTP Protocol"
+    ],
+    "methods_used": [
+      "Remote Code Execution (RCE)",
+      "Environment Variable Manipulation",
+      "Command Injection"
+    ],
+    "significance": {
+      "tr": "Shellshock, on yıllardır kullanılan temel bir yazılım bileşenindeki bir zafiyetin ne kadar yıkıcı olabileceğini göstermiştir. Milyonlarca web sunucusunu, yönlendiriciyi ve Nesnelerin İnterneti (IoT) cihazını etkileyerek, sömürülmesinin kolaylığı ve geniş saldırı yüzeyi nedeniyle en kritik güvenlik açıklarından biri olarak tarihe geçti. Olay, eski kodların denetlenmesinin ve tedarik zinciri güvenliğinin önemini vurguladı.",
+      "en": "Shellshock demonstrated how devastating a vulnerability in a core, decades-old software component could be. It affected millions of web servers, routers, and Internet of Things (IoT) devices, making it one of the most critical vulnerabilities due to its ease of exploitation and vast attack surface. The event highlighted the importance of auditing legacy code and the security of the software supply chain."
+    },
+    "sources": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2014-6271",
+      "https://www.cloudflare.com/learning/bots/what-is-the-shellshock-bash-bug/",
+      "https://www.symantec.com/connect/blogs/shellshock-all-you-need-know-about-bash-bug-vulnerability",
+      "https://arstechnica.com/security/2014/09/bug-in-bash-shell-creates-big-security-hole-on-anything-with-nix-in-it/"
+    ]
+  }
+}

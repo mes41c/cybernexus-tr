@@ -1,0 +1,40 @@
+{
+  "event_date": "2007-01-17",
+  "title": {
+    "tr": "Perakende Dünyasını Sarsan İhlal: TJX Şirketler Grubu Veri Hırsızlığı",
+    "en": "The Breach that Shook the Retail World: The TJX Companies Data Heist"
+  },
+  "narrative": {
+    "tr": "2005 yılının ortalarında, Miami'deki bir alışveriş merkezinin otoparkında yavaşça ilerleyen bir arabanın içinde, perakende dünyasının geleceğini sonsuza dek değiştirecek bir operasyon başlıyordu. Bu arabanın içindekiler, Albert Gonzalez liderliğindeki bir grup siber suçluydu ve amaçları basit bir alışveriş değil, dijital bir soygun yapmaktı. 'Wardriving' adını verdikleri yöntemle, dizüstü bilgisayarları ve özel antenleriyle zayıf kablosuz ağları arıyorlardı. Çok geçmeden avlarını buldular: bir Marshalls mağazasının, o dönemde bile güvensiz olduğu bilinen WEP (Kablolu Eşdeğer Gizlilik) protokolüyle 'korunan' Wi-Fi ağı. Bu, dijital bir kalenin ana kapısını aralık bırakmak gibiydi. Saldırganlar, birkaç saat içinde WEP şifresini kırarak mağazanın ağına sızdılar. Bu ilk adım, onlara devasa bir imparatorluğun, TJX Şirketler Grubu'nun (T.J. Maxx ve Marshalls gibi markaların sahibi) kalbine giden yolu açtı. Miami'deki bu küçük gedikten sızarak, şirketin Framingham, Massachusetts'teki merkezi ödeme işleme sunucularına ulaştılar. Bir kez içeri girdiklerinde, 18 ay boyunca fark edilmeden kalacakları bir dijital hayalete dönüştüler. Sunuculara özel casus yazılımlar ve arka kapılar yerleştirerek, her bir kart okutma işleminde akan milyonlarca müşterinin kredi ve banka kartı verilerini sessizce toplamaya başladılar. Şirket operasyonlarına devam ederken, sunucularından Doğu Avrupa ve ABD'deki sunuculara doğru gizli bir veri nehri akıyordu. Soygun ancak 2006'nın sonlarında fark edildi ve 17 Ocak 2007'de kamuoyuna duyurulduğunda, siber güvenlik tarihinin en büyük ve en cüretkar veri hırsızlıklarından biri olarak kayıtlara geçti. Bu olay, büyük şirketlerin en zayıf halkalarının, bazen bir mağazanın unutulmuş bir kablosuz ağ erişim noktası kadar basit olabileceğini acı bir şekilde gösterdi.",
+    "en": "In mid-2005, inside a car moving slowly through the parking lot of a Miami shopping center, an operation was beginning that would forever change the future of the retail world. The occupants of this car were not shoppers, but a group of cybercriminals led by Albert Gonzalez, and their goal was not simple shopping, but a digital heist. Using a method they called 'wardriving,' they were scanning for weak wireless networks with their laptops and special antennas. Soon, they found their prey: a Marshalls store's Wi-Fi network, 'protected' by the WEP (Wired Equivalent Privacy) protocol, which was known to be insecure even at that time. This was like leaving the main gate of a digital fortress ajar. Within a few hours, the attackers cracked the WEP key and infiltrated the store's network. This first step opened a path for them to the heart of a massive empire, the TJX Companies (owner of brands like T.J. Maxx and Marshalls). From this small breach in Miami, they reached the company's central payment processing servers in Framingham, Massachusetts. Once inside, they became digital ghosts, remaining undetected for 18 months. They installed custom spyware and backdoors on the servers, silently collecting the credit and debit card data of millions of customers that flowed with every card swipe. While the company continued its operations, a secret river of data was flowing from its servers to servers in Eastern Europe and the United States. The theft was only discovered in late 2006, and when it was announced to the public on January 17, 2007, it went down in history as one of the largest and most audacious data heists in cybersecurity history. This event painfully demonstrated that the weakest link of large corporations could sometimes be as simple as a forgotten wireless access point in a single store."
+  },
+  "metadata": {
+    "key_people": [
+      "Albert Gonzalez"
+    ],
+    "technologies_used": [
+      "WEP (Wired Equivalent Privacy)",
+      "SQL Injection",
+      "Packet Sniffers",
+      "Corporate Mainframe Systems"
+    ],
+    "methods_used": [
+      "Wardriving",
+      "Data Exfiltration",
+      "Network Pivoting",
+      "Backdoor Installation",
+      "Insider Threat (via informant role)"
+    ],
+    "significance": {
+      "tr": "TJX veri ihlali, o zamana kadarki en büyük müşteri verisi sızıntısı olarak tarihe geçti ve perakende sektörü için bir dönüm noktası oldu. Bu olay, zayıf kablosuz ağ güvenliğinin (özellikle WEP'in) ne kadar büyük bir risk oluşturduğunu ve tek bir zayıf noktanın tüm bir kurumsal ağı nasıl tehlikeye atabileceğini gözler önüne serdi. İhlal, Ödeme Kartı Sektörü Veri Güvenliği Standardı'nın (PCI DSS) çok daha ciddiye alınmasına ve sıkı bir şekilde uygulanmasına yol açtı. Şirketler, siber güvenliği artık bir BT maliyeti olarak değil, kritik bir iş riski olarak görmeye başladı. Bu vaka, siber suçların ne kadar organize, sabırlı ve finansal olarak motive olabileceğini kanıtladı ve kurumsal güvenlik stratejilerinde kalıcı bir değişikliği tetikledi.",
+      "en": "The TJX data breach went down in history as the largest customer data leak of its time and became a turning point for the retail industry. This event exposed the immense risk posed by weak wireless network security (especially WEP) and demonstrated how a single point of weakness could compromise an entire corporate network. The breach led to the much more serious adoption and stringent enforcement of the Payment Card Industry Data Security Standard (PCI DSS). Companies began to view cybersecurity not just as an IT cost, but as a critical business risk. This case proved how organized, patient, and financially motivated cybercrime could be, triggering a permanent shift in corporate security strategies."
+    },
+    "sources": [
+      "https://www.wired.com/2010/03/gonzalez-sentenced/",
+      "https://www.csoonline.com/article/517032/tj-maxx-breach-a-sign-of-the-times.html",
+      "https://www.computerworld.com/article/2539095/the-10-worst-moments-in-the-tjx-data-breach-saga.html",
+      "https://www.justice.gov/archive/opa/pr/2009/August/09-crm-815.html",
+      "https://www.darkreading.com/risk/what-we-can-still-learn-from-the-tjx-breach"
+    ]
+  }
+}

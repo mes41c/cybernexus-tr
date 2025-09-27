@@ -1,0 +1,45 @@
+{
+  "event_date": "2022-03-01",
+  "title": {
+    "tr": "Siber Suçun Genç Titanları: Lapsus$ Gasp Çetesinin Yükselişi ve Kaosu",
+    "en": "The Teen Titans of Cybercrime: The Rise and Chaos of the Lapsus$ Extortion Group"
+  },
+  "narrative": {
+    "tr": "2021'in sonlarında, dijital ufukta kaotik ve öngörülemez yeni bir fırtına belirdi. Kendilerine Lapsus$ adını veren bu grup, sofistike devlet destekli aktörler veya karanlık web'in gölgelerinde saklanan deneyimli siber suçlular değildi. Aksine, ana üsleri halka açık Telegram kanalları olan, İngiltere ve Brezilya'dan oldukları düşünülen, son derece cüretkar ve genç hackerlardan oluşan gevşek bir kolektifti. Onların yöntemi, karmaşık sıfır gün açıklıklarından ziyade, en eski hackleme tekniğine dayanıyordu: insanları kandırmak. Lapsus$, şirket sırlarını ifşa etmek veya ağları şifrelemek yerine, doğrudan paranın peşindeydi ve silahları veri hırsızlığı ve gasptı. Sahneye, dev teknoloji şirketlerinin çalışanlarını veya yüklenicilerini hedef alarak, onlara VPN veya uzaktan erişim kimlik bilgileri için rüşvet teklif ederek çıktılar. Başarılı olduklarında, bu ilk erişimi kullanarak ağlarda yanal olarak hareket ediyor, değerli verileri (kaynak kodları, müşteri bilgileri, yönetici sırları) ele geçiriyorlardı. Kurbanları arasında Nvidia, Samsung ve Ubisoft gibi devler vardı. Saldırılarını Telegram'da canlı bir şekilde duyuruyor, bir sonraki hedeflerini oylamaya sunuyor ve çaldıkları verilerle alay ediyorlardı. Bu durum, onlara hem pervasız bir ün kazandırdı hem de kolluk kuvvetlerinin dikkatini çekti. Ancak en sarsıcı eylemleri, Mart 2022'de teknoloji dünyasının omurgasını hedef aldığında gerçekleşti. Önce Microsoft'un iç ağlarına sızarak Bing ve Cortana'nın kaynak kodlarının bir kısmını çaldılar. Hemen ardından, binlerce şirketin kimlik ve erişim yönetimi için güvendiği bir kilit taşı olan Okta'yı vurdular. Okta'nın bir alt yüklenicisinin hesabını ele geçirerek, kısa bir süreliğine de olsa Okta'nın müşteri destek sistemlerine erişim sağladılar. Bu ihlal, tek bir şirkete değil, tüm bir dijital ekosisteme yönelik bir tehdit oluşturarak sektörde şok dalgaları yarattı. Lapsus$'ın saltanatı kısa sürdü; grup, kilit üyelerinin tutuklanmasıyla hızla dağıldı. Ancak mirasları, siber güvenlik dünyasında kalıcı bir iz bıraktı. Milyonlarca dolarlık siber güvenlik savunmalarının bile, basit bir sosyal mühendislik hilesi veya içeriden gelen bir tehdit karşısında ne kadar kırılgan olabileceğini acı bir şekilde hatırlattılar.",
+    "en": "In late 2021, a chaotic and unpredictable new storm gathered on the digital horizon. Calling themselves Lapsus$, this was not a group of sophisticated state-sponsored actors or seasoned cybercriminals hiding in the shadows of the dark web. Rather, they were a loose collective of extremely brazen, young hackers, believed to be from the UK and Brazil, whose main base of operations was a public Telegram channel. Their method relied less on complex zero-day exploits and more on the oldest hack in the book: tricking people. Instead of defacing websites or encrypting networks, Lapsus$ was after direct payment, and their weapons were data theft and extortion. They burst onto the scene by targeting employees or contractors at major tech firms, offering them bribes for VPN or remote access credentials. Once successful, they used this initial foothold to move laterally through networks, siphoning off valuable data—source code, customer information, executive secrets. Their list of victims grew to include giants like Nvidia, Samsung, and Ubisoft. They would theatrically announce their attacks on Telegram, poll their followers on who to target next, and taunt their victims with stolen data, a practice that earned them both a reckless reputation and the attention of law enforcement. Their most seismic actions, however, occurred in March 2022 when they targeted the backbone of the tech world. First, they infiltrated Microsoft's internal networks, stealing portions of source code for Bing and Cortana. Immediately after, they hit Okta, a keystone in identity and access management for thousands of corporations. By compromising a third-party contractor's account, they gained limited access to Okta's customer support systems. The breach sent shockwaves through the industry, as it represented a threat not just to one company, but to an entire digital ecosystem. Lapsus$'s reign was short-lived; the group rapidly dissolved following the arrests of key members. But their legacy left a permanent mark on the cybersecurity landscape. They served as a stark reminder that even multi-million dollar cybersecurity defenses could be rendered fragile by a simple social engineering trick or an insider threat."
+  },
+  "metadata": {
+    "key_people": [
+      "Lapsus$ Hacking Group",
+      "Arion Kurtaj (Alleged key member)",
+      "Unnamed Teenagers from the UK and Brazil"
+    ],
+    "technologies_used": [
+      "VPN (Virtual Private Network)",
+      "Identity and Access Management (IAM) Platforms",
+      "Multi-Factor Authentication (MFA) Systems",
+      "Cloud Infrastructure (AWS, Azure)",
+      "Telegram (For Communication and Announcements)"
+    ],
+    "methods_used": [
+      "Social Engineering",
+      "Insider Threat Recruitment (Bribing Employees)",
+      "SIM Swapping",
+      "Data Theft for Extortion",
+      "Credential Theft",
+      "MFA Fatigue / Prompt Bombing",
+      "Exploitation of Weak Help Desk and IT Support Procedures"
+    ],
+    "significance": {
+      "tr": "Lapsus$, karmaşık yazılım istismarları yerine insanların manipülasyonu yoluyla ne kadar büyük zararlar verilebileceğini göstererek kurumsal güvenlik paradigmalarına meydan okudu. Saldırıları, en zayıf halkanın insan unsuru olduğunu ve motive olmuş içeriden tehditlerin veya zayıf yardım masası politikalarının milyonlarca dolarlık güvenlik altyapılarını kolayca aşabildiğini vurguladı. Önemli bir kimlik sağlayıcısı olan Okta'nın ihlali, kritik güvenlik satıcılarına yönelik tedarik zinciri saldırılarının oluşturduğu sistemik riski kanıtladı ve sektörde güven ilişkileri ile MFA uygulama güvenliğinin yeniden değerlendirilmesini zorunlu kıldı.",
+      "en": "Lapsus$ challenged corporate security paradigms by demonstrating that immense damage could be inflicted not through complex software exploits, but through the manipulation of people. Their attacks highlighted the human element as the weakest link, showing how motivated insiders and weak help desk policies could bypass multi-million dollar security infrastructures. The breach of Okta, a major identity provider, proved the systemic risk posed by supply chain attacks on critical security vendors, forcing a widespread re-evaluation of trust relationships and MFA implementation security."
+    },
+    "sources": [
+      "https://www.microsoft.com/en-us/security/blog/2022/03/22/dev-0537-criminal-actor-targeting-organizations-for-data-exfiltration-and-destruction/",
+      "https://www.wired.com/story/lapsus-hacking-group-teen-cyber-crime/",
+      "https://krebsonsecurity.com/2022/03/lapsus-hackers-breached-okta-customer-support-system/",
+      "https://www.cisa.gov/news-events/cybersecurity-advisories/aa22-321a",
+      "https://www.trendmicro.com/vinfo/us/security/news/cybercrime-and-digital-threats/lapsus-from-pranksters-to-a-notorious-extortion-group"
+    ]
+  }
+}

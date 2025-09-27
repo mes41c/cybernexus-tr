@@ -1,0 +1,45 @@
+{
+  "event_date": "2023-10-20",
+  "title": {
+    "tr": "Okta Müşteri Destek Sistemi İhlali: Bir Güven Zincirinin Kırılışı",
+    "en": "Okta Customer Support System Breach: The Breaking of a Chain of Trust"
+  },
+  "narrative": {
+    "tr": "Ekim 2023'ün hiper-bağlantılı dünyasında Okta, binlerce küresel şirketin kimliklerinin güvenilir koruyucusu, dijital bir bekçi olarak duruyordu. Ancak bu güven, karmaşık bir kod istismarıyla değil, basit bir insani hatayla sarsılmak üzereydi. Bu ihlalin mimarları, 'Scattered Spider' olarak bilinen kötü şöhretli bir grup, ana kapıları zorlamak zorunda kalmadı. Kilidi açık bir yerde bırakılmış bir anahtar buldular: Okta'nın destek sistemine ait bir hizmet hesabı kimlik bilgisi, bir çalışanın kişisel Google hesabına dikkatsizce kaydedilmişti. İçeri girdiklerinde bir altın madeni keşfettiler. Müşteri destek portalı, yardım arayan müşteriler tarafından yüklenen teşhis dosyalarıyla (HAR dosyaları) doluydu. Bu dosyaların içinde gömülü olanlar, müşterilerin kendi krallıklarının dijital anahtarları olan aktif oturum belirteçleri ve çerezlerdi. Saldırganlar artık geleneksel girişleri atlayabilir ve meşru çalışanların kimliğine bürünerek Okta'nın müşterilerinin ağlarına rahatça girebilirdi. Olay, sektörde şok dalgaları yarattı ve en güvenli kalelerin bile gözden kaçan tek bir yan kapıdan aşılabileceğini, güvenilir bir ortağı farkında olmadan bir saldırı vektörüne dönüştürebileceğini acı bir şekilde hatırlattı.",
+    "en": "In the hyper-connected world of October 2023, Okta stood as a digital gatekeeper, the trusted guardian of identities for thousands of global companies. But this trust was about to be shaken, not by a complex code exploit, but by a simple human misstep. The architects of this breach, a notorious group known as Scattered Spider, didn't need to batter down the main gates. They found a key left in an unlocked place: a service account credential for Okta's support system, carelessly saved in an employee's personal Google account. Once inside, they discovered a goldmine. The customer support portal was filled with diagnostic files (HAR files) uploaded by clients seeking help. Buried within these files were active session tokens and cookies—the digital keys to those clients' own kingdoms. The attackers could now bypass traditional logins and simply walk into the networks of Okta's customers, cloaked in the identity of legitimate employees. The incident sent shockwaves through the industry, a stark reminder that even the most secure fortresses can be compromised through a single, overlooked side door, turning a trusted partner into an unwitting vector of attack."
+  },
+  "metadata": {
+    "key_people": [
+      "Scattered Spider (Threat Actor Group)",
+      "Okta Security Team",
+      "Cloudflare (Affected Customer)",
+      "BeyondTrust (Affected Customer)",
+      "1Password (Affected Customer)"
+    ],
+    "technologies_used": [
+      "Okta Customer Support System",
+      "Case Management System",
+      "HTTP Archive (HAR) Files",
+      "Session Tokens",
+      "Authentication Cookies"
+    ],
+    "methods_used": [
+      "Credential Theft",
+      "Supply Chain Attack",
+      "Session Hijacking",
+      "Improper Credential Storage",
+      "Social Engineering"
+    ],
+    "significance": {
+      "tr": "Bu ihlal, tedarik zinciri güvenliği konusunda kritik bir ders niteliğindeydi ve bir kimlik sağlayıcı gibi tek ve merkezi bir tedarikçinin ele geçirilmesinin tüm müşteri tabanına nasıl basamaklı bir etki yapabileceğini gösterdi. Destek ve teşhis dosyaları (HAR dosyaları gibi) içindeki hassas verilerin oluşturduğu ve genellikle göz ardı edilen büyük riski vurguladı ve sektörü bu tür verilerin işlenmesine yönelik prosedürleri yeniden değerlendirmeye zorladı. Saldırı, teknoloji devleri için bile kurumsal güvenlikte insan unsurunun - bu vakada, kimlik bilgilerinin yanlış saklanması - ne kadar önemli bir güvenlik açığı olmaya devam ettiğinin altını çizdi.",
+      "en": "This breach was a critical lesson in supply chain security, demonstrating how compromising a single, central vendor like an identity provider can have a cascading impact on its entire customer base. It highlighted the immense, often overlooked, risk posed by sensitive data within support and diagnostic files (like HAR files) and forced the industry to re-evaluate procedures for handling such data. The attack underscored that the human element—in this case, improper credential storage—remains a pivotal vulnerability in corporate security, even for technology giants."
+    },
+    "sources": [
+      "https://sec.okta.com/harfiles",
+      "https://blog.cloudflare.com/how-cloudflare-mitigated-yet-another-okta-breach",
+      "https://www.beyondtrust.com/blog/entry/okta-support-unit-breach-beyondtrust-security-update",
+      "https://www.wired.com/story/okta-breach-support-unit-hacking-campaign/",
+      "https://thehackernews.com/2023/10/okta-warns-of-widespread-attacks.html"
+    ]
+  }
+}

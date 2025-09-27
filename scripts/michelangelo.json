@@ -1,0 +1,38 @@
+{
+  "event_date": "1991-02-04",
+  "title": {
+    "tr": "Dijital Kıyamet Günü Histerisi: Michelangelo Virüsü",
+    "en": "The Digital Doomsday Hysteria: The Michelangelo Virus"
+  },
+  "narrative": {
+    "tr": "1991'in başlarında, Avustralya'nın Melbourne kentindeki bir bilgisayar firmasında sessiz ve sinsi bir tehdit keşfedildi. O dönemde dünya, kişisel bilgisayarların yükselişine tanıklık ediyor, veriler ise ağırlıklı olarak 3.5 inçlik disketlerle elden ele dolaşıyordu. İnternetin henüz evlere girmediği bu 'sneakernet' çağında, virüsler de insanlar gibi fiziksel olarak seyahat ediyordu. Michelangelo adını alacak olan bu yeni virüs, tam da bu dünyaya aitti. Bir önyükleme sektörü (boot sector) virüsüydü; yani, bir bilgisayar açıldığında ilk okunan kutsal alana, ana önyükleme kaydına (MBR) yerleşiyordu. Enfekte bir disket sürücüde unutulduğunda, makine her açıldığında kendini belleğe kopyalıyor ve ardından sabit diskin MBR'sine bulaşıyordu. Oradan da, sisteme takılan her temiz diskete bir polen gibi yayılıyordu. Asıl dehşet ise virüsün koduna gizlenmiş bir saatli bombaydı. Virüs, sistem tarihini sürekli kontrol ediyordu. Eğer tarih 6 Mart'ı gösterirse –Rönesans'ın büyük ustası Michelangelo'nun doğum gününü– yıkıcı görevini yerine getirecekti. Bu görev, sabit diskin en kritik ilk 100 sektörünün üzerine anlamsız veriler yazarak, dosya sistemini ve tüm verileri geri getirilemez bir şekilde yok etmekti. 1991 boyunca sessizce yayıldı, ancak asıl panik 1992'nin başlarında, bir sonraki 6 Mart yaklaşırken patlak verdi. Önde gelen antivirüs şirketlerinden biri olan McAfee'nin kurucusu John McAfee, medyanın da yardımıyla, virüsün dünya çapında beş milyona kadar bilgisayarı etkileyebileceği yönünde sansasyonel bir kampanya başlattı. Haber bültenleri, gazete manşetleri 'dijital bir kıyamet' beklentisiyle dolup taştı. Milyonlarca kullanıcı, bilgisayarlarını açmaktan korkar hale geldi. 6 Mart 1992 günü geldiğinde ise dünya nefesini tuttu. Sonuç, beklenenden çok daha az yıkıcıydı. Tahminlerin aksine, dünya çapında sadece on binlerce bilgisayarın etkilendiği rapor edildi. Kıyamet kopmamıştı. Ancak Michelangelo'nun mirası, yok ettiği verilerden çok daha büyük oldu: Tarihteki ilk küresel siber güvenlik paniğini tetiklemiş, antivirüs yazılımlarını her bilgisayar kullanıcısı için bir zorunluluk haline getirmiş ve bir tehdidin yarattığı korkunun, tehdidin kendisinden daha tehlikeli olabileceğini acı bir şekilde göstermişti.",
+    "en": "In early 1991, a quiet and insidious threat was discovered at a computer company in Melbourne, Australia. At the time, the world was witnessing the rise of personal computers, and data was primarily transported hand-to-hand on 3.5-inch floppy disks. In this 'sneakernet' era, before the internet entered homes, viruses traveled physically, much like people. This new virus, which would come to be known as Michelangelo, was a native of this world. It was a boot sector virus, meaning it embedded itself in the Master Boot Record (MBR), the sacred space a computer reads first upon startup. When an infected floppy was left in the drive, the virus would copy itself into memory at every boot and then infect the hard drive's MBR. From there, it spread like pollen to every clean floppy disk inserted into the system. The true terror, however, was a time bomb hidden within its code. The virus constantly checked the system date. If the date was March 6th—the birthday of the great Renaissance master Michelangelo—it would execute its destructive payload. This mission was to overwrite the first 100 critical sectors of the hard drive with garbage data, irretrievably destroying the file system and all the data within. It spread silently throughout 1991, but the real panic erupted in early 1992 as the next March 6th approached. John McAfee, founder of the leading antivirus company McAfee Associates, fueled by the media, launched a sensational campaign predicting that the virus could infect up to five million computers worldwide. News bulletins and newspaper headlines were filled with the expectation of a 'digital doomsday.' Millions of users became afraid to even turn on their computers. When March 6, 1992, arrived, the world held its breath. The result was far less devastating than anticipated. Contrary to the predictions, it was reported that only tens of thousands of computers were affected globally. The apocalypse had not occurred. However, Michelangelo's legacy was far greater than the data it destroyed: it triggered the first global cybersecurity panic in history, made antivirus software a necessity for every computer user, and painfully demonstrated that the fear of a threat could be more dangerous than the threat itself."
+  },
+  "metadata": {
+    "key_people": [
+      "John McAfee"
+    ],
+    "technologies_used": [
+      "MS-DOS",
+      "Boot Sector",
+      "Floppy Disks",
+      "Master Boot Record (MBR)"
+    ],
+    "methods_used": [
+      "Time Bomb Payload",
+      "Boot Sector Infection",
+      "Data Destruction / Wiping"
+    ],
+    "significance": {
+      "tr": "Michelangelo virüsü, teknik karmaşıklığından çok yarattığı küresel medya histerisi ve sosyal etkiyle siber güvenlik tarihinde bir dönüm noktasıdır. Belirli bir tarihte tetiklenen yıkıcı bir yüke sahip ilk yaygın virüslerden biriydi. Bu olay, halkın bilgisayar virüsleri hakkındaki farkındalığını kitlesel olarak artırmış ve antivirüs endüstrisinin patlama yapmasını sağlamıştır. Aynı zamanda, siber tehditlerin iletişiminde abartının ve korku tellallığının tehlikelerini ortaya koyan bir vaka çalışması olarak kabul edilir. Michelangelo'nun yarattığı panik, tehdidin kendisinden çok daha yaygın bir etki bırakarak, siber güvenliğin sadece teknik bir sorun değil, aynı zamanda bir halkla ilişkiler ve psikoloji meselesi olduğunu da kanıtlamıştır.",
+      "en": "The Michelangelo virus is a landmark in cybersecurity history, less for its technical complexity and more for the global media hysteria and social impact it created. It was one of the first widespread viruses to feature a destructive payload triggered on a specific date. This event massively raised public awareness about computer viruses and caused the antivirus industry to boom. It is also considered a case study in the dangers of exaggeration and fear-mongering in the communication of cyber threats. The panic created by Michelangelo left a more widespread impact than the threat itself, proving that cybersecurity is not just a technical problem, but also a matter of public relations and psychology."
+    },
+    "sources": [
+      "https://www.f-secure.com/v-descs/michelan.shtml",
+      "https://www.computerhistory.org/this-day-in-history/march-6/",
+      "https://www.nytimes.com/1992/03/06/business/michelangelo-computer-virus-is-less-damaging-than-predicted.html",
+      "https://www.washingtonpost.com/archive/business/1992/03/07/michelangelo-virus-largely-a-dud/c990b14b-7036-410a-97a1-87c2688014a0/",
+      "https://www.wired.com/2012/03/michelangelo-virus/"
+    ]
+  }
+}

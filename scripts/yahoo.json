@@ -1,0 +1,44 @@
+{
+  "event_date": "2016-09-22",
+  "title": {
+    "tr": "Tarihin En Büyüğü: Yahoo'nun 3 Milyar Kullanıcılık Veri İhlali Duyurusu",
+    "en": "The Largest in History: Yahoo's Announcement of the 3 Billion User Data Breach"
+  },
+  "narrative": {
+    "tr": "Takvimler 2016 yılını gösteriyordu. İnternetin bir zamanlarki devi Yahoo, telekomünikasyon devi Verizon tarafından satın alınma sürecinin sonlarındaydı. Bu anlaşma, eski parlak günlerini arayan şirket için bir kurtuluş umuduydu. Ancak, bu umut, tarihin en büyük siber güvenlik felaketinin gölgesinde kalmak üzereydi. Eylül 2016'da, Yahoo kamuoyuna 2014 yılında gerçekleşen bir saldırı sonucu 500 milyon kullanıcının verilerinin çalındığını duyurdu. Bu açıklama, teknoloji dünyasında şok etkisi yarattı, ancak bu sadece buzdağının görünen kısmıydı. Verizon ile yürütülen hassas satın alma görüşmeleri aniden belirsizliğe büründü. Araştırmacılar olayın derinliklerine indikçe, tablo daha da kararıyordu. Aralık 2016'da ikinci bir bomba patladı: 2013'te gerçekleşen ve 2014'teki saldırıdan tamamen bağımsız olan başka bir ihlalde, 1 milyardan fazla kullanıcının etkilendiği açıklandı. Bu, o ana dek bilinen tüm rekorları altüst etmişti. Fakat asıl yıkıcı gerçek, yaklaşık bir yıl sonra, Ekim 2017'de ortaya çıkacaktı. Artık Verizon'un bir parçası olan şirket, 2013'teki ihlalin boyutunu revize etmek zorunda kaldı: Etkilenen hesap sayısı bir milyar değil, o tarihte var olan TÜM Yahoo hesaplarıydı. Toplamda üç milyar kullanıcı. Bu, sadece bir şirketin veritabanının değil, küresel internet kullanıcılarının önemli bir bölümünün kişisel bilgilerinin savunmasız kaldığı anlamına geliyordu. İsimler, e-posta adresleri, telefon numaraları, doğum tarihleri ve zayıf MD5 algoritmasıyla şifrelenmiş parolalar artık siber suçluların elindeydi. Sonuçları ağır oldu: Verizon, Yahoo'nun satın alma fiyatını 350 milyon dolar düşürdü, şirket yatırımcıları yanılttığı için ABD Menkul Kıymetler ve Borsa Komisyonu (SEC) tarafından 35 milyon dolar para cezasına çarptırıldı ve milyarlarca kullanıcının güveni onarılamaz bir şekilde sarsıldı.",
+    "en": "The year was 2016. Yahoo, a former titan of the internet, was in the final stages of being acquired by the telecommunications giant Verizon. This deal was a lifeline for a company searching for its former glory. However, this hope was about to be overshadowed by the largest cybersecurity disaster in history. In September 2016, Yahoo publicly announced that data from 500 million user accounts had been stolen in an attack that occurred in 2014. The announcement sent shockwaves through the tech world, but it was only the tip of the iceberg. The delicate acquisition negotiations with Verizon were suddenly thrown into uncertainty. As investigators delved deeper into the incident, the picture grew darker. A second bombshell dropped in December 2016: a separate breach, completely independent of the 2014 attack, had occurred in 2013 and affected over 1 billion users. This shattered all known records at the time. But the truly devastating truth would not emerge for nearly another year, in October 2017. The company, now part of Verizon, was forced to revise the scale of the 2013 breach: the number of affected accounts was not one billion, but ALL Yahoo accounts in existence at the time. Three billion users in total. This meant that not just a company's database, but the personal information of a significant portion of global internet users, had been left vulnerable. Names, email addresses, phone numbers, birth dates, and passwords hashed with the weak MD5 algorithm were now in the hands of cybercriminals. The consequences were severe: Verizon cut Yahoo's acquisition price by $350 million, the company was fined $35 million by the U.S. Securities and Exchange Commission (SEC) for misleading investors, and the trust of billions of users was irreparably broken."
+  },
+  "metadata": {
+    "key_people": [
+      "Marissa Mayer (CEO of Yahoo)",
+      "Alex Stamos (CISO of Yahoo)",
+      "Dmitry Dokuchaev (Russian FSB Officer)",
+      "Igor Sushchin (Russian FSB Officer)",
+      "Alexsey Belan (Hacker)",
+      "Karim Baratov (Hacker-for-hire)"
+    ],
+    "technologies_used": [
+      "Yahoo User Database",
+      "MD5 Hashing Algorithm",
+      "Web Cookies",
+      "Bcrypt (for some passwords)"
+    ],
+    "methods_used": [
+      "Spear-Phishing",
+      "Forged Cookie Minting",
+      "Database Exfiltration",
+      "Delayed Public Disclosure"
+    ],
+    "significance": {
+      "tr": "Yahoo veri ihlali, siber güvenlik tarihinde bir milat olarak kabul edilir. '3 milyar' rakamı, 'mega ihlal' kavramının tanımını yeniden yaparak en kötü durum senaryoları için bir referans noktası haline geldi. Olay, şirketlerin veri ihlallerini bildirme konusundaki yasal ve etik sorumluluklarını gündeme getirdi; özellikle de birleşme ve devralma süreçleri devam ederken. Yıllarca süren gecikmeli açıklama, SEC'in yatırımcıları yanıltma gerekçesiyle ilk kez bir şirkete siber güvenlik zaafiyeti nedeniyle para cezası vermesine yol açtı. Teknik olarak ise, zayıf parola karma (MD5) ve güvenlik soruları gibi eski yöntemlerin ne kadar yetersiz olduğunu acı bir şekilde gösterdi. Bu olay, birleşme ve devralma süreçlerinde siber güvenlik durum tespitinin (due diligence) ne kadar kritik ve vazgeçilmez bir unsur olduğunu tüm iş dünyasına kanıtladı.",
+      "en": "The Yahoo data breach is considered a watershed moment in cybersecurity history. The number '3 billion' redefined the concept of a 'mega-breach,' becoming a benchmark for worst-case scenarios. The incident brought the legal and ethical responsibilities of corporations regarding breach notification to the forefront, especially during ongoing mergers and acquisitions. The years-long delay in disclosure led to the SEC imposing its first-ever fine on a company for cybersecurity lapses on the grounds of misleading investors. Technically, it painfully demonstrated the inadequacy of outdated security practices like weak password hashing (MD5) and security questions. This event proved to the entire business world that cybersecurity due diligence is a critical and indispensable element in mergers and acquisitions."
+    },
+    "sources": [
+      "https://www.sec.gov/news/press-release/2018-71",
+      "https://www.justice.gov/opa/pr/us-charges-russian-fsb-officers-and-their-criminal-conspirators-hacking-yahoo-and-millions",
+      "https://www.reuters.com/article/us-yahoo-cyber-verizon-idUSKBN15Q1M1",
+      "https://www.theguardian.com/technology/2017/oct/03/yahoo-breach-3-billion-accounts-stolen-verizon",
+      "https://www.wired.com/story/yahoo-three-billion-account-breach/"
+    ]
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "event_date": "2017-06-27",
+  "title": {
+    "tr": "NotPetya/Nyetya: Fidye Yazılımı Kılığına Girmiş Siber Savaş Silahı",
+    "en": "NotPetya/Nyetya: The Cyber Warfare Weapon Disguised as Ransomware"
+  },
+  "narrative": {
+    "tr": "27 Haziran 2017, Ukrayna'nın Anayasa Günü arifesiydi ve ülke siber tarihin en yıkıcı saldırılarından biriyle sarsılmak üzereydi. Her şey, Ukrayna'daki binlerce şirketin bilgisayar ekranlarında beliren tanıdık ama bir o kadar da uğursuz bir mesajla başladı: dosyalarınız şifrelendi, kurtarmak için ödeme yapın. İlk başta, bu 'Petya' adlı bilinen bir fidye yazılımının yeni bir varyantı sanıldı. Ancak, saatler ilerledikçe ve kaos yayıldıkça, siber güvenlik araştırmacıları korkunç bir gerçeği fark ettiler: bu bir fidye saldırısı değildi, bu bir imha eylemiydi. Saldırının başlangıç noktası, Ukrayna'da yaygın olarak kullanılan M.E.Doc adlı bir muhasebe yazılımının meşru güncelleme mekanizmasıydı. Saldırganlar, bu yazılımın sunucularına sızarak, kendi kötü amaçlı kodlarını bir 'Truva Atı' gibi tüm kullanıcılara dağıttılar. Bu, mükemmel bir tedarik zinciri saldırısıydı. Yazılım bir kez ağa girdiğinde, NSA'den sızdırılan ve 'EternalBlue' ile 'EternalRomance' olarak bilinen son derece güçlü zafiyetleri kullanarak bir yangın gibi yayıldı. Ukrayna'nın bakanlıkları, bankaları, elektrik santralleri, postaneleri ve hatta Çernobil Nükleer Santrali'nin radyasyon izleme sistemleri bile çevrimdışı oldu. Ancak yıkım Ukrayna sınırları içinde kalmadı. Küresel denizcilik devi Maersk, ilaç şirketi Merck ve kargo firması FedEx gibi Ukrayna'da faaliyet gösteren çok uluslu şirketler de bu dijital tsunaminin kurbanı oldu. Maersk, dünya genelindeki liman operasyonlarını durdurmak zorunda kaldı ve haftalarca kağıt-kalemle çalışmaya geri döndü. Saldırının küresel maliyeti 10 milyar doları aştı. Araştırmacılar kodu incelediğinde, fidye notunun bir aldatmaca olduğu kesinleşti. Şifreleme süreci geri döndürülemezdi; ödeme yapılsa bile verileri kurtarmanın hiçbir yolu yoktu. NotPetya'nın asıl amacı, bir fidye yazılımı gibi görünerek, Ukrayna'nın kritik altyapısını kalıcı olarak yok etmek ve ülkeyi istikrarsızlaştırmaktı. Saldırı, birçok Batılı hükümet tarafından Rusya Federasyonu Silahlı Kuvvetleri'ne bağlı Sandworm adlı siber askeri birime atfedildi. NotPetya, siber savaşın coğrafi sınır tanımadığını ve tek bir ülkeyi hedef alan bir saldırının tüm küresel ekonomiyi nasıl rehin alabileceğini dünyaya acı bir şekilde gösterdi.",
+    "en": "June 27, 2017, was the eve of Ukraine's Constitution Day, and the country was about to be rocked by one of the most devastating attacks in cyber history. It all began with a familiar, yet ominous, message appearing on the computer screens of thousands of Ukrainian companies: your files have been encrypted, pay to get them back. At first, it was mistaken for a new variant of a known ransomware called 'Petya'. However, as the hours passed and the chaos spread, cybersecurity researchers realized a terrifying truth: this was not a ransomware attack, it was an act of destruction. The starting point of the attack was the legitimate update mechanism of an accounting software widely used in Ukraine called M.E.Doc. The attackers, having infiltrated the software's servers, distributed their malicious code to all users like a 'Trojan Horse'. It was a perfect supply chain attack. Once inside a network, the malware spread like wildfire using extremely powerful vulnerabilities leaked from the NSA, known as 'EternalBlue' and 'EternalRomance'. Ukraine's ministries, banks, power plants, post offices, and even the radiation monitoring systems at the Chernobyl Nuclear Power Plant went offline. But the destruction did not stay within Ukraine's borders. Multinational corporations operating in Ukraine, such as the global shipping giant Maersk, pharmaceutical company Merck, and courier company FedEx, also fell victim to this digital tsunami. Maersk was forced to halt its port operations worldwide, reverting to pen and paper for weeks. The global financial cost of the attack exceeded $10 billion. When researchers analyzed the code, it became clear that the ransom note was a sham. The encryption process was irreversible; there was no way to recover the data even if the payment was made. NotPetya's true purpose, disguised as ransomware, was to permanently destroy Ukraine's critical infrastructure and destabilize the country. The attack was attributed by several Western governments to a Russian cyber military unit known as Sandworm, part of the GRU. NotPetya painfully demonstrated to the world that cyber warfare knows no geographical boundaries and that an attack targeting a single country could hold the entire global economy hostage."
+  },
+  "metadata": {
+    "key_people": [
+      "Sandworm Team (APT28, attributed to Russian GRU)"
+    ],
+    "technologies_used": [
+      "M.E.Doc (Accounting Software)",
+      "Windows Server Message Block (SMB)",
+      "EternalBlue (MS17-010 Exploit)",
+      "EternalRomance (MS17-010 Exploit)",
+      "PsExec (Legitimate Admin Tool)",
+      "Windows Management Instrumentation (WMI)"
+    ],
+    "methods_used": [
+      "Supply Chain Attack",
+      "Wiper (disguised as Ransomware)",
+      "Lateral Movement",
+      "Exploitation of Known Vulnerabilities",
+      "Master Boot Record (MBR) Overwriting",
+      "Master File Table (MFT) Encryption"
+    ],
+    "significance": {
+      "tr": "Bir ulus-devlet tarafından yürütülen ve fidye yazılımı olarak gizlenen en yıkıcı ve maliyetli siber saldırılardan biri olarak kabul edilir. Tedarik zinciri saldırılarının ne kadar tehlikeli olabileceğini ve siber savaşın coğrafi sınırları aşarak küresel ticarete nasıl milyarlarca dolarlık zarar verebileceğini kanıtlamıştır. Siber sigortacılık ve uluslararası siber normlar üzerinde derin ve kalıcı bir etki bırakmıştır.",
+      "en": "Considered one of the most destructive and costly cyberattacks ever conducted by a nation-state, disguised as ransomware. It proved the profound danger of supply chain attacks and showed how cyber warfare can transcend geographical borders, causing billions of dollars in damage to global commerce. It has had a deep and lasting impact on cyber insurance and international cyber norms."
+    },
+    "sources": [
+      "https://www.wired.com/story/notpetya-cyberattack-ukraine-russia-code-crashed-the-world/",
+      "https://www.cfr.org/blog/notpetya-and-future-warfare",
+      "https://www.kaspersky.com/blog/not-petya-faq/16277/",
+      "https://www.csoonline.com/article/567549/notpetya-ransomware-everything-you-need-to-know.html",
+      "https://trumpwhitehouse.archives.gov/briefings-statements/statement-press-secretary-russias-involvement-notpetya-cyber-attack/"
+    ]
+  }
+}

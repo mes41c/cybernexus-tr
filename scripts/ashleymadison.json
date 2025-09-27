@@ -1,0 +1,40 @@
+{
+  "event_date": "2015-07-15",
+  "title": {
+    "tr": "Ahlaki Hüküm: Ashley Madison Veri Sızıntısı",
+    "en": "The Moral Judgment: The Ashley Madison Data Breach"
+  },
+  "narrative": {
+    "tr": "2015 yazında, dijital dünyanın en tartışmalı köşelerinden biri olan Ashley Madison, kendi yarattığı fırtınanın merkezinde buldu. 'Hayat kısa. Bir kaçamak yaşa.' sloganıyla, evlilik dışı ilişkiler için gizli bir sığınak vaat eden site, milyonlarca kullanıcısına mutlak bir gizlilik güvencesi satıyordu. Ancak bu dijital sır perdesi, 'The Impact Team' adını taşıyan bir hacker grubunun sahneye çıkmasıyla sonsuza dek yırtılacaktı. Grup, 15 Temmuz 2015'te, Ashley Madison'ın ana şirketi Avid Life Media'nın (ALM) sistemlerine sızdığını duyurdu. Talepleri netti: Ashley Madison ve kardeş sitesi Established Men derhal kapatılmalıydı. Aksi takdirde, 37 milyon kullanıcının en mahrem sırları; isimleri, e-posta adresleri, finansal bilgileri ve cinsel fantezileriyle birlikte internetin karanlık dehlizlerine salınacaktı. Hacker'lar, ALM'nin kullanıcılardan profillerini kalıcı olarak silmek için para aldığı 'paid-delete' hizmetinin bir aldatmaca olduğunu iddia ederek eylemlerini ahlaki bir haçlı seferi olarak konumlandırdı. ALM, tehdide boyun eğmeyi reddetti. Bir ay sonra, 18 Ağustos 2015'te, The Impact Team sözünü tuttu. Neredeyse 10 GB boyutundaki ilk veri dökümü, karanlık ağda yayınlandı ve bunu daha büyükleri takip etti. Bu, sadece bir veri sızıntısı değil, toplumsal bir patlamaydı. Veritabanı hızla herkesin erişebileceği bir hale geldi ve insanlar eşlerinin, komşularının veya patronlarının sitede olup olmadığını kontrol etmeye başladı. Sonuçlar trajikti. Sızıntı, dünya çapında kamuya mal olmuş utançlara, şantajlara, kariyerlerin bitişine, boşanmalara ve hatta intiharlarla ilişkilendirilen ölümlere yol açtı. Ashley Madison sızıntısı, bir siber saldırının sadece finansal veya teknik bir olay olmadığını, aynı zamanda insan hayatını geri dönülmez bir şekilde mahvedebilecek derin kişisel ve psikolojik sonuçları olabileceğini acı bir şekilde kanıtladı. Vaat edilen dijital gizliliğin ne kadar kırılgan olduğunu ve ahlaki gerekçelerle yapılan bir siber saldırının bile nasıl yıkıcı bir insani bedel yaratabileceğini gözler önüne serdi.",
+    "en": "In the summer of 2015, one of the most controversial corners of the digital world, Ashley Madison, found itself at the center of a storm of its own making. With the slogan 'Life is short. Have an affair.', the site promised a secret haven for extramarital relationships, selling the assurance of absolute discretion to its millions of users. However, this digital veil of secrecy was about to be torn away forever when a hacker group calling itself 'The Impact Team' stepped onto the stage. On July 15, 2015, the group announced they had breached the systems of Avid Life Media (ALM), Ashley Madison's parent company. Their demand was clear: Ashley Madison and its sister site, Established Men, must be shut down immediately. Otherwise, the most intimate secrets of 37 million users—their names, email addresses, financial data, and sexual fantasies—would be unleashed into the dark corners of the internet. The hackers framed their actions as a moral crusade, claiming that ALM's 'paid-delete' service, which charged users to permanently erase their profiles, was a fraudulent lie. ALM refused to bow to the threat. A month later, on August 18, 2015, The Impact Team delivered on their promise. The first data dump, nearly 10 GB in size, was released on the dark web, followed by even larger ones. This was not just a data breach; it was a social explosion. The database quickly became publicly searchable, and people began checking to see if their spouses, neighbors, or bosses were on the site. The consequences were tragic. The leak led to worldwide public shaming, blackmail, ruined careers, divorces, and even deaths linked to suicide. The Ashley Madison breach painfully proved that a cyberattack is not merely a financial or technical event, but can have profound personal and psychological consequences that can irreversibly destroy human lives. It laid bare just how fragile the promise of digital anonymity is and how even a cyberattack driven by moral justifications can inflict a devastating human cost."
+  },
+  "metadata": {
+    "key_people": [
+      "The Impact Team (Hacker Group)",
+      "Noel Biderman (CEO of Avid Life Media)"
+    ],
+    "technologies_used": [
+      "Corporate Network Intrusion",
+      "MySQL Database",
+      "Dark Web (Tor Network)"
+    ],
+    "methods_used": [
+      "Data Breach",
+      "Data Dump",
+      "Hacktivism",
+      "Extortion",
+      "Public Shaming"
+    ],
+    "significance": {
+      "tr": "Ashley Madison sızıntısı, siber güvenliğin sadece kurumsal verileri korumakla ilgili olmadığını, aynı zamanda son derece kişisel ve hassas bilgilerin ifşasının yıkıcı toplumsal sonuçları olabileceğini göstermiştir. Bu olay, 'hacktivizm'in ahlaki sınırlarını ve 'iyi niyetli' saldırıların bile orantısız zarara yol açabileceğini sorgulatmıştır. Şirketler için veri güvenliğinin ve kullanıcı gizliliğine yönelik vaatlerin ciddiyetinin altını çizerken, bireyler için de dijital ayak izlerinin kalıcılığını ve anonimliğin bir yanılsama olabileceğini acı bir şekilde hatırlatmıştır.",
+      "en": "The Ashley Madison breach demonstrated that cybersecurity is not just about protecting corporate data, but that the exposure of deeply personal and sensitive information can have devastating societal consequences. This event called into question the ethical boundaries of 'hacktivism' and how even 'well-intentioned' attacks can cause disproportionate harm. For companies, it underscored the critical importance of data security and the promises made to users about privacy. For individuals, it served as a harsh reminder of the permanence of their digital footprint and that online anonymity can be an illusion."
+    },
+    "sources": [
+      "https://krebsonsecurity.com/2015/07/online-cheating-site-ashleymadison-hacked/",
+      "https://www.wired.com/2015/08/ashley-madison-data-dump/",
+      "https://www.theguardian.com/technology/2015/aug/19/ashley-madison-hack-the-data-is-out-there-so-what-next",
+      "https://arstechnica.com/information-technology/2015/08/hackers-finally-post-stolen-ashley-madison-data/",
+      "https://www.csis.org/blogs/truly-unprecedented-ashley-madison-hack"
+    ]
+  }
+}

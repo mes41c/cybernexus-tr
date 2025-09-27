@@ -1,0 +1,45 @@
+{
+  "event_date": "2021-03-02",
+  "title": {
+    "tr": "ProxyLogon: Microsoft Exchange Sunucularını Vuran Küresel Siber Kriz",
+    "en": "ProxyLogon: The Global Cyber Crisis That Hit Microsoft Exchange Servers"
+  },
+  "narrative": {
+    "tr": "2021 yılının ilk aylarında, dünya COVID-19 pandemisiyle uzaktan çalışma düzenine geçmişken, dijital altyapının kalbinde sessiz bir fırtına kopuyordu. Microsoft'un 'Hafnium' olarak adlandırdığı, Çin destekli sofistike bir hacker grubu, on binlerce şirketin e-posta, takvim ve iletişimini yöneten yerleşik (on-premises) Microsoft Exchange sunucularında daha önce hiç kimsenin bilmediği dört kritik güvenlik açığını keşfetmişti. Bu zafiyetler, bir araya geldiğinde dijital bir maymuncuk gibi işliyordu; saldırganların herhangi bir parola veya kimlik bilgisine ihtiyaç duymadan sunuculara sızmasına olanak tanıyordu.\n\nHafnium, bu 'sıfır-gün' zafiyetlerini kullanarak sunuculara sızdı, e-posta hesaplarına tam erişim sağladı ve en önemlisi, gelecekte diledikleri zaman geri dönebilmek için 'web shell' adı verilen kalıcı arka kapılar yerleştirdi. Amaçları netti: hassas verileri çalmak. Hedefleri arasında bulaşıcı hastalık araştırmacıları, hukuk firmaları, savunma sanayii şirketleri ve sivil toplum kuruluşları gibi stratejik öneme sahip kurumlar vardı.\n\nTehlikeyi ilk fark edenlerden biri, Tayvanlı siber güvenlik firması DEVCORE'dan araştırmacı Cheng-Da Tsai (Orange Tsai) oldu. Zafiyetleri Ocak ayı başında Microsoft'a bildirdi. Eş zamanlı olarak Volexity gibi diğer güvenlik firmaları da müşterilerinin sunucularında tuhaf ve açıklanamayan aktiviteler tespit etmeye başlamıştı. Microsoft acil durum yamaları üzerinde çalışırken, Hafnium faaliyetlerini aniden hızlandırdı. Yamaların yayınlanacağını öngörmüş gibi, 26 Şubat'tan itibaren otomatize edilmiş saldırılarla mümkün olduğunca çok sunucuya arka kapı yerleştirmek için zamana karşı yarıştı.\n\n2 Mart 2021'de Microsoft, acil güvenlik yamalarını yayınlayarak krizi kamuoyuna duyurdu. Ancak bu duyuru, Pandora'nın Kutusu'nu açtı. Hafnium'un kullandığı teknikler artık herkesin malumuydu. Fırsatı ganimete çevirmek isteyen diğer siber suç grupları ve fidye yazılımı çeteleri, yamaları tersine mühendislikle inceleyerek aynı zafiyetleri sömürmeye başladı. Bu durum, dünya çapında sistem yöneticilerinin bir yandan sunucularını yamamaya çalıştığı, diğer yandan saldırganların içeri sızmak için yarıştığı küresel bir siber güvenlik krizine dönüştü. On binlerce organizasyon, sadece casuslukla değil, aynı zamanda verilerini şifreleyip fidye isteyen suçlularla da yüzleşmek zorunda kaldı.",
+    "en": "In the early months of 2021, as the world adapted to remote work amid the COVID-19 pandemic, a silent storm was brewing in the heart of digital infrastructure. A sophisticated state-sponsored hacking group from China, designated 'Hafnium' by Microsoft, had discovered four previously unknown, critical vulnerabilities in on-premises Microsoft Exchange Servers—the systems managing email, calendars, and communications for tens of thousands of businesses. When chained together, these flaws acted as a digital master key, allowing attackers to breach servers without needing a single password or credential.\n\nHafnium exploited these 'zero-day' vulnerabilities to infiltrate servers, gain full access to email accounts, and, most critically, install persistent backdoors known as 'web shells' for long-term access. Their objective was clear: espionage and data theft. Their targets were strategic, ranging from infectious disease researchers and law firms to defense contractors and non-governmental organizations.\n\nThe alarm was first raised by researchers like Cheng-Da Tsai (Orange Tsai) of the Taiwanese cybersecurity firm DEVCORE, who reported the vulnerabilities to Microsoft in early January. Concurrently, other security firms like Volexity began detecting strange and inexplicable activity on their clients' servers. As Microsoft worked on emergency patches, Hafnium suddenly and dramatically accelerated its activities. Seemingly anticipating the patches, they launched a massive, automated campaign starting around February 26th, racing against time to plant backdoors on as many servers as possible.\n\nOn March 2, 2021, Microsoft released the emergency security patches and publicly disclosed the crisis. However, the announcement opened Pandora's Box. Hafnium's techniques were now exposed. Other cybercrime groups and ransomware gangs quickly reverse-engineered the patches and began exploiting the same vulnerabilities. This ignited a global cybersecurity firestorm, pitting system administrators in a desperate race to patch their systems against attackers rushing to compromise them. Tens of thousands of organizations were left to confront not only state-sponsored espionage but also criminals who followed in their wake, encrypting data and demanding ransom."
+  },
+  "metadata": {
+    "key_people": [
+      "Hafnium (State-Sponsored Actor)",
+      "Microsoft Threat Intelligence Center (MSTIC)",
+      "Cheng-Da Tsai (Orange Tsai) - DEVCORE",
+      "Volexity Security Researchers"
+    ],
+    "technologies_used": [
+      "Microsoft Exchange Server (On-Premises)",
+      "Outlook on the Web (OWA)",
+      "Web Shells",
+      "PowerShell"
+    ],
+    "methods_used": [
+      "Zero-Day Exploit Chaining",
+      "Server-Side Request Forgery (SSRF) (CVE-2021-26855)",
+      "Remote Code Execution (RCE)",
+      "Data Exfiltration",
+      "Espionage",
+      "Insecure Deserialization (CVE-2021-26857)",
+      "Arbitrary File Write (CVE-2021-26858, CVE-2021-27065)"
+    ],
+    "significance": {
+      "tr": "ProxyLogon, yerleşik (on-premises) sunucu altyapılarının taşıdığı büyük riski ve sıfır-gün zafiyetlerinin kamuoyuna duyurulduğu anda nasıl küresel bir siber suç dalgasına dönüşebileceğini gözler önüne serdi. Bu olay, birçok kuruluşu bulut tabanlı e-posta çözümlerine geçiş yapmaya teşvik etti ve siber güvenlikte hızlı yama yönetiminin ve proaktif tehdit avcılığının hayati önemini acı bir şekilde hatırlattı. Aynı zamanda, ABD ve müttefiklerinin saldırıları resmen Çin'e atfetmesiyle devlet destekli siber operasyonlar konusunda uluslararası diplomatik gerilimi artırdı.",
+      "en": "ProxyLogon starkly illustrated the immense risk of on-premises server infrastructure and how the disclosure of zero-day vulnerabilities can trigger a global wave of cybercrime. The event accelerated the migration of many organizations to cloud-based email solutions and served as a harsh reminder of the critical importance of rapid patch management and proactive threat hunting in cybersecurity. It also heightened international diplomatic tensions over state-sponsored cyber operations, as the U.S. and its allies formally attributed the campaign to China."
+    },
+    "sources": [
+      "https://www.microsoft.com/en-us/security/blog/2021/03/02/hafnium-targeting-exchange-servers/",
+      "https://www.volexity.com/blog/2021/03/02/active-exploitation-of-microsoft-exchange-zero-day-vulnerabilities/",
+      "https://www.cisa.gov/uscert/ncas/alerts/aa21-062a",
+      "https://www.wired.com/story/hafnium-microsoft-exchange-china-hack/",
+      "https://krebsonsecurity.com/2021/03/a-basic-timeline-of-the-exchange-mass-hack/"
+    ]
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "event_date": "2018-03-17",
+  "title": {
+    "tr": "Cambridge Analytica Skandalı: Verinin Silaha Dönüşümü",
+    "en": "The Cambridge Analytica Scandal: The Weaponization of Data"
+  },
+  "narrative": {
+    "tr": "2014 yılında, her şey masum bir kişilik testi gibi başladı. Cambridge Üniversitesi akademisyeni Aleksandr Kogan tarafından geliştirilen 'thisisyourdigitallife' adlı Facebook uygulaması, kullanıcılara psikolojik profillerini çıkarma vaadinde bulunuyordu. Ancak bu basit testin arkasında, dijital çağın en büyük veri ihlallerinden birine yol açacak karmaşık bir operasyon gizliydi. Yaklaşık 270.000 kullanıcı, uygulamaya izin vererek sadece kendi verilerini değil, Facebook'un o dönemdeki gevşek API politikaları sayesinde arkadaşlarının da verilerini farkında olmadan paylaştı. Bu sayede toplanan devasa veri hazinesi, yaklaşık 87 milyon insanın dijital ayak izini içeriyordu. Bu ham veri, bir sonraki aşamada siyasi danışmanlık firması Cambridge Analytica'ya satıldı. Firmanın perde arkasındaki amacı, bu verileri kullanarak seçmenlerin en derin korkularını, umutlarını ve önyargılarını anlamaktı. 'Psikografik profilleme' adı verilen bir yöntemle, her bir bireyin kişilik özellikleri analiz edildi ve seçmenler, belirli mesajlara ne kadar açık olduklarına göre mikro gruplara ayrıldı. 2016 ABD Başkanlık seçimleri ve Brexit referandumu gibi kritik siyasi olaylar yaklaşırken, bu profiller bir silaha dönüştü. Cambridge Analytica, bu gruplara özel olarak tasarlanmış, onları manipüle etmeyi, kararsızları belirli bir adaya yönlendirmeyi ve hatta karşıt görüştekileri sandıktan soğutmayı amaçlayan kişiselleştirilmiş reklamlar ve propaganda içerikleri yağdırdı. Mart 2018'de, firmanın eski araştırma direktörü Christopher Wylie'nin The Guardian ve The New York Times'a yaptığı itiraflarla tüm operasyon gün yüzüne çıktı. Skandal, sadece bir teknoloji şirketinin başarısızlığı değil, aynı zamanda kişisel verilerin demokratik süreçleri baltalamak için nasıl kullanılabileceğinin korkutucu bir kanıtı olarak tarihe geçti. Facebook'un kurucusu Mark Zuckerberg Kongre'de ifade vermek zorunda kalırken, Cambridge Analytica iflas etti ve sosyal medya platformlarının toplumsal sorumluluğu tüm dünyada sorgulanmaya başlandı.",
+    "en": "In 2014, it all began with what seemed like an innocent personality quiz. A Facebook application called 'thisisyourdigitallife', developed by Cambridge University academic Aleksandr Kogan, promised users insights into their psychological profiles. However, behind this simple test was a sophisticated operation that would lead to one of the biggest data breaches of the digital age. Approximately 270,000 users who granted permission to the app unknowingly shared not only their own data but also, thanks to Facebook's lax API policies at the time, the data of their friends. The massive treasure trove of data collected through this method contained the digital footprints of about 87 million people. This raw data was then sold to the political consulting firm Cambridge Analytica. The firm's ulterior motive was to use this data to understand voters' deepest fears, hopes, and biases. Using a method called 'psychographic profiling,' each individual's personality traits were analyzed, and voters were segmented into micro-groups based on their susceptibility to certain messages. As critical political events like the 2016 US Presidential election and the Brexit referendum approached, these profiles were turned into a weapon. Cambridge Analytica bombarded these groups with custom-designed advertisements and propaganda content aimed at manipulating them, swaying undecideds toward a specific candidate, and even discouraging apathetic opponents from voting. In March 2018, the entire operation was exposed through confessions made by the firm's former research director, Christopher Wylie, to The Guardian and The New York Times. The scandal went down in history not just as a failure of a tech company, but as terrifying proof of how personal data could be used to undermine democratic processes. Facebook founder Mark Zuckerberg was forced to testify before Congress, Cambridge Analytica filed for bankruptcy, and the social responsibility of social media platforms began to be questioned worldwide."
+  },
+  "metadata": {
+    "key_people": [
+      "Christopher Wylie (Whistleblower, Former Director of Research)",
+      "Aleksandr Kogan (App Developer, Academic)",
+      "Alexander Nix (CEO of Cambridge Analytica)",
+      "Mark Zuckerberg (CEO of Facebook)",
+      "Steve Bannon (Co-founder and Vice President of Cambridge Analytica)",
+      "Robert Mercer (Primary Investor)"
+    ],
+    "technologies_used": [
+      "Facebook Graph API (v1.0)",
+      "Big Data Analytics",
+      "Psychographic Modeling (e.g., OCEAN model)",
+      "Micro-Targeted Advertising"
+    ],
+    "methods_used": [
+      "Unauthorized Data Harvesting",
+      "Psychographic Profiling",
+      "Voter Manipulation",
+      "Behavioral Microtargeting",
+      "Disinformation Campaigns"
+    ],
+    "significance": {
+      "tr": "Cambridge Analytica skandalı, kişisel verilerin sadece ticari reklamcılık için değil, aynı zamanda demokratik süreçleri ve seçim sonuçlarını manipüle etmek için güçlü bir araç olarak nasıl kullanılabileceğini küresel çapta gözler önüne serdi. Bu olay, veri gizliliği ve güvenliği konusunda kamuoyu farkındalığını önemli ölçüde artırdı, Avrupa Birliği'nin GDPR gibi katı veri koruma yasalarını uygulamasına ivme kazandırdı ve teknoloji devlerinin toplumsal ve etik sorumlulukları hakkında küresel bir tartışma başlattı. Siber güvenlik açısından, sosyal mühendislik ve dezenformasyonun ne kadar büyük ölçekli ve etkili olabileceğini göstererek seçim güvenliği kavramını yeniden şekillendirdi.",
+      "en": "The Cambridge Analytica scandal globally exposed how personal data could be used not just for commercial advertising, but as a powerful tool to manipulate democratic processes and election outcomes. This event significantly raised public awareness about data privacy and security, accelerated the implementation of strict data protection laws like the EU's GDPR, and sparked a global debate on the social and ethical responsibilities of tech giants. From a cybersecurity perspective, it reshaped the concept of election security by demonstrating the massive scale and effectiveness of social engineering and disinformation."
+    },
+    "sources": [
+      "https://www.theguardian.com/news/2018/mar/17/cambridge-analytica-facebook-influence-us-election",
+      "https://www.nytimes.com/2018/03/17/us/politics/cambridge-analytica-trump-campaign.html",
+      "https://www.ftc.gov/news-events/news/press-releases/2019/07/ftc-imposes-5-billion-penalty-sweeping-new-privacy-restrictions-facebook",
+      "https://www.wired.com/story/cambridge-analytica-facebook-privacy-hearings/",
+      "https://www.channel4.com/news/cambridge-analytica-uncovered-secret-filming-reveals-honey-traps-fake-news-and-bribes-to-swing-elections"
+    ]
+  }
+}

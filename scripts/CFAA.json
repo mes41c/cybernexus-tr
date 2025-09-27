@@ -1,0 +1,40 @@
+{
+  "event_date": "1986-10-16",
+  "title": {
+    "tr": "Dijital Sınırların Çizilmesi: Bilgisayar Dolandırıcılığı ve Kötüye Kullanımı Yasası (CFAA)",
+    "en": "Drawing the Digital Frontier: The Computer Fraud and Abuse Act (CFAA)"
+  },
+  "narrative": {
+    "tr": "1983 yılında sinema salonları, genç bir hacker'ın yanlışlıkla ABD'nin nükleer cephaneliğini kontrol eden bir askeri süper bilgisayara sızarak dünyayı nükleer savaşın eşiğine getirdiği 'Savaş Oyunları' (WarGames) filmiyle dolup taşıyordu. Bu, halk için heyecan verici bir bilim kurgu senaryosuydu. Ancak Washington D.C.'deki yasa yapıcılar için bu, korkutucu bir şekilde gerçeğe dönüşebilecek bir kabustu. O sıralar, Milwaukee'den 'The 414s' olarak bilinen bir grup genç, ülkenin dört bir yanındaki düzinelerce yüksek profilli bilgisayar sistemine, Los Alamos Ulusal Laboratuvarı da dahil olmak üzere, sızmıştı. Bu olaylar, mevcut yasaların ne kadar yetersiz olduğunu acı bir şekilde ortaya koyuyordu. Birinin mülküne fiziki olarak girmeden nasıl 'izinsiz girme' suçu işlenebilirdi? Dijital bir veriyi 'çalmak' ne anlama geliyordu? Kongre, bu yeni ve soyut suç dünyasıyla başa çıkmak için bir yasal çerçeve oluşturma baskısı altındaydı. Temsilci William 'Bill' Hughes'un öncülüğünde yürütülen yoğun tartışmaların ardından, Kongre bu dijital kanunsuzluğa bir son vermek üzere harekete geçti. Cevapları, Bilgisayar Dolandırıcılığı ve Kötüye Kullanımı Yasası (CFAA) oldu. Bu yasa, özünde basit ama etkisi devrimsel nitelikte bir fikir üzerine kuruluydu: Bir bilgisayar sistemine 'yetkisiz erişim' sağlamak federal bir suçtur. Artık bir 'korunan bilgisayara' (başlangıçta federal hükümet bilgisayarları ve büyük finans kurumlarının sistemleri olarak tanımlanmıştı) izinsiz girmek, bir banka soymakla aynı yasal zemine oturtuluyordu. Yasa, 16 Ekim 1986'da Başkan Ronald Reagan tarafından imzalandığında, sadece belirli eylemleri suç saymakla kalmadı; aynı zamanda dijital dünyanın artık kanunların geçerli olduğu bir alan olduğunu ilan etti. O gün, modemlerin cızırtılı seslerinin yankılandığı o ilk ağ günlerinde, siber uzayın ilk sınır karakolu kurulmuş ve siber suçla mücadelenin modern çağı resmen başlamıştı.",
+    "en": "In 1983, movie theaters were filled with audiences watching 'WarGames,' a film where a young hacker accidentally breaks into a military supercomputer controlling the U.S. nuclear arsenal, bringing the world to the brink of nuclear war. For the public, it was thrilling science fiction. But for lawmakers in Washington D.C., it was a nightmare that felt frighteningly plausible. Around the same time, a group of teenagers from Milwaukee known as 'The 414s' had broken into dozens of high-profile computer systems across the country, including the Los Alamos National Laboratory. These incidents painfully highlighted the inadequacy of existing laws. How could someone be charged with 'trespassing' without physically entering a property? What did it mean to 'steal' digital data? Congress was under pressure to create a legal framework to deal with this new, abstract world of crime. After intense debates, led by figures like Representative William 'Bill' Hughes, Congress moved to put an end to this digital lawlessness. Their answer was the Computer Fraud and Abuse Act (CFAA). The act was built on a simple but revolutionary idea: gaining 'unauthorized access' to a computer system is a federal crime. Now, breaking into a 'protected computer' (initially defined as federal government computers and systems at major financial institutions) was placed on the same legal footing as robbing a bank. When the law was signed by President Ronald Reagan on October 16, 1986, it didn't just criminalize specific actions; it declared that the digital world was now a domain governed by law. On that day, amidst the screeching sounds of dial-up modems echoing in the early days of the network, the first border post of cyberspace was established, and the modern era of combating cybercrime officially began."
+  },
+  "metadata": {
+    "key_people": [
+      "William 'Bill' Hughes",
+      "Ronald Reagan",
+      "The 414s (Hacker Group)"
+    ],
+    "technologies_used": [
+      "Dial-up Modems",
+      "Bulletin Board Systems (BBS)",
+      "Mainframe Computers",
+      "Personal Computers"
+    ],
+    "methods_used": [
+      "Federal Legislation",
+      "Criminalization of Unauthorized Access",
+      "Expansion of Wire Fraud Statutes"
+    ],
+    "significance": {
+      "tr": "CFAA, Amerika Birleşik Devletleri'nde bilgisayar korsanlığını ve ilgili suçları hedef alan ilk kapsamlı federal yasadır. 'Yetkisiz erişim' kavramını yasal bir suç olarak tanımlayarak siber suçlar için bir temel oluşturmuştur. Bu yasa, savcılara o zamana kadar mevcut olmayan bir yasal araç sunarak dijital suçlarla mücadelede bir dönüm noktası oldu. Ancak, zamanla kapsamının genişletilmesi ve 'yetkisiz' teriminin geniş yorumlanması, yasanın güvenlik araştırmacılarını caydırdığı, orantısız cezalara yol açtığı ve teknolojik yeniliği engellediği yönünde ciddi eleştirilere ve tartışmalara neden olmuştur. Bugün hala ABD'deki siber suç davalarının temelini oluşturmaktadır.",
+      "en": "The CFAA is the first comprehensive federal law in the United States specifically targeting computer hacking and related offenses. It established a legal foundation for cybercrime by defining the concept of 'unauthorized access' as a criminal act. This law was a turning point in the fight against digital crime, giving prosecutors a legal tool that did not exist before. However, the subsequent expansion of its scope and the broad interpretation of the term 'unauthorized' have led to significant criticism and controversy, with arguments that the law discourages security research, leads to disproportionate punishments, and stifles technological innovation. It remains the primary statute for prosecuting cybercrime cases in the U.S. today."
+    },
+    "sources": [
+      "https://www.congress.gov/bill/99th-congress/house-bill/4718",
+      "https://www.eff.org/issues/cfaa",
+      "https://www.justice.gov/criminal-ccips/computer-fraud-and-abuse-act",
+      "https://www.wired.com/story/computer-fraud-abuse-act-cfaa-reform-van-buren-supreme-court/",
+      "https://www.cs.stanford.edu/people/eroberts/cs181/projects/computer-crime/history.html"
+    ]
+  }
+}

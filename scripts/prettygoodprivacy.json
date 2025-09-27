@@ -1,0 +1,42 @@
+{
+  "event_date": "1991-06-05",
+  "title": {
+    "tr": "Sessiz Bir Devrim: PGP'nin İnternette Yayınlanması ve Kripto Savaşları'nın Başlaması",
+    "en": "A Quiet Revolution: The Release of PGP on the Internet and the Start of the Crypto Wars"
+  },
+  "narrative": {
+    "tr": "1991 yılının başlarında, internet henüz emekleme dönemindeydi ve dijital gizlilik kavramı, bir avuç akademisyen ve aktivistin zihninde yaşayan niş bir konuydu. Güçlü kriptografi, ulusal güvenlik aygıtlarının sıkı bir şekilde koruduğu bir 'silah' olarak kabul ediliyordu ve ABD yasaları, bu tür yazılımların ihracatını bir makineli tüfek ihraç etmekle aynı kefeye koyuyordu. Bu ortamda, nükleer silahsızlanma aktivisti ve parlak bir yazılım mühendisi olan Phil Zimmermann, sessizce tarihi değiştirecek bir proje üzerinde çalışıyordu. Zimmermann, hükümetlerin artan gözetleme yeteneklerinden ve sıradan vatandaşların iletişimlerini koruyacak araçlardan mahrum olmasından derin endişe duyuyordu. Ona göre dijital çağda gizlilik, demokrasi için bir zorunluluktu. Bu inançla, mevcut en güçlü kriptografik fikirleri (RSA'nın açık anahtar büyüsü ve simetrik şifrelemenin hızı) 'hibrit' bir sistemde birleştiren bir yazılım yarattı. Adını mütevazı bir şekilde 'Pretty Good Privacy' (PGP - Oldukça İyi Gizlilik) koydu. 5 Haziran 1991'de Zimmermann, kader anının geldiğini hissetti. Hükümetin şifrelemeye arka kapılar zorunlu kılacak yasal düzenlemeler hazırladığını duyunca, PGP'yi dünyaya sunmanın zamanının geldiğine karar verdi. Kaynak kodunu bir arkadaşına verdi ve o da PGP'yi Usenet haber grupları aracılığıyla internetin dört bir yanına salıverdi. Yazılım, küresel ağlarda bir orman yangını gibi yayıldı. İnsan hakları savunucuları, gazeteciler ve sıradan insanlar ilk kez, hükümetlerinin bile kıramayacağı 'askeri düzeyde' bir şifrelemeye ücretsiz olarak sahip oldular. Bu durum, ABD hükümetini alarma geçirdi. PGP, uluslararası sınırlardan sızarak ihracat yasalarını ihlal etmişti. Zimmermann, 'mühimmat' yasa dışı ihraç etmek suçlamasıyla üç yıl sürecek bir cezai soruşturmanın hedefi haline geldi. Bu olay, bireysel gizlilik haklarını savunan 'siberpunklar' ile ulusal güvenliği öne süren devletler arasındaki on yıllık bir mücadele olan 'Kripto Savaşları'nı ateşledi. PGP'nin o günkü sessiz yayını, aslında dijital özgürlük için atılmış en gürültülü adımlardan biriydi.",
+    "en": "In early 1991, the internet was in its infancy, and the concept of digital privacy was a niche concern dwelling in the minds of a handful of academics and activists. Strong cryptography was considered a 'munition,' a weapon tightly guarded by national security apparatuses, and U.S. law equated exporting such software with exporting a machine gun. In this climate, Phil Zimmermann, an anti-nuclear activist and a brilliant software engineer, was quietly working on a project that would change history. Zimmermann was deeply concerned by the growing surveillance capabilities of governments and the lack of tools for ordinary citizens to protect their communications. For him, privacy in the digital age was a necessity for democracy. With this conviction, he created a piece of software that combined the most potent cryptographic ideas available—the public-key magic of RSA and the speed of symmetric encryption—into a 'hybrid' system. He modestly named it 'Pretty Good Privacy' (PGP). On June 5, 1991, Zimmermann felt the moment had come. Hearing that the government was preparing legislation that would mandate backdoors in encryption, he decided it was time to give PGP to the world. He handed the source code to a friend, who then unleashed it across the internet via Usenet newsgroups. The software spread like wildfire through the global networks. For the first time, human rights activists, journalists, and ordinary people had free access to 'military-grade' encryption that not even their own governments could break. This set off alarms in the U.S. government. PGP had crossed international borders, violating export laws. Zimmermann became the target of a three-year criminal investigation for the illegal exportation of 'munitions.' This event ignited the 'Crypto Wars,' a decade-long struggle between 'cypherpunks' advocating for individual privacy rights and states prioritizing national security. PGP's quiet release that day was, in fact, one of the loudest shots fired for digital freedom."
+  },
+  "metadata": {
+    "key_people": [
+      "Phil Zimmermann"
+    ],
+    "technologies_used": [
+      "Hybrid Cryptosystem",
+      "RSA (Public-Key Cryptography)",
+      "IDEA (Symmetric-Key Cryptography in early versions)",
+      "Web of Trust (Key Verification Model)",
+      "Hashing",
+      "Data Compression"
+    ],
+    "methods_used": [
+      "Public Key Encryption",
+      "Digital Signatures",
+      "Freeware Distribution (via Usenet)"
+    ],
+    "significance": {
+      "tr": "PGP'nin yayınlanması, kriptografi tarihinde bir devrimdir çünkü askeri düzeyde güçlü şifrelemeyi ilk kez kitlelere ücretsiz olarak sunmuştur. Bu olay, ABD hükümetinin kriptografik teknolojiler üzerindeki kontrolünü doğrudan sorgulayan ve 'Kripto Savaşları' olarak bilinen dönemi başlatan kilit bir adımdı. Zimmermann'a karşı açılan soruşturma, dijital gizlilik, ifade özgürlüğü ve yazılım kaynak kodunun statüsü üzerine küresel bir tartışma yarattı. PGP, hükümet kontrolündeki sertifika otoritelerine alternatif olarak merkeziyetsiz bir 'Güven Ağı' (Web of Trust) modelini popülerleştirdi. En önemlisi, PGP'nin başarısı ve yaygınlaşması, daha sonra OpenPGP (RFC 4880) standardının geliştirilmesine yol açtı ve günümüzdeki güvenli e-posta ve dosya şifreleme standartlarının temelini oluşturdu.",
+      "en": "The release of PGP is a revolution in the history of cryptography because it was the first tool to provide military-grade strong encryption to the masses for free. This event was a key catalyst that directly challenged the U.S. government's control over cryptographic technologies and initiated the era known as the 'Crypto Wars'. The investigation against Zimmermann sparked a global debate on digital privacy, free speech, and the legal status of software source code. PGP popularized a decentralized 'Web of Trust' model as an alternative to government-controlled Certificate Authorities. Most importantly, the success and proliferation of PGP led to the development of the OpenPGP standard (RFC 4880), forming the foundation of modern secure email and file encryption standards."
+    },
+    "sources": [
+      "https://philzimmermann.com/EN/essays/PGP_30thAnniversary.html",
+      "https://www.wired.com/1993/02/crypto-rebels/",
+      "https://cs.stanford.edu/people/eroberts/courses/soco/projects/2004-05/cryptography/pgp.html",
+      "https://www.internethalloffame.org/inductee/philip-zimmermann/",
+      "https://www.fortinet.com/resources/cyberglossary/pgp-encryption",
+      "https://en.wikipedia.org/wiki/Crypto_Wars",
+      "https://www.eff.org/files/2015/07/08/pgp_brochure.pdf"
+    ]
+  }
+}

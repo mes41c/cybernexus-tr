@@ -1,0 +1,45 @@
+{
+  "event_date": "2024-05-22",
+  "title": {
+    "tr": "Snowflake Müşteri Veri İhlalleri: MFA Eksikliğinin Milyonlarca Dolarlık Bedeli",
+    "en": "The Snowflake Customer Data Breaches: The Multi-Million Dollar Cost of Lacking MFA"
+  },
+  "narrative": {
+    "tr": "2024 baharında, teknoloji dünyasının devleri birer birer sarsılmaya başladı. Önce bilet devi Ticketmaster, ardından finans devi Santander Bank... Her ikisi de devasa veri ihlalleriyle gündeme geldi. Siber güvenlik araştırmacıları bu iki dev olayı birleştiren ortak bir halka bulduklarında, gözler bulut veri platformu devi Snowflake'e çevrildi. İlk başta, herkes Snowflake'in kendisinin hacklendiği, tarihin en büyük bulut felaketlerinden birinin yaşandığı korkusuna kapıldı. Ancak gerçek, çok daha basit ve bir o kadar da sarsıcıydı. Hikaye, Snowflake'in kalbine yapılan sofistike bir saldırı değil, platformun müşterilerinin dijital kapılarının ardına kadar açık bırakılmasının bir sonucuydu. UNC5537 olarak adlandırılan siber suç grubu, yıllar boyunca çeşitli 'info-stealer' (bilgi hırsızı) zararlı yazılımlarıyla biriktirdiği devasa bir kullanıcı adı ve şifre veritabanına sahipti. Bu çalınmış kimlik bilgileri, farklı şirketlerde çalışan ve aynı zamanda Snowflake müşteri hesaplarına erişimi olan personellere aitti. Saldırganlar, bu kimlik bilgilerini kullanarak sistematik bir şekilde Snowflake müşteri portallarını denemeye başladı. Çok Faktörlü Kimlik Doğrulama (MFA) gibi modern bir 'dijital kilit' kullanmayan her bir hesap, onlar için ardına kadar açık bir kapı demekti. Saldırganlar bu kapılardan içeri sızarak yüzlerce şirketin en değerli verilerini, müşteri bilgilerini, finansal kayıtlarını sessizce dışarı taşıdı. Snowflake, Mandiant ve CrowdStrike gibi siber güvenlik firmalarıyla yaptığı ortak araştırmada, kendi sistemlerinde bir güvenlik açığı olmadığını, sorunun tamamen müşteri tarafındaki zayıf güvenlik uygulamalarından kaynaklandığını duyurdu. Bu olay, bulut güvenliğindeki 'Paylaşılan Sorumluluk Modeli'nin ne kadar kritik olduğunu tüm dünyaya acı bir şekilde hatırlattı: Snowflake platformun güvenliğini sağlıyordu, ancak o platforma açılan kapıları kilitlemek müşterinin kendi sorumluluğundaydı. İhmal edilen bu sorumluluk, yüzlerce şirkete milyonlarca dolara ve onarılamaz bir itibar kaybına mal oldu.",
+    "en": "In the spring of 2024, giants of the tech world began to tremble one by one. First, the ticketing behemoth Ticketmaster, followed by the financial titan Santander Bank... Both made headlines for massive data breaches. When cybersecurity researchers found a common link connecting these two major incidents, all eyes turned to the cloud data platform giant, Snowflake. Initially, fear spread that Snowflake itself had been hacked, leading to one of the largest cloud disasters in history. The truth, however, was far simpler and just as shocking. This was not a story of a sophisticated attack on Snowflake's core systems, but a consequence of its customers leaving their digital doors wide open. A cybercrime group dubbed UNC5537 possessed a vast database of usernames and passwords, amassed over years through various 'info-stealer' malware campaigns. These stolen credentials belonged to employees of different companies who also had access to Snowflake customer accounts. The attackers systematically began testing these credentials against Snowflake's customer login portals. Every account that failed to use a modern 'digital deadbolt' like Multi-Factor Authentication (MFA) was an unlocked door. The attackers slipped through these doors, quietly exfiltrating the most valuable data of hundreds of companies—customer information, financial records, and more. In a joint investigation with cybersecurity firms like Mandiant and CrowdStrike, Snowflake announced that there was no vulnerability in its own systems; the problem stemmed entirely from weak security practices on the customer side. This event served as a painful, global reminder of the critical importance of the 'Shared Responsibility Model' in cloud security: Snowflake was responsible for securing the platform, but it was the customer's responsibility to lock the doors leading to it. This neglected responsibility cost hundreds of companies millions of dollars and irreparable damage to their reputations."
+  },
+  "metadata": {
+    "key_people": [
+      "UNC5537 (Threat Actor)",
+      "Mandiant (Investigator)",
+      "CrowdStrike (Investigator)",
+      "Snowflake (Platform Provider)",
+      "Ticketmaster (Victim)",
+      "Santander Bank (Victim)"
+    ],
+    "technologies_used": [
+      "Snowflake (Cloud Data Platform)",
+      "Info-stealer Malware",
+      "Cloud Storage",
+      "SaaS Platforms"
+    ],
+    "methods_used": [
+      "Credential Stuffing",
+      "Data Exfiltration",
+      "Extortion",
+      "Lack of MFA Exploitation",
+      "Identity and Access Management (IAM) Misconfiguration"
+    ],
+    "significance": {
+      "tr": "Bu olay, siber güvenlikte temel hijyen kurallarının, özellikle Çok Faktörlü Kimlik Doğrulama'nın (MFA), ne kadar hayati olduğunu kanıtlayan modern bir ders niteliğindedir. Bulut hizmetlerinde 'Paylaşılan Sorumluluk Modeli'ni somutlaştırmıştır; hizmet sağlayıcısının güvenli bir altyapı sunmasının, müşterinin o altyapıyı güvenli bir şekilde kullanma sorumluluğunu ortadan kaldırmadığını göstermiştir. Ayrıca, yıllar önce farklı kaynaklardan çalınan kimlik bilgilerinin bile, doğru hedefe karşı kullanıldığında ne kadar yıkıcı olabileceğini ortaya koymuştur.",
+      "en": "This incident is a modern lesson proving the critical importance of basic cybersecurity hygiene, especially Multi-Factor Authentication (MFA). It perfectly illustrates the 'Shared Responsibility Model' in cloud services, demonstrating that a provider offering a secure infrastructure does not absolve the customer of the responsibility to use that infrastructure securely. Furthermore, it revealed how devastating credentials stolen years ago from disparate sources can be when used against the right target."
+    },
+    "sources": [
+      "https://cloud.google.com/blog/topics/threat-intelligence/unc5537-snowflake-data-theft-extortion",
+      "https://www.wired.com/story/snowflake-breach-ticketmaster-santander/",
+      "https://community.snowflake.com/s/question/0D5VI00000EmK1xWAF/detecting-and-preventing-unauthorized-user-access",
+      "https://www.csoonline.com/article/2091970/the-snowflake-breach-what-you-need-to-know.html",
+      "https://therecord.media/snowflake-data-breaches-mandiant-report"
+    ]
+  }
+}

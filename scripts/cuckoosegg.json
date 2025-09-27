@@ -1,0 +1,44 @@
+{
+  "event_date": "1986-08-01",
+  "title": {
+    "tr": "Guguk Kuşu'nun Yumurtası: KGB'ye Çalışan Hacker'ın İzini Sürmek",
+    "en": "The Cuckoo's Egg: Tracking a Hacker Working for the KGB"
+  },
+  "narrative": {
+    "tr": "1986 yılının soğuk bir gününde, Lawrence Berkeley Ulusal Laboratuvarı'nda (LBNL) bir astronom olan Clifford Stoll, can sıkıcı ama önemsiz görünen bir sorunla karşılaştı: Bilgisayar kullanım kayıtlarında 75 sentlik bir muhasebe hatası. Bu küçük tutarsızlık, Stoll'u modern siber casusluğun ilk ve en ünlü vakalarından birinin merkezine itecekti. Stoll, hatanın kaynağını bulmaya çalıştıkça, bunun basit bir sistem arızası olmadığını, aksine yetkisiz bir kullanıcının laboratuvarın ağına sızdığını fark etti. Merakı ve inadı sayesinde, bu 'hayalet' kullanıcının izini sürmeye başladı. Bu, modemlerin cızırtılı seslerinin ve yeşil ekranların hüküm sürdüğü bir dönemdi; siber güvenlik henüz emekleme aşamasındaydı. Stoll, davetsiz misafiri yakalamak için kendi ilkel ama dahiyane yöntemlerini geliştirdi. Yazıcıları teleks hatlarına bağlayarak hacker'ın her tuş vuruşunu kağıda döktü, onu meşgul etmek için 'SDI Ağı Projesi' gibi sahte ve cazip isimlerle dolu bir 'sanal dosya dolabı' (ilk honeypot'lardan biri) oluşturdu ve hacker'ın ne zaman bağlanacağını bilmek için evine bir çağrı cihazı sistemi kurdu. Aylarca süren bu kedi-fare oyununun sonunda, Stoll ve FBI'ın işbirliğiyle yapılan zahmetli takip, onları Atlantik'in ötesine, Hannover, Almanya'ya götürdü. Hacker, Markus Hess adında genç bir Alman'dı. Hess, LBNL'yi ABD'nin dört bir yanındaki düzinelerce askeri ve araştırma ağına sızmak için bir atlama taşı olarak kullanıyordu. Çaldığı hassas bilgileri, Soğuk Savaş'ın diğer tarafına, yani KGB'ye satıyordu. 75 sentlik bir anormallikle başlayan av, uluslararası bir casusluk ağını ortaya çıkarmış ve dünyaya, birbirine bağlı bilgisayar ağlarının ne kadar savunmasız olabileceğini ve siber alemin artık yeni bir savaş alanı olduğunu göstermişti.",
+    "en": "On a cold day in 1986, Clifford Stoll, an astronomer at Lawrence Berkeley National Laboratory (LBNL), encountered an annoying but seemingly trivial problem: a 75-cent accounting error in the computer usage records. This minor discrepancy would thrust Stoll into the center of one of the first and most famous cases of modern cyber espionage. As Stoll tried to locate the source of the error, he realized it wasn't a simple system glitch but an unauthorized user who had infiltrated the lab's network. Driven by curiosity and persistence, he began to track this 'ghost' user. This was an era dominated by the screech of modems and green-screen terminals; cybersecurity was still in its infancy. Stoll developed his own primitive yet ingenious methods to catch the intruder. He connected printers to the tele-type lines to get a hard copy of every keystroke the hacker made, created a 'virtual file cabinet' of fake, enticingly named files like 'SDI Network Project' (one of the first honeypots) to keep him busy, and rigged a pager system to alert him at home whenever the hacker connected. After a months-long cat-and-mouse game, the painstaking trace, conducted in collaboration with the FBI, led them across the Atlantic to Hanover, Germany. The hacker was a young German man named Markus Hess. Hess was using LBNL as a stepping stone to break into dozens of military and research networks across the United States. He was selling the sensitive information he stole to the other side of the Cold War: the KGB. The hunt that began with a 75-cent anomaly had uncovered an international espionage ring, demonstrating to the world just how vulnerable interconnected computer networks could be, and that cyberspace was now a new battlefield."
+  },
+  "metadata": {
+    "key_people": [
+      "Clifford Stoll",
+      "Markus Hess"
+    ],
+    "technologies_used": [
+      "Unix (BSD)",
+      "VMS Operating System",
+      "ARPANET/MILNET",
+      "Tymnet (Packet-Switched Network)",
+      "Dial-up Modems",
+      "Gnu Emacs"
+    ],
+    "methods_used": [
+      "Vulnerability Exploitation (Gnu Emacs movemail)",
+      "Privilege Escalation",
+      "Password Cracking (common/default passwords)",
+      "Network Piggybacking",
+      "Honeypotting (by Stoll)",
+      "Network Traffic Monitoring and Analysis"
+    ],
+    "significance": {
+      "tr": "KGB Hacker Olayı, siber casusluğun ve devlet destekli bilgisayar korsanlığının ilk belgelenmiş ve kamuoyuna mal olmuş örneklerinden biridir. Clifford Stoll'un 'The Cuckoo's Egg' adlı kitabıyla ölümsüzleştirdiği bu olay, siber güvenliğin ulusal güvenlik için ne kadar kritik olduğunu göstermiştir. Olay, dijital adli tıp (digital forensics) ve olay müdahalesi (incident response) alanlarında temel pratiklerin oluşmasına öncülük etmiştir. Ayrıca, farklı ülkelerdeki kolluk kuvvetleri arasında siber suçlarla mücadelede uluslararası işbirliğinin gerekliliğini ortaya koymuştur. Bu vaka, internetin ilk günlerinin masumiyetinin sona erdiğini ve ağa bağlı sistemlerin casusluk ve sabotaj için bir araç olarak kullanılabileceğini kanıtlamıştır.",
+      "en": "The KGB Hacker incident is one of the first documented and widely publicized examples of cyber espionage and state-sponsored hacking. Immortalized in Clifford Stoll's book, 'The Cuckoo's Egg,' this event demonstrated the critical importance of cybersecurity for national security. The case pioneered fundamental practices in digital forensics and incident response. It also highlighted the necessity of international cooperation between law enforcement agencies in different countries to combat cybercrime. This case proved that the age of innocence of the early internet was over and that networked systems could be used as tools for espionage and sabotage."
+    },
+    "sources": [
+      "https://archive.org/details/cuckooseggtracki00stoll",
+      "https://www.nationalsecurity.gov/news-and-media/speeches-and-interviews/2014/14-07-09.html",
+      "https://www.spiegel.de/international/germany/the-kgb-s-first-hackers-a-20-year-old-story-a-584762.html",
+      "https://www.wired.com/2016/10/greatest-hacker-story-ive-ever-heard/",
+      "https://www.youtube.com/watch?v=PGd88CoUI4g"
+    ]
+  }
+}

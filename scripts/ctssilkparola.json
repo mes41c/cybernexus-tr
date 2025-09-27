@@ -1,0 +1,35 @@
+{
+  "event_date": "1961-01-01",
+  "title": {
+    "tr": "Dijital Kimliğin Doğuşu: CTSS'de İlk Parola Sistemi",
+    "en": "The Birth of Digital Identity: The First Password System in CTSS"
+  },
+  "narrative": {
+    "tr": "1960'ların başında, Massachusetts Teknoloji Enstitüsü'nün (MIT) koridorlarında devasa bir makine hüküm sürüyordu: IBM 7090. Bu oda büyüklüğündeki bilgisayar, tek seferde yalnızca bir görevi yerine getirebilen, son derece pahalı ve güçlü bir devdi. Ancak MIT'nin parlak zihinleri, bu değerli kaynağı aynı anda birden fazla araştırmacının kullanabilmesinin bir yolunu hayal ediyordu. Bu hayal, 'Zaman Paylaşımlı Sistem' (Time-Sharing System) fikrini doğurdu. Fernando J. Corbató liderliğindeki bir ekip, bu vizyonu gerçeğe dönüştürmek için Uyumlu Zaman Paylaşımı Sistemi'ni (CTSS) geliştirmeye başladı. Proje ilerledikçe temel bir sorun ortaya çıktı: Eğer onlarca kullanıcı aynı makineyi aynı anda kullanacaksa, bir kullanıcının diğerinin dosyalarını görmesi veya değiştirmesi nasıl engellenecekti? Çözüm, o dönem için devrim niteliğinde, bugün ise hepimiz için sıradan olan bir kavramdı: Parola. Corbató ve ekibi, her kullanıcının sisteme erişmeden önce kendisine özel bir 'gizli kelime' girmesini gerektiren bir mekanizma tasarladı. Bu parola, sistemin ana parola dosyasındaki (master password file) kayıtla eşleştiğinde, kullanıcıya sanal bir kapı açılıyor ve kendi özel çalışma alanına girmesine izin veriliyordu. Bu basit ama zekice fikir, bir makineyi kilitlemek yerine, bireysel kullanıcı hesaplarını dijital olarak kilitleme konseptini hayata geçirdi. O gün, CTSS'ye girilen ilk parola ile sadece bir bilgisayar oturumu açılmadı; aynı zamanda kişisel dijital kimlik, hesap güvenliği ve modern siber güvenliğin temelini oluşturan kimlik doğrulama (authentication) kavramının da temelleri atılmış oldu.",
+    "en": "In the early 1960s, a colossal machine reigned in the halls of the Massachusetts Institute of Technology (MIT): the IBM 7090. This room-sized computer was an immensely expensive and powerful giant, capable of performing only one task at a time. However, the brilliant minds at MIT envisioned a way for multiple researchers to use this valuable resource simultaneously. This dream gave birth to the idea of a 'Time-Sharing System'. A team led by Fernando J. Corbató began developing the Compatible Time-Sharing System (CTSS) to turn this vision into reality. As the project progressed, a fundamental problem emerged: if dozens of users were to use the same machine at the same time, how could one prevent a user from seeing or altering another's files? The solution was a concept revolutionary for its time, yet commonplace for all of us today: the password. Corbató and his team designed a mechanism that required each user to enter a private 'secret word' before accessing the system. When this password matched the record in the system's master password file, a virtual door was opened, allowing the user into their own private workspace. This simple yet ingenious idea brought to life the concept of digitally locking individual user accounts instead of physically locking a machine. That day, when the first password was entered into CTSS, it didn't just start a computer session; it also laid the foundation for personal digital identity, account security, and the concept of authentication, which forms the very bedrock of modern cybersecurity."
+  },
+  "metadata": {
+    "key_people": [
+      "Fernando J. Corbató"
+    ],
+    "technologies_used": [
+      "Compatible Time-Sharing System (CTSS)",
+      "IBM 7090/7094 Mainframe"
+    ],
+    "methods_used": [
+      "Kullanıcı Kimlik Doğrulaması (User Authentication)",
+      "Parola Tabanlı Erişim Kontrolü (Password-Based Access Control)",
+      "Zaman Paylaşımlı Sistem (Time-Sharing System)"
+    ],
+    "significance": {
+      "tr": "CTSS'deki parola sistemi, genel amaçlı bir bilgisayar sisteminde uygulanan ilk kimlik doğrulama mekanizmasıdır. Bu gelişme, fiziksel güvenliğin ötesine geçerek mantıksal erişim kontrolü çağını başlatmıştır. Modern işletim sistemleri ve ağ servislerindeki tüm kullanıcı adı/parola tabanlı oturum açma sistemlerinin doğrudan atasıdır ve siber güvenliğin temel taşı olan 'kimlik doğrulama' ilkesini fiilen icat etmiştir.",
+      "en": "The password system in CTSS is the first authentication mechanism implemented on a general-purpose computer system. This development initiated the era of logical access control, moving beyond physical security. It is the direct ancestor of all username/password-based login systems in modern operating systems and network services, effectively inventing the principle of 'authentication,' which is a cornerstone of cybersecurity."
+    },
+    "sources": [
+      "https://www.wired.com/2012/11/fernando-corbato-computings-calm-genius",
+      "https://amturing.acm.org/award_winners/corbato_1009311.cfm",
+      "https://www.livinginternet.com/i/iw_ctss.htm",
+      "https://history-computer.com/fernando-corbato-complete-biography"
+    ]
+  }
+}

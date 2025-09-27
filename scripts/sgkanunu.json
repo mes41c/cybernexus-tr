@@ -1,0 +1,42 @@
+{
+  "event_date": "2025-05-21",
+  "title": {
+    "tr": "Türkiye Siber Güvenlik Kanunu'nun Kabulü ve Siber Güvenlik Başkanlığı'nın Kuruluşu",
+    "en": "The Enactment of the Turkish Cybersecurity Law and the Establishment of the Cybersecurity Presidency"
+  },
+  "narrative": {
+    "tr": "2020'li yılların ortalarına gelindiğinde, Türkiye'nin dijital egemenliği ve ulusal güvenliği, artan sofistike siber saldırılar karşısında stratejik bir meydan okumayla karşı karşıyaydı. Enerji şebekelerinden finans sistemlerine, sağlık altyapısından kamu hizmetlerine kadar hayatın her alanını saran dijitalleşme, ülkeyi yeni nesil tehditlere açık hale getirmişti. Dağınık haldeki siber savunma mekanizmalarının ve yasal boşlukların, ulusal düzeyde koordine ve proaktif bir mukabele için yetersiz kaldığı yönündeki fikir birliği, Ankara'daki politika yapıcıları harekete geçirdi. Aylarca süren yoğun komisyon toplantıları, özel sektör ve akademi paydaşlarıyla yapılan istişareler ve milli güvenlik kurumlarının analizleri sonucunda, Türkiye'nin siber direncini temelden yeniden şekillendirecek tarihi bir yasa tasarısı Türkiye Büyük Millet Meclisi'ne sunuldu. Meclis'teki hararetli ancak yapıcı müzakerelerin ardından kanun, ülkenin siber geleceği için bir dönüm noktası olarak kabul edildi. Kanunun en devrimci adımı, tüm siber güvenlik faaliyetlerini tek bir çatı altında toplayacak, strateji belirleyecek ve olay müdahalesini en üst düzeyde koordine edecek olan 'Siber Güvenlik Başkanlığı'nın kurulmasıydı. Kanunun Resmi Gazete'de yayımlandığı gün, Türkiye, siber alanda reaktif bir savunma anlayışından, milli hedefleri korumaya odaklı, merkezi ve bütüncül bir siber savunma doktrinine geçtiğini tüm dünyaya ilan etmiş oldu.",
+    "en": "By the mid-2020s, Turkey's digital sovereignty and national security faced a strategic challenge in the face of increasingly sophisticated cyber-attacks. The digitalization that permeated every aspect of life, from energy grids and financial systems to healthcare infrastructure and public services, had made the country vulnerable to next-generation threats. A consensus emerged among policymakers in Ankara that fragmented cyber defense mechanisms and legal gaps were insufficient for a coordinated and proactive national response. Following months of intensive commission meetings, consultations with private sector and academic stakeholders, and analyses by national security institutions, a historic draft law designed to fundamentally reshape Turkey's cyber resilience was submitted to the Turkish Grand National Assembly. After heated yet constructive debates in the parliament, the law was enacted, marking a turning point for the country's cyber future. The most revolutionary step of the law was the establishment of the 'Cybersecurity Presidency,' an entity that would consolidate all cybersecurity activities, set strategies, and coordinate incident response at the highest level. On the day the law was published in the Official Gazette, Turkey declared to the world its transition from a reactive defense posture to a centralized and holistic national cyber defense doctrine focused on protecting its national interests."
+  },
+  "metadata": {
+    "key_people": [
+      "Türkiye Büyük Millet Meclisi (TBMM)",
+      "T.C. Cumhurbaşkanlığı Dijital Dönüşüm Ofisi",
+      "Ulaştırma ve Altyapı Bakanlığı",
+      "Bilgi Teknolojileri ve İletişim Kurumu (BTK)"
+    ],
+    "technologies_used": [
+      "Yasal Çerçeve Geliştirme (Legal Framework Development)",
+      "Merkezi Otorite Kurulumu (Central Authority Establishment)",
+      "Kritik Altyapı Güvenliği Standartları (Critical Infrastructure Security Standards)",
+      "Ulusal Siber Olay Müdahale Koordinasyonu (National Cyber Incident Response Coordination)",
+      "Kamu-Özel Sektör İşbirliği Modelleri (Public-Private Partnership Models)"
+    ],
+    "methods_used": [
+      "Yasama Süreci (Legislative Process)",
+      "Politika Oluşturma (Policy Making)",
+      "Ulusal Strateji Geliştirme (National Strategy Development)",
+      "Kurumsal Yapılanma (Institutional Structuring)"
+    ],
+    "significance": {
+      "tr": "Bu kanun, Türkiye'nin siber güvenlik alanındaki ilk kapsamlı ve merkezi yasal düzenlemesidir. Siber güvenliği bir 'milli güvenlik' unsuru olarak en üst düzeyde tanımlayarak, kritik altyapıların korunmasını yasal bir zorunluluk haline getirmiştir. Siber Güvenlik Başkanlığı'nın kurulmasıyla, siber olaylara müdahale ve caydırıcılık kapasitesini tek bir komuta merkezinde birleştirerek ülkenin siber savunma yeteneklerinde bir paradigma değişimi yaratmıştır.",
+      "en": "This law is Turkey's first comprehensive and centralized legal regulation in the field of cybersecurity. By defining cybersecurity as an element of 'national security' at the highest level, it has made the protection of critical infrastructure a legal obligation. With the establishment of the Cybersecurity Presidency, it has created a paradigm shift in the country's cyber defense capabilities by unifying incident response and deterrence capacity under a single command center."
+    },
+    "sources": [
+      "https://www.tbmm.gov.tr/kanunlar/kanunlar",
+      "https://www.resmigazete.gov.tr",
+      "https://www.cbddo.gov.tr/projelerimiz",
+      "https://www.usom.gov.tr/raporlar"
+    ]
+  }
+}

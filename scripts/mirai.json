@@ -1,0 +1,41 @@
+{
+  "event_date": "2016-10-21",
+  "title": {
+    "tr": "Mirai Botneti ve İnternetin Durma Noktasına Geldiği Gün: Dyn Siber Saldırısı",
+    "en": "The Mirai Botnet and the Day the Internet Stood Still: The Dyn Cyberattack"
+  },
+  "narrative": {
+    "tr": "Her şey, popüler bir oyun olan Minecraft dünyasındaki rekabetle başladı. Paras Jha, Josiah White ve Dalton Norman adında üç genç, rakiplerinin sunucularını devre dışı bırakarak kendilerine avantaj sağlamak istiyordu. Bu amaçla yazdıkları kötü amaçlı yazılım, beklenmedik ve korkutucu bir potansiyele sahip bir canavara dönüştü: Mirai. Mirai, 'gelecek' anlamına gelen Japonca bir kelimeydi ve internetin geleceğini geri dönülmez bir şekilde değiştirecekti. Onların keşfi basitti ama yıkıcıydı: Dünya, üreticilerin güvenlik önlemi olarak varsayılan kullanıcı adı ve şifreleri ('admin/admin' gibi) değiştirmeye tenezzül etmediği milyonlarca korunmasız IoT cihazıyla doluydu. Güvenlik kameraları, dijital video kaydediciler (DVR'lar) ve router'lar gibi bu masum cihazlar, Mirai için mükemmel birer askerdi. Yazılım, interneti tarayarak bu zayıf cihazları buluyor, basit şifreleri deneyerek içeri sızıyor ve onları sessizce devasa bir 'zombi ordu'ya, yani bir botnete dahil ediyordu. 21 Ekim 2016'da bu ordu harekete geçti. Hedef, internetin en kritik altyapı taşlarından biri olan DNS sağlayıcısı Dyn'di. Twitter, Netflix, Spotify, Amazon, Reddit gibi devlerin web sitelerine erişimi yöneten Dyn, benzeri görülmemiş bir saldırı dalgasıyla karşılaştı. Mirai'nin kontrolündeki yüz binlerce cihaz, Dyn sunucularına aynı anda o kadar çok anlamsız istek gönderdi ki, sistemler bu yükü kaldıramayarak çöktü. Milyonlarca insan, saatler boyunca internetin büyük bir bölümüne erişemedi. Bu saldırı, artık sadece sunucuları hedef alan bir oyun değil, küresel internet altyapısının ne kadar kırılgan olduğunu ve birbirine bağlı milyonlarca küçük ve güvensiz cihazın nasıl bir siber silaha dönüştürülebileceğini tüm dünyaya gösteren tarihi bir uyarıydı.",
+    "en": "It all started with a rivalry in the world of a popular game, Minecraft. Three young men, Paras Jha, Josiah White, and Dalton Norman, wanted to gain an edge by knocking their competitors' servers offline. The malware they wrote for this purpose evolved into a monster with unexpected and terrifying potential: Mirai. Mirai, the Japanese word for 'future,' would irrevocably change the future of the internet. Their discovery was simple yet devastating: the world was filled with millions of unprotected IoT devices whose manufacturers never bothered to change the default usernames and passwords (like 'admin/admin'). These innocent devices—security cameras, digital video recorders (DVRs), and routers—were the perfect soldiers for Mirai. The software scanned the internet, found these weak devices, infiltrated them by trying simple passwords, and quietly enlisted them into a massive 'zombie army,' a botnet. On October 21, 2016, this army was unleashed. The target was Dyn, a DNS provider and one of the most critical cornerstones of the internet's infrastructure. Dyn, which managed access to the websites of giants like Twitter, Netflix, Spotify, Amazon, and Reddit, was hit with an unprecedented wave of attacks. Hundreds of thousands of devices controlled by Mirai simultaneously sent so many meaningless requests to Dyn's servers that the systems buckled under the load and crashed. For hours, millions of people were unable to access a large portion of the internet. This attack was no longer a game targeting servers; it was a historic warning to the entire world, demonstrating just how fragile the global internet infrastructure was and how millions of small, interconnected, and insecure devices could be turned into a cyber weapon."
+  },
+  "metadata": {
+    "key_people": [
+      "Paras Jha",
+      "Josiah White",
+      "Dalton Norman"
+    ],
+    "technologies_used": [
+      "IoT (Internet of Things) Devices",
+      "Telnet Protocol",
+      "DNS (Domain Name System)",
+      "C and Go (Programming Languages)"
+    ],
+    "methods_used": [
+      "DDoS (Distributed Denial-of-Service) Attack",
+      "Botnet Creation",
+      "Brute-forcing default credentials",
+      "DNS Water Torture Attack"
+    ],
+    "significance": {
+      "tr": "Mirai botneti, siber güvenlik tarihinde bir dönüm noktasıdır. Güvensiz IoT cihazlarının oluşturduğu devasa tehdidi somut bir şekilde ortaya koymuş ve bu cihazların küresel ölçekte bir siber silah olarak nasıl kullanılabileceğini göstermiştir. Saldırı, internetin temel altyapı hizmetlerinin (DNS gibi) ne kadar merkezi ve savunmasız olduğunu gözler önüne sermiştir. Bu olay, IoT üreticileri üzerinde güvenlik standartlarını artırmaları yönünde bir baskı oluşturmuş ve siber güvenlik endüstrisinin dikkatini kitlesel ve dağıtık tehditlere yöneltmiştir.",
+      "en": "The Mirai botnet is a landmark event in cybersecurity history. It concretely exposed the massive threat posed by insecure IoT devices and demonstrated how they could be used as a global-scale cyber weapon. The attack revealed how centralized and vulnerable the internet's core infrastructure services (like DNS) are. This event pressured IoT manufacturers to improve security standards and shifted the cybersecurity industry's focus towards massive, distributed threats."
+    },
+    "sources": [
+      "https://krebsonsecurity.com/2016/10/ddos-on-dyn-impacts-twitter-spotify-netflix/",
+      "https://www.wired.com/story/mirai-botnet-minecraft-scam-brought-down-internet/",
+      "https://www.justice.gov/usao-ak/pr/mirai-botnet-co-author-sentenced-federal-prison",
+      "https://arstechnica.com/information-technology/2016/10/how-the-dyn-dns-ddos-attack-unfolded/",
+      "https://www.theguardian.com/technology/2016/oct/21/ddos-attack-dyn-internet-denial-service"
+    ]
+  }
+}

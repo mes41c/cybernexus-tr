@@ -1,0 +1,43 @@
+{
+  "event_date": "2020-03-01",
+  "title": {
+    "tr": "SolarWinds Tedarik Zinciri Saldırısı: Dijital Dünyanın Truva Atı",
+    "en": "The SolarWinds Supply Chain Attack: The Trojan Horse of the Digital World"
+  },
+  "narrative": {
+    "tr": "2020 yılının başlarında, dijital gölgelerde sabırlı bir avcı, tarihin en cüretkar siber operasyonlarından birini hazırlıyordu. Hedef, tek bir şirket veya kurum değildi; hedef, dijital ekosistemin kendisine duyulan güvendi. Saldırganlar, hedeflerinin ön kapılarını zorlamak yerine, onlara hizmet veren ve herkesin güvendiği bir kapıyı, SolarWinds adında bir yazılım şirketini seçtiler. SolarWinds'in Orion Platformu, aralarında ABD Hazine Bakanlığı, Pentagon ve sayısız Fortune 500 şirketinin de bulunduğu binlerce kurumun ağlarını yönetmek için kullandığı, adeta krallığın anahtarı niteliğinde bir araçtı. Saldırganlar, SolarWinds'in kendi iç ağına sızdıktan sonra, bir cerrah titizliğiyle Orion yazılımının güncelleme derleme sürecine müdahale ettiler. 'SUNBURST' olarak adlandırılan kötü amaçlı bir kodu, meşru bir DLL dosyasının içine gizlediler. Bu kod, bir saatli bombadan farksızdı; aktifleşmeden önce haftalarca uykuda kalacak şekilde programlanmıştı. En dahice hamle ise, bu zehirli güncellemenin SolarWinds'in kendi geçerli dijital sertifikasıyla imzalanmasıydı. Bu, güvenlik sistemleri için güncellemenin tamamen meşru ve güvenilir olduğu anlamına geliyordu. Mart 2020'de, bu 'Truva atlı' güncelleme, dünya genelindeki yaklaşık 18.000 SolarWinds müşterisine gönderildi. Güncelleme yapıldığında, SUNBURST arka kapısı sessizce kuruldu ve saldırganların komuta-kontrol sunucularıyla iletişim kurmak için doğru anı beklemeye başladı. Saldırganlar, bu geniş ağdan sadece en değerli hedefleri seçerek ikinci aşama saldırıları başlattı ve aylarca fark edilmeden en hassas ağlarda veri sızdırdı. Komplonun farkına varan ise bir devlet kurumu değil, siber güvenlik firması FireEye oldu. Kendi sistemlerindeki anormal bir aktiviteyi araştıran FireEye analistleri, ipliğin ucunu takip ederek kendilerini SolarWinds güncellemesine götürdüler ve Aralık 2020'de tüm dünyayı şok eden bu devasa tedarik zinciri saldırısını ortaya çıkardılar. Güven temelden sarsılmıştı; en güvenilir yazılımlar bile artık birer tehdit potansiyeli taşıyordu.",
+    "en": "In early 2020, a patient predator in the digital shadows was orchestrating one of the most audacious cyber operations in history. The target was not a single company or institution; it was the very trust inherent in the digital ecosystem. Instead of forcing the front doors of their targets, the attackers chose a door that served them all and was trusted by everyone: a software company named SolarWinds. The SolarWinds Orion Platform was akin to the keys to the kingdom, a tool used by thousands of organizations, including the U.S. Treasury Department, the Pentagon, and countless Fortune 500 companies, to manage their networks. After infiltrating SolarWinds' own internal network, the attackers, with surgical precision, interfered with the software build process for the Orion Platform. They hid a malicious piece of code, later dubbed 'SUNBURST,' inside a legitimate DLL file. This code was like a ticking time bomb, programmed to lie dormant for weeks before activation. The most brilliant move was signing this poisoned update with SolarWinds' own valid digital certificate. For security systems, this meant the update was entirely legitimate and trustworthy. In March 2020, this 'Trojan horse' update was pushed to approximately 18,000 SolarWinds customers worldwide. When the update was applied, the SUNBURST backdoor was silently installed, waiting for the right moment to contact the attackers' command-and-control servers. From this vast network, the attackers cherry-picked only the most valuable targets to launch second-stage attacks, exfiltrating data from the most sensitive networks for months without being noticed. The entity that uncovered the plot was not a government agency, but the cybersecurity firm FireEye. While investigating an anomaly in their own systems, FireEye analysts followed the thread back to the SolarWinds update, and in December 2020, they exposed this massive supply chain attack, shocking the entire world. The foundation of trust had been shaken; even the most reliable software could now be a potential threat."
+  },
+  "metadata": {
+    "key_people": [
+      "APT29 (Cozy Bear / Nobelium - Saldırgan Grup)",
+      "FireEye / Mandiant (Saldırıyı Keşfeden Firma)",
+      "SolarWinds (Saldırıya Uğrayan Tedarikçi)",
+      "Microsoft (Müdahale ve Analiz Sürecindeki Kilit Aktör)"
+    ],
+    "technologies_used": [
+      "SolarWinds Orion Platform",
+      "Komuta ve Kontrol (C2) Sunucuları",
+      "Sayısal Kod İmzalama (Digital Code Signing)",
+      "PowerShell"
+    ],
+    "methods_used": [
+      "Tedarik Zinciri Saldırısı (Supply Chain Attack)",
+      "Truva Atı Yerleştirilmiş Yazılım Güncellemesi (Trojanized Software Update)",
+      "Arka Kapı Kurulumu (Backdoor Installation - SUNBURST)",
+      "Yatay Hareket (Lateral Movement)",
+      "Veri Sızdırma (Data Exfiltration)"
+    ],
+    "significance": {
+      "tr": "SolarWinds saldırısı, modern siber güvenlik tarihindeki bir dönüm noktasıdır. Yazılım tedarik zincirlerinin ne denli kritik ve kırılgan bir hedef olduğunu gözler önüne sermiştir. Devlet destekli aktörlerin ne kadar sabırlı, gizli ve teknik olarak karmaşık operasyonlar yürütebileceğini kanıtlamıştır. Bu olay, ABD hükümetini yazılım güvenliği standartlarını ve tedarik zinciri denetimlerini yeniden düzenlemeye itmiş ve kamu-özel sektör iş birliğinin ulusal güvenliği savunmadaki vazgeçilmez rolünü vurgulamıştır.",
+      "en": "The SolarWinds attack is a landmark event in modern cybersecurity history. It exposed the critical and fragile nature of software supply chains as a prime target. It proved the extent of patience, stealth, and technical sophistication that nation-state actors are capable of. This incident prompted the U.S. government to overhaul software security standards and supply chain oversight, and it underscored the indispensable role of public-private partnership in defending national security."
+    },
+    "sources": [
+      "https://www.mandiant.com/resources/blog/highly-evasive-attacker-leverages-solarwinds-supply-chain-compromise-with-sunburst-backdoor",
+      "https://www.cisa.gov/news-events/alerts/2020/12/13/active-exploitation-solarwinds-software",
+      "https://www.microsoft.com/en-us/security/blog/2020/12/18/analyzing-solorigate-the-compromised-dll-file-that-started-a-sophisticated-cyberattack/",
+      "https://www.wired.com/story/the-untold-story-of-solarwinds-the-boldest-supply-chain-hack-ever/",
+      "https://www.csis.org/analysis/solarwinds-and-sophistication-supply-chain-attacks"
+    ]
+  }
+}

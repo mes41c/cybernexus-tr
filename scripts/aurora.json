@@ -1,0 +1,44 @@
+{
+  "event_date": "2010-01-12",
+  "title": {
+    "tr": "Aurora Operasyonu: Kurumsal Dünyayı Sarsan Siber Casusluk",
+    "en": "Operation Aurora: The Cyber Espionage Campaign That Shook the Corporate World"
+  },
+  "narrative": {
+    "tr": "2009 yılının sonlarına doğru, Google'ın Silikon Vadisi'ndeki kampüsünde, siber güvenlik mühendisleri dijital ağlarının derinliklerinde fısıltı kadar sessiz ama bir o kadar da rahatsız edici bir anomali fark ettiler. Bu, her yeri kırıp döken gürültücü bir saldırı değildi; aksine, bir cerrahın neşteri gibi hassas, son derece hedef odaklı ve sabırlı bir sızmaydı. Araştırma derinleştikçe, kâbus gibi bir gerçek ortaya çıktı: Sadece Google değil, Adobe, Yahoo, Morgan Stanley gibi teknoloji ve finans dünyasının 30'dan fazla devi, aynı hayalet saldırganın hedefiydi. Saldırganların amacı kredi kartı bilgileri ya da müşteri verileri değildi; onlar şirketlerin ruhunu, yani kaynak kodlarını ve fikri mülkiyetlerini çalmaya gelmişlerdi. Saldırı, o güne dek kamuoyu tarafından bilinmeyen bir Internet Explorer 'sıfır gün' (zero-day) açığı üzerinden gerçekleştirilmişti. Bu, saldırganların kilitli bir kapıya sadece kendilerinin sahip olduğu bir anahtarla girmesi gibiydi. İzler, 'Elderwood' olarak da bilinen, Çin merkezli, devlet destekli olduğu düşünülen son derece organize bir gruba işaret ediyordu. Operasyonun en tüyler ürpertici detayı ise, saldırganların sadece kurumsal sırları çalmakla kalmayıp, aynı zamanda Çinli insan hakları aktivistlerinin Gmail hesaplarını da hedeflemiş olmalarıydı. Bu, artık basit bir siber suç değil, dijital çağın ulus-devlet destekli casusluğuydu. 12 Ocak 2010'da Google, 'Çin'e Yeni Bir Yaklaşım' başlıklı bir blog yazısıyla her şeyi kamuoyuna duyurarak benzeri görülmemiş bir adım attı. Bu ifşa, siber güvenlik dünyasında bir deprem etkisi yarattı ve kurumsal dünyanın siber tehdit algısını sonsuza dek değiştirdi. Aurora, artık şirketlerin sadece hacker'larla değil, bizzat devletlerle de siber bir savaş içinde olabileceğini kanıtlamıştı.",
+    "en": "In late 2009, within Google's Silicon Valley campus, cybersecurity engineers noticed an anomaly deep within their digital networks—as quiet as a whisper, yet deeply unsettling. This was not a noisy, smash-and-grab attack; it was a surgical infiltration, incredibly targeted and patient, like a surgeon's scalpel. As the investigation deepened, a nightmarish reality unfolded: it wasn't just Google. Over 30 other giants of the tech and finance worlds, including Adobe, Yahoo, and Morgan Stanley, were targeted by the same phantom adversary. The attackers' goal wasn't credit card numbers or customer data; they came to steal the very soul of these companies: their source code and intellectual property. The attack was carried out using a previously unknown 'zero-day' vulnerability in Internet Explorer. It was as if the attackers had a master key to a locked door that no one else knew existed. The trail pointed to a highly organized, state-sponsored group based in China, sometimes known as the 'Elderwood' group. The most chilling detail of the operation was that the attackers not only stole corporate secrets but also targeted the Gmail accounts of Chinese human rights activists. This was no longer simple cybercrime; this was nation-state espionage in the digital age. On January 12, 2010, Google took an unprecedented step by disclosing everything to the public in a blog post titled 'A New Approach to China.' This revelation sent shockwaves through the cybersecurity world and forever changed the corporate perception of cyber threats. Aurora proved that companies were no longer just fighting hackers, but were potentially in a cyber war with nations themselves."
+  },
+  "metadata": {
+    "key_people": [
+      "Elderwood Group (Attacker)",
+      "Comment Crew (Attacker)",
+      "Google Security Team (Defender/Investigator)",
+      "Dmitri Alperovitch (Researcher who named the operation)"
+    ],
+    "technologies_used": [
+      "Internet Explorer Zero-Day Vulnerability (CVE-2010-0249)",
+      "Hydraq Trojan",
+      "Perforce (Targeted Source Code Management System)",
+      "Encrypted Command and Control (C2) Channels"
+    ],
+    "methods_used": [
+      "Advanced Persistent Threat (APT)",
+      "Spear-Phishing",
+      "Zero-Day Exploit",
+      "Corporate Espionage",
+      "Intellectual Property Theft",
+      "Data Exfiltration"
+    ],
+    "significance": {
+      "tr": "Aurora Operasyonu, Gelişmiş Sürekli Tehdit (APT) kavramını istihbarat topluluklarının gölgesinden çıkarıp kurumsal ana akıma taşıyan bir dönüm noktası oldu. Bu olay, sofistike ve devlet destekli siber saldırıların sadece hükümet veya askeri hedeflere değil, aynı zamanda büyük şirketlerin temel fikri mülkiyetlerine de yönelik olduğunu kanıtladı. Aurora, kurumsal güvenlik stratejilerinin küresel ölçekte yeniden değerlendirilmesini zorunlu kılarak, siber suçun finansal motivasyondan ulus-devlet casusluğuna kaydığını gözler önüne serdi. Google'ın saldırıyı kamuoyuna açıklaması ve ardından Çin'in sansür politikalarına meydan okuması, küresel teknoloji şirketleri ile ulusal hükümetler arasındaki ilişkiyi temelden değiştiren, eşi benzeri görülmemiş bir kurumsal duruşu temsil etti.",
+      "en": "Operation Aurora marked a pivotal moment, bringing the concept of the Advanced Persistent Threat (APT) from the shadows of intelligence communities into the corporate mainstream. It demonstrated that sophisticated, state-sponsored cyber attacks were not just aimed at government or military targets, but at the core intellectual property of major corporations. The event forced a global re-evaluation of corporate security strategies, highlighting the shift from financially motivated cybercrime to nation-state espionage. Google's public disclosure and subsequent challenge to Chinese censorship policies represented an unprecedented corporate stand, fundamentally altering the relationship between global tech companies and national governments."
+    },
+    "sources": [
+      "https://googleblog.blogspot.com/2010/01/new-approach-to-china.html",
+      "https://www.wired.com/2010/01/google-hack-attack/",
+      "https://www.darkreading.com/analytics/deconstructing-operation-aurora",
+      "https://www.csoonline.com/article/562308/what-is-operation-aurora-the-precedent-setting-apt-attack.html",
+      "https://www.cfr.org/cybersecurity/operation-aurora"
+    ]
+  }
+}

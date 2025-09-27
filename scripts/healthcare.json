@@ -1,0 +1,41 @@
+{
+  "event_date": "2024-02-21",
+  "title": {
+    "tr": "Dijital Felç: Change Healthcare'e Yapılan BlackCat Fidye Yazılımı Saldırısı ve Amerikan Sağlık Sistemini Durma Noktasına Getiren Kriz",
+    "en": "Digital Paralysis: The BlackCat Ransomware Attack on Change Healthcare and the Crisis That Halted the American Health System"
+  },
+  "narrative": {
+    "tr": "Amerikan sağlık sisteminin görünmez dijital atardamarlarında, 21 Şubat 2024 her zamanki gibi bir gün olarak başladı. Milyonlarca reçete doğrulanıyor, sigorta talepleri işleniyor ve ödemeler tek ve devasa bir kuruluş aracılığıyla gerçekleştiriliyordu: UnitedHealth Group'un bir iştiraki olan Change Healthcare. Bu dev, ülkenin tıbbi işlemlerinin büyük bir bölümü için adeta bir merkezi sinir sistemi görevi görüyordu. Ancak o gün, bu sinir sistemi koparıldı. Acımasız etkinliğiyle tanınan kötü şöhretli BlackCat/ALPHV fidye yazılımı çetesi, şirketin savunmasını aşmıştı. Raporlar, saldırganların Citrix uzaktan erişim platformundaki 'Citrix Bleed' (CVE-2023-4966) olarak bilinen kritik bir güvenlik açığından yararlandığını öne sürdü; bu, bir devi dizlerinin üzerine çöktürmelerine olanak tanıyan küçücük bir çatlaktı. Aniden sistemler karardı. Eczaneler sigortaları doğrulayamaz hale geldi, hastaları hayat kurtaran ilaçlar için cepten ödeme yapmaya veya onlarsız kalmaya zorladı. Hastaneler faturalandırma işlemlerini yapamadı ve finansal istikrarları tehdit altına girdi. Doktorların hasta geçmişlerine erişimi engellendi. Bu saldırı sadece bir BT sorunu değil; anbean büyüyen bir ulusal sağlık kriziydi. BlackCat, şifreleme kaosuna bir de şantaj terörü ekleyerek, terabaytlarca hassas hasta verisini (tıbbi kayıtlar, sigorta bilgileri) çaldığını iddia etti. Takip eden haftalar hummalı bir mücadeleyle geçti. UnitedHealth Group'un, sistemlere yeniden erişim sağlamak için 22 milyon dolarlık devasa bir fidye ödediği bildirildi; bu, siber suçla mücadele ve kritik altyapı güvenliği konusunda ülke çapında hararetli tartışmalara yol açan bir karardı. Kriz, kritik ulusal altyapının ne denli kırılgan olduğunu ve siber saldırıların soyut veri ihlallerinin ötesinde, gerçek dünyada nasıl ölüm kalım meselesi haline gelebileceğini acı bir şekilde gözler önüne serdi.",
+    "en": "In the unseen digital arteries of the American healthcare system, February 21, 2024, began like any other day. Millions of prescriptions were being verified, insurance claims processed, and payments settled through a single, massive entity: Change Healthcare, a subsidiary of UnitedHealth Group. This giant acted as the central nervous system for a vast portion of the nation's medical transactions. But on this day, the nervous system was severed. The notorious BlackCat/ALPHV ransomware gang, known for its ruthless efficiency, had breached the company's defenses. Reports suggested the attackers exploited a critical vulnerability known as 'Citrix Bleed' (CVE-2023-4966) in a remote access platform, a tiny crack that allowed them to bring a behemoth to its knees. Suddenly, systems went dark. Pharmacies couldn't verify insurance, forcing patients to pay out-of-pocket for life-saving medications or go without. Hospitals couldn't process billing, threatening their financial stability. Doctors were locked out of patient histories. The attack was not just an IT problem; it was a national health crisis in the making. BlackCat added the terror of extortion to the chaos of encryption, claiming to have stolen terabytes of sensitive patient data, including medical records and insurance information. The ensuing weeks were a frantic scramble. UnitedHealth Group reportedly paid a massive $22 million ransom to regain access to its systems, a controversial decision that sparked a nationwide debate on cybersecurity, ransomware negotiations, and critical infrastructure protection. The crisis exposed the profound fragility of critical national infrastructure and served as a grim warning about how cyberattacks can transcend abstract data breaches and become real-world, life-and-death matters."
+  },
+  "metadata": {
+    "key_people": [
+      "BlackCat / ALPHV Ransomware Group",
+      "UnitedHealth Group",
+      "Change Healthcare"
+    ],
+    "technologies_used": [
+      "Ransomware-as-a-Service (RaaS)",
+      "Citrix NetScaler (Citrix Bleed / CVE-2023-4966 vulnerability)",
+      "Data Exfiltration",
+      "Double Extortion"
+    ],
+    "methods_used": [
+      "Exploitation of Public-Facing Vulnerability",
+      "Ransomware Deployment",
+      "Data Encryption",
+      "Extortion"
+    ],
+    "significance": {
+      "tr": "Bu saldırı, tek bir teknoloji sağlayıcısının siber güvenliğinin ihlal edilmesinin, bir ülkenin tüm sağlık altyapısını nasıl felç edebileceğini, hasta bakımını doğrudan nasıl tehlikeye atabileceğini ve on milyarlarca dolarlık ekonomik zarara yol açabileceğini gösteren en yıkıcı örneklerden biridir. Kritik altyapı sektörlerindeki sistemik riskleri ve siber dayanıklılık ihtiyacını en üst düzeyde ulusal gündeme getirmiştir.",
+      "en": "This attack is one of the most devastating examples of how a single technology provider's cybersecurity breach can paralyze an entire nation's healthcare infrastructure, directly endanger patient care, and cause tens of billions of dollars in economic damage. It brought systemic risks in critical infrastructure sectors and the need for cyber resilience to the forefront of the national agenda."
+    },
+    "sources": [
+      "https://www.reuters.com/technology/cybersecurity/what-is-change-healthcare-cyber-attack-2024-03-05/",
+      "https://www.wired.com/story/change-healthcare-ransomware-attack-alphv-unitedhealth/",
+      "https://techcrunch.com/2024/04/22/unitedhealth-confirms-it-paid-a-ransom-in-change-healthcare-hack/",
+      "https://www.cisa.gov/news-events/cybersecurity-advisories/aa24-057a",
+      "https://www.hhs.gov/about/news/2024/03/05/hhs-statement-regarding-the-cyberattack-on-change-healthcare.html"
+    ]
+  }
+}
