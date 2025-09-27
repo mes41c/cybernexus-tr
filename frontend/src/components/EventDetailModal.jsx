@@ -1,14 +1,21 @@
 import React from 'react';
-import './EventDetailModal.css'; // Modal'ın kendi CSS'i olacak
+import './EventDetailModal.css';
 
 function EventDetailModal({ event, onClose, language }) {
-  if (!event) return null; // Event yoksa modal'ı gösterme
+  if (!event) return null;
+
+  // Metaveri bölümlerini bir dizi olarak tanımlayarak kodu daha temiz hale getiriyoruz
+  const metadataSections = [
+    { icon: 'fa-users', title: 'Kilit İsimler ve Gruplar', data: event.metadata.key_people },
+    { icon: 'fa-microchip', title: 'Kullanılan Teknolojiler', data: event.metadata.technologies_used },
+    { icon: 'fa-user-secret', title: 'Kullanılan Yöntemler', data: event.metadata.methods_used }
+  ];
 
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <button className="modal-close-btn" onClick={onClose}>
-          &times; {/* Kapatma ikonu */}
+          &times;
         </button>
         
         <div className="modal-header">
@@ -17,42 +24,39 @@ function EventDetailModal({ event, onClose, language }) {
         </div>
 
         <div className="modal-body">
-          <p className="modal-narrative">{event.narrative[language]}</p>
-
-          <div className="modal-section">
-            <h3><i className="fa-solid fa-circle-info"></i> Önemi</h3>
-            <p>{event.metadata.significance[language]}</p>
-          </div>
-
-          <div className="modal-section">
-            <h3><i className="fa-solid fa-users"></i> Kilit İsimler ve Gruplar</h3>
-            <div className="modal-metadata-tags">
-              {event.metadata.key_people.map(item => <span key={item} className="modal-metadata-tag">{item}</span>)}
+          {/* YENİ: İki sütunlu yapı */}
+          <div className="modal-grid">
+            
+            {/* SOL SÜTUN: Anlatı ve Önem */}
+            <div className="modal-main-content">
+              <p className="modal-narrative">{event.narrative[language]}</p>
+              
+              <div className="modal-section">
+                <h3><i className="fa-solid fa-circle-info"></i> Önemi</h3>
+                <p>{event.metadata.significance[language]}</p>
+              </div>
             </div>
-          </div>
 
-          <div className="modal-section">
-            <h3><i className="fa-solid fa-microchip"></i> Kullanılan Teknolojiler</h3>
-            <div className="modal-metadata-tags">
-              {event.metadata.technologies_used.map(item => <span key={item} className="modal-metadata-tag">{item}</span>)}
+            {/* SAĞ SÜTUN: Meta Veriler ve Kaynaklar */}
+            <div className="modal-sidebar">
+              {metadataSections.map(section => (
+                <div className="modal-section" key={section.title}>
+                  <h3><i className={`fa-solid ${section.icon}`}></i> {section.title}</h3>
+                  <div className="modal-metadata-tags">
+                    {section.data.map(item => <span key={item} className="modal-metadata-tag">{item}</span>)}
+                  </div>
+                </div>
+              ))}
+              
+              <div className="modal-section">
+                <h3><i className="fa-solid fa-link"></i> Kaynaklar</h3>
+                <ul className="modal-sources-list">
+                  {event.metadata.sources.map(src => <li key={src}><a href={src} target="_blank" rel="noopener noreferrer">{src}</a></li>)}
+                </ul>
+              </div>
             </div>
-          </div>
-          
-          <div className="modal-section">
-            <h3><i className="fa-solid fa-user-secret"></i> Kullanılan Yöntemler</h3>
-            <div className="modal-metadata-tags">
-              {event.metadata.methods_used.map(item => <span key={item} className="modal-metadata-tag">{item}</span>)}
-            </div>
-          </div>
-
-          <div className="modal-section">
-            <h3><i className="fa-solid fa-link"></i> Kaynaklar</h3>
-            <ul className="modal-sources-list">
-              {event.metadata.sources.map(src => <li key={src}><a href={src} target="_blank" rel="noopener noreferrer">{src}</a></li>)}
-            </ul>
           </div>
         </div>
-
       </div>
     </div>
   );
