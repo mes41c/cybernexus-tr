@@ -1,18 +1,18 @@
 // ===================================================================================
-// S E R V E R . J S   -   PostgreSQL SÜRÜMÜ
+// S E R V E R . J S   -   PostgreSQL SÜRÜMÜ (TEMİZLENMİŞ)
 // ===================================================================================
 
 const express = require('express');
 require('dotenv').config();
 const crypto = require('crypto');
 const cors = require('cors');
-const db = require('./database.js'); // <-- DEĞİŞTİ (PG Sürümünü kullanacak)
+const db = require('./database.js'); // <-- PG sürümünü kullanacak
 let Parser = require('rss-parser');
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const OpenAI = require('openai');
 const cheerio = require('cheerio');
 const axios = require('axios');
-const fs = require('fs');
+const fs = require('fs'); 
 const path = require('path');
 const dataDirectory = path.join('/var/data');
 
@@ -40,189 +40,6 @@ const PORT = 5000;
 const allowedOrigins = [
   'https://cybernexus.mes41.site', 
   'http://localhost:5173'         
-];
-
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      console.warn(`CORS Engellemesi: ${origin} adresinden gelen isteğe izin verilmedi.`);
-      callback(new Error('Bu adresin CORS politikası tarafından erişimine izin verilmiyor.'));
-    }
-  },
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  credentials: true,
-  optionsSuccessStatus: 204
-};
-
-app.use(cors(corsOptions));
-app.use(express.json({ limit: '10mb' }));
-
-app.get('/api/categories', async (req, res) => {
-    const sql = "SELECT * FROM categories ORDER BY id";
-    try {
-        const { rows } = await db.query(sql);
-        res.json({ "message": "success", "data": rows });
-    } catch (err) {
-        res.status(400).json({ "error": err.message });
-    }
-});
-
-// --- 2. /api/categories/:id/concepts ---
-// '?' parametresi yerine '$1' (PG) kullanıldı.
-app.get('/api/categories/:id/concepts', async (req, res) => {
-    const sql = "SELECT * FROM concepts WHERE category_id = $1";
-    const params = [req.params.id];
-    try {
-        const { rows } = await db.query(sql, params);
-        res.json({ "message": "success", "data": rows });
-    } catch (err) {
-        res.status(400).json({ "error": err.message });
-    }
-});
-
-// --- 3. /api/concepts/all ---
-// SQLite (db.all) yerine 'await db.query' (PG) kullanıldı.
-app.get('/api/concepts/all', async (req, res) => {
-    const sql = "SELECT * FROM concepts ORDER BY title";
-    try {
-        const { rows } = await db.query(sql);
-        res.json({ "message": "success", "data": rows });
-    } catch (err) {
-        res.status(400).json({ "error": err.message });
-    }
-});
-
-// --- 4. /api/history/events ---
-// SQLite 'GROUP_CONCAT' fonksiyonu, PostgreSQL'deki 'STRING_AGG' ile değiştirildi.
-app.get('/api/history/events', async (req, res) => {
-    const sql = `
-        SELECT
-            he.*,
-            STRING_AGG(DISTINCT p.name, ',') AS key_people,
-            STRING_AGG(DISTINCT t.name, ',') AS technologies_used,
-            STRING_AGG(DISTINCT m.name, ',') AS methods_used,
-            STRING_AGG(DISTINCT s.url, ',') AS sources
-        FROM
-            historical_events he
-        LEFT JOIN event_people_link epl ON he.id = epl.event_id
-        LEFT JOIN people p ON epl.person_id = p.id
-        LEFT JOIN event_technologies_link etl ON he.id = etl.event_id
-        LEFT JOIN technologies t ON etl.technology_id = t.id
-        LEFT JOIN event_methods_link eml ON he.id = eml.event_id
-        LEFT JOIN methods m ON eml.method_id = m.id
-        LEFT JOIN event_sources_link esl ON he.id = esl.event_id
-        LEFT JOIN sources s ON esl.source_id = s.id
-        GROUP BY
-            he.id
-        ORDER BY
-            he.event_date ASC;
-    `;
-    try {
-        const { rows } = await db.query(sql);
-        
-        // Veritabanından gelen veriyi frontend'in daha kolay işleyeceği bir formata dönüştürüyoruz.
-        const formattedData = rows.map(row => ({
-            id: row.id,
-            event_date: row.event_date,
-            title: { tr: row.title_tr, en: row.title_en },
-            narrative: { tr: row.narrative_tr, en: row.narrative_en },
-            metadata: {
-                key_people: row.key_people ? row.key_people.split(',') : [],
-                technologies_used: row.technologies_used ? row.technologies_used.split(',') : [],
-                methods_used: row.methods_used ? row.methods_used.split(',') : [],
-                significance: { tr: row.significance_tr, en: row.significance_en },
-                sources: row.sources ? row.sources.split(',') : []
-            }
-        }));
-
-        res.json({
-            "message": "success",
-            "data": formattedData
-        });
-    } catch (err) {
-        res.status(500).json({ "error": err.message });
-    }
-});
-
-// ==============================================================================
-// === DÖNÜŞÜM SONA ERDİ ===
-// ==============================================================================
-
-// Geri kalan tüm kodlar (AI, vaka (case) yönetimi, dosya sistemi (fs) vb.)
-// SQLite'a bağlı olmadığı için DEĞİŞTİRİLMEMİŞTİR.
-// Orijinal server.js dosyanızdaki /api/news/sources, /api/chat, /api/concepts/define,
-// /api/cases, /api/cases/ask, /api/cases/create, /api/cases/evaluate,
-// /api/cases/rate, /api/solutions vb. tüm endpoint'leri
-// ve bunların yardımcı fonksiyonlarını (streamChatGeminiResponse, streamChatOpenAIResponse vb.)
-// BURADAN SONRASINA OLDUĞU GİBİ EKLEYİN.
-// ...
-// ...
-// ...
-// app.listen(PORT, ...) satırına kadar tüm kodlar...
-// ...
-// ...
-
-// ÖNEMLİ NOT: Yukarıdaki kod parçacığını tamamlamak için,
-// bu 4 endpoint dışındaki *tüm* orijinal server.js içeriğinizi
-// bu bölüme kopyalamanız gerekmektedir. 
-// Sadece 4 fonksiyonu değiştirdik, geri kalanı aynı.
-
-// Eğer server.js dosyanızın TAMAMI buysa (ki çok uzun, muhtemelen tamamı):
-// O zaman sadece bu 4 endpoint'i orijinal dosyanızda bulup
-// bu yeni versiyonlarıyla değiştirin.
-
-app.listen(PORT, () => {
-    console.log(`Backend sunucusu http://localhost:${PORT} adresinde çalışıyor.`);
-});
-
-/* server.js DOSYANIZIN TAMAMINI GÖNDERDİĞİNİZ İÇİN, 
-   İŞTE YUKARIDAKİ TALİMATLARA GEREK KALMADAN, 
-   DOSYANIN TAMAMININ DÖNÜŞTÜRÜLMÜŞ HALİ:
-*/
-
-// ==========================================================================
-// === TAM server.js DOSYASI - PostgreSQL Sürümü (Sadece Kopyala-Yapıştır) ===
-// ==========================================================================
-const express = require('express');
-require('dotenv').config();
-const crypto = require('crypto');
-const cors = require('cors');
-const db = require('./database.js'); // <-- PG sürümünü kullanacak
-let Parser = require('rss-parser');
-const { GoogleGenerativeAI } = require("@google/generative-ai");
-const OpenAI = require('openai');
-const cheerio = require('cheerio');
-const axios = require('axios');
-const fs = require('fs'); 
-const path = require('path');
-const dataDirectory = path.join('/var/data');
-
-// Veritabanını ve tabloları başlat (sunucu başlarken bir kez çalışır)
-db.initializeDb().catch(err => console.error("Veritabanı başlatma hatası:", err));
-
-let parser = new Parser({ 
-    timeout: 10000, // 10 saniye zaman aşımı süresi ekliyoruz
-    headers: { // YENİ EKLENEN KISIM
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.190 Safari/537.36'
-    },
-    customFields: { item: [['media:content', 'mediaContent']] } 
-});
-
-const newsCache = {
-    data: null,
-    lastFetched: 0,
-    cacheDuration: 15 * 60 * 1000 // 15 dakika (milisaniye cinsinden)
-};
-
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
-const app = express();
-const PORT = 5000;
-
-const allowedOrigins = [
-  'https://cybernexus.mes41.site', // Cloudflare Pages adresiniz
-  'http://localhost:5173'         // Yerel geliştirme adresiniz
 ];
 
 const corsOptions = {
@@ -354,7 +171,7 @@ REWRITTEN TEXT (${level.toUpperCase()}):
     const result = await model.generateContentStream(prompt);
     for await (const chunk of result.stream) {
         res.write(chunk.text());
-    }
+ g   }
     res.end();
 }
 
@@ -527,7 +344,6 @@ app.get('/api/concepts/all', async (req, res) => {
 
 // --- 4. /api/history/events ---
 app.get('/api/history/events', async (req, res) => {
-    // SQLite 'GROUP_CONCAT' fonksiyonu, PostgreSQL'deki 'STRING_AGG' ile değiştirildi.
     const sql = `
         SELECT
             he.*,
@@ -552,7 +368,7 @@ app.get('/api/history/events', async (req, res) => {
     `;
     try {
         const { rows } = await db.query(sql);
-        
+
         const formattedData = rows.map(row => ({
             id: row.id,
             event_date: row.event_date,
@@ -651,7 +467,7 @@ app.post('/api/concepts/define', async (req, res) => {
         ACT AS: An expert cybersecurity glossary author and researcher.
         YOUR TASK: Provide a clear, concise, and academically valid definition for the given cybersecurity term.
         CONTEXT: The term is "${title}" (known in English as "${english_term}").
-        
+
         STRICT RULES:
         1.  **Authoritative Sources:** Your definition MUST be based on the conceptual frameworks and definitions found in authoritative sources like NIST, SANS Institute, and ISO standards. Synthesize information from these sources. DO NOT invent definitions.
         2.  **Language:** The user is Turkish. Respond in TURKISH.
@@ -1014,8 +830,8 @@ ${articleText}
     const preferredProvider = userSettings.provider || 'gemini';
     const provider_order = [preferredProvider, ...providers.filter(p => p !== preferredProvider)];
     let result = null;
-    let newCaseId = `case-${Date.now()}-${crypto.randomBytes(4).toString('hex')}`; // ID'yi döngüden önce tanımla
-    let generatedText = ''; // Hata ayıklama için global yap
+    let newCaseId = `case-${Date.now()}-${crypto.randomBytes(4).toString('hex')}`; 
+    let generatedText = ''; 
     try {
         for (const provider of provider_order) {
             const apiKey = userSettings[`${provider}ApiKey`];
@@ -1032,7 +848,7 @@ ${articleText}
                     });
                     const genResult = await model.generateContent(promptForAI);
                     result = await genResult.response;
-                    generatedText = result.text(); // Hata ayıklama için metni al
+                    generatedText = result.text(); 
                 } else { 
                     const baseURL = provider === 'deepseek' ? 'https://api.deepseek.com/v1' : null;
                     const openai = new OpenAI({ apiKey, ...(baseURL && { baseURL }) });
@@ -1045,8 +861,8 @@ ${articleText}
                         ],
                         response_format: { type: "json_object" },
                     });
-                    generatedText = response.choices[0].message.content; // Hata ayıklama için metni al
-                    result = { text: () = > generatedText }; // Gemini ile aynı formatı taklit et
+                    generatedText = response.choices[0].message.content; 
+                    result = { text: () => generatedText }; 
                 }
                 if (result) {
                     console.log(`Başarılı: Vaka ${provider} ile oluşturuldu.`);
@@ -1060,8 +876,7 @@ ${articleText}
         if (!result) {
             return res.status(500).json({ success: false, error: "Tüm AI sağlayıcıları ile vaka oluşturma işlemi başarısız oldu. Lütfen API anahtarlarınızı kontrol edin." });
         }
-        
-        // JSON Parse işlemini ana try/catch bloğuna taşı
+
         const startIndex = generatedText.indexOf('{');
         const endIndex = generatedText.lastIndexOf('}');
         if (startIndex === -1 || endIndex === -1) {
@@ -1084,12 +899,12 @@ ${articleText}
         const newCaseFilePath = path.join(saveDirectory, `${newCaseId}.json`);
         await fs.promises.writeFile(newCaseFilePath, JSON.stringify(newCaseData, null, 2));
         res.json({ success: true, newCaseId: newCaseId });
-    } catch (parseError) { // Hata yakalama bloğunu düzelt
+    } catch (parseError) { 
         console.error("====================== JSON PARSE HATASI ======================");
         console.error("Hata Mesajı:", parseError.message);
         console.error(`Oluşturulan VAKA ID: ${newCaseId}`);
         console.error("--- AI'dan Gelen Ham Yanıt (HATANIN KAYNAĞI) ---");
-        console.error(generatedText); // generatedText artık burada erişilebilir
+        console.error(generatedText); 
         console.error("==============================================================");
         res.status(500).json({ success: false, error: "AI'dan gelen yanıt geçerli bir JSON formatında değil. Sunucu konsolunu kontrol edin." });
     }
@@ -1262,7 +1077,7 @@ app.post('/api/cases/:caseId/rate', async (req, res) => {
     const safeCaseId = path.basename(caseId);
     const caseFilePath = path.join(casesDirectory, 'common', `${safeCaseId}.json`);
     if (!fs.existsSync(caseFilePath)) {
-        return res.status(404).json({ success: false, message: 'Oylanacak vaka bulunamadı veya bu bir ortak vaka değil.' });
+        return res.status(44).json({ success: false, message: 'Oylanacak vaka bulunamadı veya bu bir ortak vaka değil.' });
     }
     try {
         const fileContent = await fs.promises.readFile(caseFilePath, 'utf8');
@@ -1298,13 +1113,13 @@ app.delete('/api/solutions/:anonymousUserId', async (req, res) => {
         return res.status(200).json({ success: true, message: 'Silinecek bir çözüm geçmişi bulunmuyor.' });
     }
     try {
-        const allFiles = await fs.promises.readdir(solutionsDirectory); // 'solutionsDir' -> 'solutionsDirectory'
+        const allFiles = await fs.promises.readdir(solutionsDirectory); 
         const userFiles = allFiles.filter(file => file.includes(safeUserId));
         if (userFiles.length === 0) {
             return res.status(200).json({ success: true, message: 'Bu kullanıcıya ait silinecek bir çözüm geçmişi bulunmuyor.' });
         }
         const deletePromises = userFiles.map(file => 
-            fs.promises.unlink(path.join(solutionsDirectory, file)) // 'solutionsDir' -> 'solutionsDirectory'
+            fs.promises.unlink(path.join(solutionsDirectory, file)) 
         );
         await Promise.all(deletePromises);
         console.log(`${userFiles.length} adet çözüm dosyası silindi (Kullanıcı: ${safeUserId})`);

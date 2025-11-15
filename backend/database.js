@@ -240,7 +240,6 @@ const extraAdvancedConcepts = [
 const allConcepts = [...concepts, ...advancedConcepts, ...extraAdvancedConcepts];
 
 // DigitalOcean, DATABASE_URL değişkenini otomatik olarak sağlar.
-// SSL bağlantısını 'rejectUnauthorized: false' ile kurmak, DO Managed DB için gereklidir.
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: {
@@ -252,7 +251,7 @@ const pool = new Pool({
 const initializeDb = async () => {
   const client = await pool.connect();
   console.log("PostgreSQL veritabanına başarıyla bağlanıldı.");
-  
+
   try {
     // --- 1. Tabloları Oluştur (PostgreSQL uyumlu) ---
     await client.query(`
@@ -341,7 +340,7 @@ const initializeDb = async () => {
     const { rows } = await client.query('SELECT COUNT(*) as count FROM categories');
     if (rows[0].count == 0) {
       console.log("Veritabanı boş, kategoriler ve temel kavramlar ekleniyor...");
-      
+
       // Kategorileri Ekle
       for (const cat of categories) {
         await client.query(
@@ -350,7 +349,7 @@ const initializeDb = async () => {
         );
       }
       console.log("Kategoriler başarıyla eklendi.");
-      
+
       // Kavramları Ekle
       for (const con of allConcepts) {
         await client.query(
@@ -373,6 +372,6 @@ const initializeDb = async () => {
 
 // Dışarıya `query` fonksiyonunu (sorgu yapmak için) ve `initializeDb` (başlatmak için) aktarıyoruz
 module.exports = {
-  query: (text, params) = > pool.query(text, params),
+  query: (text, params) => pool.query(text, params),
   initializeDb: initializeDb
 };
