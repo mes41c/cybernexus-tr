@@ -1,4 +1,4 @@
-const API_URL = 'https://cybernexus-tr-production.up.railway.app/api';
+const API_URL = '/api';
 
 /**
  * Veritabanından ana siber güvenlik kategorilerini çeker.
