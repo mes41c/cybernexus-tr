@@ -1,8 +1,13 @@
 // ===================================================================================
-// D A T A B A S E . J S   -   PostgreSQL SÜRÜMÜ
+// D A T A B A S E . J S   -   N İ H A İ   V E R S İ Y O N
 // ===================================================================================
 
-const { Pool } = require('pg');
+const sqlite3 = require('sqlite3').verbose();
+const fs = require('fs');
+const path = require('path');
+const DBSOURCE = "db.sqlite";
+
+// --- VERİ DİZİLERİ ---
 
 const categories = [
     { id: 1, title: '1. Temel Kavramlar, Alanlar ve Disiplinler', description: 'Siber güvenliğin temelini oluşturan ana konuları ve uzmanlık alanlarını içermektedir.' },
@@ -102,6 +107,8 @@ const concepts = [
     { category_id: 9, title: 'Müzakere', english_term_authoritative: 'Negotiation', related_keywords: 'risk communication, business impact, stakeholder management, influencing, decision making, soft skills', description: 'Güvenlik bulgularının iş üzerindeki etkisini (finansal kayıp, itibar zedelenmesi) yöneticilere aktarabilme.' }
 ];
 
+
+
 const advancedConcepts = [
     // --- BÖLÜM: Yönetişim, Risk ve Uyum (GRC) & Strateji ---
     { category_id: 7, title: 'NIST Cybersecurity Framework (CSF)', english_term_authoritative: 'NIST Cybersecurity Framework (CSF)', related_keywords: 'identify, protect, detect, respond, recover, risk management, cybersecurity framework, compliance', description: 'Risk yönetimi için en yaygın çerçevelerden biri.' },
@@ -188,6 +195,8 @@ const advancedConcepts = [
     { category_id: 9, title: 'Siber Savaş (Cyber Warfare) ve Tallinn Manueli', english_term_authoritative: 'Cyber Warfare and the Tallinn Manual', related_keywords: 'nation-state attacks, cyber conflict, international law, rules of engagement, critical infrastructure attacks', description: 'Devletlerarası siber saldırılar ve bu alandaki uluslararası hukuk rehberleri.' }
 ];
 
+
+
 const extraAdvancedConcepts = [
     // --- Kategori: Siber Güvenlik ve İş Stratejisi Entegrasyonu ---
     { category_id: 7, title: 'İş Etki Analizi (BIA)', english_term_authoritative: 'Business Impact Analysis (BIA)', related_keywords: 'business continuity, bcp, rto, rpo, critical business functions, risk management', description: 'Bir siber olayın iş süreçlerine finansal/operasyonel etkilerini analiz etme süreci.' },
@@ -233,146 +242,150 @@ const extraAdvancedConcepts = [
     { category_id: 6, title: 'Uzay Sistemleri Güvenliği', english_term_authoritative: 'Space Systems Security', related_keywords: 'satellite hacking, ground station security, gps spoofing, aerospace cybersecurity, space cybersecurity', description: 'Uyduların, yer kontrol istasyonlarının ve uzay görevlerinin siber güvenliği.' },
     { category_id: 6, title: 'Sentetik Biyoloji ve Biyohacking', english_term_authoritative: 'Synthetic Biology and Biohacking', related_keywords: 'dna synthesis, bioterrorism, genetic data security, biosecurity, emerging threats', description: 'Biyolojik verilerin ve süreçlerin dijital olarak manipüle edilmesinin getireceği güvenlik riskleri.' }
 ];
-// *********************************************************************************
-// YUKARIDAKİ BÖLÜME KENDİ VERİ DİZİLERİNİZİ EKLEDİĞİNİZDEN EMİN OLUN
-// *********************************************************************************
 
 const allConcepts = [...concepts, ...advancedConcepts, ...extraAdvancedConcepts];
 
-// DigitalOcean, DATABASE_URL değişkenini otomatik olarak sağlar.
-// SSL bağlantısını 'rejectUnauthorized: false' ile kurmak, DO Managed DB için gereklidir.
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false 
-  }
+const db = new sqlite3.Database(DBSOURCE, (err) => {
+    if (err) {
+        console.error(err.message);
+        throw err;
+    } else {
+        console.log('SQLite veritabanına başarıyla bağlanıldı.');
+        createTablesAndSeedData();
+    }
 });
 
-// Veritabanı tablolarını oluşturan ve verileri ekeleyen fonksiyon
-const initializeDb = async () => {
-  const client = await pool.connect();
-  console.log("PostgreSQL veritabanına başarıyla bağlanıldı.");
-  
-  try {
-    // --- 1. Tabloları Oluştur (PostgreSQL uyumlu) ---
-    await client.query(`
-      CREATE TABLE IF NOT EXISTS categories (
-        id INTEGER PRIMARY KEY, 
-        title TEXT, 
-        description TEXT
-      );
+function createTablesAndSeedData() {
+    db.serialize(() => {
+        // Geliştirme kolaylığı için tabloları her başlangıçta temizle ve yeniden oluştur
+        db.run(`DROP TABLE IF EXISTS definitions`);
+        db.run(`DROP TABLE IF EXISTS concepts`);
+        db.run(`DROP TABLE IF EXISTS categories`);
+        
+        db.run(`CREATE TABLE categories (
+            id INTEGER PRIMARY KEY, title TEXT, description TEXT
+        )`, (err) => { 
+            if(err) console.error("Categories tablosu oluşturulamadı:", err);
+        });
 
-      CREATE TABLE IF NOT EXISTS concepts (
-        id SERIAL PRIMARY KEY, 
-        title TEXT, 
-        description TEXT, 
-        category_id INTEGER,
-        english_term_authoritative TEXT, 
-        related_keywords TEXT, 
-        FOREIGN KEY(category_id) REFERENCES categories(id)
-      );
+        db.run(`CREATE TABLE concepts (
+            id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, description TEXT, category_id INTEGER,
+            english_term_authoritative TEXT, related_keywords TEXT, FOREIGN KEY(category_id) REFERENCES categories(id)
+        )`, (err) => { 
+            if(err) console.error("Concepts tablosu oluşturulamadı:", err);
+        });
+        
+        // ÖNEMLİ: seedInitialData sadece EN SON tablo oluşturma işlemi bittikten sonra BİR KEZ çağrılıyor.
+        db.run(`CREATE TABLE definitions (
+            id INTEGER PRIMARY KEY AUTOINCREMENT, concept_id INTEGER NOT NULL, source TEXT NOT NULL,
+            definition_text TEXT NOT NULL, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY(concept_id) REFERENCES concepts(id)
+        )`, (err) => {
+            if(err) {
+                console.error("Definitions tablosu oluşturulamadı:", err);
+            }
+            // Hata olmasa bile, bu son işlemden sonra veri eklemeye başla.
+            seedInitialData(); 
+        });
 
-      CREATE TABLE IF NOT EXISTS historical_events (
-        id SERIAL PRIMARY KEY,
-        event_date TEXT NOT NULL,
-        title_tr TEXT NOT NULL,
-        title_en TEXT NOT NULL,
-        narrative_tr TEXT NOT NULL,
-        narrative_en TEXT NOT NULL,
-        significance_tr TEXT,
-        significance_en TEXT
-      );
+        console.log("Siber Güvenlik Tarihçesi tabloları oluşturuluyor...");
 
-      CREATE TABLE IF NOT EXISTS people (
-        id SERIAL PRIMARY KEY,
-        name TEXT NOT NULL UNIQUE
-      );
+        db.run(`CREATE TABLE IF NOT EXISTS historical_events (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            event_date TEXT NOT NULL,
+            title_tr TEXT NOT NULL,
+            title_en TEXT NOT NULL,
+            narrative_tr TEXT NOT NULL,
+            narrative_en TEXT NOT NULL,
+            significance_tr TEXT,
+            significance_en TEXT
+        )`);
 
-      CREATE TABLE IF NOT EXISTS technologies (
-        id SERIAL PRIMARY KEY,
-        name TEXT NOT NULL UNIQUE
-      );
+        db.run(`CREATE TABLE IF NOT EXISTS people (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL UNIQUE
+        )`);
 
-      CREATE TABLE IF NOT EXISTS methods (
-        id SERIAL PRIMARY KEY,
-        name TEXT NOT NULL UNIQUE
-      );
+        db.run(`CREATE TABLE IF NOT EXISTS technologies (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL UNIQUE
+        )`);
 
-      CREATE TABLE IF NOT EXISTS sources (
-        id SERIAL PRIMARY KEY,
-        url TEXT NOT NULL UNIQUE
-      );
+        db.run(`CREATE TABLE IF NOT EXISTS methods (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL UNIQUE
+        )`);
 
-      CREATE TABLE IF NOT EXISTS event_people_link (
-        event_id INTEGER NOT NULL,
-        person_id INTEGER NOT NULL,
-        FOREIGN KEY(event_id) REFERENCES historical_events(id) ON DELETE CASCADE,
-        FOREIGN KEY(person_id) REFERENCES people(id) ON DELETE CASCADE,
-        PRIMARY KEY (event_id, person_id)
-      );
+        db.run(`CREATE TABLE IF NOT EXISTS sources (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            url TEXT NOT NULL UNIQUE
+        )`);
 
-      CREATE TABLE IF NOT EXISTS event_technologies_link (
-        event_id INTEGER NOT NULL,
-        technology_id INTEGER NOT NULL,
-        FOREIGN KEY(event_id) REFERENCES historical_events(id) ON DELETE CASCADE,
-        FOREIGN KEY(technology_id) REFERENCES technologies(id) ON DELETE CASCADE,
-        PRIMARY KEY (event_id, technology_id)
-      );
+        // --- BAĞLANTI (JUNCTION) TABLOLARI ---
 
-      CREATE TABLE IF NOT EXISTS event_methods_link (
-        event_id INTEGER NOT NULL,
-        method_id INTEGER NOT NULL,
-        FOREIGN KEY(event_id) REFERENCES historical_events(id) ON DELETE CASCADE,
-        FOREIGN KEY(method_id) REFERENCES methods(id) ON DELETE CASCADE,
-        PRIMARY KEY (event_id, method_id)
-      );
+        db.run(`CREATE TABLE IF NOT EXISTS event_people_link (
+            event_id INTEGER NOT NULL,
+            person_id INTEGER NOT NULL,
+            FOREIGN KEY(event_id) REFERENCES historical_events(id) ON DELETE CASCADE,
+            FOREIGN KEY(person_id) REFERENCES people(id) ON DELETE CASCADE,
+            PRIMARY KEY (event_id, person_id)
+        )`);
 
-      CREATE TABLE IF NOT EXISTS event_sources_link (
-        event_id INTEGER NOT NULL,
-        source_id INTEGER NOT NULL,
-        FOREIGN KEY(event_id) REFERENCES historical_events(id) ON DELETE CASCADE,
-        FOREIGN KEY(source_id) REFERENCES sources(id) ON DELETE CASCADE,
-        PRIMARY KEY (event_id, source_id)
-      );
-    `);
-    console.log("Tüm tablolar başarıyla oluşturuldu veya zaten mevcuttu.");
+        db.run(`CREATE TABLE IF NOT EXISTS event_technologies_link (
+            event_id INTEGER NOT NULL,
+            technology_id INTEGER NOT NULL,
+            FOREIGN KEY(event_id) REFERENCES historical_events(id) ON DELETE CASCADE,
+            FOREIGN KEY(technology_id) REFERENCES technologies(id) ON DELETE CASCADE,
+            PRIMARY KEY (event_id, technology_id)
+        )`);
 
-    // --- 2. Verileri Ekle (Sadece veritabanı boşsa) ---
-    const { rows } = await client.query('SELECT COUNT(*) as count FROM categories');
-    if (rows[0].count == 0) {
-      console.log("Veritabanı boş, kategoriler ve temel kavramlar ekleniyor...");
-      
-      // Kategorileri Ekle
-      for (const cat of categories) {
-        await client.query(
-          'INSERT INTO categories (id, title, description) VALUES ($1, $2, $3)',
-          [cat.id, cat.title, cat.description]
-        );
-      }
-      console.log("Kategoriler başarıyla eklendi.");
-      
-      // Kavramları Ekle
-      for (const con of allConcepts) {
-        await client.query(
-          'INSERT INTO concepts (title, description, category_id, english_term_authoritative, related_keywords) VALUES ($1, $2, $3, $4, $5)',
-          [con.title, con.description, con.category_id, con.english_term_authoritative, con.related_keywords || null]
-        );
-      }
-      console.log(`Tüm kavramlar başarıyla eklendi. Toplam ${allConcepts.length} adet.`);
+        db.run(`CREATE TABLE IF NOT EXISTS event_methods_link (
+            event_id INTEGER NOT NULL,
+            method_id INTEGER NOT NULL,
+            FOREIGN KEY(event_id) REFERENCES historical_events(id) ON DELETE CASCADE,
+            FOREIGN KEY(method_id) REFERENCES methods(id) ON DELETE CASCADE,
+            PRIMARY KEY (event_id, method_id)
+        )`);
 
-    } else {
-      console.log("Veritabanı zaten dolu, veri ekleme adımı atlandı.");
-    }
+        db.run(`CREATE TABLE IF NOT EXISTS event_sources_link (
+            event_id INTEGER NOT NULL,
+            source_id INTEGER NOT NULL,
+            FOREIGN KEY(event_id) REFERENCES historical_events(id) ON DELETE CASCADE,
+            FOREIGN KEY(source_id) REFERENCES sources(id) ON DELETE CASCADE,
+            PRIMARY KEY (event_id, source_id)
+        )`);
 
-  } catch (err) {
-    console.error("Veritabanı başlatma/veri ekleme hatası:", err);
-  } finally {
-    client.release();
-  }
-};
+        console.log("Tarihçe tabloları başarıyla oluşturuldu veya zaten mevcuttu.");
 
-// Dışarıya `query` fonksiyonunu (sorgu yapmak için) ve `initializeDb` (başlatmak için) aktarıyoruz
-module.exports = {
-  query: (text, params) = > pool.query(text, params),
-  initializeDb: initializeDb
-};
+    });
+}
+
+function seedInitialData() {
+    console.log("Veritabanı boş, kategoriler ve temel kavramlar ekleniyor...");
+    const insertCategory = db.prepare('INSERT INTO categories (id, title, description) VALUES (?,?,?)');
+    categories.forEach(cat => insertCategory.run(cat.id, cat.title, cat.description));
+    insertCategory.finalize((err) => {
+        if (err) {
+            console.error("Kategoriler eklenirken hata:", err.message);
+            return;
+        }
+        console.log("Kategoriler başarıyla eklendi.");
+        
+        const insertConcept = db.prepare('INSERT INTO concepts (title, description, category_id, english_term_authoritative, related_keywords) VALUES (?,?,?,?,?)');
+        allConcepts.forEach(con => insertConcept.run(con.title, con.description, con.category_id, con.english_term_authoritative, con.related_keywords || null));
+        insertConcept.finalize((err) => {
+            if (err) {
+                console.error("Kavramlar eklenirken hata:", err.message);
+            } else {
+                console.log(`Tüm kavramlar başarıyla eklendi. Toplam ${allConcepts.length} adet.`);
+            }
+        });
+    });
+}
+
+// Artık bu fonksiyonlara ihtiyacımız yok, hepsini seedInitialData içinde birleştirdik.
+// function seedAdvancedData() { ... }
+// function seedExtraData() { ... }
+// function seedDefinitions() { ... }
+
+module.exports = db;
